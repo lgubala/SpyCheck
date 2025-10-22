@@ -1,0 +1,134 @@
+<resources>
+    <string name="app_name">SpyCheck</string>
+
+    <!-- Navigation -->
+    <string name="home">Domov</string>
+    <string name="sneaky_stuff">Zákerné veci</string>
+    <string name="fingerprint">Odtlačok prsta</string>
+    <string name="history">História</string>
+
+    <!-- Category Intros -->
+    <string name="sneaky_stuff_intro">Táto sekcia demonštruje rôzne techniky, ktoré môžu aplikácie použiť na zhromažďovanie vašich údajov bez vášho výslovného súhlasu. Každé demo poskytuje príklad z reálneho sveta, ako môže toto \'zákerné\' zhromažďovanie údajov ovplyvniť vaše súkromie.</string>
+    <string name="fingerprint_intro">Odtlačok zariadenia je výkonná technika používaná na vašu identifikáciu a sledovanie, aj keď sa snažíte skryť. Táto sekcia rozoberá rôzne metódy odtlačkov prstov, vysvetľuje, ako fungujú a aké sú dôsledky pre vašu digitálnu anonymitu.</string>
+
+    <!-- Demo Titles -->
+    <string name="demo_exif_title">GPS z EXIF dát</string>
+    <string name="demo_wifi_title">Poloha z Wi-Fi</string>
+    <string name="demo_clipboard_title">Sledovanie schránky</string>
+    <string name="demo_device_fp_title">Odtlačok zariadenia</string>
+    <string name="demo_sensor_fp_title">Odtlačok zo senzorov</string>
+
+    <!-- Demo Short Descriptions -->
+    <string name="demo_exif_short_desc">Kradnutie údajov o polohe z metadát obrázkov.</string>
+    <string name="demo_wifi_short_desc">Určenie vašej polohy pomocou okolitých Wi-Fi sietí.</string>
+    <string name="demo_clipboard_short_desc">Čítanie citlivých informácií, ktoré skopírujete do schránky.</string>
+    <string name="demo_device_fp_short_desc">Identifikácia vášho zariadenia na základe jeho jedinečných vlastností.</string>
+    <string name="demo_sensor_fp_short_desc">Použitie dát zo senzorov na vytvorenie jedinečného odtlačku zariadenia.</string>
+
+    <!-- Demo Long Descriptions -->
+    <string name="demo_exif_long_desc">Mnohé digitálne fotoaparáty a smartfóny zaznamenávajú v súboroch s obrázkami metadáta vrátane GPS súradníc miesta, kde bola fotografia zhotovená. Toto demo ukazuje, ako môže aplikácia získať prístup k týmto EXIF dátam a extrahovať vašu polohu bez toho, aby ste ju explicitne zdieľali.</string>
+    <string name="demo_wifi_long_desc">Aj s vypnutým GPS váš telefón neustále vyhľadáva Wi-Fi siete. Názvy (SSID) týchto sietí môžu byť použité na určenie vašej presnej polohy porovnaním s verejnými databázami Wi-Fi prístupových bodov a ich umiestnení.</string>
+    <string name="demo_clipboard_long_desc">Keď kopírujete text, obrázky alebo súbory, ukladajú sa do systémovej schránky. Toto demo ukazuje, ako ľahko môže aplikácia pristupovať k obsahu schránky na pozadí, potenciálne kradnúc heslá, čísla kreditných kariet alebo iné súkromné informácie.</string>
+    <string name="demo_device_fp_long_desc">Vaše zariadenie má jedinečnú kombináciu hardvérových a softvérových atribútov, ako je rozlíšenie obrazovky, nainštalované písma a reťazec user-agent. Toto demo ukazuje, ako možno tieto atribúty skombinovať a vytvoriť jedinečný odtlačok, ktorý vás môže sledovať naprieč rôznymi aplikáciami a webovými stránkami.</string>
+    <string name="demo_sensor_fp_long_desc">Mierne nedokonalosti v akcelerometri, gyroskope a magnetometri vášho zariadenia môžu byť použité na vytvorenie jedinečného odtlačku. Toto demo ukazuje, ako môže aplikácia čítať tieto dáta zo senzorov a použiť ich na identifikáciu vášho zariadenia.</string>
+
+    <!-- Demo Real-life Examples -->
+    <string name="demo_exif_example_1">Aplikácia sociálnych médií by mohla sledovať vašu históriu polohy analýzou fotografií, ktoré nahráte.</string>
+    <string name="demo_exif_example_2">Zlovoľná aplikácia by mohla tieto dáta použiť na vytvorenie profilu vašej dennej rutiny.</string>
+    <string name="demo_wifi_example_1">Maloobchodné predajne môžu sledovať vaše pohyby v obchode na analýzu nákupných zvyklostí.</string>
+    <string name="demo_wifi_example_2">Aplikácia by mohla identifikovať vašu domácu a pracovnú polohu na základe Wi-Fi sietí, ku ktorým sa najčastejšie pripájate.</string>
+    <string name="demo_clipboard_example_1">Zlovoľná klávesnicová aplikácia by mohla kradnúť vaše heslá, keď ich kopírujete a vkladáte.</string>
+    <string name="demo_clipboard_example_2">E-commerce aplikácia by mohla prečítať sledovacie číslo, ktoré ste skopírovali, a navrhnúť súvisiace produkty.</string>
+    <string name="demo_device_fp_example_1">Inzerenti môžu použiť odtlačok zariadenia na sledovanie vašich zvyklostí pri prehliadaní, aj keď si vymažete cookies.</string>
+    <string name="demo_device_fp_example_2">Webová stránka by mohla použiť odtlačok vášho zariadenia na prepojenie vašej aktuálnej relácie s predchádzajúcou, aj keď nie ste prihlásený.</string>
+    <string name="demo_sensor_fp_example_1">Webová stránka by mohla použiť dáta zo senzorov na zistenie, či ste ten istý používateľ, ktorý ju navštívil predtým, aj keď používate iný prehliadač alebo VPN.</string>
+    <string name="demo_sensor_fp_example_2">Zlovoľná aplikácia by mohla tieto dáta použiť na sledovanie vašich pohybov a aktivít.</string>
+
+    <!-- UI Labels -->
+    <string name="back">Späť</string>
+    <string name="real_life_examples">Príklady z reálneho života:</string>
+    <string name="language">Jazyk</string>
+    <string name="english">Angličtina</string>
+    <string name="slovak">Slovenčina</string>
+    <string name="spanish">Španielčina</string>
+
+    <!-- HomeScreen -->
+    <string name="home_title">Ukážka sledovania v reálnom čase</string>
+    <string name="home_subtitle">Pozrite sa, ako vás aplikácie špehujú v reálnom čase</string>
+    <string name="home_required_permissions">Požadované povolenia</string>
+    <string name="home_permissions_warning">⚠️ Toto sú NEBEZPEČNÉ povolenia. Udeľte ich LEN pre túto ukážku a potom ich odvolajte!</string>
+    <string name="home_vpn_permission_title">Prístup k VPN</string>
+    <string name="home_vpn_permission_desc">Monitorovanie sieťovej prevádzky</string>
+    <string name="home_vpn_permission_warning">Úplný prístup k VŠETKEJ sieťovej prevádzke!</string>
+    <string name="home_usage_stats_title">Štatistiky používania</string>
+    <string name="home_usage_stats_desc">Identifikácia, ktoré aplikácie sledujú</string>
+    <string name="home_usage_stats_warning">Vidí všetko, čo robíte na telefóne</string>
+    <string name="home_overlay_permission_title">Zobrazenie cez ostatné aplikácie</string>
+    <string name="home_overlay_permission_desc">Zobrazenie vyskakovacích okien so sledovaním</string>
+    <string name="home_overlay_permission_warning">Môže kresliť cez všetko, aj cez bankové aplikácie</string>
+    <string name="home_monitoring_active_title">Ukážka je aktívna</string>
+    <string name="home_monitoring_active_desc">Máme nebezpečné povolenia</string>
+    <string name="home_permission_granted">✓ Povolenie udelené</string>
+    <string name="home_grant_permission">Udeliť povolenie</string>
+    <string name="home_watching_live">🔴 SLEDOVANIE NAŽIVO</string>
+    <string name="home_ready_to_start">PRIPRAVENÝ NA ŠTART</string>
+    <string name="home_tracking_attempts">zistených pokusov o sledovanie</string>
+    <string name="home_apps_sending_data">⚠️ Vaše aplikácie práve odosielajú údaje</string>
+    <string name="home_stop_watching">⏸️ Zastaviť sledovanie</string>
+    <string name="home_start_watching">▶️ Začať sledovanie</string>
+    <string name="home_minimize_app">💡 Minimalizujte aplikáciu a používajte telefón normálne</string>
+    <string name="home_how_to_use">📱 Ako používať</string>
+    <string name="home_instruction_1">Klepnite na \'Začať sledovanie\' vyššie</string>
+    <string name="home_instruction_2">Minimalizujte túto aplikáciu (nezatvárajte ju)</string>
+    <string name="home_instruction_3">Používajte telefón normálne</string>
+    <string name="home_instruction_4">Sledujte vyskakovacie okná, ktoré sa objavia, keď vás aplikácie sledujú</string>
+    <string name="home_real_tracking_warning">⚠️ Skutočné sledovacie aplikácie to robia potichu!</string>
+    <string name="home_stop_demo_and_revoke">🛑 Zastaviť ukážku a odvolať povolenia</string>
+    <string name="perm_badge_vpn">🔒 VPN - Monitorovanie všetkej prevádzky</string>
+    <string name="perm_badge_usage">📊 Štatistiky používania - Sledovanie používania aplikácií</string>
+    <string name="perm_badge_overlay">🎯 Prekrytie - Môže kresliť cez aplikácie</string>
+    <string name="home_manage_permissions">Spravovať povolenia</string>
+    <string name="home_grant_permissions_first">NAJPRV UDEĽTE POVOLENIA</string>
+    <string name="home_all_permissions_granted">Všetky povolenia udelené!</string>
+    <string name="home_revoke_permissions_tip">💡 DÔLEŽITÉ: Po ukážke tieto povolenia nižšie odvolajte!</string>
+    <string name="home_permission_granted_revoke">Povolenie udelené - Klepnite pre odvolanie</string>
+    <string name="home_change_language">Zmeniť jazyk</string>
+    <string name="home_checkmark">✓</string>
+
+    <!-- HistoryScreen -->
+    <string name="history_title">📊 Štatistiky sledovania</string>
+    <string name="history_total_requests">Celkový počet požiadaviek</string>
+    <string name="history_unique_apps">Unikátne aplikácie</string>
+    <string name="history_unique_domains">Unikátne domény</string>
+    <string name="history_most_active">Najaktívnejšie</string>
+    <string name="history_no_tracking_yet">Zatiaľ nebolo zistené žiadne sledovanie.\nSpustite monitorovanie, aby ste tu videli výsledky.</string>
+    <string name="history_na">N/A</string>
+    <!-- TrackingOverlay -->
+    <string name="overlay_warning">VAROVANIE</string>
+    <string name="overlay_you_are_being_tracked">Ste sledovaný</string>
+    <string name="overlay_app_sent_data">%1$s práve odoslala vaše osobné údaje na</string>
+    <string name="overlay_domain_is_category">%1$s je %2$s</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Preskočiť</string>
+    <string name="onboarding_next">Ďalej</string>
+    <string name="onboarding_get_started">Začať</string>
+    <string name="onboarding_dont_show_again">Už nezobrazovať</string>
+
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_page1_title">Vitajte v SpyCheck</string>
+    <string name="onboarding_page1_description">Aplikácie vo vašom telefóne vás neustále sledujú - zbierajú vašu polohu, prehliadacie návyky a osobné informácie.\n\nSpyCheck odhaľuje toto skryté sledovanie v reálnom čase a ukazuje vám presne, kedy a ako vás aplikácie špehujú.</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_page2_title">Ako to funguje</string>
+    <string name="onboarding_page2_description">SpyCheck monitoruje internetovú prevádzku vášho telefónu.\n\nKeď sa aplikácia pokúsi odoslať vaše údaje sledovacím spoločnostiam ako Google Analytics, Facebook alebo dátovým maklérorm, uvidíte varovné oznámenie.\n\nToto sa deje neviditeľne s bežnými aplikáciami - SpyCheck to robí viditeľným!</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_page3_title">Prečo povolenia?</string>
+    <string name="onboarding_page3_description">Aby vám SpyCheck mohol ukázať sledovanie v reálnom čase, potrebuje rovnaké nebezpečné povolenia, aké používajú sledovacie aplikácie:\n\n• VPN prístup - na sledovanie internetovej prevádzky\n• Štatistiky používania - na identifikáciu aplikácií\n• Prekrytie displeja - na zobrazenie varovaní\n\nDÔLEŽITÉ: Toto sú vzdelávacie ukážky. Keď skončíte, ZRUŠTE tieto povolenia!</string>
+
+    <!-- Onboarding Page 4 -->
+    <string name="onboarding_page4_title">Ste pripravení!</string>
+    <string name="onboarding_page4_description">Tu je čo máte urobiť:\n\n1. Udeľte 3 povolenia\n2. Kliknite na \"Začať sledovať\"\n3. Minimalizujte aplikáciu\n4. Používajte telefón normálne\n5. Sledujte, ako sa objavia varovania o sledovaní!</string>
+
+</resources>

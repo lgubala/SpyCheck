@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Brand Colors -->
+    <color name="primary">#FF5A5F</color>         <!-- Crimson Red -->
+    <color name="primary_dark">#E63946</color>    <!-- Deep Red -->
+    <color name="accent">#8ECAE6</color>          <!-- Icy Blue -->
+    <color name="warning">#FFB703</color>         <!-- Amber -->
+    <color name="success">#90EE90</color>         <!-- Light Green -->
+
+    <!-- Backgrounds -->
+    <color name="background_dark">#0F0F0F</color>
+    <color name="surface_dark">#1A1A1A</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+</resources>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SpyCheck</string>
+
+    <!-- Navigation -->
+    <string name="home">Inicio</string>
+    <string name="sneaky_stuff">Cosas sigilosas</string>
+    <string name="fingerprint">Huella del dispositivo</string>
+    <string name="history">Historial</string>
+
+    <!-- Category Intros -->
+    <string name="sneaky_stuff_intro">Esta sección demuestra varias técnicas que las aplicaciones pueden usar para recopilar tus datos sin tu consentimiento explícito. Cada demo ofrece un ejemplo de la vida real de cómo esta recolección \'sigilosa\' de datos puede afectar tu privacidad.</string>
+    <string name="fingerprint_intro">La huella del dispositivo es una técnica potente usada para identificarte y rastrearte, incluso si intentas ocultarte. Esta sección desglosa diferentes métodos de huellas, explicando cómo funcionan y cuáles son las consecuencias para tu anonimato digital.</string>
+
+    <!-- Demo Titles -->
+    <string name="demo_exif_title">GPS desde datos EXIF</string>
+    <string name="demo_wifi_title">Ubicación a partir de Wi-Fi</string>
+    <string name="demo_clipboard_title">Escrutinio del portapapeles</string>
+    <string name="demo_device_fp_title">Huella del dispositivo</string>
+    <string name="demo_sensor_fp_title">Huella por sensores</string>
+
+    <!-- Demo Short Descriptions -->
+    <string name="demo_exif_short_desc">Robo de datos de ubicación desde metadatos de imágenes.</string>
+    <string name="demo_wifi_short_desc">Determinar tu ubicación usando redes Wi-Fi cercanas.</string>
+    <string name="demo_clipboard_short_desc">Leer información sensible que copias al portapapeles.</string>
+    <string name="demo_device_fp_short_desc">Identificar tu dispositivo basándose en sus características únicas.</string>
+    <string name="demo_sensor_fp_short_desc">Usar datos de sensores para crear una huella única del dispositivo.</string>
+
+    <!-- Demo Long Descriptions -->
+    <string name="demo_exif_long_desc">Muchas cámaras digitales y smartphones registran metadatos en los archivos de imagen, incluidos las coordenadas GPS del lugar donde se tomó la foto. Esta demo muestra cómo una app puede acceder a estos datos EXIF y extraer tu ubicación sin que la compartas explícitamente.</string>
+    <string name="demo_wifi_long_desc">Incluso con el GPS desactivado, tu teléfono busca constantemente redes Wi-Fi. Los nombres (SSID) de estas redes pueden usarse para determinar tu ubicación precisa mediante la comparación con bases de datos públicas de puntos de acceso Wi-Fi y sus ubicaciones.</string>
+    <string name="demo_clipboard_long_desc">Cuando copias texto, imágenes o archivos, se almacenan en el portapapeles del sistema. Esta demo muestra lo fácil que puede ser para una app acceder al contenido del portapapeles en segundo plano, potencialmente robando contraseñas, números de tarjeta o información privada.</string>
+    <string name="demo_device_fp_long_desc">Tu dispositivo tiene una combinación única de atributos de hardware y software, como resolución de pantalla, fuentes instaladas y cadena user-agent. Esta demo muestra cómo estos atributos pueden combinarse para crear una huella única que puede usarse para rastrearte a través de diferentes apps y sitios web.</string>
+    <string name="demo_sensor_fp_long_desc">Pequeñas imperfecciones en el acelerómetro, giroscopio y magnetómetro de tu dispositivo pueden usarse para crear una huella única. Esta demo muestra cómo una app puede leer estos datos de los sensores y emplearlos para identificar tu dispositivo.</string>
+
+    <!-- Demo Real-life Examples -->
+    <string name="demo_exif_example_1">Una app de redes sociales podría rastrear tu historial de ubicación analizando las fotos que subes.</string>
+    <string name="demo_exif_example_2">Una app maliciosa podría usar estos datos para construir un perfil de tu rutina diaria.</string>
+    <string name="demo_wifi_example_1">Las tiendas minoristas pueden rastrear tus movimientos dentro de la tienda para analizar hábitos de compra.</string>
+    <string name="demo_wifi_example_2">Una app podría identificar tus ubicaciones de casa y trabajo según las redes Wi-Fi a las que te conectas con más frecuencia.</string>
+    <string name="demo_clipboard_example_1">Una app de teclado maliciosa podría robar tus contraseñas cuando las copias y pegas.</string>
+    <string name="demo_clipboard_example_2">Una app de comercio electrónico podría leer un número de seguimiento que copiaste para sugerir productos relacionados.</string>
+    <string name="demo_device_fp_example_1">Los anunciantes pueden usar la huella del dispositivo para rastrear tus hábitos de navegación incluso si borras las cookies.</string>
+    <string name="demo_device_fp_example_2">Un sitio web podría usar la huella de tu dispositivo para vincular tu sesión actual con una anterior, aunque no hayas iniciado sesión.</string>
+    <string name="demo_sensor_fp_example_1">Un sitio web podría usar datos de sensores para detectar si eres el mismo usuario que visitó antes, incluso si usas otro navegador o VPN.</string>
+    <string name="demo_sensor_fp_example_2">Una app maliciosa podría usar estos datos para rastrear tus movimientos y actividades.</string>
+
+    <!-- UI Labels -->
+    <string name="back">Atrás</string>
+    <string name="real_life_examples">Ejemplos reales:</string>
+    <string name="language">Idioma</string>
+    <string name="english">Inglés</string>
+    <string name="slovak">Eslovaco</string>
+    <string name="spanish">Español</string>
+
+    <!-- HomeScreen -->
+    <string name="home_title">Demostración de seguimiento en tiempo real</string>
+    <string name="home_subtitle">Observa cómo las aplicaciones te espían en tiempo real</string>
+    <string name="home_required_permissions">Permisos requeridos</string>
+    <string name="home_permissions_warning">⚠️ Estos son permisos PELIGROSOS. Otórgalos SOLO para esta demo y luego revócalos!</string>
+    <string name="home_vpn_permission_title">Acceso a VPN</string>
+    <string name="home_vpn_permission_desc">Monitorizar el tráfico de red</string>
+    <string name="home_vpn_permission_warning">¡Acceso completo a TODO el tráfico de red!</string>
+    <string name="home_usage_stats_title">Estadísticas de uso</string>
+    <string name="home_usage_stats_desc">Identificar qué aplicaciones te rastrean</string>
+    <string name="home_usage_stats_warning">Puede ver todo lo que haces en tu teléfono</string>
+    <string name="home_overlay_permission_title">Mostrar sobre otras apps</string>
+    <string name="home_overlay_permission_desc">Mostrar popups de seguimiento</string>
+    <string name="home_overlay_permission_warning">Puede dibujar encima de todo, incluso apps bancarias</string>
+    <string name="home_monitoring_active_title">Demo activa</string>
+    <string name="home_monitoring_active_desc">Tenemos permisos peligrosos</string>
+    <string name="home_permission_granted">✓ Permiso otorgado</string>
+    <string name="home_grant_permission">Otorgar permiso</string>
+    <string name="home_watching_live">🔴 MONITOREANDO EN VIVO</string>
+    <string name="home_ready_to_start">LISTO PARA INICIAR</string>
+    <string name="home_tracking_attempts">intentos de seguimiento detectados</string>
+    <string name="home_apps_sending_data">⚠️ Tus apps están enviando datos ahora mismo</string>
+    <string name="home_stop_watching">⏸️ Detener monitoreo</string>
+    <string name="home_start_watching">▶️ Iniciar monitoreo</string>
+    <string name="home_minimize_app">💡 Minimiza la app y usa tu teléfono con normalidad</string>
+    <string name="home_how_to_use">📱 Cómo usar</string>
+    <string name="home_instruction_1">Toca "Iniciar monitoreo" arriba</string>
+    <string name="home_instruction_2">Minimiza esta app (no la cierres)</string>
+    <string name="home_instruction_3">Usa tu teléfono normalmente</string>
+    <string name="home_instruction_4">Observa los popups que aparecen cuando las apps te rastrean</string>
+    <string name="home_real_tracking_warning">⚠️ ¡Las apps reales de seguimiento hacen esto en silencio!</string>
+    <string name="home_stop_demo_and_revoke">🛑 Detener demo y revocar permisos</string>
+    <string name="perm_badge_vpn">🔒 VPN - Monitorizando todo el tráfico</string>
+    <string name="perm_badge_usage">📊 Estadísticas de uso - Viendo las apps</string>
+    <string name="perm_badge_overlay">🎯 Superposición - Puede mostrarse sobre apps</string>
+    <string name="home_manage_permissions">Administrar permisos</string>
+    <string name="home_grant_permissions_first">OTORGA LOS PERMISOS PRIMERO</string>
+    <string name="home_all_permissions_granted">¡Todos los permisos otorgados!</string>
+    <string name="home_revoke_permissions_tip">💡 IMPORTANTE: Cuando termines la demo, ¡revoca los permisos abajo!</string>
+    <string name="home_permission_granted_revoke">Permiso otorgado - Toca para revocar</string>
+    <string name="home_change_language">Cambiar idioma</string>
+    <string name="home_checkmark">✓</string>
+
+    <!-- HistoryScreen -->
+    <string name="history_title">📊 Estadísticas de seguimiento</string>
+    <string name="history_total_requests">Solicitudes totales</string>
+    <string name="history_unique_apps">Apps únicas</string>
+    <string name="history_unique_domains">Dominios únicos</string>
+    <string name="history_most_active">Más activos</string>
+    <string name="history_no_tracking_yet">Aún no se ha detectado seguimiento.\nInicia el monitoreo para ver resultados aquí.</string>
+    <string name="history_na">N/D</string>
+
+    <!-- TrackingOverlay -->
+    <string name="overlay_warning">ADVERTENCIA</string>
+    <string name="overlay_you_are_being_tracked">Estás siendo rastreado</string>
+    <string name="overlay_app_sent_data">%1$s acaba de enviar tus datos personales a</string>
+    <string name="overlay_domain_is_category">%1$s es %2$s</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Omitir</string>
+    <string name="onboarding_next">Siguiente</string>
+    <string name="onboarding_get_started">Comenzar</string>
+    <string name="onboarding_dont_show_again">No mostrar de nuevo</string>
+
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_page1_title">Bienvenido a SpyCheck</string>
+    <string name="onboarding_page1_description">Las aplicaciones en tu teléfono te rastrean constantemente: recopilan tu ubicación, hábitos de navegación e información personal.\n\nSpyCheck revela esta vigilancia oculta en tiempo real, mostrándote exactamente cuándo y cómo las aplicaciones te espían.</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_page2_title">Cómo funciona</string>
+    <string name="onboarding_page2_description">SpyCheck monitorea el tráfico de Internet de tu teléfono.\n\nCuando una aplicación intenta enviar tus datos a empresas de rastreo como Google Analytics, Facebook o intermediarios de datos, verás una advertencia emergente.\n\n¡Esto sucede de forma invisible con las aplicaciones normales - SpyCheck lo hace visible!</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_page3_title">¿Por qué permisos?</string>
+    <string name="onboarding_page3_description">Para mostrarte el rastreo en tiempo real, SpyCheck necesita los mismos permisos peligrosos que usan las aplicaciones de rastreo:\n\n• Acceso VPN - para ver el tráfico de Internet\n• Estadísticas de uso - para identificar aplicaciones\n• Superposición de pantalla - para mostrar advertencias\n\nIMPORTANTE: Estas son demostraciones educativas. Cuando termines, ¡REVOCA estos permisos!</string>
+
+    <!-- Onboarding Page 4 -->
+    <string name="onboarding_page4_title">¡Estás listo!</string>
+    <string name="onboarding_page4_description">Esto es lo que debes hacer:\n\n1. Otorga los 3 permisos\n2. Toca \"Comenzar a observar\"\n3. Minimiza la aplicación\n4. Usa tu teléfono normalmente\n5. ¡Observa cómo aparecen las advertencias de rastreo!</string>
+</resources>

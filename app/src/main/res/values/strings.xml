@@ -1,0 +1,136 @@
+<resources>
+    <string name="app_name">SpyCheck</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="sneaky_stuff">Sneaky Stuff</string>
+    <string name="fingerprint">Fingerprint</string>
+    <string name="history">History</string>
+
+    <!-- Category Intros -->
+    <string name="sneaky_stuff_intro">This section demonstrates various techniques that applications can use to collect your data without your explicit consent. Each demo provides a real-world example of how this \'sneaky\' data collection can impact your privacy.</string>
+    <string name="fingerprint_intro">Device fingerprinting is a powerful technique used to identify and track you, even if you try to hide. This section breaks down different fingerprinting methods, explaining how they work and what the consequences are for your digital anonymity.</string>
+
+    <!-- Demo Titles -->
+    <string name="demo_exif_title">GPS from EXIF Data</string>
+    <string name="demo_wifi_title">Location from Wi-Fi</string>
+    <string name="demo_clipboard_title">Clipboard Snooping</string>
+    <string name="demo_device_fp_title">Device Fingerprinting</string>
+    <string name="demo_sensor_fp_title">Sensor Fingerprinting</string>
+
+    <!-- Demo Short Descriptions -->
+    <string name="demo_exif_short_desc">Stealing location data from image metadata.</string>
+    <string name="demo_wifi_short_desc">Pinpointing your location using nearby Wi-Fi networks.</string>
+    <string name="demo_clipboard_short_desc">Reading sensitive information you copy to the clipboard.</string>
+    <string name="demo_device_fp_short_desc">Identifying your device based on its unique characteristics.</string>
+    <string name="demo_sensor_fp_short_desc">Using sensor data to create a unique device fingerprint.</string>
+
+    <!-- Demo Long Descriptions -->
+    <string name="demo_exif_long_desc">Many digital cameras and smartphones record metadata in image files, including the GPS coordinates of where the photo was taken. This demo shows how an app can access this EXIF data and extract your location without you ever explicitly sharing it.</string>
+    <string name="demo_wifi_long_desc">Even with GPS turned off, your phone is constantly scanning for Wi-Fi networks. The names (SSIDs) of these networks can be used to determine your precise location by cross-referencing them with public databases of Wi-Fi access points and their locations.</string>
+    <string name="demo_clipboard_long_desc">When you copy text, images, or files, they are stored in the system clipboard. This demo shows how easily an app can access the clipboard content in the background, potentially stealing passwords, credit card numbers, or other private information.</string>
+    <string name="demo_device_fp_long_desc">Your device has a unique combination of hardware and software attributes, such as screen resolution, installed fonts, and user agent string. This demo shows how these attributes can be combined to create a unique fingerprint that can be used to track you across different apps and websites.</string>
+    <string name="demo_sensor_fp_long_desc">Slight imperfections in your device\'s accelerometer, gyroscope, and magnetometer can be used to create a unique fingerprint. This demo shows how an app can read this sensor data and use it to identify your device.</string>
+
+    <!-- Demo Real-life Examples -->
+    <string name="demo_exif_example_1">A social media app could track your location history by analyzing the photos you upload.</string>
+    <string name="demo_exif_example_2">A malicious app could use this data to build a profile of your daily routine.</string>
+    <string name="demo_wifi_example_1">Retail stores can track your movements within the store to analyze shopping habits.</string>
+    <string name="demo_wifi_example_2">An app could identify your home and work locations based on the Wi-Fi networks you connect to most often.</string>
+    <string name="demo_clipboard_example_1">A malicious keyboard app could steal your passwords as you copy and paste them.</string>
+    <string name="demo_clipboard_example_2">An e-commerce app could read a tracking number you copied to suggest related products.</string>
+    <string name="demo_device_fp_example_1">Advertisers can use device fingerprinting to track your browsing habits even if you clear your cookies.</string>
+    <string name="demo_device_fp_example_2">A website could use your device fingerprint to link your current session to a previous one, even if you are not logged in.</string>
+    <string name="demo_sensor_fp_example_1">A website could use sensor data to detect if you are the same user who visited before, even if you are using a different browser or VPN.</string>
+    <string name="demo_sensor_fp_example_2">A malicious app could use this data to track your movements and activities.</string>
+
+    <!-- UI Labels -->
+    <string name="back">Back</string>
+    <string name="real_life_examples">Real-life Examples:</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="slovak">Slovak</string>
+    <string name="spanish">Spanish</string>
+
+    <!-- HomeScreen -->
+    <string name="home_title">Real-Time Tracking Demo</string>
+    <string name="home_subtitle">See how apps spy on you in real-time</string>
+    <string name="home_required_permissions">Required Permissions</string>
+    <string name="home_permissions_warning">⚠️ These are DANGEROUS permissions. Grant them ONLY for this demo, then revoke them!</string>
+    <string name="home_vpn_permission_title">VPN Access</string>
+    <string name="home_vpn_permission_desc">Monitor network traffic</string>
+    <string name="home_vpn_permission_warning">Full access to ALL network traffic!</string>
+    <string name="home_usage_stats_title">Usage Stats</string>
+    <string name="home_usage_stats_desc">Identify which apps are tracking</string>
+    <string name="home_usage_stats_warning">Can see everything you do on your phone</string>
+    <string name="home_overlay_permission_title">Display Over Other Apps</string>
+    <string name="home_overlay_permission_desc">Show tracking pop-ups</string>
+    <string name="home_overlay_permission_warning">Can draw over everything, even banking apps</string>
+    <string name="home_monitoring_active_title">Demo is Active</string>
+    <string name="home_monitoring_active_desc">We have dangerous permissions</string>
+    <string name="home_permission_granted">✓ Permission Granted</string>
+    <string name="home_grant_permission">Grant Permission</string>
+    <string name="home_watching_live">🔴 WATCHING LIVE</string>
+    <string name="home_ready_to_start">READY TO START</string>
+    <string name="home_tracking_attempts">tracking attempts detected</string>
+    <string name="home_apps_sending_data">⚠️ Your apps are sending data right now</string>
+    <string name="home_stop_watching">⏸️ Stop Watching</string>
+    <string name="home_start_watching">▶️ Start Watching</string>
+    <string name="home_minimize_app">💡 Minimize the app and use your phone normally</string>
+    <string name="home_how_to_use">📱 How to Use</string>
+    <string name="home_instruction_1">Tap \'Start Watching\' above</string>
+    <string name="home_instruction_2">Minimize this app (don\'t close it)</string>
+    <string name="home_instruction_3">Use your phone normally</string>
+    <string name="home_instruction_4">Watch pop-ups appear when apps track you</string>
+    <string name="home_real_tracking_warning">⚠️ Real tracking apps do this silently!</string>
+    <string name="home_stop_demo_and_revoke">🛑 Stop Demo &amp; Revoke Permissions</string>
+    <string name="perm_badge_vpn">🔒 VPN - Monitoring all traffic</string>
+    <string name="perm_badge_usage">📊 Usage Stats - Seeing app usage</string>
+    <string name="perm_badge_overlay">🎯 Overlay - Can draw over apps</string>
+    <string name="home_manage_permissions">Manage Permissions</string>
+    <string name="home_grant_permissions_first">GRANT PERMISSIONS FIRST</string>
+    <string name="home_all_permissions_granted">All Permissions Granted!</string>
+    <string name="home_revoke_permissions_tip">💡 IMPORTANT: When done with the demo, revoke these permissions below!</string>
+    <string name="home_permission_granted_revoke">Permission Granted - Tap to Revoke</string>
+    <string name="home_change_language">Change Language</string>
+    <string name="home_checkmark">✓</string>
+
+
+    <!-- HistoryScreen -->
+    <string name="history_title">📊 Tracking Statistics</string>
+    <string name="history_total_requests">Total Requests</string>
+    <string name="history_unique_apps">Unique Apps</string>
+    <string name="history_unique_domains">Unique Domains</string>
+    <string name="history_most_active">Most Active</string>
+    <string name="history_no_tracking_yet">No tracking detected yet.\nStart monitoring to see results here.</string>
+    <string name="history_na">N/A</string>
+
+    <!-- TrackingOverlay -->
+    <string name="overlay_warning">WARNING</string>
+    <string name="overlay_you_are_being_tracked">You Are Being Tracked</string>
+    <string name="overlay_app_sent_data">%1$s just sent your personal data to</string>
+    <string name="overlay_domain_is_category">%1$s is a %2$s</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_dont_show_again">Don\'t show this again</string>
+
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_page1_title">Welcome to SpyCheck</string>
+    <string name="onboarding_page1_description">Apps on your phone are constantly tracking you - collecting your location, browsing habits, and personal information.\n\nSpyCheck reveals this hidden surveillance in real-time, showing you exactly when and how apps spy on you.</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_page2_title">How It Works</string>
+    <string name="onboarding_page2_description">SpyCheck monitors your phone\'s internet traffic.\n\nWhen an app tries to send your data to tracking companies like Google Analytics, Facebook, or data brokers, you\'ll see a pop-up warning.\n\nThis happens invisibly with normal apps - SpyCheck makes it visible!</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_page3_title">Why Permissions?</string>
+    <string name="onboarding_page3_description">To show you real-time tracking, SpyCheck needs the same dangerous permissions that tracking apps use:\n\n• VPN Access - to see internet traffic\n• Usage Stats - to identify apps\n• Display Overlay - to show warnings\n\nIMPORTANT: These are educational demos. When you\'re done, REVOKE these permissions!</string>
+
+    <!-- Onboarding Page 4 -->
+    <string name="onboarding_page4_title">You\'re Ready!</string>
+    <string name="onboarding_page4_description">Here\'s what to do:\n\n1. Grant the 3 permissions\n2. Tap \"Start Watching\"\n3. Minimize the app\n4. Use your phone normally\n5. Watch the tracking warnings appear!</string>
+
+</resources>
