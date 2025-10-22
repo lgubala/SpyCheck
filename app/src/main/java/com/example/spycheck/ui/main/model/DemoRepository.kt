@@ -9,12 +9,17 @@ object DemoRepository {
     fun getSneakyStuffDemos(): List<Detail> {
         return listOf(
             Detail(
-                id = "exif",
-                title = R.string.demo_exif_title,
-                shortDescription = R.string.demo_exif_short_desc,
-                icon = Icons.Default.Image,
-                longDescription = R.string.demo_exif_long_desc,
-                realLifeExamples = listOf(R.string.demo_exif_example_1, R.string.demo_exif_example_2)
+                id = "exif_gps",
+                icon = Icons.Default.LocationOn,
+                title = R.string.exif_gps_title,
+                shortDescription = R.string.exif_gps_short,
+                longDescription = R.string.exif_gps_long,
+                realLifeExamples = listOf(
+                    R.string.exif_example_1,
+                    R.string.exif_example_2,
+                    R.string.exif_example_3
+                ),
+                hasInteractiveDemo = true  // Enable interactive demo
             ),
             Detail(
                 id = "wifi",

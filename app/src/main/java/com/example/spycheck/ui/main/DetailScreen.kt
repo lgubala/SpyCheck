@@ -3,10 +3,12 @@ package com.example.spycheck.ui.main
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,7 +25,11 @@ import com.example.spycheck.ui.main.model.Detail
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailScreen(detail: Detail, onBack: () -> Unit) {
+fun DetailScreen(
+    detail: Detail,
+    onBack: () -> Unit,
+    onStartDemo: (() -> Unit)? = null  // NEW
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -48,6 +54,17 @@ fun DetailScreen(detail: Detail, onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(8.dp))
             detail.realLifeExamples.forEach {
                 Text(text = "• ${stringResource(id = it)}", style = MaterialTheme.typography.bodyMedium)
+            }
+
+            // NEW: Interactive demo button
+            if (detail.hasInteractiveDemo && onStartDemo != null) {
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(
+                    onClick = onStartDemo,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("🔬 Try Interactive Demo")
+                }
             }
         }
     }

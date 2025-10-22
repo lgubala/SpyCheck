@@ -16,3 +16,9 @@ val SurfaceDark = Color(0xFF1A1A1A)
 // Text
 val TextPrimary = Color(0xFFFFFFFF)
 val TextSecondary = Color(0xFFB0B0B0)
+
+
+// EXIF Demo specific
+val DangerRed = Color(0xFFFF6B6B)
+val SuccessGreen = Color(0xFF4ECDC4)
+val WarningAmber = Amber

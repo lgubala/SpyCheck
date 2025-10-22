@@ -132,5 +132,140 @@
     <!-- Onboarding Page 4 -->
     <string name="onboarding_page4_title">You\'re Ready!</string>
     <string name="onboarding_page4_description">Here\'s what to do:\n\n1. Grant the 3 permissions\n2. Tap \"Start Watching\"\n3. Minimize the app\n4. Use your phone normally\n5. Watch the tracking warnings appear!</string>
+    <!-- SNEAKY DEMOS -->
+    <!-- EXIF GPS Demo -->
+    <string name="exif_gps_title">GPS from Photos</string>
+    <string name="exif_gps_short">Your location without asking</string>
+    <string name="exif_gps_long">Apps can extract GPS coordinates from your photos without needing Location permission. Every photo taken with your phone\'s camera may contain EXIF metadata including exact GPS coordinates showing where it was taken. This means an app with only Photos permission can track everywhere you\'ve been.</string>
 
+    <string name="exif_example_1">Dating apps accessing location history through photo metadata</string>
+    <string name="exif_example_2">Social media apps building location profiles without explicit permission</string>
+    <string name="exif_example_3">Photo editing apps harvesting user movement patterns</string>
+
+    <!-- EXIF Demo Screen -->
+    <string name="exif_demo_title">📍 GPS from Photos</string>
+    <string name="exif_demo_description">Apps can extract your exact location from photos without needing Location permission. Every photo taken with your phone\'s camera may contain GPS coordinates showing exactly where it was taken.</string>
+
+    <string name="grant_permission_button">Grant Photos Permission to See Demo</string>
+    <string name="permission_granted">✓ Permission Granted</string>
+    <string name="tap_to_reveal">Tap to reveal what apps see</string>
+    <string name="apps_can_see">Apps can see:</string>
+
+    <!-- Privacy warnings -->
+    <string name="privacy_impact_title">⚠️ Privacy Impact</string>
+    <string name="privacy_impact_description">Any app with Photos permission can see where every picture was taken — even without Location permission. This creates a complete tracking profile of everywhere you go.</string>
+
+    <string name="good_news_title">✅ Good News!</string>
+    <string name="no_gps_description">This photo doesn\'t contain GPS location data. Your camera isn\'t embedding coordinates. However, other metadata is still present…</string>
+
+    <string name="if_gps_enabled_title">⚠️ What If GPS Were Enabled?</string>
+    <string name="if_gps_enabled_description">If your camera had location enabled, apps would also see:</string>
+
+    <string name="apps_can_still_see">Apps can still see:</string>
+
+    <!-- Revoke permission warning -->
+    <string name="revoke_permission_title">⚠️ REVOKE THIS PERMISSION NOW</string>
+    <string name="revoke_permission_description">This demo now has access to ALL your photos. For your privacy, remove this permission immediately after testing.</string>
+    <string name="open_settings_button">Open App Settings to Revoke</string>
+
+    <!-- EXIF data labels -->
+    <string name="exif_date_time">Date &amp; Time</string>
+    <string name="exif_gps_coords">Exact GPS Coordinates</string>
+    <string name="exif_address">Street Address</string>
+    <string name="exif_altitude">Altitude</string>
+    <string name="exif_gps_timestamp">GPS Timestamp</string>
+    <string name="exif_speed">Speed When Taken</string>
+    <string name="exif_direction">Camera Direction</string>
+    <string name="exif_accuracy">GPS Accuracy</string>
+    <string name="exif_device_serial">Device Serial Number</string>
+    <string name="exif_image_id">Unique Image ID</string>
+    <string name="exif_camera">Camera/Phone Model</string>
+    <string name="exif_lens">Lens Used</string>
+    <string name="exif_software">Software/App Used</string>
+    <string name="exif_focal_length">Focal Length</string>
+    <string name="exif_aperture">Aperture</string>
+    <string name="exif_iso">ISO Sensitivity</string>
+    <string name="exif_exposure">Exposure Time</string>
+    <string name="exif_flash">Flash</string>
+    <string name="exif_zoom">Digital Zoom</string>
+    <string name="exif_orientation">Phone Orientation</string>
+    <string name="exif_artist">Artist Name</string>
+    <string name="exif_copyright">Copyright Info</string>
+    <string name="exif_user_comment">User Comment</string>
+
+    <!-- Section headers -->
+    <string name="section_device_identifiers">🔍 Device Identifiers</string>
+    <string name="section_device_software">📸 Device &amp; Software</string>
+    <string name="section_camera_settings">⚙️ Camera Settings</string>
+
+    <!-- EXIF explanations -->
+    <string name="explain_date_time">Exact timestamp of when you took this photo</string>
+    <string name="explain_gps_coords">Pinpoints your exact location within 5–50 meters. Apps can map your entire movement history.</string>
+    <string name="explain_address">Your exact street address. Apps know if this is your home, workplace, or a sensitive location.</string>
+    <string name="explain_altitude">Height above sea level. In buildings, this can reveal which floor you were on!</string>
+    <string name="explain_gps_timestamp">Precise time from GPS satellites. Can be cross-referenced with other data sources.</string>
+    <string name="explain_speed">Shows if you were walking, driving, or stationary. Reveals your mode of transportation.</string>
+    <string name="explain_direction">Compass direction you were facing. Combined with location, apps know exactly what you were looking at.</string>
+    <string name="explain_device_serial">Uniquely identifies YOUR specific phone. Can be used to track all photos from your device across the internet.</string>
+    <string name="explain_image_id">A fingerprint for this specific photo. Apps can track where you shared this image online.</string>
+    <string name="explain_camera">Your exact phone model. Reveals your economic status and preferences.</string>
+    <string name="explain_software">Shows which camera app you used. Instagram? Snapchat? Stock camera? Reveals your app usage patterns.</string>
+
+    <!-- Bullet points for no-GPS fallback -->
+    <string name="bullet_gps_coords">Exact GPS coordinates (±5–50m accuracy)</string>
+    <string name="bullet_addresses">Your home and work addresses</string>
+    <string name="bullet_history">Complete location history from all photos</string>
+    <string name="bullet_altitude">Which floor of buildings you were on (altitude)</string>
+    <string name="bullet_speed_direction">Your speed and direction of travel</string>
+    <string name="bullet_patterns">Patterns showing where you go regularly</string>
+    <string name="bullet_sensitive">Sensitive locations: hospitals, clinics, religious sites</string>
+
+    <string name="tip_disable_gps">💡 Tip: Keep location services OFF in your camera settings to prevent this tracking!</string>
+
+    <!-- Software categories -->
+    <string name="software_category_stock">Stock Camera App</string>
+    <string name="software_category_social">Social Media Camera</string>
+    <string name="software_category_editor">Photo Editor</string>
+    <string name="software_category_third_party">Third-Party Camera</string>
+    <string name="software_category_firmware">Device Firmware</string>
+    <string name="software_category_unknown">Unknown Software</string>
+
+    <!-- Software explanations -->
+    <string name="software_instagram">Photo was taken using Instagram\'s camera. Instagram adds filters and can access all EXIF data.</string>
+    <string name="software_snapchat">Photo was taken in Snapchat. The app has access to all your camera metadata.</string>
+    <string name="software_facebook">Photo was taken through Facebook app. Facebook can access all EXIF metadata.</string>
+    <string name="software_whatsapp">Photo was taken in WhatsApp. The app processes and can read all photo metadata.</string>
+
+    <string name="software_photoshop">Photo was edited with Photoshop, which can read and modify all EXIF data.</string>
+    <string name="software_lightroom">Photo was edited with Lightroom, which has full access to EXIF metadata.</string>
+    <string name="software_snapseed">Photo was edited with Snapseed (Google\'s photo editor).</string>
+    <string name="software_vsco">Photo was taken or edited with VSCO, which reads all camera metadata.</string>
+
+    <string name="software_gcam">Photo was taken with Google Camera app, which embeds device and processing info.</string>
+    <string name="software_open_camera">Photo was taken with Open Camera, an open-source camera app.</string>
+
+    <string name="software_stock_android">Photo was taken with Android\'s built-in camera app. Version: %s</string>
+    <string name="software_stock_ios">Photo was taken with iPhone\'s stock camera app. iOS version: %s</string>
+    <string name="software_stock_generic">Photo was taken with your phone\'s built-in camera app. Firmware: %1$s\n\nThis is the default %2$s camera.</string>
+
+    <string name="software_windows">Photo was edited or processed on Windows: %s</string>
+
+    <string name="software_firmware_info">This is your device\'s firmware build number: %s\n\nMost phones don\'t embed the camera app name, but this identifier is unique to your device model and software version.</string>
+
+    <string name="software_unknown_info">No software information found in this photo\'s metadata.</string>
+
+    <!-- Software display names -->
+    <string name="software_name_instagram">Instagram Camera</string>
+    <string name="software_name_snapchat">Snapchat Camera</string>
+    <string name="software_name_facebook">Facebook Camera</string>
+    <string name="software_name_whatsapp">WhatsApp Camera</string>
+    <string name="software_name_photoshop">Adobe Photoshop</string>
+    <string name="software_name_lightroom">Adobe Lightroom</string>
+    <string name="software_name_snapseed">Google Snapseed</string>
+    <string name="software_name_vsco">VSCO Camera/Editor</string>
+    <string name="software_name_gcam">Google Camera (GCam)</string>
+    <string name="software_name_open_camera">Open Camera</string>
+    <string name="software_name_android_stock">Android Stock Camera</string>
+    <string name="software_name_iphone">iPhone Camera</string>
+    <string name="software_name_windows">Windows Software</string>
 </resources>
