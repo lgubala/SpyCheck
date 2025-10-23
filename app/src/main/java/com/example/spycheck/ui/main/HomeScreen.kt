@@ -187,8 +187,8 @@ fun HomeScreen() {
             Icon(
                 imageVector = Icons.Default.Visibility,
                 contentDescription = null,
-                modifier = Modifier.size(150.dp),
-                tint = Color.White
+                modifier = Modifier.size(140.dp),
+                tint = Crimson
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(

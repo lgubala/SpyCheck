@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 data class ExifDemoState(
     val hasPermission: Boolean = false,
     val photoData: PhotoExifData? = null,
-    val isRevealed: Boolean = false,
     val isLoading: Boolean = false
 )
 
@@ -32,7 +31,6 @@ class ExifDemoViewModel(application: Application) : AndroidViewModel(application
     private val exifExtractor = ExifDataExtractor(application)
 
     init {
-        // Check permission on init
         checkPermission()
     }
 
@@ -49,11 +47,7 @@ class ExifDemoViewModel(application: Application) : AndroidViewModel(application
         ) == PackageManager.PERMISSION_GRANTED
 
         _state.update { it.copy(hasPermission = hasPermission) }
-
-        // If already has permission, load photo immediately
-        if (hasPermission) {
-            loadPhoto()
-        }
+        if (hasPermission) loadPhoto()
     }
 
     fun onPermissionResult(granted: Boolean) {
@@ -74,11 +68,5 @@ class ExifDemoViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun revealPhoto() {
-        _state.update { it.copy(isRevealed = true) }
-    }
-
-    fun recheckPermission() {
-        checkPermission()
-    }
+    fun recheckPermission() = checkPermission()
 }

@@ -23,7 +23,6 @@ data class WifiDemoState(
     val hasWifiPermission: Boolean = false,
     val scanResult: WifiScanResult? = null,
     val isScanning: Boolean = false,
-    val isRevealed: Boolean = false,
     val apiProvider: ApiProvider = ApiProvider.MOZILLA,
     val apiKey: String = "",
     val locationResult: LocationResult? = null,
@@ -56,10 +55,7 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
             true
         }
 
-        _state.update { it.copy(
-            hasLocationPermission = hasLocation,
-            hasWifiPermission = hasWifi
-        )}
+        _state.update { it.copy(hasLocationPermission = hasLocation, hasWifiPermission = hasWifi) }
     }
 
     fun onLocationPermissionResult(granted: Boolean) {
@@ -75,19 +71,12 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = wifiReader.scanNearbyNetworks()
-                _state.update { it.copy(
-                    scanResult = result,
-                    isScanning = false
-                )}
+                _state.update { it.copy(scanResult = result, isScanning = false) }
             } catch (e: Exception) {
                 _state.update { it.copy(isScanning = false) }
                 showToast("Error scanning WiFi networks: ${e.message}")
             }
         }
-    }
-
-    fun revealNetworks() {
-        _state.update { it.copy(isRevealed = true) }
     }
 
     fun setApiProvider(provider: ApiProvider) {
@@ -100,7 +89,6 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
 
     fun locateUserViaApi() {
         val currentState = _state.value
-
         if (currentState.scanResult == null || currentState.scanResult.networks.isEmpty()) {
             showToast("Please scan WiFi networks first")
             return
@@ -122,10 +110,7 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
                 )
 
                 result.onSuccess { location ->
-                    _state.update { it.copy(
-                        locationResult = location,
-                        isLocating = false
-                    )}
+                    _state.update { it.copy(locationResult = location, isLocating = false) }
                     showToast("Location found!")
                 }.onFailure { error ->
                     _state.update { it.copy(isLocating = false) }
@@ -141,13 +126,8 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
     fun getStaticMapUrl(result: LocationResult): String {
         val lat = result.latitude
         val lng = result.longitude
-
-        // Google Static Maps API (works without key for low usage)
         return "https://maps.googleapis.com/maps/api/staticmap?" +
-                "center=$lat,$lng&" +
-                "zoom=15&" +
-                "size=800x400&" +
-                "markers=color:red%7C$lat,$lng"
+                "center=$lat,$lng&zoom=15&size=800x400&markers=color:red%7C$lat,$lng"
     }
 
     fun getApiJsonFormat(): String {
@@ -156,13 +136,9 @@ class WifiDemoViewModel(application: Application) : AndroidViewModel(application
         } ?: ""
     }
 
-    fun recheckPermissions() {
-        checkPermissions()
-    }
+    fun recheckPermissions() = checkPermissions()
 
-    fun needsWifiPermission(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-    }
+    fun needsWifiPermission() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
 
     private fun showToast(message: String) {
         viewModelScope.launch(Dispatchers.Main) {

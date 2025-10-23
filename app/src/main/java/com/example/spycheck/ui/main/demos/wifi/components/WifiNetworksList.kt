@@ -1,6 +1,5 @@
 package com.example.spycheck.ui.main.demos.wifi.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -19,8 +18,6 @@ import com.example.spycheck.ui.theme.WarningAmber
 @Composable
 fun WifiNetworksList(
     scanResult: WifiScanResult,
-    isRevealed: Boolean,
-    onReveal: () -> Unit,
     onScan: () -> Unit,
     isScanning: Boolean,
     allPermissionsGranted: Boolean,
@@ -52,18 +49,8 @@ fun WifiNetworksList(
             }
         }
 
-        // Reveal button
-        if (scanResult.networks.isNotEmpty() && !isRevealed) {
-            Button(
-                onClick = onReveal,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.tap_to_reveal))
-            }
-        }
-
-        // Networks list
-        if (isRevealed) {
+        // Always show list once data exists (no reveal button)
+        if (scanResult.networks.isNotEmpty()) {
             Text(
                 text = stringResource(R.string.wifi_networks_found, scanResult.totalCount),
                 style = MaterialTheme.typography.titleMedium,
@@ -155,9 +142,7 @@ fun WifiInfoRow(
     value: String,
     isMonospace: Boolean = false
 ) {
-    Column(
-        modifier = Modifier.fillMaxWidth()
-    ) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = label,
             style = MaterialTheme.typography.labelSmall,

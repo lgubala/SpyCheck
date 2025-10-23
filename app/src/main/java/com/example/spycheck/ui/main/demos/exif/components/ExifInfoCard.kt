@@ -1,25 +1,10 @@
 package com.example.spycheck.ui.main.demos.exif.components
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -35,17 +20,16 @@ import com.example.spycheck.ui.theme.DangerRed
 import com.example.spycheck.ui.theme.SuccessGreen
 
 @Composable
-fun ExifInfoCard(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
+fun ExifInfoCard(photoData: PhotoExifData) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         if (photoData.latitude != null && photoData.longitude != null) {
-            // Has GPS data
             Text(
                 text = stringResource(R.string.apps_can_see),
                 fontSize = 14.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            ExifDataSection(photoData = photoData, isPhotoRevealed = isPhotoRevealed)
+            ExifDataSection(photoData = photoData)
 
             Card(
                 colors = CardDefaults.cardColors(
@@ -69,40 +53,34 @@ fun ExifInfoCard(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                 }
             }
         } else {
-            // No GPS data
-            NoGpsDataFallback(photoData = photoData, isPhotoRevealed = isPhotoRevealed)
+            NoGpsDataFallback(photoData = photoData)
         }
     }
 }
 
 @Composable
-fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
+fun ExifDataSection(photoData: PhotoExifData) {
     val exifExtractor = ExifDataExtractor(LocalContext.current)
     val context = LocalContext.current
 
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        // LOCATION DATA (most shocking)
+        // LOCATION DATA
         photoData.dateTime?.let {
             ExifDataItem(
                 icon = "📅",
                 label = stringResource(R.string.exif_date_time),
                 value = it,
-                revealed = isPhotoRevealed,
                 explanation = stringResource(R.string.explain_date_time)
             )
         }
 
         if (photoData.latitude != null && photoData.longitude != null) {
-            val coordinates = exifExtractor.formatCoordinates(
-                photoData.latitude,
-                photoData.longitude
-            )
+            val coordinates = exifExtractor.formatCoordinates(photoData.latitude, photoData.longitude)
 
             ExifDataItem(
                 icon = "🌍",
                 label = stringResource(R.string.exif_gps_coords),
                 value = coordinates,
-                revealed = isPhotoRevealed,
                 highlighted = true,
                 explanation = stringResource(R.string.explain_gps_coords)
             )
@@ -112,7 +90,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "📍",
                     label = stringResource(R.string.exif_address),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_address)
                 )
@@ -123,7 +100,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "⛰️",
                     label = stringResource(R.string.exif_altitude),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_altitude)
                 )
@@ -134,7 +110,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "⏰",
                     label = stringResource(R.string.exif_gps_timestamp),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_gps_timestamp)
                 )
@@ -145,7 +120,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "🏃",
                     label = stringResource(R.string.exif_speed),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_speed)
                 )
@@ -156,7 +130,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "🧭",
                     label = stringResource(R.string.exif_direction),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_direction)
                 )
@@ -166,13 +139,12 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                 ExifDataItem(
                     icon = "🎯",
                     label = stringResource(R.string.exif_accuracy),
-                    value = it,
-                    revealed = isPhotoRevealed
+                    value = it
                 )
             }
         }
 
-        // DEVICE INFO (shocking - unique identifiers!)
+        // DEVICE INFO
         if (photoData.deviceSerial != null || photoData.uniqueImageId != null) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
@@ -188,7 +160,6 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                 icon = "🆔",
                 label = stringResource(R.string.exif_device_serial),
                 value = it,
-                revealed = isPhotoRevealed,
                 highlighted = true,
                 explanation = stringResource(R.string.explain_device_serial)
             )
@@ -199,13 +170,12 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                 icon = "🔢",
                 label = stringResource(R.string.exif_image_id),
                 value = it,
-                revealed = isPhotoRevealed,
                 highlighted = true,
                 explanation = stringResource(R.string.explain_image_id)
             )
         }
 
-        // CAMERA & LENS INFO
+        // CAMERA & SOFTWARE
         if (photoData.cameraMake != null || photoData.cameraModel != null ||
             photoData.lensMake != null || photoData.lensModel != null || photoData.softwareInfo != null) {
             Spacer(modifier = Modifier.height(8.dp))
@@ -217,47 +187,34 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
         }
 
         if (photoData.cameraMake != null || photoData.cameraModel != null) {
-            val cameraInfo = listOfNotNull(
-                photoData.cameraMake,
-                photoData.cameraModel
-            ).joinToString(" ")
-
+            val cameraInfo = listOfNotNull(photoData.cameraMake, photoData.cameraModel).joinToString(" ")
             ExifDataItem(
                 icon = "📷",
                 label = stringResource(R.string.exif_camera),
                 value = cameraInfo,
-                revealed = isPhotoRevealed,
                 explanation = stringResource(R.string.explain_camera)
             )
         }
 
         if (photoData.lensMake != null || photoData.lensModel != null) {
-            val lensInfo = listOfNotNull(
-                photoData.lensMake,
-                photoData.lensModel
-            ).joinToString(" ")
-
+            val lensInfo = listOfNotNull(photoData.lensMake, photoData.lensModel).joinToString(" ")
             ExifDataItem(
                 icon = "🔭",
                 label = stringResource(R.string.exif_lens),
-                value = lensInfo,
-                revealed = isPhotoRevealed
+                value = lensInfo
             )
         }
 
-        // SOFTWARE - Using string resources with format arguments
         photoData.softwareInfo?.let { info ->
-            val displayText = if (info.formatArgs.isEmpty()) {
+            val displayText = if (info.formatArgs.isEmpty())
                 context.getString(info.displayTextResId)
-            } else {
+            else
                 context.getString(info.displayTextResId, *info.formatArgs)
-            }
 
-            val explanation = if (info.formatArgs.isEmpty()) {
+            val explanation = if (info.formatArgs.isEmpty())
                 context.getString(info.explanationResId)
-            } else {
+            else
                 context.getString(info.explanationResId, *info.formatArgs)
-            }
 
             ExifDataItem(
                 icon = when (info.category) {
@@ -270,12 +227,11 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                 },
                 label = stringResource(R.string.exif_software),
                 value = displayText,
-                revealed = isPhotoRevealed,
                 explanation = explanation
             )
         }
 
-        // CAMERA SETTINGS (reveals photography habits)
+        // CAMERA SETTINGS
         if (photoData.focalLength != null || photoData.aperture != null ||
             photoData.iso != null || photoData.exposureTime != null ||
             photoData.flash != null || photoData.digitalZoom != null) {
@@ -289,93 +245,34 @@ fun ExifDataSection(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
         }
 
         photoData.focalLength?.let {
-            ExifDataItem(
-                icon = "🔍",
-                label = stringResource(R.string.exif_focal_length),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "🔍", label = stringResource(R.string.exif_focal_length), value = it)
         }
-
         photoData.aperture?.let {
-            ExifDataItem(
-                icon = "⭕",
-                label = stringResource(R.string.exif_aperture),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "⭕", label = stringResource(R.string.exif_aperture), value = it)
         }
-
         photoData.iso?.let {
-            ExifDataItem(
-                icon = "🌓",
-                label = stringResource(R.string.exif_iso),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "🌓", label = stringResource(R.string.exif_iso), value = it)
         }
-
         photoData.exposureTime?.let {
-            ExifDataItem(
-                icon = "⏱️",
-                label = stringResource(R.string.exif_exposure),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "⏱️", label = stringResource(R.string.exif_exposure), value = it)
         }
-
         photoData.flash?.let {
-            ExifDataItem(
-                icon = "⚡",
-                label = stringResource(R.string.exif_flash),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "⚡", label = stringResource(R.string.exif_flash), value = it)
         }
-
         photoData.digitalZoom?.let {
-            ExifDataItem(
-                icon = "🔎",
-                label = stringResource(R.string.exif_zoom),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "🔎", label = stringResource(R.string.exif_zoom), value = it)
         }
-
         photoData.orientation?.let {
-            ExifDataItem(
-                icon = "🔄",
-                label = stringResource(R.string.exif_orientation),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "🔄", label = stringResource(R.string.exif_orientation), value = it)
         }
-
         photoData.artistName?.let {
-            ExifDataItem(
-                icon = "👤",
-                label = stringResource(R.string.exif_artist),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "👤", label = stringResource(R.string.exif_artist), value = it)
         }
-
         photoData.copyright?.let {
-            ExifDataItem(
-                icon = "©️",
-                label = stringResource(R.string.exif_copyright),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "©️", label = stringResource(R.string.exif_copyright), value = it)
         }
-
         photoData.userComment?.let {
-            ExifDataItem(
-                icon = "💬",
-                label = stringResource(R.string.exif_user_comment),
-                value = it,
-                revealed = isPhotoRevealed
-            )
+            ExifDataItem(icon = "💬", label = stringResource(R.string.exif_user_comment), value = it)
         }
     }
 }
@@ -385,28 +282,23 @@ fun ExifDataItem(
     icon: String,
     label: String,
     value: String,
-    revealed: Boolean,
     highlighted: Boolean = false,
     explanation: String? = null
 ) {
-    var isValueRevealed by remember { mutableStateOf(false) }
     var showExplanation by remember { mutableStateOf(false) }
 
     Surface(
-        color = if (highlighted) {
+        color = if (highlighted)
             DangerRed.copy(alpha = 0.1f)
-        } else {
-            MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
-        },
+        else
+            MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column {
             Row(
                 modifier = Modifier
-                    .clickable(enabled = revealed && !isValueRevealed) {
-                        isValueRevealed = true
-                    }
+                    .clickable(enabled = explanation != null) { showExplanation = !showExplanation }
                     .padding(12.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
@@ -421,36 +313,23 @@ fun ExifDataItem(
                         color = if (highlighted) DangerRed else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.height(2.dp))
-
-                    AnimatedVisibility(visible = revealed) {
-                        Text(
-                            text = if (isValueRevealed || !highlighted) value else censorValue(value),
-                            fontSize = 14.sp,
-                            fontWeight = if (highlighted) FontWeight.Bold else FontWeight.Normal,
-                            color = if (highlighted) DangerRed else MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-
-                    if (revealed && !isValueRevealed && highlighted) {
-                        Text(
-                            text = stringResource(R.string.tap_to_reveal),
-                            fontSize = 11.sp,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
+                    Text(
+                        text = value,
+                        fontSize = 14.sp,
+                        fontWeight = if (highlighted) FontWeight.Bold else FontWeight.Normal,
+                        color = if (highlighted) DangerRed else MaterialTheme.colorScheme.onSurface
+                    )
                 }
 
-                if (explanation != null && revealed) {
+                if (explanation != null) {
                     Text(
                         text = "ℹ️",
-                        fontSize = 20.sp,
-                        modifier = Modifier.clickable { showExplanation = !showExplanation }
+                        fontSize = 20.sp
                     )
                 }
             }
 
-            if (explanation != null && showExplanation && revealed) {
+            if (explanation != null && showExplanation) {
                 Surface(
                     color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f),
                     modifier = Modifier.fillMaxWidth()
@@ -469,14 +348,12 @@ fun ExifDataItem(
 }
 
 @Composable
-fun NoGpsDataFallback(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
+fun NoGpsDataFallback(photoData: PhotoExifData) {
     val context = LocalContext.current
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Card(
-            colors = CardDefaults.cardColors(
-                containerColor = SuccessGreen.copy(alpha = 0.1f)
-            ),
+            colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.1f)),
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(modifier = Modifier.padding(12.dp)) {
@@ -509,40 +386,30 @@ fun NoGpsDataFallback(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "📅",
                     label = stringResource(R.string.exif_date_time),
                     value = it,
-                    revealed = isPhotoRevealed,
-                    highlighted = false,
                     explanation = stringResource(R.string.explain_date_time)
                 )
             }
 
             if (photoData.cameraMake != null || photoData.cameraModel != null) {
-                val cameraInfo = listOfNotNull(
-                    photoData.cameraMake,
-                    photoData.cameraModel
-                ).joinToString(" ")
-
+                val cameraInfo = listOfNotNull(photoData.cameraMake, photoData.cameraModel).joinToString(" ")
                 ExifDataItem(
                     icon = "📷",
                     label = stringResource(R.string.exif_camera),
                     value = cameraInfo,
-                    revealed = isPhotoRevealed,
-                    highlighted = false,
                     explanation = stringResource(R.string.explain_camera)
                 )
             }
 
             photoData.softwareInfo?.let { info ->
-                val displayText = if (info.formatArgs.isEmpty()) {
+                val displayText = if (info.formatArgs.isEmpty())
                     context.getString(info.displayTextResId)
-                } else {
+                else
                     context.getString(info.displayTextResId, *info.formatArgs)
-                }
 
-                val explanation = if (info.formatArgs.isEmpty()) {
+                val explanation = if (info.formatArgs.isEmpty())
                     context.getString(info.explanationResId)
-                } else {
+                else
                     context.getString(info.explanationResId, *info.formatArgs)
-                }
 
                 ExifDataItem(
                     icon = when (info.category) {
@@ -555,8 +422,6 @@ fun NoGpsDataFallback(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     },
                     label = stringResource(R.string.exif_software),
                     value = displayText,
-                    revealed = isPhotoRevealed,
-                    highlighted = false,
                     explanation = explanation
                 )
             }
@@ -566,7 +431,6 @@ fun NoGpsDataFallback(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
                     icon = "🆔",
                     label = stringResource(R.string.exif_device_serial),
                     value = it,
-                    revealed = isPhotoRevealed,
                     highlighted = true,
                     explanation = stringResource(R.string.explain_device_serial)
                 )
@@ -575,9 +439,7 @@ fun NoGpsDataFallback(photoData: PhotoExifData, isPhotoRevealed: Boolean) {
 
         Spacer(modifier = Modifier.height(4.dp))
         Card(
-            colors = CardDefaults.cardColors(
-                containerColor = DangerRed.copy(alpha = 0.1f)
-            ),
+            colors = CardDefaults.cardColors(containerColor = DangerRed.copy(alpha = 0.1f)),
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(modifier = Modifier.padding(12.dp)) {
@@ -622,8 +484,4 @@ fun BulletPoint(text: String) {
         Text(text = "•", fontSize = 12.sp, color = DangerRed)
         Text(text = text, fontSize = 11.sp, lineHeight = 15.sp)
     }
-}
-
-fun censorValue(value: String): String {
-    return value.take(value.length / 3) + "◾".repeat(value.length - (value.length / 3))
 }

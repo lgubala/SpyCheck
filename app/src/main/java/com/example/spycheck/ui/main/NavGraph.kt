@@ -8,16 +8,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.spycheck.R
-import com.example.spycheck.ui.main.demos.exif.ExifDemoScreen
-import com.example.spycheck.ui.main.demos.wifi.WifiDemoScreen
 import com.example.spycheck.ui.main.model.DemoRepository
 
 @Composable
-fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier, startDestination: String) {
+fun NavGraph(
+    navController: NavHostController,
+    modifier: Modifier = Modifier,
+    startDestination: String
+) {
     NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {
-        composable(Screen.Home.route) {
-            HomeScreen()
-        }
+        composable(Screen.Home.route) { HomeScreen() }
+
         composable(Screen.SneakyStuff.route) {
             val demos = DemoRepository.getSneakyStuffDemos()
             ListScreen(
@@ -30,6 +31,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier, st
                 }
             )
         }
+
         composable(Screen.Fingerprint.route) {
             val demos = DemoRepository.getFingerprintDemos()
             ListScreen(
@@ -42,40 +44,23 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier, st
                 }
             )
         }
-        composable(Screen.History.route) {
-            HistoryScreen()
-        }
 
-        // Detail screen with optional interactive demo button
+        composable(Screen.History.route) { HistoryScreen() }
+
+        // Unified detail screen (now includes demo logic)
         composable(
             route = "demo_detail/{demoId}",
             arguments = listOf(navArgument("demoId") { type = NavType.StringType })
         ) { backStackEntry ->
             val demoId = backStackEntry.arguments?.getString("demoId")
-            val demo = (DemoRepository.getSneakyStuffDemos() + DemoRepository.getFingerprintDemos()).find { it.id == demoId }
+            val demo = (DemoRepository.getSneakyStuffDemos() + DemoRepository.getFingerprintDemos())
+                .find { it.id == demoId }
+
             if (demo != null) {
                 DetailScreen(
                     detail = demo,
-                    onBack = { navController.popBackStack() },
-                    onStartDemo = if (demo.hasInteractiveDemo) {
-                        { navController.navigate("demo_interactive/$demoId") }
-                    } else null
+                    onBack = { navController.popBackStack() }
                 )
-            }
-        }
-
-        // Interactive demo screens
-        composable(
-            route = "demo_interactive/{demoId}",
-            arguments = listOf(navArgument("demoId") { type = NavType.StringType })
-        ) { backStackEntry ->
-            val demoId = backStackEntry.arguments?.getString("demoId")
-            when (demoId) {
-                "exif_gps" -> ExifDemoScreen()
-                "wifi" -> WifiDemoScreen(
-                    onBackClick = { navController.popBackStack() }
-                )
-                // Add more interactive demos here in the future
             }
         }
     }
