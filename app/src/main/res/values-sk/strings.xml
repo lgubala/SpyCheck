@@ -267,4 +267,86 @@
     <string name="software_name_android_stock">Android Stock Camera</string>
     <string name="software_name_iphone">iPhone Camera</string>
     <string name="software_name_windows">Windows Software</string>
+    <!-- WiFi Location Demo -->
+    <string name="wifi_location_title">WiFi Location Tracking</string>
+    <string name="wifi_location_short">Your location without GPS</string>
+    <string name="wifi_location_long">Apps can track your exact location using nearby WiFi networks without needing GPS permission. Every WiFi router has a unique MAC address that companies like Google have mapped to physical locations. By scanning nearby WiFi networks, apps can pinpoint where you are within 10–50 meters.</string>
+
+    <string name="wifi_example_1">Shopping apps tracking which stores you visit</string>
+    <string name="wifi_example_2">Social media apps building location profiles from WiFi data</string>
+    <string name="wifi_example_3">Ad networks following you between different locations</string>
+
+    <!-- WiFi Demo Screen -->
+    <string name="wifi_demo_title">📡 WiFi Location Tracking</string>
+    <string name="wifi_demo_description">Apps can track your exact location using nearby WiFi networks without GPS permission. Every WiFi router broadcasts a unique MAC address that has been mapped to a physical location.</string>
+
+    <string name="grant_location_permission">Grant Location Permission</string>
+    <string name="grant_wifi_permission">Grant Nearby WiFi Permission (Android 13+)</string>
+    <string name="location_permission_granted">✓ Location Permission Granted</string>
+    <string name="wifi_permission_granted">✓ WiFi Permission Granted</string>
+    <string name="scan_wifi_button">Scan Nearby WiFi Networks</string>
+    <string name="scanning_wifi">Scanning WiFi networks…</string>
+
+    <!-- WiFi Results -->
+    <string name="wifi_networks_found">%d WiFi networks detected</string>
+    <string name="wifi_connected_network">Connected Network</string>
+    <string name="wifi_nearby_network">Nearby Network #%d</string>
+    <string name="wifi_ssid_label">Network Name (SSID)</string>
+    <string name="wifi_bssid_label">MAC Address (BSSID)</string>
+    <string name="wifi_signal_label">Signal Strength</string>
+    <string name="wifi_frequency_label">Frequency</string>
+
+    <!-- WiFi Explanations -->
+    <string name="explain_wifi_mac">This unique identifier can be looked up in Google\'s database to find the router\'s physical location.</string>
+    <string name="explain_wifi_signal">Stronger signals mean you\'re closer. Apps can triangulate your exact position using multiple networks.</string>
+    <string name="explain_wifi_location">Apps send these MAC addresses to location databases (Google, Apple, etc.) to get your precise coordinates.</string>
+
+    <!-- WiFi Privacy Impact -->
+    <string name="wifi_privacy_title">⚠️ How This Tracks You</string>
+    <string name="wifi_privacy_description">These MAC addresses can be sent to Google\'s Geolocation API or similar services to determine your exact location—even indoors where GPS doesn\'t work well.</string>
+
+    <string name="wifi_what_apps_see_title">What Apps Can Do:</string>
+    <string name="wifi_bullet_track_location">Track your location without GPS permission</string>
+    <string name="wifi_bullet_indoor">Know your location indoors (malls, offices, homes)</string>
+    <string name="wifi_bullet_history">Build a history of places you visit regularly</string>
+    <string name="wifi_bullet_identify_home">Identify your home and work locations</string>
+    <string name="wifi_bullet_movement">Track your movement patterns between locations</string>
+    <string name="wifi_bullet_realtime">Monitor you in real-time as you move</string>
+
+    <string name="copy_api_request">Copy API Request</string>
+    <string name="api_copied">API request copied to clipboard</string>
+
+    <!-- WiFi Revoke Warning -->
+    <string name="wifi_revoke_title">⚠️ REVOKE LOCATION PERMISSION NOW</string>
+    <string name="wifi_revoke_description">This demo can now track your location through WiFi networks. Remove Location permission immediately after testing.</string>
+    <!-- Wi-Fi API Providers -->
+    <string name="wifi_api_select_provider">Select API Provider</string>
+    <string name="wifi_api_provider_google">Google Geolocation API</string>
+    <string name="wifi_api_provider_mozilla">Mozilla Location Service (Anonymous)</string>
+    <string name="wifi_api_provider_unwired">Unwired Labs API</string>
+    <string name="wifi_api_key_hint">Enter your API key</string>
+    <string name="wifi_locate_button">Locate Me</string>
+    <string name="wifi_locating">Locating…</string>
+    <string name="wifi_location_found">📍 Approximate location found!</string>
+    <string name="wifi_location_error">⚠️ Unable to determine location</string>
+
+    <!-- WiFi API Demo - Additional strings -->
+    <string name="wifi_api_example_title">Real Location API Demo</string>
+    <string name="wifi_api_example_description">This section demonstrates how apps send WiFi network data to location services to pinpoint your exact coordinates. Choose a provider and see the actual API request.</string>
+    <string name="wifi_location_error_no_networks">Please scan WiFi networks first</string>
+    <string name="wifi_location_error_no_api_key">Please enter an API key</string>
+    <string name="wifi_location_error_generic">Unable to determine location</string>
+    <string name="wifi_location_success">Location found!</string>
+
+    <!-- API Provider descriptions -->
+    <string name="wifi_api_google_desc">Google Geolocation API - Requires API key</string>
+    <string name="wifi_api_mozilla_desc">Mozilla Location Service - Free, no key required</string>
+    <string name="wifi_api_unwired_desc">Unwired Labs - Requires API key</string>
+
+    <!-- Map related -->
+    <string name="wifi_map_description">Approximate location based on WiFi networks</string>
+    <string name="wifi_coordinates_label">Coordinates</string>
+    <string name="wifi_accuracy_label">Accuracy: ~%dm</string>
+
+
 </resources>

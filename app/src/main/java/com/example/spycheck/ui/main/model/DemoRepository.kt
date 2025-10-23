@@ -19,7 +19,7 @@ object DemoRepository {
                     R.string.exif_example_2,
                     R.string.exif_example_3
                 ),
-                hasInteractiveDemo = true  // Enable interactive demo
+                hasInteractiveDemo = true
             ),
             Detail(
                 id = "wifi",
@@ -27,7 +27,8 @@ object DemoRepository {
                 shortDescription = R.string.demo_wifi_short_desc,
                 icon = Icons.Default.Wifi,
                 longDescription = R.string.demo_wifi_long_desc,
-                realLifeExamples = listOf(R.string.demo_wifi_example_1, R.string.demo_wifi_example_2)
+                realLifeExamples = listOf(R.string.demo_wifi_example_1, R.string.demo_wifi_example_2),
+                hasInteractiveDemo = true
             ),
             Detail(
                 id = "clipboard",

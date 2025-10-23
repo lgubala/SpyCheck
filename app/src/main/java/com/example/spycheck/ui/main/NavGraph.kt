@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.spycheck.R
 import com.example.spycheck.ui.main.demos.exif.ExifDemoScreen
+import com.example.spycheck.ui.main.demos.wifi.WifiDemoScreen
 import com.example.spycheck.ui.main.model.DemoRepository
 
 @Composable
@@ -63,7 +64,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier, st
             }
         }
 
-        // NEW: Interactive demo screen
+        // Interactive demo screens
         composable(
             route = "demo_interactive/{demoId}",
             arguments = listOf(navArgument("demoId") { type = NavType.StringType })
@@ -71,6 +72,9 @@ fun NavGraph(navController: NavHostController, modifier: Modifier = Modifier, st
             val demoId = backStackEntry.arguments?.getString("demoId")
             when (demoId) {
                 "exif_gps" -> ExifDemoScreen()
+                "wifi" -> WifiDemoScreen(
+                    onBackClick = { navController.popBackStack() }
+                )
                 // Add more interactive demos here in the future
             }
         }
