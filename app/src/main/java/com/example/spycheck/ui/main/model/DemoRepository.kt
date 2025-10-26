@@ -45,19 +45,94 @@ object DemoRepository {
         return listOf(
             Detail(
                 id = "device",
-                title = R.string.demo_device_fp_title,
-                shortDescription = R.string.demo_device_fp_short_desc,
+                title = R.string.fp_device_title,
+                shortDescription = R.string.fp_device_short_desc,
                 icon = Icons.Default.PhoneAndroid,
-                longDescription = R.string.demo_device_fp_long_desc,
-                realLifeExamples = listOf(R.string.demo_device_fp_example_1, R.string.demo_device_fp_example_2)
+                longDescription = R.string.fp_device_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_device_example1_desc,
+                    R.string.fp_device_example2_desc,
+                    R.string.fp_device_example3_desc
+                ),
+                hasInteractiveDemo = true
             ),
             Detail(
                 id = "sensor",
-                title = R.string.demo_sensor_fp_title,
-                shortDescription = R.string.demo_sensor_fp_short_desc,
+                title = R.string.fp_sensor_title,
+                shortDescription = R.string.fp_sensor_short_desc,
                 icon = Icons.Default.Sensors,
-                longDescription = R.string.demo_sensor_fp_long_desc,
-                realLifeExamples = listOf(R.string.demo_sensor_fp_example_1, R.string.demo_sensor_fp_example_2)
+                longDescription = R.string.fp_sensor_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_sensor_example1_desc,
+                    R.string.fp_sensor_example2_desc,
+                    R.string.fp_sensor_example3_desc
+                ),
+                hasInteractiveDemo = true
+            ),
+            Detail(
+                id = "battery",
+                title = R.string.fp_battery_title,
+                shortDescription = R.string.fp_battery_short_desc,
+                icon = Icons.Default.BatteryChargingFull,
+                longDescription = R.string.fp_battery_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_battery_example1_desc,
+                    R.string.fp_battery_example2_desc,
+                    R.string.fp_battery_example3_desc
+                ),
+                hasInteractiveDemo = true
+            ),
+            Detail(
+                id = "audio",
+                title = R.string.fp_audio_title,
+                shortDescription = R.string.fp_audio_short_desc,
+                icon = Icons.Default.Mic,
+                longDescription = R.string.fp_audio_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_audio_example1_desc,
+                    R.string.fp_audio_example2_desc,
+                    R.string.fp_audio_example3_desc
+                ),
+                hasInteractiveDemo = true
+            ),
+            Detail(
+                id = "network",
+                title = R.string.fp_network_title,
+                shortDescription = R.string.fp_network_short_desc,
+                icon = Icons.Default.Wifi,
+                longDescription = R.string.fp_network_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_network_example1_desc,
+                    R.string.fp_network_example2_desc,
+                    R.string.fp_network_example3_desc
+                ),
+                hasInteractiveDemo = true
+            ),
+            Detail(
+                id = "performance",
+                title = R.string.fp_performance_title,
+                shortDescription = R.string.fp_performance_short_desc,
+                icon = Icons.Default.Speed,
+                longDescription = R.string.fp_performance_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_performance_example1_desc,
+                    R.string.fp_performance_example2_desc,
+                    R.string.fp_performance_example3_desc
+                ),
+                hasInteractiveDemo = true
+            ),
+            Detail(
+                id = "combined",
+                title = R.string.fp_combined_title,
+                shortDescription = R.string.fp_combined_short_desc,
+                icon = Icons.Default.Fingerprint,
+                longDescription = R.string.fp_combined_desc_long,
+                realLifeExamples = listOf(
+                    R.string.fp_combined_example1_desc,
+                    R.string.fp_combined_example2_desc,
+                    R.string.fp_combined_example3_desc
+                ),
+                hasInteractiveDemo = true
             )
         )
     }
