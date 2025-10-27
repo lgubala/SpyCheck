@@ -147,30 +147,30 @@ fun HomeScreen() {
                         Column {
                             TextButton(
                                 onClick = {
-                                    setLocale(context, "en")
+                                    setLocale(context, context.getString(R.string.locale_code_english))
                                     showLanguageDialog = false
                                 },
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text("🇬🇧 ${stringResource(id = R.string.english)}")
+                                Text("ðŸ‡¬ðŸ‡§ ${stringResource(id = R.string.english)}")
                             }
                             TextButton(
                                 onClick = {
-                                    setLocale(context, "sk")
+                                    setLocale(context, context.getString(R.string.locale_code_slovak))
                                     showLanguageDialog = false
                                 },
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text("🇸🇰 ${stringResource(id = R.string.slovak)}")
+                                Text("ðŸ‡¸ðŸ‡° ${stringResource(id = R.string.slovak)}")
                             }
                             TextButton(
                                 onClick = {
-                                    setLocale(context, "es")
+                                    setLocale(context, context.getString(R.string.locale_code_spanish))
                                     showLanguageDialog = false
                                 },
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text("🇪🇸 ${stringResource(id = R.string.spanish)}")
+                                Text("ðŸ‡ªðŸ‡¸ ${stringResource(id = R.string.spanish)}")
                             }
                         }
                     },
@@ -255,7 +255,7 @@ fun HomeScreen() {
             PermissionCard(
                 title = stringResource(id = R.string.home_vpn_permission_title),
                 description = stringResource(id = R.string.home_vpn_permission_desc),
-                icon = "🔒",
+                icon = stringResource(id = R.string.icon_vpn),
                 isGranted = hasVpnPermission,
                 onGrant = {
                     val vpnIntent = VpnService.prepare(context)
@@ -275,7 +275,7 @@ fun HomeScreen() {
             PermissionCard(
                 title = stringResource(id = R.string.home_usage_stats_title),
                 description = stringResource(id = R.string.home_usage_stats_desc),
-                icon = "📊",
+                icon = stringResource(id = R.string.icon_usage_stats),
                 isGranted = hasUsageStatsPermission,
                 onGrant = {
                     context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
@@ -290,7 +290,7 @@ fun HomeScreen() {
             PermissionCard(
                 title = stringResource(id = R.string.home_overlay_permission_title),
                 description = stringResource(id = R.string.home_overlay_permission_desc),
-                icon = "🎯",
+                icon = stringResource(id = R.string.icon_overlay),
                 isGranted = hasOverlayPermission,
                 onGrant = {
                     val overlayIntent = Intent(
@@ -429,7 +429,7 @@ private fun PermissionsGrantedWarningCard() {
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "⚠️", fontSize = 32.sp)
+                Text(text = stringResource(id = R.string.icon_warning), fontSize = 32.sp)
                 Column {
                     Text(
                         text = stringResource(R.string.home_all_permissions_granted),
@@ -535,7 +535,7 @@ private fun PermissionCard(
                         modifier = Modifier.padding(12.dp),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Text(text = "⚠️", fontSize = 14.sp)
+                        Text(text = stringResource(id = R.string.icon_warning), fontSize = 14.sp)
                         Text(
                             text = warningText,
                             fontSize = 12.sp,
@@ -748,7 +748,7 @@ private fun startMonitoring(context: Context) {
 
 private fun stopMonitoring(context: Context) {
     val vpnIntent = Intent(context, TrackingVpnService::class.java).apply {
-        action = "com.example.spycheck.STOP_VPN"
+        action = context.getString(R.string.action_stop_vpn)
     }
     context.startService(vpnIntent)
     VpnStateManager.setVpnRunning(false)

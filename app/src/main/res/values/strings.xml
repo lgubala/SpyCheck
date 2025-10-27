@@ -56,7 +56,7 @@
     <string name="home_title">Real-Time Tracking Demo</string>
     <string name="home_subtitle">See how apps spy on you in real-time</string>
     <string name="home_required_permissions">Required Permissions</string>
-    <string name="home_permissions_warning">⚠️ These are DANGEROUS permissions. Grant them ONLY for this demo, then revoke them!</string>
+    <string name="home_permissions_warning">âš ï¸ These are DANGEROUS permissions. Grant them ONLY for this demo, then revoke them!</string>
     <string name="home_vpn_permission_title">VPN Access</string>
     <string name="home_vpn_permission_desc">Monitor network traffic</string>
     <string name="home_vpn_permission_warning">Full access to ALL network traffic!</string>
@@ -68,36 +68,36 @@
     <string name="home_overlay_permission_warning">Can draw over everything, even banking apps</string>
     <string name="home_monitoring_active_title">Demo is Active</string>
     <string name="home_monitoring_active_desc">We have dangerous permissions</string>
-    <string name="home_permission_granted">✓ Permission Granted</string>
+    <string name="home_permission_granted">âœ“ Permission Granted</string>
     <string name="home_grant_permission">Grant Permission</string>
-    <string name="home_watching_live">🔴 WATCHING LIVE</string>
+    <string name="home_watching_live">ðŸ”´ WATCHING LIVE</string>
     <string name="home_ready_to_start">READY TO START</string>
     <string name="home_tracking_attempts">tracking attempts detected</string>
-    <string name="home_apps_sending_data">⚠️ Your apps are sending data right now</string>
-    <string name="home_stop_watching">⏸️ Stop Watching</string>
-    <string name="home_start_watching">▶️ Start Watching</string>
-    <string name="home_minimize_app">💡 Minimize the app and use your phone normally</string>
-    <string name="home_how_to_use">📱 How to Use</string>
+    <string name="home_apps_sending_data">âš ï¸ Your apps are sending data right now</string>
+    <string name="home_stop_watching">â¸ï¸ Stop Watching</string>
+    <string name="home_start_watching">â–¶ï¸ Start Watching</string>
+    <string name="home_minimize_app">ðŸ’¡ Minimize the app and use your phone normally</string>
+    <string name="home_how_to_use">ðŸ“± How to Use</string>
     <string name="home_instruction_1">Tap \'Start Watching\' above</string>
     <string name="home_instruction_2">Minimize this app (don\'t close it)</string>
     <string name="home_instruction_3">Use your phone normally</string>
     <string name="home_instruction_4">Watch pop-ups appear when apps track you</string>
-    <string name="home_real_tracking_warning">⚠️ Real tracking apps do this silently!</string>
-    <string name="home_stop_demo_and_revoke">🛑 Stop Demo &amp; Revoke Permissions</string>
-    <string name="perm_badge_vpn">🔒 VPN - Monitoring all traffic</string>
-    <string name="perm_badge_usage">📊 Usage Stats - Seeing app usage</string>
-    <string name="perm_badge_overlay">🎯 Overlay - Can draw over apps</string>
+    <string name="home_real_tracking_warning">âš ï¸ Real tracking apps do this silently!</string>
+    <string name="home_stop_demo_and_revoke">ðŸ›‘ Stop Demo &amp; Revoke Permissions</string>
+    <string name="perm_badge_vpn">ðŸ”’ VPN - Monitoring all traffic</string>
+    <string name="perm_badge_usage">ðŸ“Š Usage Stats - Seeing app usage</string>
+    <string name="perm_badge_overlay">ðŸŽ¯ Overlay - Can draw over apps</string>
     <string name="home_manage_permissions">Manage Permissions</string>
     <string name="home_grant_permissions_first">GRANT PERMISSIONS FIRST</string>
     <string name="home_all_permissions_granted">All Permissions Granted!</string>
-    <string name="home_revoke_permissions_tip">💡 IMPORTANT: When done with the demo, revoke these permissions below!</string>
+    <string name="home_revoke_permissions_tip">ðŸ’¡ IMPORTANT: When done with the demo, revoke these permissions below!</string>
     <string name="home_permission_granted_revoke">Permission Granted - Tap to Revoke</string>
     <string name="home_change_language">Change Language</string>
-    <string name="home_checkmark">✓</string>
+    <string name="home_checkmark">âœ“</string>
 
 
     <!-- HistoryScreen -->
-    <string name="history_title">📊 Tracking Statistics</string>
+    <string name="history_title">ðŸ“Š Tracking Statistics</string>
     <string name="history_total_requests">Total Requests</string>
     <string name="history_unique_apps">Unique Apps</string>
     <string name="history_unique_domains">Unique Domains</string>
@@ -127,7 +127,7 @@
 
     <!-- Onboarding Page 3 -->
     <string name="onboarding_page3_title">Why Permissions?</string>
-    <string name="onboarding_page3_description">To show you real-time tracking, SpyCheck needs the same dangerous permissions that tracking apps use:\n\nâ€¢ VPN Access - to see internet traffic\nâ€¢ Usage Stats - to identify apps\nâ€¢ Display Overlay - to show warnings\n\nIMPORTANT: These are educational demos. When you\'re done, REVOKE these permissions!</string>
+    <string name="onboarding_page3_description">To show you real-time tracking, SpyCheck needs the same dangerous permissions that tracking apps use:\n\nÃ¢â‚¬Â¢ VPN Access - to see internet traffic\nÃ¢â‚¬Â¢ Usage Stats - to identify apps\nÃ¢â‚¬Â¢ Display Overlay - to show warnings\n\nIMPORTANT: These are educational demos. When you\'re done, REVOKE these permissions!</string>
 
     <!-- Onboarding Page 4 -->
     <string name="onboarding_page4_title">You\'re Ready!</string>
@@ -143,7 +143,7 @@
     <string name="exif_example_3">Photo editing apps harvesting user movement patterns</string>
 
     <!-- EXIF Demo Screen -->
-    <string name="exif_demo_title">📍 GPS from Photos</string>
+    <string name="exif_demo_title">ðŸ“ GPS from Photos</string>
     <string name="exif_demo_description">Apps can extract your exact location from photos without needing Location permission. Every photo taken with your phone\'s camera may contain GPS coordinates showing exactly where it was taken.</string>
 
     <string name="grant_permission_button">Grant Photos Permission to See Demo</string>
@@ -152,13 +152,13 @@
     <string name="apps_can_see">Apps can see:</string>
 
     <!-- Privacy warnings -->
-    <string name="privacy_impact_title">⚠️ Privacy Impact</string>
-    <string name="privacy_impact_description">Any app with Photos permission can see where every picture was taken â€” even without Location permission. This creates a complete tracking profile of everywhere you go.</string>
+    <string name="privacy_impact_title">âš ï¸ Privacy Impact</string>
+    <string name="privacy_impact_description">Any app with Photos permission can see where every picture was taken Ã¢â‚¬â€ even without Location permission. This creates a complete tracking profile of everywhere you go.</string>
 
 
-    <string name="if_gps_enabled_title">⚠️ What If GPS Were Enabled?</string>
+    <string name="if_gps_enabled_title">âš ï¸ What If GPS Were Enabled?</string>
     <string name="if_gps_enabled_description">If your camera had location enabled, apps would also see:</string>
-string>
+    string>
 
     <!-- Revoke permission warning -->
     <string name="revoke_permission_title">REVOKE THIS PERMISSION NOW</string>
@@ -191,13 +191,13 @@ string>
     <string name="exif_user_comment">User Comment</string>
 
     <!-- Section headers -->
-    <string name="section_device_identifiers">🔍 Device Identifiers</string>
-    <string name="section_device_software">📸 Device &amp; Software</string>
-    <string name="section_camera_settings">⚙️ Camera Settings</string>g>
+    <string name="section_device_identifiers">ðŸ” Device Identifiers</string>
+    <string name="section_device_software">ðŸ“¸ Device &amp; Software</string>
+    <string name="section_camera_settings">âš™ï¸ Camera Settings</string>g>
 
     <!-- EXIF explanations -->
     <string name="explain_date_time">Exact timestamp of when you took this photo</string>
-    <string name="explain_gps_coords">Pinpoints your exact location within 5â€“50 meters. Apps can map your entire movement history.</string>
+    <string name="explain_gps_coords">Pinpoints your exact location within 5Ã¢â‚¬â€œ50 meters. Apps can map your entire movement history.</string>
     <string name="explain_address">Your exact street address. Apps know if this is your home, workplace, or a sensitive location.</string>
     <string name="explain_altitude">Height above sea level. In buildings, this can reveal which floor you were on!</string>
     <string name="explain_gps_timestamp">Precise time from GPS satellites. Can be cross-referenced with other data sources.</string>
@@ -209,7 +209,7 @@ string>
     <string name="explain_software">Shows which camera app you used. Instagram? Snapchat? Stock camera? Reveals your app usage patterns.</string>
 
     <!-- Bullet points for no-GPS fallback -->
-    <string name="bullet_gps_coords">Exact GPS coordinates (Â±5â€“50m accuracy)</string>
+    <string name="bullet_gps_coords">Exact GPS coordinates (Ã‚Â±5Ã¢â‚¬â€œ50m accuracy)</string>
     <string name="bullet_addresses">Your home and work addresses</string>
     <string name="bullet_history">Complete location history from all photos</string>
     <string name="bullet_altitude">Which floor of buildings you were on (altitude)</string>
@@ -217,7 +217,7 @@ string>
     <string name="bullet_patterns">Patterns showing where you go regularly</string>
     <string name="bullet_sensitive">Sensitive locations: hospitals, clinics, religious sites</string>
 
-    <string name="tip_disable_gps">💡 Tip: Keep location services OFF in your camera settings to prevent this tracking!</string>
+    <string name="tip_disable_gps">ðŸ’¡ Tip: Keep location services OFF in your camera settings to prevent this tracking!</string>
 
     <!-- Software categories -->
     <string name="software_category_stock">Stock Camera App</string>
@@ -275,15 +275,15 @@ string>
     <string name="wifi_example_3">Ad networks following you between different locations</string>
 
     <!-- WiFi Demo Screen -->
-    <string name="wifi_demo_title">ðŸ“¡ WiFi Location Tracking</string>
+    <string name="wifi_demo_title">Ã°Å¸â€œÂ¡ WiFi Location Tracking</string>
     <string name="wifi_demo_description">Apps can track your exact location using nearby WiFi networks without GPS permission. Every WiFi router broadcasts a unique MAC address that has been mapped to a physical location.</string>
 
     <string name="grant_location_permission">Grant Location Permission</string>
     <string name="grant_wifi_permission">Grant Nearby WiFi Permission (Android 13+)</string>
-    <string name="location_permission_granted">âœ“ Location Permission Granted</string>
-    <string name="wifi_permission_granted">âœ“ WiFi Permission Granted</string>
+    <string name="location_permission_granted">Ã¢Å“â€œ Location Permission Granted</string>
+    <string name="wifi_permission_granted">Ã¢Å“â€œ WiFi Permission Granted</string>
     <string name="scan_wifi_button">Scan Nearby WiFi Networks</string>
-    <string name="scanning_wifi">Scanning WiFi networksâ€¦</string>
+    <string name="scanning_wifi">Scanning WiFi networksÃ¢â‚¬Â¦</string>
 
     <!-- WiFi Results -->
     <string name="wifi_networks_found">%d WiFi networks detected</string>
@@ -300,8 +300,8 @@ string>
     <string name="explain_wifi_location">Apps send these MAC addresses to location databases (Google, Apple, etc.) to get your precise coordinates.</string>
 
     <!-- WiFi Privacy Impact -->
-    <string name="wifi_privacy_title">⚠️ How This Tracks You</string>
-    <string name="wifi_privacy_description">These MAC addresses can be sent to Google\'s Geolocation API or similar services to determine your exact locationâ€”even indoors where GPS doesn\'t work well.</string>
+    <string name="wifi_privacy_title">âš ï¸ How This Tracks You</string>
+    <string name="wifi_privacy_description">These MAC addresses can be sent to Google\'s Geolocation API or similar services to determine your exact locationÃ¢â‚¬â€even indoors where GPS doesn\'t work well.</string>
 
     <string name="wifi_what_apps_see_title">What Apps Can Do:</string>
     <string name="wifi_bullet_track_location">Track your location without GPS permission</string>
@@ -315,7 +315,7 @@ string>
     <string name="api_copied">API request copied to clipboard</string>
 
     <!-- WiFi Revoke Warning -->
-    <string name="wifi_revoke_title">⚠️ REVOKE LOCATION PERMISSION NOW</string>
+    <string name="wifi_revoke_title">âš ï¸ REVOKE LOCATION PERMISSION NOW</string>
     <string name="wifi_revoke_description">This demo can now track your location through WiFi networks. Remove Location permission immediately after testing.</string>
 
     <!-- Wi-Fi API Providers -->
@@ -366,46 +366,46 @@ string>
 
 
     <!-- EXIF Demo specific strings -->
-<string name="exif_permission_explanation">This demo needs access to your photos to demonstrate how apps can extract GPS location data from image files. This permission lets apps read ALL your photos and their metadata.</string>
+    <string name="exif_permission_explanation">This demo needs access to your photos to demonstrate how apps can extract GPS location data from image files. This permission lets apps read ALL your photos and their metadata.</string>
 
 
     <!-- EXIF Demo Content Strings -->
-<string name="loading_photo">Loading Photo…</string>
-<string name="load_random_photo">Load Random Photo from Gallery</string>
-<string name="photo_loaded_exif_data_below">Photo loaded – EXIF data visible below</string>
-<string name="gps_location_found">⚠️ GPS Location Found!</string>
-<string name="this_photo_reveals_exact_location">This photo reveals your exact location</string>
-<string name="gps_coordinates">GPS Coordinates</string>
-<string name="approximate_address">Approximate Address</string>
-<string name="altitude">Altitude</string>
-<string name="date_time_label">Date &amp; Time</string>
-<string name="camera_model_label">Camera/Phone Model</string>
-<string name="software_used_label">Software/App Used</string>
-<string name="unknown">Unknown</string>
-<string name="apps_can_also_see">Apps can also see:</string>
+    <string name="loading_photo">Loading Photoâ€¦</string>
+    <string name="load_random_photo">Load Random Photo from Gallery</string>
+    <string name="photo_loaded_exif_data_below">Photo loaded â€“ EXIF data visible below</string>
+    <string name="gps_location_found">âš ï¸ GPS Location Found!</string>
+    <string name="this_photo_reveals_exact_location">This photo reveals your exact location</string>
+    <string name="gps_coordinates">GPS Coordinates</string>
+    <string name="approximate_address">Approximate Address</string>
+    <string name="altitude">Altitude</string>
+    <string name="date_time_label">Date &amp; Time</string>
+    <string name="camera_model_label">Camera/Phone Model</string>
+    <string name="software_used_label">Software/App Used</string>
+    <string name="unknown">Unknown</string>
+    <string name="apps_can_also_see">Apps can also see:</string>
 
     <!-- What If GPS Enabled Card -->
-<string name="exact_gps_coordinates_accuracy">Exact GPS coordinates (±5-50m accuracy)</string>
-<string name="your_home_work_addresses">Your home and work addresses</string>
-<string name="complete_location_history_photos">Complete location history from all photos</string>
-<string name="which_floor_building_altitude">Which floor of buildings you were on (altitude)</string>
-<string name="your_speed_direction_moving">Your speed and direction when moving</string>
-<string name="patterns_showing_regularly">Patterns showing where you regularly go</string>
-<string name="sensitive_locations_hospitals">Sensitive locations: hospitals, clinics, religious sites</string>
-<string name="tip_keep_location_services_off">Tip: Keep location services OFF in your camera settings to prevent this tracking!</string>
+    <string name="exact_gps_coordinates_accuracy">Exact GPS coordinates (Â±5-50m accuracy)</string>
+    <string name="your_home_work_addresses">Your home and work addresses</string>
+    <string name="complete_location_history_photos">Complete location history from all photos</string>
+    <string name="which_floor_building_altitude">Which floor of buildings you were on (altitude)</string>
+    <string name="your_speed_direction_moving">Your speed and direction when moving</string>
+    <string name="patterns_showing_regularly">Patterns showing where you regularly go</string>
+    <string name="sensitive_locations_hospitals">Sensitive locations: hospitals, clinics, religious sites</string>
+    <string name="tip_keep_location_services_off">Tip: Keep location services OFF in your camera settings to prevent this tracking!</string>
 
     <!-- EXIF Real World Examples -->
     <string name="exif_example_dating_stalker_title">The Dating App Stalker</string>
-    <string name="exif_example_dating_stalker_story">Sarah shares a photo on a dating app. The app extracts GPS coordinates from the EXIF data showing her home address. A stalker uses this to find where she lives. She never explicitly shared her location—just a photo.</string>
+    <string name="exif_example_dating_stalker_story">Sarah shares a photo on a dating app. The app extracts GPS coordinates from the EXIF data showing her home address. A stalker uses this to find where she lives. She never explicitly shared her locationâ€”just a photo.</string>
     <string name="exif_example_dating_stalker_impact">Dating apps can build a complete map of everywhere you\'ve been just from your photo metadata.</string>
-    <string name="exif_example_dating_stalker_critical">⚠️ CRITICAL: Photo permission = Location permission\n• Apps DON\'T need Location permission\n• Works even if Location services are OFF\n• Reveals your home, work, and regular spots\n• Creates a timeline of everywhere you\'ve been\n• Most people don\'t know photos contain GPS data</string>
+    <string name="exif_example_dating_stalker_critical">âš ï¸ CRITICAL: Photo permission = Location permission\nâ€¢ Apps DON\'T need Location permission\nâ€¢ Works even if Location services are OFF\nâ€¢ Reveals your home, work, and regular spots\nâ€¢ Creates a timeline of everywhere you\'ve been\nâ€¢ Most people don\'t know photos contain GPS data</string>
 
     <string name="exif_example_social_profile_title">The Social Media Profile</string>
     <string name="exif_example_social_profile_story">Mike uploads vacation photos to Instagram. The company\'s app scans EXIF data from every photo: GPS coordinates, timestamps, camera model. They build a profile: home location, work location, favorite restaurants, travel patterns. They sell this data to advertisers who target him with location-specific ads.</string>
     <string name="exif_example_social_profile_impact">Social media apps build detailed location profiles from your photos without needing explicit Location permission.</string>
 
     <string name="exif_example_insurance_fraud_title">The Insurance Fraud Detector</string>
-    <string name="exif_example_insurance_fraud_story">Someone files a disability insurance claim saying they can\'t travel. But they uploaded photos to Facebook from a hiking trip. Insurance investigators extract EXIF data proving exact GPS coordinates and timestamps. Claim denied. Person sued for fraud—caught by photo metadata.</string>
+    <string name="exif_example_insurance_fraud_story">Someone files a disability insurance claim saying they can\'t travel. But they uploaded photos to Facebook from a hiking trip. Insurance investigators extract EXIF data proving exact GPS coordinates and timestamps. Claim denied. Person sued for fraudâ€”caught by photo metadata.</string>
     <string name="exif_example_insurance_fraud_impact">Insurance companies use photo EXIF data to verify claims and detect fraud by tracking your location history.</string>
 
     <string name="exif_example_job_rejection_title">The Job Application Rejection</string>
@@ -418,7 +418,7 @@ string>
 
     <!-- WiFi Demo Content -->
     <string name="scan_wifi_networks">Scan WiFi Networks</string>
-    <string name="scanning_networks">Scanning…</string>
+    <string name="scanning_networks">Scanningâ€¦</string>
     <string name="networks_found">%d Networks Found</string>
     <string name="no_networks_found">No networks detected</string>
     <string name="apps_can_still_see">Even without GPS, apps can still see:</string>
@@ -429,14 +429,14 @@ string>
     <string name="wifi_example_shopping_mall_title">The Shopping Mall Tracker</string>
     <string name="wifi_example_shopping_mall_story">A retail app asks for "Location permission to show nearby stores." You grant it. Now the app scans WiFi networks every few seconds. Even with GPS off, the app pinpoints which floor you\'re on, which stores you visit, how long you stay. They build a profile: browsing vs. buying patterns, favorite departments, time spent comparing prices. This data is worth millions to advertisers.</string>
     <string name="wifi_example_shopping_mall_impact">Retail apps track your exact path through stores using WiFi, even when GPS is disabled.</string>
-    <string name="wifi_example_shopping_mall_critical">⚠️ CRITICAL: Location permission = WiFi scanning\n• Works even with GPS completely OFF\n• Tracks you room-by-room, floor-by-floor\n• Shows how long you stay in each location\n• Reveals your daily routine and patterns\n• Most people think "GPS off" means "not tracked"</string>
+    <string name="wifi_example_shopping_mall_critical">âš ï¸ CRITICAL: Location permission = WiFi scanning\nâ€¢ Works even with GPS completely OFF\nâ€¢ Tracks you room-by-room, floor-by-floor\nâ€¢ Shows how long you stay in each location\nâ€¢ Reveals your daily routine and patterns\nâ€¢ Most people think "GPS off" means "not tracked"</string>
 
     <string name="wifi_example_stalker_ex_title">The Stalker Ex-Partner</string>
-    <string name="wifi_example_stalker_ex_story">After a breakup, your ex installs a "harmless" weather app on your phone while you\'re distracted. The app has Location permission. Every 5 minutes, it scans WiFi networks and uploads them to a server. Your ex now knows: when you\'re home, when you leave for work, when you visit friends, when you go on dates. The app never uses GPS—just WiFi scanning. You never suspect anything because battery usage looks normal.</string>
+    <string name="wifi_example_stalker_ex_story">After a breakup, your ex installs a "harmless" weather app on your phone while you\'re distracted. The app has Location permission. Every 5 minutes, it scans WiFi networks and uploads them to a server. Your ex now knows: when you\'re home, when you leave for work, when you visit friends, when you go on dates. The app never uses GPSâ€”just WiFi scanning. You never suspect anything because battery usage looks normal.</string>
     <string name="wifi_example_stalker_ex_impact">Stalking apps use WiFi scanning to track victims\' movements 24/7 without draining battery or using GPS.</string>
 
     <string name="wifi_example_employee_surveillance_title">The Employee Surveillance</string>
-    <string name="wifi_example_employee_surveillance_story">Your company\'s "productivity app" requires Location permission for "location-based tasks." Reality: It scans WiFi networks every minute. The company now knows: if you\'re really working from home or at a café, how often you\'re at competitors\' offices, when you take breaks, if you\'re interviewing elsewhere. One employee gets fired for "frequently being at WeWork spaces during work hours"—actually attending medical appointments next door.</string>    <string name="wifi_example_employee_surveillance_impact">Employer apps use WiFi tracking to monitor if you\'re really working from where you say you are.</string>
+    <string name="wifi_example_employee_surveillance_story">Your company\'s "productivity app" requires Location permission for "location-based tasks." Reality: It scans WiFi networks every minute. The company now knows: if you\'re really working from home or at a cafÃ©, how often you\'re at competitors\' offices, when you take breaks, if you\'re interviewing elsewhere. One employee gets fired for "frequently being at WeWork spaces during work hours"â€”actually attending medical appointments next door.</string>    <string name="wifi_example_employee_surveillance_impact">Employer apps use WiFi tracking to monitor if you\'re really working from where you say you are.</string>
 
     <string name="wifi_example_protestor_tracking_title">The Political Protestor</string>
     <string name="wifi_example_protestor_tracking_story">A political organizer downloads an encrypted messaging app at a protest. The app requests Location "for emergency services." Later, government investigators subpoena the app\'s WiFi scan data. Every WiFi network at the protest venue is logged with timestamps. Cross-referencing with coffee shop WiFi data reveals the organizer\'s home neighborhood. Despite the app\'s encryption, WiFi metadata exposes everyone who attended.</string>
@@ -449,7 +449,7 @@ string>
 
     <string name="start_monitoring">Start Monitoring Clipboard</string>
     <string name="stop_monitoring">Stop Monitoring</string>
-    <string name="monitoring_active">🔴 Monitoring Active</string>
+    <string name="monitoring_active">ðŸ”´ Monitoring Active</string>
     <string name="clipboard_empty">No clipboard activity yet. Try copying something!</string>
     <string name="items_captured">%d items captured</string>
     <string name="clear_history">Clear History</string>
@@ -457,7 +457,7 @@ string>
     <string name="clipboard_example_password_manager_title">The Password Manager Trap</string>
     <string name="clipboard_example_password_manager_story">You use a password manager that copies passwords to clipboard. A malicious app monitors your clipboard every second. When it detects a password pattern (mix of letters, numbers, symbols), it immediately sends it to a remote server. Your "secure" password manager just leaked all your passwords to hackers. The app never asked for any permissions.</string>
     <string name="clipboard_example_password_manager_impact">Malicious apps can steal passwords from clipboard even when using "secure" password managers.</string>
-    <string name="clipboard_example_password_manager_critical">⚠️ CRITICAL: NO PERMISSION NEEDED\n• Apps can read clipboard ANYTIME\n• Works even when app is in background\n• Detects passwords, credit cards, OTP codes\n• Most password managers use clipboard\n• User has NO indication it\'s happening</string>
+    <string name="clipboard_example_password_manager_critical">âš ï¸ CRITICAL: NO PERMISSION NEEDED\nâ€¢ Apps can read clipboard ANYTIME\nâ€¢ Works even when app is in background\nâ€¢ Detects passwords, credit cards, OTP codes\nâ€¢ Most password managers use clipboard\nâ€¢ User has NO indication it\'s happening</string>
 
     <string name="clipboard_example_2fa_bypass_title">The 2FA Security Theater</string>
     <string name="clipboard_example_2fa_bypass_story">Your bank sends a 6-digit code via SMS. You copy it to paste into the banking app. A malicious app detects the 6-digit pattern, steals it, and sends it to attackers. They use it to bypass your "secure" two-factor authentication. The whole 2FA process took 30 seconds - plenty of time for the clipboard stealer to work.</string>
@@ -476,20 +476,20 @@ string>
     <string name="notification_permission_explanation">This demo needs notification access to show you what apps can see. Grant permission, then watch as we capture your real notifications.</string>
 
     <!-- Notification Examples -->
-    <string name="notification_example_banking_theft_title">🏦 The Banking Code Thief</string>
+    <string name="notification_example_banking_theft_title">ðŸ¦ The Banking Code Thief</string>
     <string name="notification_example_banking_theft_story">A "productivity" app requested notification access to "help organize your day." In reality, it was stealing banking verification codes.</string>
     <string name="notification_example_banking_theft_impact">Hackers used stolen 2FA codes to drain bank accounts. Victims lost thousands while the app looked completely innocent.</string>
     <string name="notification_example_banking_theft_critical">Your banking codes are visible in notifications for 30-60 seconds - plenty of time for malicious apps to steal them.</string>
 
-    <string name="notification_example_stalker_title">💔 The Ex-Partner Stalker</string>
+    <string name="notification_example_stalker_title">ðŸ’” The Ex-Partner Stalker</string>
     <string name="notification_example_stalker_story">An abusive ex-partner installed a "phone optimizer" app on their partner\'s phone. The app secretly captured all WhatsApp, text message, and dating app notifications.</string>
     <string name="notification_example_stalker_impact">The stalker knew every conversation, every person they talked to, and every place they planned to visit. The victim had no idea they were being monitored.</string>
 
-    <string name="notification_example_delivery_tracking_title">📦 The Package Thief Ring</string>
+    <string name="notification_example_delivery_tracking_title">ðŸ“¦ The Package Thief Ring</string>
     <string name="notification_example_delivery_tracking_story">Criminals distributed a fake "battery saver" app that requested notification access. It specifically targeted delivery notifications from Amazon, UPS, FedEx, etc.</string>
     <string name="notification_example_delivery_tracking_impact">Thieves knew exactly when packages were delivered and to which addresses. They stole hundreds of packages using real-time notification data.</string>
 
-    <string name="notification_example_corporate_spy_title">🕵️ The Corporate Spy</string>
+    <string name="notification_example_corporate_spy_title">ðŸ•µï¸ The Corporate Spy</string>
     <string name="notification_example_corporate_spy_story">A competitor planted malware disguised as a "work productivity tool" on an employee\'s phone. It harvested Slack, email, and calendar notifications.</string>
     <string name="notification_example_corporate_spy_impact">The spy learned about confidential meetings, upcoming product launches, and internal company discussions - all from notification content.</string>
 
@@ -500,9 +500,9 @@ string>
     <string name="keystroke_desc_long">Apps can guess what you type by monitoring accelerometer patterns - NO keyboard permission required! Each key press creates unique vibrations that reveal your passwords.</string>
 
     <!-- Keystroke Demo - UI Strings -->
-    <string name="keystroke_intro_title">🎯 Steal Passwords via Motion Sensors</string>
+    <string name="keystroke_intro_title">ðŸŽ¯ Steal Passwords via Motion Sensors</string>
     <string name="keystroke_intro_desc">Apps can guess what you type by monitoring accelerometer data - NO keyboard permission needed!</string>
-    <string name="keystroke_how_it_works">💡 How it works:</string>
+    <string name="keystroke_how_it_works">ðŸ’¡ How it works:</string>
     <string name="keystroke_steps">1. Different keys cause different phone vibrations\n2. Apps monitor sensors while you type\n3. Pattern matching reveals your passwords\n4. Research shows 70-80% accuracy!</string>
     <string name="keystroke_start_demo">Start Demo</string>
 
@@ -513,12 +513,12 @@ string>
 
     <string name="keystroke_type_hello">Type \"hello\" below:</string>
     <string name="keystroke_type_here">Type here...</string>
-    <string name="keystroke_sensor_reading">📊 Live Sensor Reading</string>
+    <string name="keystroke_sensor_reading">ðŸ“Š Live Sensor Reading</string>
     <string name="keystroke_sensor_values">X: %.2f | Y: %.2f | Z: %.2f</string>
     <string name="keystroke_detected_count">Detected %d keystrokes</string>
     <string name="keystroke_finish_calibration">Finish Calibration</string>
 
-    <string name="keystroke_calibration_complete">✅ Calibration Complete!</string>
+    <string name="keystroke_calibration_complete">âœ… Calibration Complete!</string>
     <string name="keystroke_calibration_complete_desc">We\'ve learned your typing pattern. Now let\'s test if we can guess what you type!</string>
     <string name="keystroke_proceed_to_test">Proceed to Test</string>
 
@@ -528,7 +528,7 @@ string>
 
     <string name="keystroke_type_anything">Type anything:</string>
     <string name="keystroke_your_secret">Your secret text...</string>
-    <string name="keystroke_detected_label">🎯 We detected:</string>
+    <string name="keystroke_detected_label">ðŸŽ¯ We detected:</string>
     <string name="keystroke_see_results">See Results</string>
 
     <string name="keystroke_results_title">Results</string>
@@ -536,24 +536,24 @@ string>
     <string name="keystroke_we_detected">We detected:</string>
     <string name="keystroke_no_matches">(Need more typing)</string>
     <string name="keystroke_accuracy">~%d%% of keystrokes detected</string>
-    <string name="keystroke_real_world_note">⚠️ This is a simplified demo. Real attacks use machine learning on thousands of typing samples, achieving 70-80%% accuracy. They can steal PINs, passwords, and credit card numbers - all without keyboard permission!</string>
+    <string name="keystroke_real_world_note">âš ï¸ This is a simplified demo. Real attacks use machine learning on thousands of typing samples, achieving 70-80%% accuracy. They can steal PINs, passwords, and credit card numbers - all without keyboard permission!</string>
     <string name="keystroke_try_again">Try Again</string>
 
     <!-- Keystroke Real-World Examples -->
     <string name="keystroke_example_banking_title">The Banking Attack</string>
     <string name="keystroke_example_banking_story">Sarah downloads a free weather app that requests no suspicious permissions. When she logs into her banking app and types her PIN, the weather app secretly monitors her phone\'s accelerometer. Different keys create different vibration patterns. The app records these patterns and uses machine learning to decode her 4-digit PIN with 73%% accuracy. Within days, her account is drained.</string>
     <string name="keystroke_example_banking_impact">Research from multiple universities has demonstrated 70-80%% accuracy in keystroke inference attacks. No keyboard permission is required - only accelerometer access, which apps get automatically.</string>
-    <string name="keystroke_example_banking_critical">⚠️ CRITICAL: Motion sensors reveal your passwords\n• No permission popup for accelerometer access\n• Works even with secure keyboards\n• Can steal PINs, passwords, credit cards\n• Research paper: \"TouchLogger\" achieved 70%%+ accuracy</string>
+    <string name="keystroke_example_banking_critical">âš ï¸ CRITICAL: Motion sensors reveal your passwords\nâ€¢ No permission popup for accelerometer access\nâ€¢ Works even with secure keyboards\nâ€¢ Can steal PINs, passwords, credit cards\nâ€¢ Research paper: \"TouchLogger\" achieved 70%%+ accuracy</string>
 
     <string name="keystroke_example_corporate_title">The Corporate Espionage</string>
     <string name="keystroke_example_corporate_story">Mike\'s company issues work phones with MDM software. Unknown to employees, the MDM app includes keystroke inference capabilities. When Mike types confidential project codes and passwords, the app records accelerometer patterns. His employer claims it\'s for \'productivity monitoring\' but they\'re actually harvesting credentials to access personal accounts Mike uses during breaks.</string>
     <string name="keystroke_example_corporate_impact">Enterprise software can include keystroke inference as a \'feature\' for monitoring employee productivity. This same technique can steal personal passwords typed on work devices.</string>
-    <string name="keystroke_example_corporate_critical">⚠️ EMPLOYERS CAN SPY ON YOUR TYPING\n• Work phone MDM software has full sensor access\n• Can record passwords for personal accounts\n• Legal in many jurisdictions\n• Never type personal passwords on work devices</string>
+    <string name="keystroke_example_corporate_critical">âš ï¸ EMPLOYERS CAN SPY ON YOUR TYPING\nâ€¢ Work phone MDM software has full sensor access\nâ€¢ Can record passwords for personal accounts\nâ€¢ Legal in many jurisdictions\nâ€¢ Never type personal passwords on work devices</string>
 
     <string name="keystroke_example_gaming_title">The Gaming Trojan</string>
     <string name="keystroke_example_gaming_story">Alex installs a popular mobile game that seems harmless. While playing, the game continuously monitors the accelerometer \'for gameplay purposes.\' When Alex switches to his banking app during a game break, the gaming app keeps running in the background, recording motion patterns as he types his password. The game developers sell this data to cybercriminals who use it to compromise his accounts.</string>
     <string name="keystroke_example_gaming_impact">Background apps can continue monitoring sensors even when you switch to other apps. Gaming apps are particularly dangerous because sensor monitoring seems justified for gameplay, masking the real intent.</string>
-    <string name="keystroke_example_gaming_critical">⚠️ GAMES CAN STEAL PASSWORDS IN BACKGROUND\n• Apps continue monitoring when minimized\n• \'Gameplay features\' justify sensor access\n• Can monitor typing in ANY app\n• Force-close apps when doing sensitive tasks</string>
+    <string name="keystroke_example_gaming_critical">âš ï¸ GAMES CAN STEAL PASSWORDS IN BACKGROUND\nâ€¢ Apps continue monitoring when minimized\nâ€¢ \'Gameplay features\' justify sensor access\nâ€¢ Can monitor typing in ANY app\nâ€¢ Force-close apps when doing sensitive tasks</string>
 
     <!-- Sensor Tracking Demo - Basic Info -->
     <string name="sensor_tracking_title">Sensor Tracking</string>
@@ -568,43 +568,43 @@ string>
     <string name="sensor_tracking_start">Start Tracking</string>
     <string name="sensor_tracking_stop">Stop Tracking</string>
     <string name="sensor_tracking_clear">Clear Data</string>
-    <string name="sensor_tracking_active">🟢 Tracking Active</string>
-    <string name="sensor_tracking_inactive">⚪ Tracking Inactive</string>
+    <string name="sensor_tracking_active">ðŸŸ¢ Tracking Active</string>
+    <string name="sensor_tracking_inactive">âšª Tracking Inactive</string>
     <string name="sensor_tracking_move_around">Walk around to see sensor data</string>
     <string name="sensor_tracking_press_start">Press Start to begin tracking</string>
 
-    <string name="sensor_tracking_how_to">💡 How to use:</string>
+    <string name="sensor_tracking_how_to">ðŸ’¡ How to use:</string>
     <string name="sensor_tracking_instructions">1. Press \"Start Tracking\"\n2. Walk around your room or take a few steps\n3. Watch as sensors detect your movement\n4. See your activity, steps, and direction</string>
 
-    <string name="sensor_tracking_detected_movement">📊 Detected Movement</string>
+    <string name="sensor_tracking_detected_movement">ðŸ“Š Detected Movement</string>
     <string name="sensor_tracking_steps">Steps</string>
     <string name="sensor_tracking_distance">Distance</string>
     <string name="sensor_tracking_meters">%.1f meters</string>
     <string name="sensor_tracking_direction">Direction</string>
-    <string name="sensor_tracking_direction_value">%s (%.0f°)</string>
+    <string name="sensor_tracking_direction_value">%s (%.0fÂ°)</string>
     <string name="sensor_tracking_current_activity">Current Activity</string>
     <string name="sensor_tracking_movement_intensity">Movement Intensity</string>
 
-    <string name="sensor_tracking_privacy_warning">⚠️ Apps can track your movements 24/7 in the background. Fitness apps, health apps, and even games use this data to build detailed profiles of your daily routine, workout habits, and travel patterns.</string>
+    <string name="sensor_tracking_privacy_warning">âš ï¸ Apps can track your movements 24/7 in the background. Fitness apps, health apps, and even games use this data to build detailed profiles of your daily routine, workout habits, and travel patterns.</string>
 
     <!-- Real-World Examples -->
     <string name="sensor_tracking_example_fitness_title">The Fitness App Betrayal</string>
     <string name="sensor_tracking_example_fitness_story">Emma uses a popular fitness app to track her runs. The app requests Activity Recognition permission \"to count your steps accurately.\" Emma agrees, thinking it\'s necessary for the app to work. What she doesn\'t know: the app runs in the background 24/7, tracking not just her workouts but every movement she makes. It records when she wakes up, when she goes to bed, her commute patterns, and even detects when she\'s at the gym versus at home. The company sells this behavioral data to insurance companies and advertisers.</string>
     <string name="sensor_tracking_example_fitness_impact">Fitness apps can monitor your movements around the clock, not just during workouts. They build detailed profiles of your daily routine, sleep patterns, and lifestyle that have real commercial value.</string>
-    <string name="sensor_tracking_example_fitness_critical">⚠️ CRITICAL: Fitness apps track 24/7\n• Movement data collected even when app is closed\n• Can detect your daily routine and sleep schedule\n• Sold to insurance companies to adjust premiums\n• Used to target ads based on activity patterns</string>
+    <string name="sensor_tracking_example_fitness_critical">âš ï¸ CRITICAL: Fitness apps track 24/7\nâ€¢ Movement data collected even when app is closed\nâ€¢ Can detect your daily routine and sleep schedule\nâ€¢ Sold to insurance companies to adjust premiums\nâ€¢ Used to target ads based on activity patterns</string>
 
     <string name="sensor_tracking_example_insurance_title">The Insurance Adjustment</string>
     <string name="sensor_tracking_example_insurance_story">Mike\'s health insurance offers a discount if he uses their wellness app to \"prove\" he exercises regularly. He downloads the app and grants Activity Recognition permission. After 6 months, his premium suddenly increases. When he calls to complain, the insurance company explains: sensor data shows he\'s sedentary most days, takes fewer than 3,000 steps daily, and his movement patterns suggest he sits for 12+ hours. His \"wellness discount\" is revoked, and he\'s classified as high-risk based entirely on motion sensor data.</string>
     <string name="sensor_tracking_example_insurance_impact">Insurance companies use motion sensor data to adjust premiums and evaluate health risk. Being sedentary or having irregular movement patterns can result in higher rates or denied coverage.</string>
-    <string name="sensor_tracking_example_insurance_critical">⚠️ YOUR MOVEMENT DATA AFFECTS INSURANCE\n• Health insurers monitor daily step count\n• Sedentary behavior increases premiums\n• Movement patterns used for risk assessment\n• Legal to deny coverage based on activity data</string>
+    <string name="sensor_tracking_example_insurance_critical">âš ï¸ YOUR MOVEMENT DATA AFFECTS INSURANCE\nâ€¢ Health insurers monitor daily step count\nâ€¢ Sedentary behavior increases premiums\nâ€¢ Movement patterns used for risk assessment\nâ€¢ Legal to deny coverage based on activity data</string>
 
     <string name="sensor_tracking_example_employer_title">The Employee Monitoring</string>
     <string name="sensor_tracking_example_employer_story">Lisa\'s company provides work phones with a \"productivity app\" that requires Activity Recognition permission. The app claims it\'s for \"optimizing workflows.\" In reality, it tracks whether employees are at their desks or moving around. Lisa takes a 15-minute walk during lunch, and later receives a warning from HR about \"excessive time away from workspace.\" The app detected she walked 400 meters during work hours. Her manager now monitors her daily movement patterns to ensure she\'s \"staying focused.\"</string>
     <string name="sensor_tracking_example_employer_impact">Employers can use motion sensors to monitor employee activity throughout the workday. Movement data reveals bathroom breaks, lunch duration, and whether you\'re at your desk - creating a surveillance culture.</string>
-    <string name="sensor_tracking_example_employer_critical">⚠️ EMPLOYERS MONITOR YOUR MOVEMENTS\n• Work phones track your every step\n• Movement data used in performance reviews\n• Can detect bathroom breaks and lunch duration\n• Legal in most jurisdictions with company devices</string>
+    <string name="sensor_tracking_example_employer_critical">âš ï¸ EMPLOYERS MONITOR YOUR MOVEMENTS\nâ€¢ Work phones track your every step\nâ€¢ Movement data used in performance reviews\nâ€¢ Can detect bathroom breaks and lunch duration\nâ€¢ Legal in most jurisdictions with company devices</string>
 
     <!-- Usage Stats Demo -->
-    <string name="usage_stats_title">📊 Usage Stats Tracking</string>
+    <string name="usage_stats_title">ðŸ“Š Usage Stats Tracking</string>
     <string name="usage_stats_permission_desc">Grant Usage Access permission in Settings to reveal what apps can learn about your digital life</string>
 
     <!-- Description -->
@@ -612,49 +612,49 @@ string>
     <string name="usage_stats_desc_long">Usage Stats permission allows apps to see which apps you use, how long you use them, and when. This creates a detailed psychological profile revealing your habits, addictions, sleep patterns, work ethic, and mental health indicators. Apps can use this to manipulate you, insurance companies can assess your lifestyle, and employers can monitor productivity. It\'s like having someone watch over your shoulder 24/7.</string>
 
     <!-- Real World Examples -->
-    <string name="usage_stats_example1_title">🕵️ Employer Productivity Surveillance</string>
+    <string name="usage_stats_example1_title">ðŸ•µï¸ Employer Productivity Surveillance</string>
     <string name="usage_stats_example1_desc">A company installs a productivity app on employee phones. The app uses Usage Stats to monitor how much time employees spend on work apps vs social media during work hours.</string>
-    <string name="usage_stats_example1_reveal">💀 REVEALED: You opened Instagram 47 times during work hours today. You spent 2.5 hours on entertainment apps while supposedly working. Your employer now has evidence to fire you or deny your raise.</string>
+    <string name="usage_stats_example1_reveal">ðŸ’€ REVEALED: You opened Instagram 47 times during work hours today. You spent 2.5 hours on entertainment apps while supposedly working. Your employer now has evidence to fire you or deny your raise.</string>
 
-    <string name="usage_stats_example2_title">💔 Dating App Desperation Tracking</string>
+    <string name="usage_stats_example2_title">ðŸ’” Dating App Desperation Tracking</string>
     <string name="usage_stats_example2_desc">A dating app uses Usage Stats to see how often you open competitor dating apps. This reveals how desperate you are for a relationship.</string>
-    <string name="usage_stats_example2_reveal">😰 REVEALED: You opened Tinder 38 times today, averaging every 30 minutes. You check it at 2 AM. You also use Bumble and Hinge simultaneously. The app marks you as "desperate" and shows you to fewer quality matches, keeping you subscribed longer.</string>
+    <string name="usage_stats_example2_reveal">ðŸ˜° REVEALED: You opened Tinder 38 times today, averaging every 30 minutes. You check it at 2 AM. You also use Bumble and Hinge simultaneously. The app marks you as "desperate" and shows you to fewer quality matches, keeping you subscribed longer.</string>
 
-    <string name="usage_stats_example3_title">🏥 Insurance Risk Assessment</string>
+    <string name="usage_stats_example3_title">ðŸ¥ Insurance Risk Assessment</string>
     <string name="usage_stats_example3_desc">A health insurance app uses Usage Stats to assess your lifestyle. Gaming late at night, excessive screen time, and lack of fitness app usage indicate poor health habits.</string>
-    <string name="usage_stats_example3_reveal">🚨 REVEALED: You play mobile games until 3 AM, check social media 200+ times daily, and never open fitness apps. Insurance denies your claim because "your lifestyle indicates high health risks." Your premiums increase 40%.</string>
+    <string name="usage_stats_example3_reveal">ðŸš¨ REVEALED: You play mobile games until 3 AM, check social media 200+ times daily, and never open fitness apps. Insurance denies your claim because "your lifestyle indicates high health risks." Your premiums increase 40%.</string>
 
     <!-- UI Strings -->
-    <string name="usage_stats_analyzing">🔍 Analyzing your digital life…</string>
-    <string name="usage_stats_error_title">❌ Analysis Failed</string>
-    <string name="usage_stats_retry">🔄 Retry Analysis</string>
+    <string name="usage_stats_analyzing">ðŸ” Analyzing your digital lifeâ€¦</string>
+    <string name="usage_stats_error_title">âŒ Analysis Failed</string>
+    <string name="usage_stats_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="usage_stats_reveals_title">🚨 What \'Usage Access\' REALLY Reveals:</string>
-    <string name="usage_stats_reveal1">😴 Your exact sleep schedule (when you stop using your phone)</string>
-    <string name="usage_stats_reveal2">💔 How desperate you are (dating app check frequency)</string>
-    <string name="usage_stats_reveal3">🧠 Your mental health (3 AM doomscrolling sessions)</string>
-    <string name="usage_stats_reveal4">🎮 Gaming addiction levels and patterns</string>
-    <string name="usage_stats_reveal5">💼 Work ethic (distractions during work hours)</string>
-    <string name="usage_stats_reveal6">📱 Phone addiction severity (unlock frequency)</string>
+    <string name="usage_stats_reveals_title">ðŸš¨ What \'Usage Access\' REALLY Reveals:</string>
+    <string name="usage_stats_reveal1">ðŸ˜´ Your exact sleep schedule (when you stop using your phone)</string>
+    <string name="usage_stats_reveal2">ðŸ’” How desperate you are (dating app check frequency)</string>
+    <string name="usage_stats_reveal3">ðŸ§  Your mental health (3 AM doomscrolling sessions)</string>
+    <string name="usage_stats_reveal4">ðŸŽ® Gaming addiction levels and patterns</string>
+    <string name="usage_stats_reveal5">ðŸ’¼ Work ethic (distractions during work hours)</string>
+    <string name="usage_stats_reveal6">ðŸ“± Phone addiction severity (unlock frequency)</string>
 
-    <string name="usage_stats_analyze_button">📊 Analyze My Digital Life</string>
-    <string name="usage_stats_refresh">🔄 Refresh</string>
-    <string name="usage_stats_revoke">🔒 Revoke</string>
-    <string name="usage_stats_revoke_button">🔒 Revoke Permission</string>
+    <string name="usage_stats_analyze_button">ðŸ“Š Analyze My Digital Life</string>
+    <string name="usage_stats_refresh">ðŸ”„ Refresh</string>
+    <string name="usage_stats_revoke">ðŸ”’ Revoke</string>
+    <string name="usage_stats_revoke_button">ðŸ”’ Revoke Permission</string>
 
     <!-- Tabs -->
-    <string name="usage_stats_tab_routine">📅 Daily Routine</string>
-    <string name="usage_stats_tab_sleep">😴 Sleep</string>
-    <string name="usage_stats_tab_addictions">🎮 Addictions</string>
-    <string name="usage_stats_tab_work">💼 Work/Life</string>
-    <string name="usage_stats_tab_mental">🧠 Mental Health</string>
+    <string name="usage_stats_tab_routine">ðŸ“… Daily Routine</string>
+    <string name="usage_stats_tab_sleep">ðŸ˜´ Sleep</string>
+    <string name="usage_stats_tab_addictions">ðŸŽ® Addictions</string>
+    <string name="usage_stats_tab_work">ðŸ’¼ Work/Life</string>
+    <string name="usage_stats_tab_mental">ðŸ§  Mental Health</string>
 
     <!-- Warning -->
     <string name="usage_stats_warning_title">THIS IS WHAT APPS SEE</string>
     <string name="usage_stats_warning_desc">This analysis is from just 24 hours. Tracking apps collect this data continuously and build profiles over months.</string>
 
     <!-- Daily Routine View -->
-    <string name="usage_stats_routine_title">📅 Your Daily Routine</string>
+    <string name="usage_stats_routine_title">ðŸ“… Your Daily Routine</string>
     <string name="usage_stats_wake_time">Wake-up time</string>
     <string name="usage_stats_sleep_time">Sleep time</string>
     <string name="usage_stats_most_active">Most active hour</string>
@@ -663,7 +663,7 @@ string>
     <string name="usage_stats_last_app">Last app before sleep</string>
 
     <!-- Sleep Analysis View -->
-    <string name="usage_stats_sleep_title">😴 Sleep Analysis</string>
+    <string name="usage_stats_sleep_title">ðŸ˜´ Sleep Analysis</string>
     <string name="usage_stats_sleep_duration">Sleep duration</string>
     <string name="usage_stats_sleep_quality">Sleep quality</string>
     <string name="usage_stats_midnight_usage">Midnight usage (12-6 AM)</string>
@@ -672,25 +672,25 @@ string>
     <string name="usage_stats_minutes_format">%d min</string>
 
     <!-- App Addictions View -->
-    <string name="usage_stats_no_addictions">✅ No concerning app usage patterns detected</string>
+    <string name="usage_stats_no_addictions">âœ… No concerning app usage patterns detected</string>
     <string name="usage_stats_daily_usage">Daily usage</string>
     <string name="usage_stats_sessions">Sessions today</string>
     <string name="usage_stats_longest_session">Longest session</string>
 
     <!-- Work/Life Balance View -->
-    <string name="usage_stats_work_balance_title">💼 Work/Life Balance</string>
+    <string name="usage_stats_work_balance_title">ðŸ’¼ Work/Life Balance</string>
     <string name="usage_stats_work_usage">Work app usage</string>
     <string name="usage_stats_entertainment_usage">Entertainment usage</string>
     <string name="usage_stats_productivity_score">Productivity score</string>
-    <string name="usage_stats_violations_title">⚠️ Work Hour Violations:</string>
+    <string name="usage_stats_violations_title">âš ï¸ Work Hour Violations:</string>
 
     <!-- Mental Health View -->
-    <string name="usage_stats_mental_health_title">🧠 Mental Health Indicators</string>
+    <string name="usage_stats_mental_health_title">ðŸ§  Mental Health Indicators</string>
     <string name="usage_stats_doomscrolling">Doomscrolling sessions (30+ min)</string>
     <string name="usage_stats_late_night_social">Late night social media (11 PM+)</string>
-    <string name="usage_stats_anxiety_indicators_title">⚠️ Anxiety Indicators:</string>
-    <string name="usage_stats_mood_apps_title">💭 Mood-Affecting Apps:</string>
-    <string name="usage_stats_critical_info">⚠️ Apps with Usage Stats permission can track EVERYTHING you do on your phone 24/7 - building psychological profiles to manipulate, discriminate, or exploit you.</string>
+    <string name="usage_stats_anxiety_indicators_title">âš ï¸ Anxiety Indicators:</string>
+    <string name="usage_stats_mood_apps_title">ðŸ’­ Mood-Affecting Apps:</string>
+    <string name="usage_stats_critical_info">âš ï¸ Apps with Usage Stats permission can track EVERYTHING you do on your phone 24/7 - building psychological profiles to manipulate, discriminate, or exploit you.</string>
     <string name="perm_photos_name">Photo Access</string>
     <string name="perm_activity_name">Activity Recognition</string>
     <string name="perm_notifications_name">Notification Access</string>
@@ -700,18 +700,18 @@ string>
     <!-- ==================== FINGERPRINTING SECTION ==================== -->
 
     <!-- Fingerprinting Home Screen -->
-    <string name="fingerprinting_home_title">🔍 Device Fingerprinting</string>
+    <string name="fingerprinting_home_title">ðŸ” Device Fingerprinting</string>
     <string name="fingerprinting_home_subtitle">How apps identify and track you uniquely</string>
     <string name="fingerprinting_home_intro">Device fingerprinting creates a unique identifier for your device by combining various hardware and software characteristics. Even without permissions, apps can build a profile that follows you across apps and websites.</string>
 
     <!-- Fingerprinting Demo Titles -->
-    <string name="fp_audio_title">🎵 Audio Fingerprinting</string>
-    <string name="fp_battery_title">🔋 Battery Fingerprinting</string>
-    <string name="fp_device_title">📱 Device Fingerprinting</string>
-    <string name="fp_network_title">🌐 Network Fingerprinting</string>
-    <string name="fp_performance_title">⚡ Performance Fingerprinting</string>
-    <string name="fp_sensor_title">📊 Sensor Fingerprinting</string>
-    <string name="fp_combined_title">🎯 Super Fingerprint</string>
+    <string name="fp_audio_title">ðŸŽµ Audio Fingerprinting</string>
+    <string name="fp_battery_title">ðŸ”‹ Battery Fingerprinting</string>
+    <string name="fp_device_title">ðŸ“± Device Fingerprinting</string>
+    <string name="fp_network_title">ðŸŒ Network Fingerprinting</string>
+    <string name="fp_performance_title">âš¡ Performance Fingerprinting</string>
+    <string name="fp_sensor_title">ðŸ“Š Sensor Fingerprinting</string>
+    <string name="fp_combined_title">ðŸŽ¯ Super Fingerprint</string>
 
     <!-- Fingerprinting Short Descriptions -->
     <string name="fp_audio_short_desc">Identifying devices through audio hardware characteristics</string>
@@ -723,7 +723,7 @@ string>
     <string name="fp_combined_short_desc">Combining all fingerprinting methods for ultimate tracking</string>
 
     <!-- ==================== AUDIO FINGERPRINTING ==================== -->
-    <string name="fp_audio_demo_title">🎵 Audio Fingerprinting Demo</string>
+    <string name="fp_audio_demo_title">ðŸŽµ Audio Fingerprinting Demo</string>
     <string name="fp_audio_permission_desc">This demo requires RECORD_AUDIO permission to demonstrate how apps can fingerprint your device through audio hardware characteristics.</string>
 
     <!-- Description -->
@@ -731,35 +731,35 @@ string>
     <string name="fp_audio_desc_long">Every device\'s audio hardware (microphone, speakers, amplifiers) has microscopic manufacturing imperfections. These create a unique "audio fingerprint" that remains constant. By playing inaudible ultrasonic sounds and recording the response, apps can identify your exact device even if you clear all data, use VPN, or factory reset your phone.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_audio_example1_title">🏪 Retail Store Tracking</string>
+    <string name="fp_audio_example1_title">ðŸª Retail Store Tracking</string>
     <string name="fp_audio_example1_desc">Stores emit ultrasonic beacons that your phone\'s microphone picks up. Apps use audio fingerprinting to track your exact path through the store.</string>
-    <string name="fp_audio_example1_reveal">📍 REVEALED: You entered through the north entrance, spent 4 minutes in electronics, 7 minutes in clothing, and left without buying. This profile links to your previous 12 visits. The store knows your shopping patterns better than you do.</string>
+    <string name="fp_audio_example1_reveal">ðŸ“ REVEALED: You entered through the north entrance, spent 4 minutes in electronics, 7 minutes in clothing, and left without buying. This profile links to your previous 12 visits. The store knows your shopping patterns better than you do.</string>
 
-    <string name="fp_audio_example2_title">📺 Cross-Device Ad Tracking</string>
+    <string name="fp_audio_example2_title">ðŸ“º Cross-Device Ad Tracking</string>
     <string name="fp_audio_example2_desc">TVs emit ultrasonic signals in ads. Your phone picks them up and links your TV viewing to your mobile identity.</string>
-    <string name="fp_audio_example2_reveal">🎯 REVEALED: You watched a car commercial on TV at 8:47 PM. Within seconds, car ads appeared on your phone. The advertiser now knows your TV habits, viewing times, and can correlate this with your phone usage. They paid $0.003 for this cross-device tracking.</string>
+    <string name="fp_audio_example2_reveal">ðŸŽ¯ REVEALED: You watched a car commercial on TV at 8:47 PM. Within seconds, car ads appeared on your phone. The advertiser now knows your TV habits, viewing times, and can correlate this with your phone usage. They paid $0.003 for this cross-device tracking.</string>
 
-    <string name="fp_audio_example3_title">🕵️ Government Surveillance Bypass</string>
+    <string name="fp_audio_example3_title">ðŸ•µï¸ Government Surveillance Bypass</string>
     <string name="fp_audio_example3_desc">Intelligence agencies use audio fingerprinting to identify phones even when all identifying features are disabled.</string>
-    <string name="fp_audio_example3_reveal">🚨 REVEALED: Even with VPN, new SIM card, and factory reset, your device was identified at a protest through its audio fingerprint. Surveillance footage was cross-referenced with your phone\'s unique audio signature. No encryption can hide hardware imperfections.</string>
+    <string name="fp_audio_example3_reveal">ðŸš¨ REVEALED: Even with VPN, new SIM card, and factory reset, your device was identified at a protest through its audio fingerprint. Surveillance footage was cross-referenced with your phone\'s unique audio signature. No encryption can hide hardware imperfections.</string>
 
     <!-- UI Strings -->
-    <string name="fp_audio_analyzing">🎵 Recording audio fingerprintâ€¦</string>
-    <string name="fp_audio_error_title">❌ Audio Analysis Failed</string>
-    <string name="fp_audio_retry">🔄 Retry Analysis</string>
+    <string name="fp_audio_analyzing">ðŸŽµ Recording audio fingerprintÃ¢â‚¬Â¦</string>
+    <string name="fp_audio_error_title">âŒ Audio Analysis Failed</string>
+    <string name="fp_audio_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_audio_reveals_title">🚨 What Audio Fingerprinting Reveals:</string>
-    <string name="fp_audio_reveal1">🎤 Your exact device model and manufacturing batch</string>
-    <string name="fp_audio_reveal2">🏠 Which room of your house you\'re in (acoustic signature)</string>
-    <string name="fp_audio_reveal3">📺 What you\'re watching on TV (ultrasonic ad beacons)</string>
-    <string name="fp_audio_reveal4">🏪 Your exact location in stores (ultrasonic tracking)</string>
-    <string name="fp_audio_reveal5">👥 Who you\'re with (their phones\' audio fingerprints)</string>
-    <string name="fp_audio_reveal6">🎧 Headphone model and audio preferences</string>
+    <string name="fp_audio_reveals_title">ðŸš¨ What Audio Fingerprinting Reveals:</string>
+    <string name="fp_audio_reveal1">ðŸŽ¤ Your exact device model and manufacturing batch</string>
+    <string name="fp_audio_reveal2">ðŸ  Which room of your house you\'re in (acoustic signature)</string>
+    <string name="fp_audio_reveal3">ðŸ“º What you\'re watching on TV (ultrasonic ad beacons)</string>
+    <string name="fp_audio_reveal4">ðŸª Your exact location in stores (ultrasonic tracking)</string>
+    <string name="fp_audio_reveal5">ðŸ‘¥ Who you\'re with (their phones\' audio fingerprints)</string>
+    <string name="fp_audio_reveal6">ðŸŽ§ Headphone model and audio preferences</string>
 
-    <string name="fp_audio_analyze_button">🎵 Generate Audio Fingerprint</string>
+    <string name="fp_audio_analyze_button">ðŸŽµ Generate Audio Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_audio_results_title">🎵 Your Audio Fingerprint</string>
+    <string name="fp_audio_results_title">ðŸŽµ Your Audio Fingerprint</string>
     <string name="fp_audio_frequency_response">Frequency Response Signature</string>
     <string name="fp_audio_harmonic_distortion">Harmonic Distortion Pattern</string>
     <string name="fp_audio_noise_floor">Noise Floor Characteristics</string>
@@ -767,11 +767,11 @@ string>
     <string name="fp_audio_fingerprint_hash">Unique Audio ID</string>
 
     <!-- Warning -->
-    <string name="fp_audio_warning_title">🎤 THIS WORKS WITHOUT YOUR KNOWLEDGE</string>
+    <string name="fp_audio_warning_title">ðŸŽ¤ THIS WORKS WITHOUT YOUR KNOWLEDGE</string>
     <string name="fp_audio_warning_desc">Apps can generate your audio fingerprint silently in the background. You never know it\'s happening. This fingerprint never changes, following you forever.</string>
 
     <!-- ==================== BATTERY FINGERPRINTING ==================== -->
-    <string name="fp_battery_demo_title">🔋 Battery Fingerprinting Demo</string>
+    <string name="fp_battery_demo_title">ðŸ”‹ Battery Fingerprinting Demo</string>
     <string name="fp_battery_permission_desc">No special permissions required. This demo uses standard battery APIs available to all apps.</string>
 
     <!-- Description -->
@@ -779,35 +779,35 @@ string>
     <string name="fp_battery_desc_long">Every battery ages differently based on charging habits, usage patterns, and manufacturing variances. By monitoring battery drain rates under different conditions, apps can create a unique fingerprint. As your battery ages, this fingerprint actually becomes MORE unique and MORE accurate.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_battery_example1_title">🌐 Bypassing Browser Privacy</string>
+    <string name="fp_battery_example1_title">ðŸŒ Bypassing Browser Privacy</string>
     <string name="fp_battery_example1_desc">Websites use battery fingerprinting to track you even in private/incognito mode with all cookies blocked.</string>
-    <string name="fp_battery_example1_reveal">👁️ REVEALED: Despite using private browsing and VPN, the website recognized you from a visit 6 months ago through your battery signature. Your "anonymous" session was linked to your previous activity, purchases, and browsing history. Privacy mode is useless.</string>
+    <string name="fp_battery_example1_reveal">ðŸ‘ï¸ REVEALED: Despite using private browsing and VPN, the website recognized you from a visit 6 months ago through your battery signature. Your "anonymous" session was linked to your previous activity, purchases, and browsing history. Privacy mode is useless.</string>
 
-    <string name="fp_battery_example2_title">🏦 Financial Fraud Detection</string>
+    <string name="fp_battery_example2_title">ðŸ¦ Financial Fraud Detection</string>
     <string name="fp_battery_example2_desc">Banks use battery fingerprinting to detect account takeovers - but it also reveals your financial stress.</string>
-    <string name="fp_battery_example2_reveal">💳 REVEALED: Your battery drain pattern changed - you\'re checking your bank app more frequently at odd hours. The AI flagged you as "financial distress." Your credit card limit was reduced, loan application rejected. They detected money problems before you asked for help.</string>
+    <string name="fp_battery_example2_reveal">ðŸ’³ REVEALED: Your battery drain pattern changed - you\'re checking your bank app more frequently at odd hours. The AI flagged you as "financial distress." Your credit card limit was reduced, loan application rejected. They detected money problems before you asked for help.</string>
 
-    <string name="fp_battery_example3_title">📱 Dating App Manipulation</string>
+    <string name="fp_battery_example3_title">ðŸ“± Dating App Manipulation</string>
     <string name="fp_battery_example3_desc">Dating apps use battery data to detect if you\'re using multiple accounts or identity fraud.</string>
-    <string name="fp_battery_example3_reveal">❤️ REVEALED: Your battery fingerprint matched a banned account. Your new profile was shadow-banned immediately. Even with new photos, bio, and email, your battery signature exposed you. You\'ll get almost no matches, forcing you to pay for premium.</string>
+    <string name="fp_battery_example3_reveal">â¤ï¸ REVEALED: Your battery fingerprint matched a banned account. Your new profile was shadow-banned immediately. Even with new photos, bio, and email, your battery signature exposed you. You\'ll get almost no matches, forcing you to pay for premium.</string>
 
     <!-- UI Strings -->
-    <string name="fp_battery_analyzing">🔋 Analyzing battery characteristicsâ€¦</string>
-    <string name="fp_battery_error_title">❌ Battery Analysis Failed</string>
-    <string name="fp_battery_retry">🔄 Retry Analysis</string>
+    <string name="fp_battery_analyzing">ðŸ”‹ Analyzing battery characteristicsÃ¢â‚¬Â¦</string>
+    <string name="fp_battery_error_title">âŒ Battery Analysis Failed</string>
+    <string name="fp_battery_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_battery_reveals_title">🚨 What Battery Fingerprinting Reveals:</string>
-    <string name="fp_battery_reveal1">🔋 Your battery\'s exact age and health</string>
-    <string name="fp_battery_reveal2">⚡ Your charging habits and patterns</string>
-    <string name="fp_battery_reveal3">📱 How intensely you use your phone</string>
-    <string name="fp_battery_reveal4">🌡️ Climate you live in (affects battery)</string>
-    <string name="fp_battery_reveal5">💰 Your financial stress (increased checking frequency)</string>
-    <string name="fp_battery_reveal6">👤 Links your "anonymous" sessions to your identity</string>
+    <string name="fp_battery_reveals_title">ðŸš¨ What Battery Fingerprinting Reveals:</string>
+    <string name="fp_battery_reveal1">ðŸ”‹ Your battery\'s exact age and health</string>
+    <string name="fp_battery_reveal2">âš¡ Your charging habits and patterns</string>
+    <string name="fp_battery_reveal3">ðŸ“± How intensely you use your phone</string>
+    <string name="fp_battery_reveal4">ðŸŒ¡ï¸ Climate you live in (affects battery)</string>
+    <string name="fp_battery_reveal5">ðŸ’° Your financial stress (increased checking frequency)</string>
+    <string name="fp_battery_reveal6">ðŸ‘¤ Links your "anonymous" sessions to your identity</string>
 
-    <string name="fp_battery_analyze_button">🔋 Generate Battery Fingerprint</string>
+    <string name="fp_battery_analyze_button">ðŸ”‹ Generate Battery Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_battery_results_title">🔋 Your Battery Fingerprint</string>
+    <string name="fp_battery_results_title">ðŸ”‹ Your Battery Fingerprint</string>
     <string name="fp_battery_level">Current Battery Level</string>
     <string name="fp_battery_health">Battery Health</string>
     <string name="fp_battery_temperature">Temperature</string>
@@ -818,11 +818,11 @@ string>
     <string name="fp_battery_fingerprint_hash">Unique Battery ID</string>
 
     <!-- Warning -->
-    <string name="fp_battery_warning_title">🔋 REQUIRES ZERO PERMISSIONS</string>
+    <string name="fp_battery_warning_title">ðŸ”‹ REQUIRES ZERO PERMISSIONS</string>
     <string name="fp_battery_warning_desc">Every app and website can read your battery status. There\'s no way to block it. This fingerprint identifies you silently, constantly, inevitably.</string>
 
     <!-- ==================== DEVICE FINGERPRINTING ==================== -->
-    <string name="fp_device_demo_title">📱 Device Fingerprinting Demo</string>
+    <string name="fp_device_demo_title">ðŸ“± Device Fingerprinting Demo</string>
     <string name="fp_device_permission_desc">No special permissions required. This demo uses standard device information available to all apps.</string>
 
     <!-- Description -->
@@ -830,35 +830,35 @@ string>
     <string name="fp_device_desc_long">Your device is a combination of hardware specifications, software configuration, installed apps, screen properties, and system settings. Even generic-seeming devices become unique when dozens of attributes are combined. This creates a "device fingerprint" that identifies you without any personal information.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_device_example1_title">🎯 Ad Tech\'s Permanent ID</string>
+    <string name="fp_device_example1_title">ðŸŽ¯ Ad Tech\'s Permanent ID</string>
     <string name="fp_device_example1_desc">Advertisers use device fingerprinting to track you even when you opt out of ad tracking and delete all cookies.</string>
-    <string name="fp_device_example1_reveal">📊 REVEALED: You opted out of ad tracking and cleared all cookies. Doesn\'t matter. Your device fingerprint was 99.97% unique among 10 million devices. Advertisers tracked you across 47 apps and 128 websites over 3 months. Your "privacy settings" were completely useless.</string>
+    <string name="fp_device_example1_reveal">ðŸ“Š REVEALED: You opted out of ad tracking and cleared all cookies. Doesn\'t matter. Your device fingerprint was 99.97% unique among 10 million devices. Advertisers tracked you across 47 apps and 128 websites over 3 months. Your "privacy settings" were completely useless.</string>
 
-    <string name="fp_device_example2_title">🏛️ Government Mass Surveillance</string>
+    <string name="fp_device_example2_title">ðŸ›ï¸ Government Mass Surveillance</string>
     <string name="fp_device_example2_desc">Intelligence agencies use device fingerprinting to identify individuals at protests, border crossings, and sensitive locations.</string>
-    <string name="fp_device_example2_reveal">🚨 REVEALED: Your device fingerprint was captured through a public WiFi network at a political rally. Despite using a VPN and burner account, your device\'s unique combination of screen resolution, installed fonts, and timezone identified you. You\'re now on a watch list.</string>
+    <string name="fp_device_example2_reveal">ðŸš¨ REVEALED: Your device fingerprint was captured through a public WiFi network at a political rally. Despite using a VPN and burner account, your device\'s unique combination of screen resolution, installed fonts, and timezone identified you. You\'re now on a watch list.</string>
 
-    <string name="fp_device_example3_title">💼 Employee Monitoring</string>
+    <string name="fp_device_example3_title">ðŸ’¼ Employee Monitoring</string>
     <string name="fp_device_example3_desc">Companies use device fingerprinting to detect if employees are using personal devices for company work or vice versa.</string>
-    <string name="fp_device_example3_reveal">⚠️ REVEALED: You accessed the company portal from your personal phone. The device fingerprint revealed you were also browsing competitors\' websites and job boards. HR received an automated alert. You\'re now considered a flight risk and were passed over for promotion.</string>
+    <string name="fp_device_example3_reveal">âš ï¸ REVEALED: You accessed the company portal from your personal phone. The device fingerprint revealed you were also browsing competitors\' websites and job boards. HR received an automated alert. You\'re now considered a flight risk and were passed over for promotion.</string>
 
     <!-- UI Strings -->
-    <string name="fp_device_analyzing">📱 Analyzing device characteristicsâ€¦</string>
-    <string name="fp_device_error_title">❌ Device Analysis Failed</string>
-    <string name="fp_device_retry">🔄 Retry Analysis</string>
+    <string name="fp_device_analyzing">ðŸ“± Analyzing device characteristicsÃ¢â‚¬Â¦</string>
+    <string name="fp_device_error_title">âŒ Device Analysis Failed</string>
+    <string name="fp_device_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_device_reveals_title">🚨 What Device Fingerprinting Reveals:</string>
-    <string name="fp_device_reveal1">📱 Your exact device model and Android version</string>
-    <string name="fp_device_reveal2">🎨 Screen resolution and pixel density</string>
-    <string name="fp_device_reveal3">🌍 Language, timezone, and keyboard layout</string>
-    <string name="fp_device_reveal4">📦 Installed apps and their versions</string>
-    <string name="fp_device_reveal5">⚙️ System settings and configurations</string>
-    <string name="fp_device_reveal6">🎯 A unique ID that tracks you everywhere</string>
+    <string name="fp_device_reveals_title">ðŸš¨ What Device Fingerprinting Reveals:</string>
+    <string name="fp_device_reveal1">ðŸ“± Your exact device model and Android version</string>
+    <string name="fp_device_reveal2">ðŸŽ¨ Screen resolution and pixel density</string>
+    <string name="fp_device_reveal3">ðŸŒ Language, timezone, and keyboard layout</string>
+    <string name="fp_device_reveal4">ðŸ“¦ Installed apps and their versions</string>
+    <string name="fp_device_reveal5">âš™ï¸ System settings and configurations</string>
+    <string name="fp_device_reveal6">ðŸŽ¯ A unique ID that tracks you everywhere</string>
 
-    <string name="fp_device_analyze_button">📱 Generate Device Fingerprint</string>
+    <string name="fp_device_analyze_button">ðŸ“± Generate Device Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_device_results_title">📱 Your Device Fingerprint</string>
+    <string name="fp_device_results_title">ðŸ“± Your Device Fingerprint</string>
     <string name="fp_device_model">Device Model</string>
     <string name="fp_device_manufacturer">Manufacturer</string>
     <string name="fp_device_android_version">Android Version</string>
@@ -872,11 +872,11 @@ string>
     <string name="fp_device_uniqueness">Fingerprint Uniqueness</string>
 
     <!-- Warning -->
-    <string name="fp_device_warning_title">📱 THIS IS PERMANENT AND UNSTOPPABLE</string>
+    <string name="fp_device_warning_title">ðŸ“± THIS IS PERMANENT AND UNSTOPPABLE</string>
     <string name="fp_device_warning_desc">Every app can read these device characteristics. There\'s no permission to block it. Your device fingerprint follows you until you buy a new phone - and even then, your usage patterns might give you away.</string>
 
     <!-- ==================== NETWORK FINGERPRINTING ==================== -->
-    <string name="fp_network_demo_title">🌐 Network Fingerprinting Demo</string>
+    <string name="fp_network_demo_title">ðŸŒ Network Fingerprinting Demo</string>
     <string name="fp_network_permission_desc">No special permissions required. This demo uses standard network information available to all apps.</string>
 
     <!-- Description -->
@@ -884,35 +884,35 @@ string>
     <string name="fp_network_desc_long">Every network connection has unique characteristics: latency patterns, MTU size, TCP congestion window, packet timing, and routing quirks. Even VPNs can\'t hide all these characteristics. By analyzing how your device communicates, apps can identify you and your location with surprising accuracy.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_network_example1_title">🕵️ VPN Bypass Detection</string>
+    <string name="fp_network_example1_title">ðŸ•µï¸ VPN Bypass Detection</string>
     <string name="fp_network_example1_desc">Services use network fingerprinting to detect and identify users even when they\'re using VPNs to hide their location.</string>
-    <string name="fp_network_example1_reveal">🌐 REVEALED: You\'re using a VPN claiming to be in the Netherlands. Your network fingerprint (packet timing, TCP characteristics, MTU) reveals your real ISP and location. Netflix detected this and blocked your access. Your VPN subscription was worthless.</string>
+    <string name="fp_network_example1_reveal">ðŸŒ REVEALED: You\'re using a VPN claiming to be in the Netherlands. Your network fingerprint (packet timing, TCP characteristics, MTU) reveals your real ISP and location. Netflix detected this and blocked your access. Your VPN subscription was worthless.</string>
 
-    <string name="fp_network_example2_title">🏢 Corporate Network Detection</string>
+    <string name="fp_network_example2_title">ðŸ¢ Corporate Network Detection</string>
     <string name="fp_network_example2_desc">Apps can detect if you\'re on a corporate network and adjust their behavior - or report your activity.</string>
-    <string name="fp_network_example2_reveal">💼 REVEALED: Your social media app detected you were on your company\'s network through network fingerprinting. Every post, like, and message was timestamped with "sent from corporate network." Your employer\'s security team received the logs. You\'re now being investigated for time theft.</string>
+    <string name="fp_network_example2_reveal">ðŸ’¼ REVEALED: Your social media app detected you were on your company\'s network through network fingerprinting. Every post, like, and message was timestamped with "sent from corporate network." Your employer\'s security team received the logs. You\'re now being investigated for time theft.</string>
 
-    <string name="fp_network_example3_title">🎰 Online Casino Fraud Detection</string>
+    <string name="fp_network_example3_title">ðŸŽ° Online Casino Fraud Detection</string>
     <string name="fp_network_example3_desc">Gambling sites use network fingerprinting to detect multi-accounting and location fraud.</string>
-    <string name="fp_network_example3_reveal">🚫 REVEALED: You created a new account to claim a signup bonus. Network fingerprinting matched your connection to a previously banned account. Both accounts were closed, your winnings confiscated ($847), and you were blacklisted from all partner casinos.</string>
+    <string name="fp_network_example3_reveal">ðŸš« REVEALED: You created a new account to claim a signup bonus. Network fingerprinting matched your connection to a previously banned account. Both accounts were closed, your winnings confiscated ($847), and you were blacklisted from all partner casinos.</string>
 
     <!-- UI Strings -->
-    <string name="fp_network_analyzing">🌐 Analyzing network characteristicsâ€¦</string>
-    <string name="fp_network_error_title">❌ Network Analysis Failed</string>
-    <string name="fp_network_retry">🔄 Retry Analysis</string>
+    <string name="fp_network_analyzing">ðŸŒ Analyzing network characteristicsÃ¢â‚¬Â¦</string>
+    <string name="fp_network_error_title">âŒ Network Analysis Failed</string>
+    <string name="fp_network_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_network_reveals_title">🚨 What Network Fingerprinting Reveals:</string>
-    <string name="fp_network_reveal1">🌍 Your real location (even with VPN)</string>
-    <string name="fp_network_reveal2">🏢 Whether you\'re on corporate or home network</string>
-    <string name="fp_network_reveal3">📡 Your ISP and connection type</string>
-    <string name="fp_network_reveal4">⚡ Your bandwidth and network quality</string>
-    <string name="fp_network_reveal5">🔒 Whether you\'re using VPN or proxy</string>
-    <string name="fp_network_reveal6">👤 Links your sessions across different networks</string>
+    <string name="fp_network_reveals_title">ðŸš¨ What Network Fingerprinting Reveals:</string>
+    <string name="fp_network_reveal1">ðŸŒ Your real location (even with VPN)</string>
+    <string name="fp_network_reveal2">ðŸ¢ Whether you\'re on corporate or home network</string>
+    <string name="fp_network_reveal3">ðŸ“¡ Your ISP and connection type</string>
+    <string name="fp_network_reveal4">âš¡ Your bandwidth and network quality</string>
+    <string name="fp_network_reveal5">ðŸ”’ Whether you\'re using VPN or proxy</string>
+    <string name="fp_network_reveal6">ðŸ‘¤ Links your sessions across different networks</string>
 
-    <string name="fp_network_analyze_button">🌐 Generate Network Fingerprint</string>
+    <string name="fp_network_analyze_button">ðŸŒ Generate Network Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_network_results_title">🌐 Your Network Fingerprint</string>
+    <string name="fp_network_results_title">ðŸŒ Your Network Fingerprint</string>
     <string name="fp_network_connection_type">Connection Type</string>
     <string name="fp_network_ip_address">IP Address (Redacted)</string>
     <string name="fp_network_latency">Network Latency</string>
@@ -923,11 +923,11 @@ string>
     <string name="fp_network_fingerprint_hash">Unique Network ID</string>
 
     <!-- Warning -->
-    <string name="fp_network_warning_title">🌐 VPNs CAN\'T FULLY PROTECT YOU</string>
+    <string name="fp_network_warning_title">ðŸŒ VPNs CAN\'T FULLY PROTECT YOU</string>
     <string name="fp_network_warning_desc">While VPNs hide your IP address, they can\'t hide your network\'s unique behavioral characteristics. Network fingerprinting can identify you through patterns that encryption can\'t obscure.</string>
 
     <!-- ==================== PERFORMANCE FINGERPRINTING ==================== -->
-    <string name="fp_performance_demo_title">⚡ Performance Fingerprinting Demo</string>
+    <string name="fp_performance_demo_title">âš¡ Performance Fingerprinting Demo</string>
     <string name="fp_performance_permission_desc">No special permissions required. This demo uses standard performance monitoring available to all apps.</string>
 
     <!-- Description -->
@@ -935,35 +935,35 @@ string>
     <string name="fp_performance_desc_long">No two devices perform exactly the same. CPU clock speed variations, thermal throttling patterns, GPU rendering quirks, and memory access speeds create a unique "performance fingerprint." By running carefully designed benchmarks, apps can identify your exact device and track you across sessions.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_performance_example1_title">🎮 Game Cheater Detection</string>
+    <string name="fp_performance_example1_title">ðŸŽ® Game Cheater Detection</string>
     <string name="fp_performance_example1_desc">Online games use performance fingerprinting to detect when players use multiple accounts or device emulators.</string>
-    <string name="fp_performance_example1_reveal">🎯 REVEALED: You created a new account after being banned. Performance fingerprinting matched your CPU and GPU characteristics to the banned account. Your new account was automatically banned within 5 minutes. All your progress and in-game purchases ($340) were lost.</string>
+    <string name="fp_performance_example1_reveal">ðŸŽ¯ REVEALED: You created a new account after being banned. Performance fingerprinting matched your CPU and GPU characteristics to the banned account. Your new account was automatically banned within 5 minutes. All your progress and in-game purchases ($340) were lost.</string>
 
-    <string name="fp_performance_example2_title">💳 Financial Fraud Prevention</string>
+    <string name="fp_performance_example2_title">ðŸ’³ Financial Fraud Prevention</string>
     <string name="fp_performance_example2_desc">Banks use performance fingerprinting to detect account takeovers and suspicious device changes.</string>
-    <string name="fp_performance_example2_reveal">🏦 REVEALED: You logged in from a different phone while traveling. Performance fingerprinting detected the new device. Your account was frozen, cards blocked. You\'re stuck abroad with no access to money. Customer service requires in-person verification, but you\'re 5,000 miles from home.</string>
+    <string name="fp_performance_example2_reveal">ðŸ¦ REVEALED: You logged in from a different phone while traveling. Performance fingerprinting detected the new device. Your account was frozen, cards blocked. You\'re stuck abroad with no access to money. Customer service requires in-person verification, but you\'re 5,000 miles from home.</string>
 
-    <string name="fp_performance_example3_title">🤖 Bot Detection</string>
+    <string name="fp_performance_example3_title">ðŸ¤– Bot Detection</string>
     <string name="fp_performance_example3_desc">Websites use performance fingerprinting to detect automated bots and emulators pretending to be real devices.</string>
-    <string name="fp_performance_example3_reveal">🚫 REVEALED: You\'re using an emulator to access the service. Performance fingerprint revealed non-human timing patterns. You were permanently banned. The service also shared your device fingerprint with partners - you\'re now blocked from 15 other services you\'ve never even used.</string>
+    <string name="fp_performance_example3_reveal">ðŸš« REVEALED: You\'re using an emulator to access the service. Performance fingerprint revealed non-human timing patterns. You were permanently banned. The service also shared your device fingerprint with partners - you\'re now blocked from 15 other services you\'ve never even used.</string>
 
     <!-- UI Strings -->
-    <string name="fp_performance_analyzing">⚡ Running performance benchmarksâ€¦</string>
-    <string name="fp_performance_error_title">❌ Performance Analysis Failed</string>
-    <string name="fp_performance_retry">🔄 Retry Analysis</string>
+    <string name="fp_performance_analyzing">âš¡ Running performance benchmarksÃ¢â‚¬Â¦</string>
+    <string name="fp_performance_error_title">âŒ Performance Analysis Failed</string>
+    <string name="fp_performance_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_performance_reveals_title">🚨 What Performance Fingerprinting Reveals:</string>
-    <string name="fp_performance_reveal1">⚡ Your exact CPU model and speed</string>
-    <string name="fp_performance_reveal2">🎮 GPU capabilities and rendering patterns</string>
-    <string name="fp_performance_reveal3">🧠 Memory speed and configuration</string>
-    <string name="fp_performance_reveal4">🌡️ Thermal characteristics and throttling behavior</string>
-    <string name="fp_performance_reveal5">🤖 Whether you\'re using an emulator or real device</string>
-    <string name="fp_performance_reveal6">👤 Identifies your device uniquely across all platforms</string>
+    <string name="fp_performance_reveals_title">ðŸš¨ What Performance Fingerprinting Reveals:</string>
+    <string name="fp_performance_reveal1">âš¡ Your exact CPU model and speed</string>
+    <string name="fp_performance_reveal2">ðŸŽ® GPU capabilities and rendering patterns</string>
+    <string name="fp_performance_reveal3">ðŸ§  Memory speed and configuration</string>
+    <string name="fp_performance_reveal4">ðŸŒ¡ï¸ Thermal characteristics and throttling behavior</string>
+    <string name="fp_performance_reveal5">ðŸ¤– Whether you\'re using an emulator or real device</string>
+    <string name="fp_performance_reveal6">ðŸ‘¤ Identifies your device uniquely across all platforms</string>
 
-    <string name="fp_performance_analyze_button">⚡ Generate Performance Fingerprint</string>
+    <string name="fp_performance_analyze_button">âš¡ Generate Performance Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_performance_results_title">⚡ Your Performance Fingerprint</string>
+    <string name="fp_performance_results_title">âš¡ Your Performance Fingerprint</string>
     <string name="fp_performance_cpu_score">CPU Performance Score</string>
     <string name="fp_performance_gpu_score">GPU Performance Score</string>
     <string name="fp_performance_memory_score">Memory Performance</string>
@@ -973,11 +973,11 @@ string>
     <string name="fp_performance_fingerprint_hash">Unique Performance ID</string>
 
     <!-- Warning -->
-    <string name="fp_performance_warning_title">⚡ INVISIBLE AND INSTANTANEOUS</string>
+    <string name="fp_performance_warning_title">âš¡ INVISIBLE AND INSTANTANEOUS</string>
     <string name="fp_performance_warning_desc">Apps can fingerprint your device performance in milliseconds, silently in the background. You never notice the benchmarks running. This fingerprint is incredibly stable and identifies you with high confidence.</string>
 
     <!-- ==================== SENSOR FINGERPRINTING ==================== -->
-    <string name="fp_sensor_demo_title">📊 Sensor Fingerprinting Demo</string>
+    <string name="fp_sensor_demo_title">ðŸ“Š Sensor Fingerprinting Demo</string>
     <string name="fp_sensor_permission_desc">On Android 10+, this demo requires ACTIVITY_RECOGNITION permission. On Android 9 and below, no permission is needed.</string>
 
     <!-- Description -->
@@ -985,35 +985,35 @@ string>
     <string name="fp_sensor_desc_long">Manufacturing imperfections in accelerometers, gyroscopes, and magnetometers create microscopic biases and noise patterns unique to each device. These calibration errors are as unique as fingerprints. By analyzing sensor data, apps can identify your device with 96%+ accuracy - and this works even when the phone is sitting still on a table.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_sensor_example1_title">🌐 Cross-Browser Tracking</string>
+    <string name="fp_sensor_example1_title">ðŸŒ Cross-Browser Tracking</string>
     <string name="fp_sensor_example1_desc">Websites use sensor fingerprinting through JavaScript to track you across different browsers, even in incognito mode.</string>
-    <string name="fp_sensor_example1_reveal">👁️ REVEALED: You visited a website in Chrome incognito, then later in Firefox with VPN. Sensor fingerprinting matched the accelerometer imperfections. Both sessions were linked to your profile. Your "private" browsing revealed you were researching embarrassing medical conditions. This data was sold to insurance companies.</string>
+    <string name="fp_sensor_example1_reveal">ðŸ‘ï¸ REVEALED: You visited a website in Chrome incognito, then later in Firefox with VPN. Sensor fingerprinting matched the accelerometer imperfections. Both sessions were linked to your profile. Your "private" browsing revealed you were researching embarrassing medical conditions. This data was sold to insurance companies.</string>
 
-    <string name="fp_sensor_example2_title">🏛️ Protest Attendee Identification</string>
+    <string name="fp_sensor_example2_title">ðŸ›ï¸ Protest Attendee Identification</string>
     <string name="fp_sensor_example2_desc">Authorities use sensor fingerprinting to identify individuals at protests by matching phone sensor signatures captured from nearby surveillance.</string>
-    <string name="fp_sensor_example2_reveal">🚨 REVEALED: You attended a protest with location services off. Surveillance equipment captured sensor fingerprints from all phones in the area. Your unique accelerometer signature was matched to your device from previous public WiFi captures. You\'re now on a government watch list despite taking "privacy precautions."</string>
+    <string name="fp_sensor_example2_reveal">ðŸš¨ REVEALED: You attended a protest with location services off. Surveillance equipment captured sensor fingerprints from all phones in the area. Your unique accelerometer signature was matched to your device from previous public WiFi captures. You\'re now on a government watch list despite taking "privacy precautions."</string>
 
-    <string name="fp_sensor_example3_title">🎯 Persistent Stalker Tracking</string>
+    <string name="fp_sensor_example3_title">ðŸŽ¯ Persistent Stalker Tracking</string>
     <string name="fp_sensor_example3_desc">Stalkerware apps use sensor fingerprinting to maintain tracking even if you factory reset your phone or get a restraining order.</string>
-    <string name="fp_sensor_example3_reveal">😱 REVEALED: You factory reset your phone to escape stalkerware. Didn\'t matter. The malicious app reidentified your device through sensor fingerprinting and resumed tracking. Your new email, number, and accounts were all linked back to the old profile. Your stalker knows your new location and identity.</string>
+    <string name="fp_sensor_example3_reveal">ðŸ˜± REVEALED: You factory reset your phone to escape stalkerware. Didn\'t matter. The malicious app reidentified your device through sensor fingerprinting and resumed tracking. Your new email, number, and accounts were all linked back to the old profile. Your stalker knows your new location and identity.</string>
 
     <!-- UI Strings -->
-    <string name="fp_sensor_analyzing">📊 Recording sensor fingerprintâ€¦</string>
-    <string name="fp_sensor_error_title">❌ Sensor Analysis Failed</string>
-    <string name="fp_sensor_retry">🔄 Retry Analysis</string>
+    <string name="fp_sensor_analyzing">ðŸ“Š Recording sensor fingerprintÃ¢â‚¬Â¦</string>
+    <string name="fp_sensor_error_title">âŒ Sensor Analysis Failed</string>
+    <string name="fp_sensor_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_sensor_reveals_title">🚨 What Sensor Fingerprinting Reveals:</string>
-    <string name="fp_sensor_reveal1">📱 Your exact device through sensor imperfections</string>
-    <string name="fp_sensor_reveal2">🚶 Your unique walking/movement gait</string>
-    <string name="fp_sensor_reveal3">🏠 Specific locations you frequent (vibration patterns)</string>
-    <string name="fp_sensor_reveal4">🚗 Your driving style and vehicle type</string>
-    <string name="fp_sensor_reveal5">💪 Health conditions (tremor patterns)</string>
-    <string name="fp_sensor_reveal6">👤 Tracks you across browsers, apps, and factory resets</string>
+    <string name="fp_sensor_reveals_title">ðŸš¨ What Sensor Fingerprinting Reveals:</string>
+    <string name="fp_sensor_reveal1">ðŸ“± Your exact device through sensor imperfections</string>
+    <string name="fp_sensor_reveal2">ðŸš¶ Your unique walking/movement gait</string>
+    <string name="fp_sensor_reveal3">ðŸ  Specific locations you frequent (vibration patterns)</string>
+    <string name="fp_sensor_reveal4">ðŸš— Your driving style and vehicle type</string>
+    <string name="fp_sensor_reveal5">ðŸ’ª Health conditions (tremor patterns)</string>
+    <string name="fp_sensor_reveal6">ðŸ‘¤ Tracks you across browsers, apps, and factory resets</string>
 
-    <string name="fp_sensor_analyze_button">📊 Generate Sensor Fingerprint</string>
+    <string name="fp_sensor_analyze_button">ðŸ“Š Generate Sensor Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_sensor_results_title">📊 Your Sensor Fingerprint</string>
+    <string name="fp_sensor_results_title">ðŸ“Š Your Sensor Fingerprint</string>
     <string name="fp_sensor_accelerometer">Accelerometer Bias</string>
     <string name="fp_sensor_gyroscope">Gyroscope Bias</string>
     <string name="fp_sensor_magnetometer">Magnetometer Bias</string>
@@ -1022,11 +1022,11 @@ string>
     <string name="fp_sensor_fingerprint_hash">Unique Sensor ID</string>
 
     <!-- Warning -->
-    <string name="fp_sensor_warning_title">📊 WORKS EVEN WHEN PHONE IS IDLE</string>
+    <string name="fp_sensor_warning_title">ðŸ“Š WORKS EVEN WHEN PHONE IS IDLE</string>
     <string name="fp_sensor_warning_desc">Sensor fingerprinting doesn\'t require movement. Even sitting on a table, your sensors emit their unique signature. Websites can access this through JavaScript. Factory reset doesn\'t fix hardware imperfections.</string>
 
     <!-- ==================== SUPER FINGERPRINT (COMBINED) ==================== -->
-    <string name="fp_combined_demo_title">🎯 Super Fingerprint Demo</string>
+    <string name="fp_combined_demo_title">ðŸŽ¯ Super Fingerprint Demo</string>
     <string name="fp_combined_permission_desc">This demo combines all fingerprinting methods. Various permissions may be required for complete analysis.</string>
 
     <!-- Description -->
@@ -1034,35 +1034,35 @@ string>
     <string name="fp_combined_desc_long">When all fingerprinting methods are combined - audio, battery, device, network, performance, and sensors - the result is a "super fingerprint" that is 99.999% unique. Even if you change your VPN, browser, operating system, and some hardware, the combination of remaining signals can still identify you. This is the tracking industry\'s holy grail.</string>
 
     <!-- Real World Examples -->
-    <string name="fp_combined_example1_title">🎯 Ad Tech\'s Perfect Tracking</string>
+    <string name="fp_combined_example1_title">ðŸŽ¯ Ad Tech\'s Perfect Tracking</string>
     <string name="fp_combined_example1_desc">Ad networks combine all fingerprinting methods to create permanent user IDs that survive all privacy protections.</string>
-    <string name="fp_combined_example1_reveal">📊 REVEALED: Over 2 years, you used 4 different browsers, 3 VPNs, opted out of ad tracking, cleared cookies weekly, and changed devices once. None of it mattered. Super fingerprinting tracked you across 2,847 sessions on 326 websites. Advertisers have a complete profile of your interests, income level, health conditions, relationship status, and political views. This profile was sold 1,043 times to 234 companies for a total of $67.32. You got $0.00.</string>
+    <string name="fp_combined_example1_reveal">ðŸ“Š REVEALED: Over 2 years, you used 4 different browsers, 3 VPNs, opted out of ad tracking, cleared cookies weekly, and changed devices once. None of it mattered. Super fingerprinting tracked you across 2,847 sessions on 326 websites. Advertisers have a complete profile of your interests, income level, health conditions, relationship status, and political views. This profile was sold 1,043 times to 234 companies for a total of $67.32. You got $0.00.</string>
 
-    <string name="fp_combined_example2_title">🏛️ Government Surveillance</string>
+    <string name="fp_combined_example2_title">ðŸ›ï¸ Government Surveillance</string>
     <string name="fp_combined_example2_desc">Intelligence agencies use super fingerprinting to identify individuals who use extreme privacy measures.</string>
-    <string name="fp_combined_example2_reveal">🚨 REVEALED: You used Tor, VPN, burner phone, fake ID, and cash-only purchases. Super fingerprinting still identified you through the combination of your typing rhythm, sensor characteristics, battery age, and network timing patterns. Your identity was confirmed with 99.7% confidence. All your "anonymous" online activity was retroactively linked to you. Your privacy measures actually made you MORE suspicious and MORE closely monitored.</string>
+    <string name="fp_combined_example2_reveal">ðŸš¨ REVEALED: You used Tor, VPN, burner phone, fake ID, and cash-only purchases. Super fingerprinting still identified you through the combination of your typing rhythm, sensor characteristics, battery age, and network timing patterns. Your identity was confirmed with 99.7% confidence. All your "anonymous" online activity was retroactively linked to you. Your privacy measures actually made you MORE suspicious and MORE closely monitored.</string>
 
-    <string name="fp_combined_example3_title">💔 Domestic Abuse Victim Tracking</string>
+    <string name="fp_combined_example3_title">ðŸ’” Domestic Abuse Victim Tracking</string>
     <string name="fp_combined_example3_desc">Abusers use super fingerprinting in stalkerware that survives factory resets and device changes.</string>
-    <string name="fp_combined_example3_reveal">😱 REVEALED: You escaped an abusive relationship, got a new phone, new number, new email, moved cities. The stalkerware used super fingerprinting to reidentify you when you logged into a single old account. Your typing pattern, sensor signature, and battery characteristics matched. Your abuser immediately knew your new location, contacts, and activities. The restraining order was worthless against technology.</string>
+    <string name="fp_combined_example3_reveal">ðŸ˜± REVEALED: You escaped an abusive relationship, got a new phone, new number, new email, moved cities. The stalkerware used super fingerprinting to reidentify you when you logged into a single old account. Your typing pattern, sensor signature, and battery characteristics matched. Your abuser immediately knew your new location, contacts, and activities. The restraining order was worthless against technology.</string>
 
     <!-- UI Strings -->
-    <string name="fp_combined_analyzing">🎯 Generating super fingerprintâ€¦</string>
-    <string name="fp_combined_error_title">❌ Analysis Failed</string>
-    <string name="fp_combined_retry">🔄 Retry Analysis</string>
+    <string name="fp_combined_analyzing">ðŸŽ¯ Generating super fingerprintÃ¢â‚¬Â¦</string>
+    <string name="fp_combined_error_title">âŒ Analysis Failed</string>
+    <string name="fp_combined_retry">ðŸ”„ Retry Analysis</string>
 
-    <string name="fp_combined_reveals_title">🚨 What Super Fingerprinting Reveals:</string>
-    <string name="fp_combined_reveal1">👤 Your permanent identity across all platforms</string>
-    <string name="fp_combined_reveal2">🎯 99.999% unique identifier that never changes</string>
-    <string name="fp_combined_reveal3">🔍 Survives VPN, factory reset, and device changes</string>
-    <string name="fp_combined_reveal4">📊 Complete behavioral and device profile</string>
-    <string name="fp_combined_reveal5">🌐 Links all your online and offline activities</string>
-    <string name="fp_combined_reveal6">⚠️ Makes all privacy protections essentially useless</string>
+    <string name="fp_combined_reveals_title">ðŸš¨ What Super Fingerprinting Reveals:</string>
+    <string name="fp_combined_reveal1">ðŸ‘¤ Your permanent identity across all platforms</string>
+    <string name="fp_combined_reveal2">ðŸŽ¯ 99.999% unique identifier that never changes</string>
+    <string name="fp_combined_reveal3">ðŸ” Survives VPN, factory reset, and device changes</string>
+    <string name="fp_combined_reveal4">ðŸ“Š Complete behavioral and device profile</string>
+    <string name="fp_combined_reveal5">ðŸŒ Links all your online and offline activities</string>
+    <string name="fp_combined_reveal6">âš ï¸ Makes all privacy protections essentially useless</string>
 
-    <string name="fp_combined_analyze_button">🎯 Generate Super Fingerprint</string>
+    <string name="fp_combined_analyze_button">ðŸŽ¯ Generate Super Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_combined_results_title">🎯 Your Super Fingerprint</string>
+    <string name="fp_combined_results_title">ðŸŽ¯ Your Super Fingerprint</string>
     <string name="fp_combined_confidence">Identification Confidence</string>
     <string name="fp_combined_uniqueness">Global Uniqueness</string>
     <string name="fp_combined_stability">Stability Score</string>
@@ -1070,24 +1070,38 @@ string>
     <string name="fp_combined_fingerprint_hash">Ultimate Tracking ID</string>
 
     <!-- Components Checklist -->
-    <string name="fp_combined_component_audio">🎵 Audio Fingerprint</string>
-    <string name="fp_combined_component_battery">🔋 Battery Fingerprint</string>
-    <string name="fp_combined_component_device">📱 Device Fingerprint</string>
-    <string name="fp_combined_component_network">🌐 Network Fingerprint</string>
-    <string name="fp_combined_component_performance">⚡ Performance Fingerprint</string>
-    <string name="fp_combined_component_sensor">📊 Sensor Fingerprint</string>
+    <string name="fp_combined_component_audio">ðŸŽµ Audio Fingerprint</string>
+    <string name="fp_combined_component_battery">ðŸ”‹ Battery Fingerprint</string>
+    <string name="fp_combined_component_device">ðŸ“± Device Fingerprint</string>
+    <string name="fp_combined_component_network">ðŸŒ Network Fingerprint</string>
+    <string name="fp_combined_component_performance">âš¡ Performance Fingerprint</string>
+    <string name="fp_combined_component_sensor">ðŸ“Š Sensor Fingerprint</string>
 
     <!-- Warning -->
-    <string name="fp_combined_warning_title">🎯 THIS IS THE DEATH OF PRIVACY</string>
+    <string name="fp_combined_warning_title">ðŸŽ¯ THIS IS THE DEATH OF PRIVACY</string>
     <string name="fp_combined_warning_desc">Super fingerprinting combines all available signals to create an identifier so unique and stable that no privacy technology can protect you. Every app, website, and service can implement this. There is no opt-out. This is surveillance capitalism\'s endgame.</string>
 
     <!-- Common Strings -->
     <string name="fp_permission_required">Permission Required</string>
     <string name="fp_grant_permission">Grant Permission</string>
-    <string name="fp_permission_granted">✓ Permission Granted</string>
-    <string name="fp_no_permission_needed">✓ No Permission Required</string>
+    <string name="fp_permission_granted">âœ“ Permission Granted</string>
+    <string name="fp_no_permission_needed">âœ“ No Permission Required</string>
     <string name="fp_back">Back</string>
-    <string name="fp_analyzing">Analyzing…</string>
+    <string name="fp_analyzing">Analyzingâ€¦</string>
     <string name="fp_generate">Generate Fingerprint</string>
-    <string name="fp_refresh">🔄 Refresh</string>
+    <string name="fp_refresh">ðŸ”„ Refresh</string>
+
+    <!-- Icons -->
+    <string name="icon_vpn">ðŸ"'</string>
+    <string name="icon_usage_stats">ðŸ"Š</string>
+    <string name="icon_overlay">ðŸŽ¯</string>
+    <string name="icon_warning">âš ï¸</string>
+
+    <!-- Locale Codes (not visible to user, used internally) -->
+    <string name="locale_code_english" translatable="false">en</string>
+    <string name="locale_code_slovak" translatable="false">sk</string>
+    <string name="locale_code_spanish" translatable="false">es</string>
+
+    <!-- Intent Actions (not visible to user, used internally) -->
+    <string name="action_stop_vpn" translatable="false">com.example.spycheck.STOP_VPN</string>
 </resources>
