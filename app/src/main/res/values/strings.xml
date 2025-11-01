@@ -1092,10 +1092,10 @@
     <string name="fp_refresh">🔄 Refresh</string>
 
     <!-- Icons -->
-    <string name="icon_vpn">🔒</string>
-    <string name="icon_usage_stats">📊</string>
-    <string name="icon_overlay">🎯</string>
-    <string name="icon_warning">⚠️</string>
+    <string name="icon_vpn" translatable="false">🔒</string>
+    <string name="icon_usage_stats" translatable="false">📊</string>
+    <string name="icon_overlay" translatable="false">🎯</string>
+    <string name="icon_warning" translatable="false">⚠️</string>
 
     <!-- Locale Codes (not visible to user, used internally) -->
     <string name="locale_code_english" translatable="false">en</string>
@@ -1104,4 +1104,577 @@
 
     <!-- Intent Actions (not visible to user, used internally) -->
     <string name="action_stop_vpn" translatable="false">com.example.spycheck.STOP_VPN</string>
+
+
+    <string name="wifi_api_title">🎯 Locate You via Public APIs</string>
+    <string name="wifi_api_description">Real geolocation services use WiFi data to pinpoint your location. Let\'s try it with real APIs.</string>
+    <string name="wifi_each_network_reveals">Each network reveals your location</string>
+    <string name="wifi_detected_networks">📡 Detected Networks</string>
+    <string name="wifi_and_more">... and %d more</string>
+    <string name="wifi_hidden_network">&lt;Hidden Network&gt;</string>
+    <string name="wifi_mac_prefix">MAC:</string>
+    <string name="wifi_provider_mozilla">Mozilla</string>
+    <string name="wifi_provider_google">Google</string>
+    <string name="wifi_provider_unwired">Unwired</string>
+    <string name="wifi_location_pinpointed">Your location was pinpointed using WiFi networks</string>
+    <string name="wifi_api_provider_label">API Provider</string>
+    <string name="wifi_accuracy_label_text">Accuracy</string>
+    <string name="wifi_silent_warning">⚠️ Apps can do this silently in the background without your knowledge!</string>
+    <string name="wifi_error_scanning">Error scanning WiFi: %s</string>
+    <string name="wifi_error_scan_first">Please scan WiFi networks first</string>
+    <string name="wifi_error_api_key">Please enter an API key</string>
+    <string name="wifi_error_location">Location error: %s</string>
+    <string name="wifi_error_generic">Error: %s</string>
+
+    <string name="category_analytics">Analytics Provider</string>
+    <string name="category_advertising">Ad Network</string>
+    <string name="category_data_broker">Data Broker</string>
+    <string name="category_fingerprinting">Fingerprinting Service</string>
+    <string name="category_crash_reporting">Crash Reporter</string>
+    <string name="category_social_tracking">Social Media Tracker</string>
+    <string name="category_unknown">Unknown Tracker</string>
+
+    <string name="desc_analytics">collects data about your behavior</string>
+    <string name="desc_advertising">tracks you to show targeted ads</string>
+    <string name="desc_data_broker">sells your personal information</string>
+    <string name="desc_fingerprinting">identifies your device uniquely</string>
+    <string name="desc_crash_reporting">monitors app crashes and collects device info</string>
+    <string name="desc_social_tracking">tracks you across websites</string>
+    <string name="desc_unknown">collects your data</string>
+
+    <string name="desc_analytics_exp">tracking your behavior and collecting usage data</string>
+    <string name="desc_advertising_exp">building an ad profile to target you with ads</string>
+    <string name="desc_data_broker_exp">selling your personal data to third parties</string>
+    <string name="desc_fingerprinting_exp">creating a unique device fingerprint to track you</string>
+    <string name="desc_crash_reporting_exp">collecting device info and app crash data</string>
+    <string name="desc_social_tracking_exp">tracking your activity across different apps and websites</string>
+    <string name="desc_unknown_exp">collecting your personal data</string>
+    <string name="detail_bullet_point">• %1$s</string>
+    <string name="detail_migration_placeholder">This demo is being migrated to the new structure.</string>
+    <string name="detail_try_interactive_demo">🔬 Try Interactive Demo</string>
+    <!-- DemoScaffold -->
+    <string name="demo_scaffold_warning_icon" translatable="false">⚠️</string>
+    <string name="demo_scaffold_permission_icon" translatable="false">🔒</string>
+    <string name="demo_scaffold_granted_icon" translatable="false">✅</string>
+    <string name="demo_scaffold_revoke_description">This demo now has %1$s. For your privacy, revoke these permissions immediately after testing.</string>
+    <string name="demo_scaffold_revoke_button">🔒 Revoke %1$s</string>
+    <string name="demo_scaffold_grant_button">Grant %1$s</string>
+    <string name="demo_scaffold_permission_granted">%1$s Granted</string>
+
+
+
+    <!-- Audio Educational Cards -->
+    <string name="audio_explanation_title">🤔 What is Audio Fingerprinting?</string>
+    <string name="audio_unique_system">🎤 Every Audio System is Unique:</string>
+    <string name="audio_unique_signature">Your phone\'s audio hardware creates a unique signature based on:</string>
+    <string name="audio_real_example">💡 Real Example:</string>
+    <string name="audio_real_example_text">Two iPhone 15 Pros bought on the same day will have:\n\n• Different audio latency (10-15ms vs 12-18ms)\n• Slightly different microphone frequency responses\n• Unique speaker calibration profiles\n\nThese tiny variations create a permanent audio fingerprint!</string>
+    <string name="audio_no_permissions_warning">⚠️ NO PERMISSIONS NEEDED! Audio hardware info is freely accessible without asking for microphone permission. Websites can read this too!</string>
+
+    <!-- Audio Real-World Tracking -->
+    <string name="audio_real_world_tracking">🎭 Real-World Audio Tracking</string>
+    <string name="audio_scenario_1_title">The Anonymous Whistleblower</string>
+    <string name="audio_scenario_1_story">A government whistleblower uploads evidence using Tor Browser with all privacy protections. But investigators analyze the audio fingerprint from background noise in a video. The unique latency pattern matches their work phone, exposing their identity.</string>
+    <string name="audio_scenario_1_impact">Audio hardware signatures persist across all recordings and can\'t be hidden, even with encryption and anonymization.</string>
+
+    <string name="audio_scenario_2_title">Cross-Device Ad Targeting</string>
+    <string name="audio_scenario_2_story">Emma browses for engagement rings on her phone. Later, she opens her laptop. Ad networks detect the same audio fingerprint (her home WiFi speaker) and immediately show ring ads on her laptop too.</string>
+    <string name="audio_scenario_2_impact">Audio fingerprints link all your devices in the same environment, building a complete profile of your household.</string>
+
+    <string name="audio_scenario_3_title">Voice Assistant Eavesdropping</string>
+    <string name="audio_scenario_3_story">Jake\'s smart speaker has a unique audio latency of 14ms. A malicious website measures his device\'s audio characteristics through JavaScript (no permission needed). Now they know: \'This is the same person who asked Alexa about medical conditions yesterday.\'</string>
+    <string name="audio_scenario_3_impact">Websites can fingerprint your audio hardware through the browser, linking your web activity to smart home devices.</string>
+
+    <string name="audio_critical_warning">⚠️ CRITICAL: Audio fingerprinting works:\n• Through web browsers (JavaScript)\n• Without microphone permission\n• Across different apps\n• Even in incognito mode\n• Through VPNs\n\nThere is NO way to prevent this. Your audio hardware signature is permanent.</string>
+
+    <!-- Audio Test Yourself -->
+    <string name="audio_test_persistence">🧪 Test Audio Persistence</string>
+    <string name="audio_prove_consistent">Prove audio fingerprints are consistent:</string>
+    <string name="audio_consistency_test">The Consistency Test</string>
+    <string name="audio_consistency_why">IDENTICAL! Hardware characteristics don\'t change.</string>
+    <string name="audio_headphone_test">The Headphone Test</string>
+    <string name="audio_headphone_why">New devices detected! But built-in hardware signature stays the same.</string>
+    <string name="audio_browser_test">The Browser Test</string>
+    <string name="audio_browser_why">SAME fingerprint! Websites can read this without permissions.</string>
+    <string name="audio_advanced_tip">💡 Advanced: Compare your audio latency with a friend\'s phone. Even identical models will have different latency values (usually ±5ms variation)!</string>
+    <string name="audio_why_format">Why: %1$s</string>
+
+    <!-- Common Icons -->
+    <string name="bullet_point" translatable="false">•</string>
+    <string name="expand_icon_down" translatable="false">▼</string>
+    <string name="expand_icon_right" translatable="false">▶</string>
+    <string name="number_1" translatable="false">1</string>
+    <string name="number_2" translatable="false">2</string>
+    <string name="number_3" translatable="false">3</string>
+    <string name="lightbulb_icon" translatable="false">💡</string>
+    <string name="plug_icon" translatable="false">🔌</string>
+    <string name="step_number" translatable="false">%1$d.</string>
+
+    <!-- Audio Factors Array -->
+    <string-array name="audio_factors">
+        <item>🎙️ Microphone hardware: Number, type, quality</item>
+        <item>⏱️ Audio latency: Delay between input/output</item>
+        <item>🔊 Speaker configuration: Mono/stereo/spatial</item>
+        <item>🎵 Codec support: Which audio formats work</item>
+        <item>📱 Audio capabilities: Pro audio, low latency</item>
+    </string-array>
+
+    <!-- Audio Test Steps Arrays -->
+    <string-array name="audio_consistency_steps">
+        <item>Screenshot your Audio ID</item>
+        <item>Note your latency values (input/output)</item>
+        <item>Close and reopen the app</item>
+        <item>Analyze audio again</item>
+        <item>Compare the IDs and latency</item>
+    </string-array>
+
+    <string-array name="audio_headphone_steps">
+        <item>Analyze audio without headphones</item>
+        <item>Note microphone/speaker count</item>
+        <item>Plug in wired headphones</item>
+        <item>Analyze again</item>
+        <item>Compare hardware profiles</item>
+    </string-array>
+
+    <string-array name="audio_browser_steps">
+        <item>Open Chrome on your phone</item>
+        <item>Visit: audiofingerprint.openwpm.com</item>
+        <item>See your audio context fingerprint</item>
+        <item>Try in incognito mode</item>
+        <item>Compare results</item>
+    </string-array>
+
+    <!-- Audio Fingerprint Demo Content - NEW STRINGS -->
+    <string name="fp_audio_content_clear">Clear</string>
+    <string name="fp_audio_content_analyzing_desc">Recording and analyzing audio hardware characteristics...</string>
+    <string name="fp_audio_content_results_title_with_icon">🎵 %1$s</string>
+    <string name="fp_audio_content_analyzed_time">Analyzed: %1$s</string>
+    <string name="fp_audio_content_hash_description">This unique ID follows your device everywhere. It never changes.</string>
+    <string name="fp_audio_content_bullet_point">• %1$s</string>
+
+    <!-- Audio Content Icons - NEW -->
+    <string name="fp_audio_content_icon_frequency" translatable="false">📊</string>
+    <string name="fp_audio_content_icon_harmonic" translatable="false">🌊</string>
+    <string name="fp_audio_content_icon_noise" translatable="false">🔇</string>
+    <string name="fp_audio_content_icon_phase" translatable="false">〰️</string>
+    <string name="fp_audio_content_icon_target" translatable="false">🎯</string>
+
+    <!-- Time Formatting - NEW -->
+    <string name="fp_audio_content_time_just_now">Just now</string>
+    <string name="fp_audio_content_time_minutes_ago">%1$dm ago</string>
+    <string name="fp_audio_content_time_format" translatable="false">MMM dd, HH:mm</string>
+
+    <!-- Audio Fingerprint Section -->
+    <string name="fp_audio_section_icon" translatable="false">🎤</string>
+    <string name="fp_audio_section_title">Audio Fingerprint</string>
+    <string name="fp_audio_section_no_permission">NO permission required</string>
+
+    <!-- Audio Education Content -->
+    <string name="fp_audio_section_variations_title">🎵 Audio Hardware Variations</string>
+    <string name="fp_audio_section_variations_desc">Every device\'s audio system has unique characteristics:</string>
+    <string name="fp_audio_section_real_example">💡 Real Example: A Galaxy S24 Ultra has 3 mics with 12ms latency. A budget phone has 1 mic with 85ms latency. Instant identification!</string>
+    <string name="fp_audio_section_analyze_button">🎤 Analyze My Audio</string>
+
+    <!-- Audio Results -->
+    <string name="fp_audio_section_audio_id">Audio ID: #%1$s</string>
+    <string name="fp_audio_section_uniqueness">Uniqueness: %1$s</string>
+    <string name="fp_audio_section_unique_factors">🎯 What Makes You Unique:</string>
+    <string name="fp_audio_section_id_label">ID: #%1$s</string>
+
+    <!-- Audio Hardware -->
+    <string name="fp_audio_section_icon_hardware" translatable="false">🎤</string>
+    <string name="fp_audio_section_hardware_title">Audio Hardware</string>
+    <string name="fp_audio_section_hardware_desc">Microphones: %1$d, Speakers: %2$d</string>
+    <string name="fp_audio_section_builtin_mic">Built-in Mic: %1$s</string>
+    <string name="fp_audio_section_builtin_speaker">Built-in Speaker: %1$s</string>
+    <string name="fp_audio_section_mic_types">Mic Types: %1$s</string>
+    <string name="fp_audio_section_speaker_types">Speaker Types: %1$s</string>
+
+    <!-- Audio Latency -->
+    <string name="fp_audio_section_icon_latency" translatable="false">⏱️</string>
+    <string name="fp_audio_section_latency_title">Audio Latency</string>
+    <string name="fp_audio_section_input_latency">Input Latency: %1$dms</string>
+    <string name="fp_audio_section_output_latency">Output Latency: %1$dms</string>
+    <string name="fp_audio_section_roundtrip_latency">Round-trip: %1$dms</string>
+
+    <!-- Codec Support -->
+    <string name="fp_audio_section_icon_codec" translatable="false">🎵</string>
+    <string name="fp_audio_section_codec_title">Codec Support</string>
+    <string name="fp_audio_section_codec_desc">%1$d sample rates supported</string>
+    <string name="fp_audio_section_codec_formats">Formats: %1$d input, %2$d output</string>
+    <string name="fp_audio_section_sample_rates">Sample Rates: %1$s Hz</string>
+    <string name="fp_audio_section_channels">Channels: %1$s</string>
+
+    <!-- Audio Capabilities -->
+    <string name="fp_audio_section_icon_capabilities" translatable="false">📊</string>
+    <string name="fp_audio_section_capabilities_title">Audio Capabilities</string>
+    <string name="fp_audio_section_pro_audio">Pro Audio</string>
+    <string name="fp_audio_section_low_latency">Low Latency</string>
+    <string name="fp_audio_section_midi">MIDI</string>
+    <string name="fp_audio_section_standard_audio">Standard Audio</string>
+    <string name="fp_audio_section_low_latency_label">Low Latency: %1$s</string>
+    <string name="fp_audio_section_pro_audio_label">Pro Audio: %1$s</string>
+    <string name="fp_audio_section_midi_label">MIDI: %1$s</string>
+    <string name="fp_audio_section_max_input">Max Input Channels: %1$d</string>
+    <string name="fp_audio_section_max_output">Max Output Channels: %1$d</string>
+
+    <!-- Common Yes/No -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Audio Examples Array -->
+    <string-array name="fp_audio_section_examples">
+        <item>🎤 Microphone count and types (varies by model)</item>
+        <item>⏱️ Audio latency patterns (hardware-specific)</item>
+        <item>📊 Speaker configuration (mono/stereo/quad)</item>
+        <item>🎵 Supported audio codecs and sample rates</item>
+    </string-array>
+
+    <!-- Audio Fingerprint Reader -->
+    <string name="fp_audio_reader_ready">Ready to analyze audio</string>
+    <string name="fp_audio_reader_detecting_hardware">🎤 Detecting audio hardware...</string>
+    <string name="fp_audio_reader_measuring_latency">⏱️ Measuring audio latency...</string>
+    <string name="fp_audio_reader_checking_codec">🎵 Checking codec support...</string>
+    <string name="fp_audio_reader_analyzing_capabilities">📊 Analyzing audio capabilities...</string>
+    <string name="fp_audio_reader_generated">✅ Audio fingerprint generated!</string>
+    <string name="fp_audio_reader_builtin_microphone">Built-in Microphone</string>
+    <string name="fp_audio_reader_builtin_speaker">Built-in Speaker</string>
+    <string name="fp_audio_reader_latency_ultra_low">Ultra-low (&lt;20ms)</string>
+    <string name="fp_audio_reader_latency_low">Low (20-45ms)</string>
+    <string name="fp_audio_reader_latency_normal">Normal (45-90ms)</string>
+    <string name="fp_audio_reader_latency_high">High (&gt;90ms)</string>
+    <string name="fp_audio_reader_pcm_16">PCM_16</string>
+    <string name="fp_audio_reader_pcm_8">PCM_8</string>
+    <string name="fp_audio_reader_pcm_float">PCM_FLOAT</string>
+    <string name="fp_audio_reader_mono">Mono</string>
+    <string name="fp_audio_reader_stereo">Stereo</string>
+    <string name="fp_audio_reader_unknown">Unknown</string>
+    <string name="fp_audio_reader_builtin_mic">Built-in Mic</string>
+    <string name="fp_audio_reader_builtin_speaker_device">Built-in Speaker</string>
+    <string name="fp_audio_reader_wired_headset">Wired Headset</string>
+    <string name="fp_audio_reader_wired_headphones">Wired Headphones</string>
+    <string name="fp_audio_reader_bluetooth_a2dp">Bluetooth A2DP</string>
+    <string name="fp_audio_reader_bluetooth_sco">Bluetooth SCO</string>
+    <string name="fp_audio_reader_usb_audio">USB Audio</string>
+    <string name="fp_audio_reader_usb_accessory">USB Accessory</string>
+    <string name="fp_audio_reader_usb_headset">USB Headset</string>
+    <string name="fp_audio_reader_unknown_type">Unknown Type (%1$d)</string>
+    <string name="fp_audio_reader_uniqueness_million">1 in %1$d million</string>
+    <string name="fp_audio_reader_uniqueness_k">1 in %1$dK</string>
+    <string name="fp_audio_reader_uniqueness_basic">1 in %1$d</string>
+    <string name="fp_audio_reader_factor_multiple_mics">Multiple microphones detected (%1$d mics)</string>
+    <string name="fp_audio_reader_factor_low_latency">Low audio latency (%1$dms) - high-end audio hardware</string>
+    <string name="fp_audio_reader_factor_pro_audio">Professional audio support enabled</string>
+    <string name="fp_audio_reader_factor_low_latency_path">Low-latency audio path available</string>
+    <string name="fp_audio_reader_factor_advanced_mic">Advanced microphone configuration: %1$s</string>
+    <string name="fp_audio_reader_factor_standard">Standard audio configuration (still uniquely identifiable by latency patterns)</string>
+    <!-- Battery Educational Cards -->
+    <string name="fp_battery_edu_what_is">🤔 What is Battery Fingerprinting?</string>
+    <string name="fp_battery_edu_every_battery">⚡ Every Battery Ages Differently:</string>
+    <string name="fp_battery_edu_identical_phones">Even two identical phones bought on the same day will develop unique battery characteristics within weeks:</string>
+    <string name="fp_battery_edu_bullet">•</string>
+    <string name="fp_battery_edu_real_example">💡 Real Example:</string>
+    <string name="fp_battery_edu_example_text">You and your friend buy identical Galaxy S24s on the same day. After 2 weeks, your batteries will have DIFFERENT fingerprints because:\n\n• You fast-charge overnight (battery stays hot)\n• They slow-charge and unplug early (cooler)\n• You game heavily (more cycles)\n• They browse lightly (fewer cycles)\n\nThese patterns create unique, permanent signatures!</string>
+    <string name="fp_battery_edu_real_world">🎭 Real-World Battery Tracking</string>
+    <string name="fp_battery_edu_arrow_down">▼</string>
+    <string name="fp_battery_edu_arrow_right">▶</string>
+    <string name="fp_battery_edu_scenario_1_num">1</string>
+    <string name="fp_battery_edu_scenario_1_title">Sarah\'s Privacy Paradox</string>
+    <string name="fp_battery_edu_scenario_1_story">Sarah uses VPN, clears cookies, and browses incognito. She thinks she\'s anonymous. But e-commerce sites track her battery fingerprint and recognize her instantly, showing personalized prices.</string>
+    <string name="fp_battery_edu_scenario_1_impact">Battery fingerprints work even when ALL privacy tools are enabled. Your charging habits betray you.</string>
+    <string name="fp_battery_edu_scenario_2_num">2</string>
+    <string name="fp_battery_edu_scenario_2_title">The Resold Phone Trap</string>
+    <string name="fp_battery_edu_scenario_2_story">Mike sold his phone after factory reset. The buyer used it for fraud. Police linked Mike\'s old battery fingerprint to his NEW phone (same Google account), making him a suspect.</string>
+    <string name="fp_battery_edu_scenario_2_impact">Battery signatures can link your old and new devices together, creating a permanent trail across hardware changes.</string>
+    <string name="fp_battery_edu_scenario_3_num">3</string>
+    <string name="fp_battery_edu_scenario_3_title">Corporate Espionage via Battery</string>
+    <string name="fp_battery_edu_scenario_3_story">A company tracked competitor employee\'s battery fingerprints at a trade show. Later, they identified which booths they visited and for how long, revealing strategic interests.</string>
+    <string name="fp_battery_edu_scenario_3_impact">Physical location tracking combined with battery fingerprints creates detailed movement profiles.</string>
+    <string name="fp_battery_edu_critical">⚠️ CRITICAL: Battery fingerprinting requires:\n• NO permissions\n• NO user awareness\n• NO special hardware\n• Works through factory resets\n• Persists for phone\'s lifetime\n\nYour battery tells your life story.</string>
+    <string name="fp_battery_edu_tap_to_see">👆 Tap to see 3 shocking examples</string>
+    <string name="fp_battery_edu_lightbulb">💡</string>
+    <string name="fp_battery_edu_test_persistence">🧪 Test Battery Persistence</string>
+    <string name="fp_battery_edu_prove_permanent">Prove battery fingerprints are permanent:</string>
+    <string name="fp_battery_edu_test_1_num">1</string>
+    <string name="fp_battery_edu_test_1_title">The Reboot Test</string>
+    <string name="fp_battery_edu_test_1_why">SAME ID! Battery characteristics don\'t change with reboots.</string>
+    <string name="fp_battery_edu_test_2_num">2</string>
+    <string name="fp_battery_edu_test_2_title">The Charging Pattern Test</string>
+    <string name="fp_battery_edu_test_2_why">ID stays the same! Charge level doesn\'t affect fingerprint.</string>
+    <string name="fp_battery_edu_advanced">💡 Advanced: Compare with a friend\'s SAME MODEL phone. Different IDs prove every battery is unique, even fresh from the factory!</string>
+    <string name="fp_battery_edu_step_number">%1$d.</string>
+    <string name="fp_battery_edu_plug">🔌</string>
+    <string name="fp_battery_edu_why_format">Why: %1$s</string>
+
+    <!-- Battery Educational Card Arrays -->
+    <string-array name="fp_battery_edu_factors">
+        <item>🔄 Charge cycles: How many times you\'ve charged</item>
+        <item>🌡️ Temperature exposure: Hot/cold environments</item>
+        <item>⚡ Charging habits: Fast vs slow charging</item>
+        <item>📊 Degradation: Unique capacity loss pattern</item>
+    </string-array>
+
+    <string-array name="fp_battery_edu_test_1_steps">
+        <item>Screenshot your Battery ID</item>
+        <item>Note your health percentage and cycle count</item>
+        <item>Reboot your phone</item>
+        <item>Analyze battery again</item>
+    </string-array>
+
+    <string-array name="fp_battery_edu_test_2_steps">
+        <item>Analyze battery at 20% (low)</item>
+        <item>Fast charge to 80%</item>
+        <item>Analyze again at 80% (high)</item>
+        <item>Compare the Battery IDs</item>
+    </string-array>
+
+    <!-- Battery Fingerprint Demo Content -->
+    <string name="fp_battery_content_clear">Clear</string>
+    <string name="fp_battery_content_analyzing_desc">Reading battery characteristics and usage patterns...</string>
+    <string name="fp_battery_content_results_title_with_icon">🔋 %1$s</string>
+    <string name="fp_battery_content_analyzed_time">Analyzed: %1$s</string>
+    <string name="fp_battery_content_hash_description">Your battery ages uniquely. This ID becomes MORE accurate over time.</string>
+    <string name="fp_battery_content_bullet_point">• %1$s</string>
+
+    <!-- Battery Content Icons -->
+    <string name="fp_battery_content_icon_level" translatable="false">🔋</string>
+    <string name="fp_battery_content_icon_health" translatable="false">❤️</string>
+    <string name="fp_battery_content_icon_temperature" translatable="false">🌡️</string>
+    <string name="fp_battery_content_icon_voltage" translatable="false">⚡</string>
+    <string name="fp_battery_content_icon_capacity" translatable="false">📦</string>
+    <string name="fp_battery_content_icon_drain" translatable="false">📉</string>
+    <string name="fp_battery_content_icon_charging" translatable="false">🔌</string>
+    <string name="fp_battery_content_icon_target" translatable="false">🎯</string>
+
+    <!-- Battery Fingerprint Section -->
+    <string name="fp_battery_section_icon" translatable="false">🔋</string>
+    <string name="fp_battery_section_title">Battery Fingerprint</string>
+    <string name="fp_battery_section_no_permission">NO permission required</string>
+    <string name="fp_battery_section_aging_patterns">⚡ Battery Aging Patterns</string>
+    <string name="fp_battery_section_every_battery">Every battery ages uniquely based on:</string>
+    <string name="fp_battery_section_bullet">•</string>
+    <string name="fp_battery_section_real_example">💡 Real Example: Two identical phones bought on the same day will have different battery signatures within weeks due to different charging habits!</string>
+    <string name="fp_battery_section_analyze_button">🔋 Analyze My Battery</string>
+    <string name="fp_battery_section_battery_id">Battery ID: #%1$s</string>
+    <string name="fp_battery_section_uniqueness">Uniqueness: %1$s</string>
+    <string name="fp_battery_section_unique_factors">🎯 What Makes You Unique:</string>
+    <string name="fp_battery_section_id_label">ID: #%1$s</string>
+
+    <!-- Battery Section Icons -->
+    <string name="fp_battery_section_icon_health" translatable="false">💚</string>
+    <string name="fp_battery_section_icon_charging" translatable="false">⚡</string>
+    <string name="fp_battery_section_icon_capacity" translatable="false">📊</string>
+    <string name="fp_battery_section_icon_temperature" translatable="false">🌡️</string>
+
+    <!-- Battery Health -->
+    <string name="fp_battery_section_health_title">Battery Health</string>
+    <string name="fp_battery_section_health_percentage">Health: %1$d%%</string>
+    <string name="fp_battery_section_technology">Technology: %1$s</string>
+    <string name="fp_battery_section_estimated_age">Estimated Age: %1$s</string>
+    <string name="fp_battery_section_charge_cycles">Charge Cycles: %1$s</string>
+
+    <!-- Charging Behavior -->
+    <string name="fp_battery_section_charging_title">Charging Behavior</string>
+    <string name="fp_battery_section_current_level">Current Level: %1$d%%</string>
+    <string name="fp_battery_section_status">Status: %1$s</string>
+    <string name="fp_battery_section_charging">Charging</string>
+    <string name="fp_battery_section_discharging">Discharging</string>
+    <string name="fp_battery_section_source">Source: %1$s</string>
+    <string name="fp_battery_section_voltage_value">Voltage: %1$d mV</string>
+    <string name="fp_battery_section_current_value">Current: %1$d mA</string>
+
+    <!-- Capacity Profile -->
+    <string name="fp_battery_section_capacity_title">Capacity Profile</string>
+    <string name="fp_battery_section_degradation">Degradation: %1$s</string>
+    <string name="fp_battery_section_estimated_cycles">Estimated Cycles: %1$s</string>
+
+    <!-- Temperature Profile -->
+    <string name="fp_battery_section_temp_title">Temperature Profile</string>
+    <string name="fp_battery_section_current_temp">Current: %1$s°C</string>
+    <string name="fp_battery_section_temp_status">Status: %1$s</string>
+    <string name="fp_battery_section_thermal">Thermal: %1$s</string>
+
+    <!-- Battery Section Examples Array -->
+    <string-array name="fp_battery_section_examples">
+        <item>🔋 Charge cycle count (how many times charged)</item>
+        <item>🌡️ Temperature exposure patterns</item>
+        <item>⚡ Charging speed preferences (fast vs slow)</item>
+        <item>📉 Capacity degradation level (battery health)</item>
+    </string-array>
+
+    <!-- Battery Fingerprint Demo ViewModel -->
+    <string name="fp_battery_vm_demo_level">73%</string>
+    <string name="fp_battery_vm_demo_health">Good (87%)</string>
+    <string name="fp_battery_vm_demo_temperature">32.4°C</string>
+    <string name="fp_battery_vm_demo_voltage">3.847V</string>
+    <string name="fp_battery_vm_demo_capacity">3,245 mAh</string>
+    <string name="fp_battery_vm_demo_drain_rate">~12%/hour</string>
+    <string name="fp_battery_vm_demo_charging_pattern">Night charger (23:00-07:00)</string>
+    <string name="fp_battery_vm_analysis_failed">Analysis failed</string>
+    <string name="fp_battery_vm_hash_chars" translatable="false">0123456789ABCDEF</string>
+
+
+    <!-- Super Fingerprint Demo Content -->
+    <string name="fp_super_content_clear">Clear</string>
+    <string name="fp_super_content_analyzing_desc">Combining all fingerprinting methods. This may take a moment...</string>
+    <string name="fp_super_content_results_title_with_icon">🎯 %1$s</string>
+    <string name="fp_super_content_analyzed_time">Analyzed: %1$s</string>
+    <string name="fp_super_content_ultimate_warning">⚠️ THIS IS THE ULTIMATE TRACKING ID</string>
+    <string name="fp_super_content_ultimate_desc">By combining multiple fingerprinting methods, this creates an identifier so unique that privacy protections become nearly useless.</string>
+    <string name="fp_super_content_hash_description">The death of privacy. All your devices, sessions, and identities linked forever.</string>
+    <string name="fp_super_content_combined_factors">🔗 Combined Tracking Factors</string>
+
+    <!-- Super Content Icons -->
+    <string name="fp_super_content_icon_confidence" translatable="false">🎯</string>
+    <string name="fp_super_content_icon_uniqueness" translatable="false">💎</string>
+    <string name="fp_super_content_icon_device" translatable="false">📱</string>
+    <string name="fp_super_content_icon_battery" translatable="false">🔋</string>
+    <string name="fp_super_content_icon_sensor" translatable="false">📡</string>
+    <string name="fp_super_content_icon_network" translatable="false">🌐</string>
+    <string name="fp_super_content_icon_skull" translatable="false">☠️</string>
+    <!-- Super Content Additional Strings -->
+    <string name="fp_super_content_components_label">%1$d/%2$d Active</string>
+    <string name="fp_super_content_components_value">Components</string>
+    <string name="fp_super_content_tracking_resistance">Tracking Resistance</string>
+    <string name="fp_super_content_persistence_level">Persistence Level</string>
+
+    <!-- Super Content Additional Icons -->
+    <string name="fp_super_content_icon_components" translatable="false">📊</string>
+    <string name="fp_super_content_icon_resistance" translatable="false">🛡️</string>
+    <string name="fp_super_content_icon_persistence" translatable="false">⏳</string>
+
+    <!-- Super Fingerprint Educational Cards -->
+    <string name="fp_super_edu_complete_tracking">🚨 The Complete Tracking Picture</string>
+    <string name="fp_super_edu_what_is">🧬 What is a Super Fingerprint?</string>
+    <string name="fp_super_edu_companies_combine">Companies DON\'T use just one fingerprinting method. They combine ALL of them to create a SUPER FINGERPRINT that\'s virtually impossible to avoid:</string>
+    <string name="fp_super_edu_bullet">•</string>
+    <string name="fp_super_edu_math_title">💡 The Math of Combined Tracking:</string>
+    <string name="fp_super_edu_math_text">If each fingerprint is 1 in 1 million:\n\n• 2 combined = 1 in 1 TRILLION\n• 3 combined = 1 in 1 QUINTILLION\n• 6 combined = More unique than ATOMS in the universe!\n\nYou are LITERALLY one in a quintillion.</string>
+    <string name="fp_super_edu_companies_warning">⚠️ This is what Google, Facebook, Amazon, and ad networks actually do. They see ALL of this data and combine it to track you everywhere.</string>
+    <string name="fp_super_edu_real_world_title">🎭 Real Super Fingerprint Tracking</string>
+    <string name="fp_super_edu_arrow_down">▼</string>
+    <string name="fp_super_edu_arrow_right">▶</string>
+    <string name="fp_super_edu_scenario_1_num">1</string>
+    <string name="fp_super_edu_scenario_1_title">The Facebook Pixel Tracker</string>
+    <string name="fp_super_edu_scenario_1_story">Rachel uses Firefox with uBlock Origin, VPN, and private browsing. She visits a clothing store website. Facebook Pixel captures: Device fingerprint (her apps), Sensor fingerprint (her accelerometer bias), Performance fingerprint (her CPU speed). Combined Super Fingerprint: #A7F2B5. Later, she logs into Instagram on her phone. Instagram sees SAME Super Fingerprint. Facebook now knows: Her private browsing session = Her Instagram account.</string>
+    <string name="fp_super_edu_scenario_1_impact">Super Fingerprints link your \'anonymous\' browsing to your real identity across different platforms and accounts.</string>
+    <string name="fp_super_edu_scenario_2_num">2</string>
+    <string name="fp_super_edu_scenario_2_title">The Insurance Fraud Detector</string>
+    <string name="fp_super_edu_scenario_2_story">Someone files a stolen phone claim. But their insurance app had collected: Device + Sensor + Battery + Audio + Network + Performance = Super Fingerprint #D8K3M1. Days later, they browse shopping sites. Ad networks detect SAME Super Fingerprint still active. They sell this data to insurance fraud detection companies. Claim denied. Person arrested for fraud.</string>
+    <string name="fp_super_edu_scenario_2_impact">Companies share Super Fingerprints across industries. Your \'stolen\' device can be detected anywhere online.</string>
+    <string name="fp_super_edu_scenario_3_num">3</string>
+    <string name="fp_super_edu_scenario_3_title">The Political Targeting</string>
+    <string name="fp_super_edu_scenario_3_story">Government wants to identify protesters. They capture Super Fingerprints from protest organizing websites (Device + Sensor + Network). Later, they buy ad targeting data from Google. Google has SAME Super Fingerprints linked to real Gmail accounts. Cross-reference reveals: 342 protesters identified by name, address, workplace. Privacy tools didn\'t help - hardware doesn\'t lie.</string>
+    <string name="fp_super_edu_scenario_3_impact">Governments and corporations can de-anonymize anyone by combining Super Fingerprints with data broker information.</string>
+    <string name="fp_super_edu_scenario_4_num">4</string>
+    <string name="fp_super_edu_scenario_4_title">The Credit Score Destruction</string>
+    <string name="fp_super_edu_scenario_4_story">Alex browses payday loan websites out of curiosity (incognito mode). Ad networks capture Super Fingerprint and mark him as \'financially distressed\'. This data is sold to credit bureaus and banks. Months later, Alex applies for a mortgage. Denied - his Super Fingerprint is flagged as high-risk. He never signed up for anything, just browsed.</string>
+    <string name="fp_super_edu_scenario_4_impact">Super Fingerprints create permanent records of your browsing behavior that affect real-world credit decisions.</string>
+    <string name="fp_super_edu_reality_warning">⚠️ REALITY CHECK: These are real tracking techniques. Companies DO combine fingerprints. This tracking happens RIGHT NOW on most websites. The privacy you think you have? It\'s an illusion.</string>
+    <string name="fp_super_edu_tap_to_see">👆 Tap to see 4 shocking real-world cases</string>
+    <string name="fp_super_edu_lightbulb">💡</string>
+    <string name="fp_super_edu_protection_title">🛡️ Can You Protect Yourself?</string>
+    <string name="fp_super_edu_harsh_truth">The harsh truth:</string>
+    <string name="fp_super_edu_method_vpn">❌ VPN</string>
+    <string name="fp_super_edu_effectiveness_0">0%</string>
+    <string name="fp_super_edu_reason_vpn">Doesn\'t change hardware characteristics</string>
+    <string name="fp_super_edu_method_private">❌ Private Browsing</string>
+    <string name="fp_super_edu_reason_private">Hardware fingerprint still accessible</string>
+    <string name="fp_super_edu_method_adblocker">❌ Ad Blockers</string>
+    <string name="fp_super_edu_effectiveness_5">5%</string>
+    <string name="fp_super_edu_reason_adblocker">Can\'t block hardware API access</string>
+    <string name="fp_super_edu_method_reset">⚠️ Factory Reset</string>
+    <string name="fp_super_edu_effectiveness_30">30%</string>
+    <string name="fp_super_edu_reason_reset">Works only if you change ALL apps + settings</string>
+    <string name="fp_super_edu_method_device">✅ New Device</string>
+    <string name="fp_super_edu_effectiveness_90">90%</string>
+    <string name="fp_super_edu_reason_device">Different hardware = different fingerprint</string>
+    <string name="fp_super_edu_best_strategy">💡 Best Protection Strategy:\n\n1. Minimize app installs (fewer apps = less unique)\n2. Use generic devices (common models blend in)\n3. Disable JavaScript on sensitive sites\n4. Use different devices for different activities\n5. Accept you can\'t be truly anonymous\n\nReality: Perfect protection is IMPOSSIBLE with modern devices.</string>
+
+    <!-- Super Edu Combinations Array -->
+    <string-array name="fp_super_edu_combinations">
+        <item>📱 Device + 🎯 Sensor = Physical hardware ID</item>
+        <item>🔋 Battery + 🚀 Performance = Usage patterns</item>
+        <item>🌐 Network + 📱 Device = Location + Identity</item>
+        <item>🎤 Audio + 🚀 Performance = Device verification</item>
+    </string-array>
+
+    <!-- Super Fingerprint Section -->
+    <string name="fp_super_section_icon" translatable="false">🧬</string>
+    <string name="fp_super_section_title">SUPER FINGERPRINT</string>
+    <string name="fp_super_section_subtitle">Combined tracking profile</string>
+    <string name="fp_super_section_warning_title">🚨 THIS IS YOUR REAL TRACKING ID</string>
+    <string name="fp_super_section_warning_desc">Companies combine ALL these fingerprints to track you across apps, websites, and devices. This is what they see.</string>
+    <string name="fp_super_section_your_super_fp">YOUR SUPER FINGERPRINT</string>
+    <string name="fp_super_section_fp_id">#%1$s</string>
+    <string name="fp_super_section_global_uniqueness">Global Uniqueness:</string>
+    <string name="fp_super_section_components">📊 Components (%1$d/6 analyzed)</string>
+    <string name="fp_super_section_component_device">📱 Device</string>
+    <string name="fp_super_section_component_sensor">🎯 Sensor</string>
+    <string name="fp_super_section_component_battery">🔋 Battery</string>
+    <string name="fp_super_section_component_audio">🎤 Audio</string>
+    <string name="fp_super_section_component_network">🌐 Network</string>
+    <string name="fp_super_section_component_performance">🚀 Performance</string>
+    <string name="fp_super_section_checkmark">✓</string>
+    <string name="fp_super_section_component_id">#%1$s</string>
+    <string name="fp_super_section_not_analyzed">Not analyzed</string>
+    <string name="fp_super_section_icon_confidence" translatable="false">🎯</string>
+    <string name="fp_super_section_confidence_value">%1$d%%</string>
+    <string name="fp_super_section_confidence_label">Confidence</string>
+    <string name="fp_super_section_icon_resistance" translatable="false">🛡️</string>
+    <string name="fp_super_section_avoid_0">0%%</string>
+    <string name="fp_super_section_avoid_10">10%%</string>
+    <string name="fp_super_section_avoid_30">30%%</string>
+    <string name="fp_super_section_avoid_50">50%%</string>
+    <string name="fp_super_section_can_avoid_label">Can Avoid</string>
+    <string name="fp_super_section_tracking_resistance">Tracking Resistance</string>
+    <string name="fp_super_section_icon_persistence" translatable="false">⏱️</string>
+    <string name="fp_super_section_persistence_level">Persistence Level</string>
+    <string name="fp_super_section_icon_cross_platform" translatable="false">🌐</string>
+    <string name="fp_super_section_cross_platform_title">Cross-Platform Tracking</string>
+    <string name="fp_super_section_cross_platform_yes">YES - You can be tracked across web browsers, mobile apps, and different devices</string>
+    <string name="fp_super_section_cross_platform_limited">Limited - Some cross-platform tracking possible</string>
+    <string name="fp_super_section_combined_vectors">🔗 Combined Tracking Vectors:</string>
+
+    <!-- Super Fingerprint Combiner -->
+    <string name="fp_super_combiner_no_data">No data analyzed yet</string>
+    <string name="fp_super_combiner_quintillions">1 in QUINTILLIONS (more than humans on Earth!)</string>
+    <string name="fp_super_combiner_trillion">1 in %1$d TRILLION</string>
+    <string name="fp_super_combiner_billion">1 in %1$d BILLION</string>
+    <string name="fp_super_combiner_million">1 in %1$d MILLION</string>
+    <string name="fp_super_combiner_k">1 in %1$dK</string>
+
+    <!-- Tracking Resistance Levels -->
+    <string name="fp_super_combiner_resistance_unknown">Unknown</string>
+    <string name="fp_super_combiner_resistance_very_easy">Very Easy to Avoid (VPN helps)</string>
+    <string name="fp_super_combiner_resistance_easy">Easy to Avoid (privacy tools help)</string>
+    <string name="fp_super_combiner_resistance_moderate">Moderate (privacy tools partially help)</string>
+    <string name="fp_super_combiner_resistance_hard">Hard to Avoid (privacy tools barely help)</string>
+    <string name="fp_super_combiner_resistance_very_hard">Very Hard to Avoid (privacy tools ineffective)</string>
+    <string name="fp_super_combiner_resistance_impossible">NEARLY IMPOSSIBLE (privacy tools completely ineffective!)</string>
+    <string name="fp_super_combiner_resistance_impossible_default">IMPOSSIBLE</string>
+
+    <!-- Persistence Levels -->
+    <string name="fp_super_combiner_persistence_permanent">PERMANENT (survives factory reset if you reinstall same apps)</string>
+    <string name="fp_super_combiner_persistence_long_term">Long-term (months to years, hardware-based)</string>
+    <string name="fp_super_combiner_persistence_medium_term">Medium-term (weeks to months, until app changes)</string>
+    <string name="fp_super_combiner_persistence_unknown">Unknown</string>
+
+    <!-- Combined Factors -->
+    <string name="fp_super_combiner_factor_device_sensor">🎯 Device + Sensor = Physical device ID (survives account changes)</string>
+    <string name="fp_super_combiner_factor_battery_performance">⚡ Battery + Performance = Hardware aging signature (unique over time)</string>
+    <string name="fp_super_combiner_factor_network_device">🌐 Network + Device = Location + Identity (home/work detection)</string>
+    <string name="fp_super_combiner_factor_audio_performance">🎤 Audio + Performance = Device model confirmation (cross-validates)</string>
+    <string name="fp_super_combiner_factor_apps">📱 Apps installed = Personality profile + interests</string>
+    <string name="fp_super_combiner_factor_sensor">🎯 Sensor imperfections = PERMANENT hardware ID (never changes)</string>
+    <string name="fp_super_combiner_factor_battery">🔋 Battery age = Usage patterns + device age</string>
+    <string name="fp_super_combiner_factor_network">🌐 Network MTU = ISP/Carrier identification</string>
+
+    <!-- Critical Warnings -->
+    <string name="fp_super_combiner_critical_warning">🚨 CRITICAL: With %1$d/6 fingerprints, you are UNIQUELY identifiable across:</string>
+    <string name="fp_super_combiner_critical_browsers">   • Different browsers (Chrome, Firefox, Safari)</string>
+    <string name="fp_super_combiner_critical_accounts">   • Different accounts (Google, Facebook, etc.)</string>
+    <string name="fp_super_combiner_critical_vpn">   • VPN usage (hardware doesn\'t change)</string>
+    <string name="fp_super_combiner_critical_private">   • Private browsing mode</string>
+    <string name="fp_super_combiner_critical_reinstalls">   • App uninstalls and reinstalls</string>
 </resources>

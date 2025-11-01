@@ -10,16 +10,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.spycheck.R
 
 @Composable
 fun BatteryFingerprintExplanationCard() {
+    val context = LocalContext.current
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF4ECDC4).copy(alpha = 0.15f)
+            containerColor = colorResource(R.color.info_blue).copy(alpha = 0.15f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -30,49 +35,44 @@ fun BatteryFingerprintExplanationCard() {
                 .padding(20.dp)
         ) {
             Text(
-                text = "🤔 What is Battery Fingerprinting?",
+                text = stringResource(R.string.fp_battery_edu_what_is),
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp,
-                color = Color.White
+                color = colorResource(R.color.text_primary)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "⚡ Every Battery Ages Differently:",
+                text = stringResource(R.string.fp_battery_edu_every_battery),
                 fontWeight = FontWeight.Bold,
                 fontSize = 13.sp,
-                color = Color(0xFFFFBE0B)
+                color = colorResource(R.color.warning)
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Even two identical phones bought on the same day will develop unique battery characteristics within weeks:",
+                text = stringResource(R.string.fp_battery_edu_identical_phones),
                 fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f),
+                color = colorResource(R.color.text_primary).copy(alpha = 0.8f),
                 lineHeight = 18.sp
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            val factors = listOf(
-                "🔄 Charge cycles: How many times you've charged",
-                "🌡️ Temperature exposure: Hot/cold environments",
-                "⚡ Charging habits: Fast vs slow charging",
-                "📊 Degradation: Unique capacity loss pattern"
-            )
+            val factors = context.resources.getStringArray(R.array.fp_battery_edu_factors)
 
             factors.forEach { factor ->
                 Row(
                     modifier = Modifier.padding(vertical = 3.dp),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    Text(text = "•", color = Color(0xFF4ECDC4), fontSize = 12.sp)
+                    Text(text = stringResource(R.string.fp_battery_edu_bullet), color = colorResource(R.color.info_blue), fontSize = 12.sp)
                     Text(
                         text = factor,
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.7f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.7f)
                     )
                 }
             }
@@ -81,7 +81,7 @@ fun BatteryFingerprintExplanationCard() {
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF2A2A2A)
+                    containerColor = colorResource(R.color.card_background)
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
@@ -89,16 +89,16 @@ fun BatteryFingerprintExplanationCard() {
                     modifier = Modifier.padding(12.dp)
                 ) {
                     Text(
-                        text = "💡 Real Example:",
+                        text = stringResource(R.string.fp_battery_edu_real_example),
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
-                        color = Color(0xFF4ECDC4)
+                        color = colorResource(R.color.info_blue)
                     )
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
-                        text = "You and your friend buy identical Galaxy S24s on the same day. After 2 weeks, your batteries will have DIFFERENT fingerprints because:\n\n• You fast-charge overnight (battery stays hot)\n• They slow-charge and unplug early (cooler)\n• You game heavily (more cycles)\n• They browse lightly (fewer cycles)\n\nThese patterns create unique, permanent signatures!",
+                        text = stringResource(R.string.fp_battery_edu_example_text),
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.9f),
                         lineHeight = 16.sp
                     )
                 }
@@ -114,7 +114,7 @@ fun BatteryTrackingRealWorldCard() {
     Card(
         onClick = { expanded = !expanded },
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFF6B6B).copy(alpha = 0.2f)
+            containerColor = colorResource(R.color.danger_red).copy(alpha = 0.2f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -130,14 +130,14 @@ fun BatteryTrackingRealWorldCard() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "🎭 Real-World Battery Tracking",
+                    text = stringResource(R.string.fp_battery_edu_real_world),
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
-                    color = Color(0xFFFF6B6B)
+                    color = colorResource(R.color.danger_red)
                 )
                 Text(
-                    text = if (expanded) "▼" else "▶",
-                    color = Color.White.copy(alpha = 0.5f),
+                    text = if (expanded) stringResource(R.string.fp_battery_edu_arrow_down) else stringResource(R.string.fp_battery_edu_arrow_right),
+                    color = colorResource(R.color.text_primary).copy(alpha = 0.5f),
                     fontSize = 20.sp
                 )
             }
@@ -148,36 +148,36 @@ fun BatteryTrackingRealWorldCard() {
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     BatteryRealWorldScenario(
-                        number = "1",
-                        title = "Sarah's Privacy Paradox",
-                        story = "Sarah uses VPN, clears cookies, and browses incognito. She thinks she's anonymous. But e-commerce sites track her battery fingerprint and recognize her instantly, showing personalized prices.",
-                        impact = "Battery fingerprints work even when ALL privacy tools are enabled. Your charging habits betray you."
+                        number = stringResource(R.string.fp_battery_edu_scenario_1_num),
+                        title = stringResource(R.string.fp_battery_edu_scenario_1_title),
+                        story = stringResource(R.string.fp_battery_edu_scenario_1_story),
+                        impact = stringResource(R.string.fp_battery_edu_scenario_1_impact)
                     )
 
                     BatteryRealWorldScenario(
-                        number = "2",
-                        title = "The Resold Phone Trap",
-                        story = "Mike sold his phone after factory reset. The buyer used it for fraud. Police linked Mike's old battery fingerprint to his NEW phone (same Google account), making him a suspect.",
-                        impact = "Battery signatures can link your old and new devices together, creating a permanent trail across hardware changes."
+                        number = stringResource(R.string.fp_battery_edu_scenario_2_num),
+                        title = stringResource(R.string.fp_battery_edu_scenario_2_title),
+                        story = stringResource(R.string.fp_battery_edu_scenario_2_story),
+                        impact = stringResource(R.string.fp_battery_edu_scenario_2_impact)
                     )
 
                     BatteryRealWorldScenario(
-                        number = "3",
-                        title = "Corporate Espionage via Battery",
-                        story = "A company tracked competitor employee's battery fingerprints at a trade show. Later, they identified which booths they visited and for how long, revealing strategic interests.",
-                        impact = "Physical location tracking combined with battery fingerprints creates detailed movement profiles."
+                        number = stringResource(R.string.fp_battery_edu_scenario_3_num),
+                        title = stringResource(R.string.fp_battery_edu_scenario_3_title),
+                        story = stringResource(R.string.fp_battery_edu_scenario_3_story),
+                        impact = stringResource(R.string.fp_battery_edu_scenario_3_impact)
                     )
 
                     Card(
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFF2A2A2A)
+                            containerColor = colorResource(R.color.card_background)
                         ),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "⚠️ CRITICAL: Battery fingerprinting requires:\n• NO permissions\n• NO user awareness\n• NO special hardware\n• Works through factory resets\n• Persists for phone's lifetime\n\nYour battery tells your life story.",
+                            text = stringResource(R.string.fp_battery_edu_critical),
                             fontSize = 11.sp,
-                            color = Color(0xFFFFBE0B),
+                            color = colorResource(R.color.warning),
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(12.dp),
                             lineHeight = 16.sp
@@ -189,9 +189,9 @@ fun BatteryTrackingRealWorldCard() {
             if (!expanded) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "👆 Tap to see 3 shocking examples",
+                    text = stringResource(R.string.fp_battery_edu_tap_to_see),
                     fontSize = 11.sp,
-                    color = Color.White.copy(alpha = 0.6f),
+                    color = colorResource(R.color.text_primary).copy(alpha = 0.6f),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -209,7 +209,7 @@ private fun BatteryRealWorldScenario(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -219,18 +219,18 @@ private fun BatteryRealWorldScenario(
                 .padding(16.dp)
         ) {
             Row(
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Box(
                     modifier = Modifier
-                        .size(24.dp)
-                        .background(Color(0xFFFF6B6B), CircleShape),
+                        .size(28.dp)
+                        .background(colorResource(R.color.danger_red), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = number,
-                        color = Color.White,
+                        color = colorResource(R.color.white),
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp
                     )
@@ -239,7 +239,7 @@ private fun BatteryRealWorldScenario(
                     text = title,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp,
-                    color = Color.White
+                    color = colorResource(R.color.text_primary)
                 )
             }
 
@@ -248,7 +248,7 @@ private fun BatteryRealWorldScenario(
             Text(
                 text = story,
                 fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f),
+                color = colorResource(R.color.text_primary).copy(alpha = 0.8f),
                 lineHeight = 17.sp
             )
 
@@ -256,7 +256,7 @@ private fun BatteryRealWorldScenario(
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF4ECDC4).copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.info_blue).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(6.dp)
             ) {
@@ -264,11 +264,11 @@ private fun BatteryRealWorldScenario(
                     modifier = Modifier.padding(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    Text(text = "💡", fontSize = 12.sp)
+                    Text(text = stringResource(R.string.fp_battery_edu_lightbulb), fontSize = 12.sp)
                     Text(
                         text = impact,
                         fontSize = 10.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.9f),
                         lineHeight = 14.sp
                     )
                 }
@@ -279,9 +279,10 @@ private fun BatteryRealWorldScenario(
 
 @Composable
 fun BatteryTestItYourselfCard() {
+    val context = LocalContext.current
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF4ECDC4).copy(alpha = 0.2f)
+            containerColor = colorResource(R.color.info_blue).copy(alpha = 0.2f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -292,60 +293,50 @@ fun BatteryTestItYourselfCard() {
                 .padding(20.dp)
         ) {
             Text(
-                text = "🧪 Test Battery Persistence",
+                text = stringResource(R.string.fp_battery_edu_test_persistence),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
-                color = Color(0xFF4ECDC4)
+                color = colorResource(R.color.info_blue)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Prove battery fingerprints are permanent:",
+                text = stringResource(R.string.fp_battery_edu_prove_permanent),
                 fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f)
+                color = colorResource(R.color.text_primary).copy(alpha = 0.8f)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             BatteryExperimentCard(
-                number = "1",
-                title = "The Reboot Test",
-                steps = listOf(
-                    "Screenshot your Battery ID",
-                    "Note your health percentage and cycle count",
-                    "Reboot your phone",
-                    "Analyze battery again"
-                ),
-                why = "SAME ID! Battery characteristics don't change with reboots."
+                number = stringResource(R.string.fp_battery_edu_test_1_num),
+                title = stringResource(R.string.fp_battery_edu_test_1_title),
+                steps = context.resources.getStringArray(R.array.fp_battery_edu_test_1_steps).toList(),
+                why = stringResource(R.string.fp_battery_edu_test_1_why)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             BatteryExperimentCard(
-                number = "2",
-                title = "The Charging Pattern Test",
-                steps = listOf(
-                    "Analyze battery at 20% (low)",
-                    "Fast charge to 80%",
-                    "Analyze again at 80% (high)",
-                    "Compare the Battery IDs"
-                ),
-                why = "ID stays the same! Charge level doesn't affect fingerprint."
+                number = stringResource(R.string.fp_battery_edu_test_2_num),
+                title = stringResource(R.string.fp_battery_edu_test_2_title),
+                steps = context.resources.getStringArray(R.array.fp_battery_edu_test_2_steps).toList(),
+                why = stringResource(R.string.fp_battery_edu_test_2_why)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF2A2A2A)
+                    containerColor = colorResource(R.color.card_background)
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
-                    text = "💡 Advanced: Compare with a friend's SAME MODEL phone. Different IDs prove every battery is unique, even fresh from the factory!",
+                    text = stringResource(R.string.fp_battery_edu_advanced),
                     fontSize = 11.sp,
-                    color = Color(0xFFFFBE0B),
+                    color = colorResource(R.color.warning),
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(12.dp),
                     lineHeight = 16.sp
@@ -364,7 +355,7 @@ private fun BatteryExperimentCard(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -380,12 +371,12 @@ private fun BatteryExperimentCard(
                 Box(
                     modifier = Modifier
                         .size(28.dp)
-                        .background(Color(0xFF4ECDC4), CircleShape),
+                        .background(colorResource(R.color.info_blue), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = number,
-                        color = Color.Black,
+                        color = colorResource(R.color.black),
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
                     )
@@ -394,7 +385,7 @@ private fun BatteryExperimentCard(
                     text = title,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp,
-                    color = Color.White
+                    color = colorResource(R.color.text_primary)
                 )
             }
 
@@ -406,15 +397,15 @@ private fun BatteryExperimentCard(
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     Text(
-                        text = "${index + 1}.",
+                        text = stringResource(R.string.fp_battery_edu_step_number, index + 1),
                         fontSize = 11.sp,
-                        color = Color(0xFF4ECDC4),
+                        color = colorResource(R.color.info_blue),
                         fontWeight = FontWeight.Bold
                     )
                     Text(
                         text = step,
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.8f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.8f)
                     )
                 }
             }
@@ -423,7 +414,7 @@ private fun BatteryExperimentCard(
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFFBE0B).copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.warning).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(6.dp)
             ) {
@@ -432,11 +423,11 @@ private fun BatteryExperimentCard(
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "🔌", fontSize = 12.sp)
+                    Text(text = stringResource(R.string.fp_battery_edu_plug), fontSize = 12.sp)
                     Text(
-                        text = "Why: $why",
+                        text = stringResource(R.string.fp_battery_edu_why_format, why),
                         fontSize = 10.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.9f),
                         fontWeight = FontWeight.Bold
                     )
                 }

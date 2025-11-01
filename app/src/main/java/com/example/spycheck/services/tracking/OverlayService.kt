@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -37,6 +38,7 @@ import com.example.spycheck.ui.theme.BackgroundDark
 import com.example.spycheck.ui.theme.Crimson
 import com.example.spycheck.utils.ServiceLifecycleOwner
 import kotlinx.coroutines.delay
+
 
 class OverlayService : Service() {
 
@@ -86,7 +88,6 @@ class OverlayService : Service() {
         lifecycleOwner.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         windowManager.removeView(composeView)
         VpnStateManager.setOverlayRunning(false)
-        Log.d("OverlayService", "✅ OVERLAY SERVICE DESTROYED")
     }
 }
 
@@ -125,6 +126,7 @@ fun TrackingOverlay() {
 
 @Composable
 fun TrackingCard(event: TrackingEvent?) {
+    val context = LocalContext.current
     val category = remember(event?.category) {
         try {
             TrackingCategory.valueOf(event?.category ?: "UNKNOWN")
@@ -133,7 +135,7 @@ fun TrackingCard(event: TrackingEvent?) {
         }
     }
 
-    val explanation = TrackingDomainCategorizer.getTrackingExplanation(category)
+    val explanation = TrackingDomainCategorizer.getTrackingExplanation(context, category)
 
     Card(
         modifier = Modifier
@@ -255,7 +257,11 @@ fun TrackingCard(event: TrackingEvent?) {
                     )
                     Column {
                         Text(
-                            text = stringResource(R.string.overlay_domain_is_category, evt.domain, category.displayName),
+                            text = stringResource(
+                                R.string.overlay_domain_is_category,
+                                evt.domain,
+                                stringResource(category.displayNameRes)
+                            ),
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = Amber

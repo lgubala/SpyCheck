@@ -3,6 +3,7 @@ package com.example.spycheck.ui.main.demos.fingerprinting.battery
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.spycheck.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -31,8 +32,10 @@ class BatteryFingerprintDemoViewModel : ViewModel() {
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
 
+    private var appContext: Context? = null
+
     fun initialize(context: Context) {
-        // Initialization if needed
+        appContext = context.applicationContext
     }
 
     fun startAnalysis() {
@@ -43,20 +46,22 @@ class BatteryFingerprintDemoViewModel : ViewModel() {
 
                 kotlinx.coroutines.delay(1500)
 
+                val context = appContext ?: return@launch
+
                 _fingerprintData.value = BatteryFingerprintData(
-                    level = "73%",
-                    health = "Good (87%)",
-                    temperature = "32.4°C",
-                    voltage = "3.847V",
-                    capacity = "3,245 mAh",
-                    drainRate = "~12%/hour",
-                    chargingPattern = "Night charger (23:00-07:00)",
+                    level = context.getString(R.string.fp_battery_vm_demo_level),
+                    health = context.getString(R.string.fp_battery_vm_demo_health),
+                    temperature = context.getString(R.string.fp_battery_vm_demo_temperature),
+                    voltage = context.getString(R.string.fp_battery_vm_demo_voltage),
+                    capacity = context.getString(R.string.fp_battery_vm_demo_capacity),
+                    drainRate = context.getString(R.string.fp_battery_vm_demo_drain_rate),
+                    chargingPattern = context.getString(R.string.fp_battery_vm_demo_charging_pattern),
                     fingerprintHash = generateDemoHash(),
                     analysisTime = System.currentTimeMillis()
                 )
 
             } catch (e: Exception) {
-                _error.value = e.message ?: "Analysis failed"
+                _error.value = e.message ?: appContext?.getString(R.string.fp_battery_vm_analysis_failed) ?: "Analysis failed"
             } finally {
                 _isAnalyzing.value = false
             }
@@ -73,7 +78,7 @@ class BatteryFingerprintDemoViewModel : ViewModel() {
     }
 
     private fun generateDemoHash(): String {
-        val chars = "0123456789ABCDEF"
+        val chars = appContext?.getString(R.string.fp_battery_vm_hash_chars) ?: "0123456789ABCDEF"
         return buildString {
             repeat(64) {
                 append(chars.random())

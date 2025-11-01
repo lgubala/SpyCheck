@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -16,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.spycheck.R
 import com.example.spycheck.ui.main.demos.fingerprinting.combined.SuperFingerprintDemoViewModel
-import com.example.spycheck.ui.theme.DangerRed
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,7 +39,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     onClick = { viewModel.startAnalysis() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = DangerRed
+                        containerColor = colorResource(R.color.danger_red)
                     )
                 ) {
                     Icon(Icons.Default.Fingerprint, contentDescription = null)
@@ -55,7 +55,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(20.dp),
                         strokeWidth = 2.dp,
-                        color = Color.White
+                        color = colorResource(R.color.white)
                     )
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(stringResource(R.string.fp_combined_analyzing))
@@ -65,7 +65,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     onClick = { viewModel.startAnalysis() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = DangerRed
+                        containerColor = colorResource(R.color.danger_red)
                     )
                 ) {
                     Icon(Icons.Default.Refresh, contentDescription = null)
@@ -79,7 +79,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                 ) {
                     Icon(Icons.Default.Delete, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Clear")
+                    Text(stringResource(R.string.fp_super_content_clear))
                 }
             }
         }
@@ -88,7 +88,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
         if (isAnalyzing) {
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFF6B6B).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -102,19 +102,19 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(24.dp),
                         strokeWidth = 2.dp,
-                        color = Color(0xFFFF6B6B)
+                        color = colorResource(R.color.danger_red)
                     )
                     Column {
                         Text(
                             text = stringResource(R.string.fp_combined_analyzing),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = Color(0xFFFF6B6B)
+                            color = colorResource(R.color.danger_red)
                         )
                         Text(
-                            text = "Combining all fingerprinting methods. This may take a moment...",
+                            text = stringResource(R.string.fp_super_content_analyzing_desc),
                             fontSize = 14.sp,
-                            color = Color.White.copy(alpha = 0.8f)
+                            color = colorResource(R.color.text_primary).copy(alpha = 0.8f)
                         )
                     }
                 }
@@ -125,7 +125,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
         error?.let { errorMessage ->
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -139,7 +139,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     Icon(
                         Icons.Default.Error,
                         contentDescription = null,
-                        tint = DangerRed,
+                        tint = colorResource(R.color.danger_red),
                         modifier = Modifier.size(24.dp)
                     )
                     Column {
@@ -147,12 +147,12 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                             text = stringResource(R.string.fp_combined_error_title),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = DangerRed
+                            color = colorResource(R.color.danger_red)
                         )
                         Text(
                             text = errorMessage,
                             fontSize = 14.sp,
-                            color = Color.White.copy(alpha = 0.8f)
+                            color = colorResource(R.color.text_primary).copy(alpha = 0.8f)
                         )
                     }
                 }
@@ -164,7 +164,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
             // Title
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFF6B6B).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -174,16 +174,16 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                         .padding(16.dp)
                 ) {
                     Text(
-                        text = "🎯 " + stringResource(R.string.fp_combined_results_title),
+                        text = stringResource(R.string.fp_super_content_results_title_with_icon, stringResource(R.string.fp_combined_results_title)),
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp,
-                        color = Color(0xFFFF6B6B)
+                        color = colorResource(R.color.danger_red)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Analyzed: ${formatTimestamp(data.analysisTime)}",
+                        text = stringResource(R.string.fp_super_content_analyzed_time, formatTimestamp(data.analysisTime)),
                         fontSize = 12.sp,
-                        color = Color.White.copy(alpha = 0.6f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.6f)
                     )
                 }
             }
@@ -191,7 +191,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
             // Warning Card
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.25f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.25f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -201,39 +201,39 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                         .padding(20.dp)
                 ) {
                     Text(
-                        text = "⚠️ THIS IS THE ULTIMATE TRACKING ID",
+                        text = stringResource(R.string.fp_super_content_ultimate_warning),
                         fontWeight = FontWeight.Bold,
                         fontSize = 16.sp,
-                        color = DangerRed
+                        color = colorResource(R.color.danger_red)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "By combining multiple fingerprinting methods, this creates an identifier so unique that privacy protections become nearly useless.",
+                        text = stringResource(R.string.fp_super_content_ultimate_desc),
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
-                        color = Color.White.copy(alpha = 0.9f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.9f)
                     )
                 }
             }
 
             // Scores
             Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 ScoreCard(
                     label = stringResource(R.string.fp_combined_confidence),
                     value = data.confidence,
-                    icon = "🎯",
-                    color = Color(0xFFFF6B6B),
+                    icon = stringResource(R.string.fp_super_content_icon_confidence),
+                    color = colorResource(R.color.danger_red),
                     modifier = Modifier.weight(1f)
                 )
 
                 ScoreCard(
-                    label = "${data.activeComponents}/${data.totalComponents} Active",
-                    value = "Components",
-                    icon = "📊",
-                    color = Color(0xFF9D4EDD),
+                    label = stringResource(R.string.fp_super_content_components_label, data.activeComponents, data.totalComponents),
+                    value = stringResource(R.string.fp_super_content_components_value),
+                    icon = stringResource(R.string.fp_super_content_icon_components),
+                    color = colorResource(R.color.battery_result_color),
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -241,7 +241,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
             // Uniqueness Card
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFFBE0B).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.warning).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -251,44 +251,44 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                         .padding(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(text = "💎", fontSize = 32.sp)
+                    Text(text = stringResource(R.string.fp_super_content_icon_uniqueness), fontSize = 32.sp)
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = data.uniqueness,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFFFFBE0B),
+                        color = colorResource(R.color.warning),
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = stringResource(R.string.fp_combined_uniqueness),
                         fontSize = 12.sp,
-                        color = Color.White.copy(alpha = 0.7f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.7f)
                     )
                 }
             }
 
             // Tracking Resistance
             DetailCard(
-                label = "Tracking Resistance",
+                label = stringResource(R.string.fp_super_content_tracking_resistance),
                 value = data.trackingResistance,
-                icon = "🛡️",
-                color = DangerRed
+                icon = stringResource(R.string.fp_super_content_icon_resistance),
+                color = colorResource(R.color.danger_red)
             )
 
             // Persistence
             DetailCard(
-                label = "Persistence Level",
+                label = stringResource(R.string.fp_super_content_persistence_level),
                 value = data.persistence,
-                icon = "⏳",
-                color = Color(0xFF06FFA5)
+                icon = stringResource(R.string.fp_super_content_icon_persistence),
+                color = colorResource(R.color.super_persistence_color)
             )
 
             // Ultimate Tracking Hash
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -301,26 +301,26 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = "☠️", fontSize = 20.sp)
+                        Text(text = stringResource(R.string.fp_super_content_icon_skull), fontSize = 20.sp)
                         Text(
                             text = stringResource(R.string.fp_combined_fingerprint_hash),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = DangerRed
+                            color = colorResource(R.color.danger_red)
                         )
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Surface(
-                        color = Color.Black.copy(alpha = 0.3f),
+                        color = colorResource(R.color.black).copy(alpha = 0.3f),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
                             text = data.fingerprintHash,
                             fontSize = 11.sp,
                             fontFamily = FontFamily.Monospace,
-                            color = Color.White,
+                            color = colorResource(R.color.white),
                             modifier = Modifier.padding(12.dp),
                             lineHeight = 16.sp
                         )
@@ -329,10 +329,10 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "The death of privacy. All your devices, sessions, and identities linked forever.",
+                        text = stringResource(R.string.fp_super_content_hash_description),
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
-                        color = DangerRed,
+                        color = colorResource(R.color.danger_red),
                         lineHeight = 18.sp
                     )
                 }
@@ -342,7 +342,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
             if (data.combinedFactors.isNotEmpty()) {
                 Card(
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFFFBE0B).copy(alpha = 0.15f)
+                        containerColor = colorResource(R.color.warning).copy(alpha = 0.15f)
                     ),
                     shape = RoundedCornerShape(12.dp)
                 ) {
@@ -352,10 +352,10 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                             .padding(20.dp)
                     ) {
                         Text(
-                            text = "🔗 Combined Tracking Factors",
+                            text = stringResource(R.string.fp_super_content_combined_factors),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = Color(0xFFFFBE0B)
+                            color = colorResource(R.color.warning)
                         )
                         Spacer(modifier = Modifier.height(12.dp))
 
@@ -364,7 +364,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                                 text = factor,
                                 fontSize = 13.sp,
                                 lineHeight = 20.sp,
-                                color = Color.White.copy(alpha = 0.9f)
+                                color = colorResource(R.color.text_primary).copy(alpha = 0.9f)
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                         }
@@ -375,7 +375,7 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
             // Final Warning
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.3f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.3f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -388,14 +388,14 @@ fun SuperFingerprintDemoContent(viewModel: SuperFingerprintDemoViewModel) {
                         text = stringResource(R.string.fp_combined_warning_title),
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp,
-                        color = DangerRed
+                        color = colorResource(R.color.danger_red)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = stringResource(R.string.fp_combined_warning_desc),
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
-                        color = Color.White.copy(alpha = 0.9f)
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.9f)
                     )
                 }
             }
@@ -437,7 +437,7 @@ private fun ScoreCard(
             Text(
                 text = label,
                 fontSize = 11.sp,
-                color = Color.White.copy(alpha = 0.7f),
+                color = colorResource(R.color.text_primary).copy(alpha = 0.7f),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
         }
@@ -470,7 +470,7 @@ private fun DetailCard(
                 Text(
                     text = label,
                     fontSize = 12.sp,
-                    color = Color.White.copy(alpha = 0.6f)
+                    color = colorResource(R.color.text_primary).copy(alpha = 0.6f)
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(

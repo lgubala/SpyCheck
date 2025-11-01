@@ -93,7 +93,7 @@ private fun MultiPermissionWarningBanner(permissions: List<DemoPermission>) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "⚠️ " + stringResource(R.string.revoke_permission_title),
+                text = stringResource(R.string.demo_scaffold_warning_icon) + " " + stringResource(R.string.revoke_permission_title),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 color = DangerRed
@@ -103,7 +103,7 @@ private fun MultiPermissionWarningBanner(permissions: List<DemoPermission>) {
             // Dynamic description based on granted permissions
             val permNames = grantedPerms.joinToString(", ") { it.name }
             Text(
-                text = "This demo now has $permNames. For your privacy, revoke these permissions immediately after testing.",
+                text = stringResource(R.string.demo_scaffold_revoke_description, permNames),
                 fontSize = 14.sp,
                 lineHeight = 20.sp
             )
@@ -131,7 +131,7 @@ private fun MultiPermissionWarningBanner(permissions: List<DemoPermission>) {
                     modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = DangerRed)
                 ) {
-                    Text("🔒 Revoke ${perm.name}")
+                    Text(stringResource(R.string.demo_scaffold_revoke_button, perm.name))
                 }
             }
         }
@@ -154,7 +154,7 @@ private fun MultiPermissionSection(permissions: List<DemoPermission>) {
             Column(modifier = Modifier.fillMaxWidth().padding(20.dp)) {
                 if (!perm.isGranted) {
                     Text(
-                        text = "🔒 ${perm.name}",
+                        text = stringResource(R.string.demo_scaffold_permission_icon) + " ${perm.name}",
                         fontWeight = FontWeight.Bold,
                         fontSize = 16.sp,
                         color = Color.White
@@ -174,14 +174,14 @@ private fun MultiPermissionSection(permissions: List<DemoPermission>) {
                             containerColor = MaterialTheme.colorScheme.primary
                         )
                     ) {
-                        Text("Grant ${perm.name}", fontSize = 15.sp)
+                        Text(stringResource(R.string.demo_scaffold_grant_button, perm.name), fontSize = 15.sp)
                     }
                 } else {
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text("✅", fontSize = 24.sp, color = SuccessGreen)
+                        Text(stringResource(R.string.demo_scaffold_granted_icon), fontSize = 24.sp, color = SuccessGreen)
                         Column {
                             Text(
-                                text = "${perm.name} Granted",
+                                text = stringResource(R.string.demo_scaffold_permission_granted, perm.name),
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp,
                                 color = SuccessGreen

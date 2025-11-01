@@ -61,7 +61,7 @@ fun DetailScreen(
             Spacer(modifier = Modifier.height(8.dp))
             detail.realLifeExamples.forEach {
                 Text(
-                    text = "• ${stringResource(id = it)}",
+                    text = stringResource(id = R.string.detail_bullet_point, stringResource(id = it)),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -70,17 +70,11 @@ fun DetailScreen(
 
             when (detail.id) {
 
-                // NOTE: Migrated demos (EXIF, WiFi) now use their own DemoScreen via NavGraph
-                // This DetailScreen is only for demos not yet migrated to DemoScaffold pattern
 
-                // WiFi demo is now handled by WifiDemoScreen via NavGraph
-                // EXIF demo is now handled by ExifDemoScreen via NavGraph
-
-                // ---------------- OTHER DEMOS (not yet migrated) ----------------
                 else -> {
                     // For demos not yet migrated, show a placeholder
                     Text(
-                        text = "This demo is being migrated to the new structure.",
+                        text = stringResource(id = R.string.detail_migration_placeholder),
                         style = MaterialTheme.typography.bodyMedium
                     )
 
@@ -90,7 +84,7 @@ fun DetailScreen(
                             onClick = onStartDemo,
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text("🔬 Try Interactive Demo")
+                            Text(stringResource(id = R.string.detail_try_interactive_demo))
                         }
                     }
                 }

@@ -9,6 +9,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -16,7 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.spycheck.R
 import com.example.spycheck.ui.main.demos.fingerprinting.audio.AudioFingerprintDemoViewModel
-import com.example.spycheck.ui.theme.DangerRed
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -42,7 +43,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     onClick = { viewModel.startAnalysis() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = DangerRed
+                        containerColor = colorResource(R.color.danger_red)
                     )
                 ) {
                     Icon(Icons.Default.Mic, contentDescription = null)
@@ -58,7 +59,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(20.dp),
                         strokeWidth = 2.dp,
-                        color = Color.White
+                        color = colorResource(R.color.white)
                     )
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(stringResource(R.string.fp_audio_analyzing))
@@ -68,7 +69,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     onClick = { viewModel.startAnalysis() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = DangerRed
+                        containerColor = colorResource(R.color.danger_red)
                     )
                 ) {
                     Icon(Icons.Default.Refresh, contentDescription = null)
@@ -82,7 +83,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                 ) {
                     Icon(Icons.Default.Delete, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Clear")
+                    Text(stringResource(R.string.fp_audio_content_clear))
                 }
             }
         }
@@ -91,7 +92,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
         if (isAnalyzing) {
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF9D4EDD).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.audio_analyzing_bg)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -105,19 +106,19 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.size(24.dp),
                         strokeWidth = 2.dp,
-                        color = Color(0xFF9D4EDD)
+                        color = colorResource(R.color.audio_analyzing_color)
                     )
                     Column {
                         Text(
                             text = stringResource(R.string.fp_audio_analyzing),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = Color(0xFF9D4EDD)
+                            color = colorResource(R.color.audio_analyzing_color)
                         )
                         Text(
-                            text = "Recording and analyzing audio hardware characteristics...",
+                            text = stringResource(R.string.fp_audio_content_analyzing_desc),
                             fontSize = 14.sp,
-                            color = Color.White.copy(alpha = 0.8f)
+                            color = colorResource(R.color.white).copy(alpha = 0.8f)
                         )
                     }
                 }
@@ -128,7 +129,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
         error?.let { errorMessage ->
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -142,7 +143,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     Icon(
                         Icons.Default.Error,
                         contentDescription = null,
-                        tint = DangerRed,
+                        tint = colorResource(R.color.danger_red),
                         modifier = Modifier.size(24.dp)
                     )
                     Column {
@@ -150,12 +151,12 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                             text = stringResource(R.string.fp_audio_error_title),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = DangerRed
+                            color = colorResource(R.color.danger_red)
                         )
                         Text(
                             text = errorMessage,
                             fontSize = 14.sp,
-                            color = Color.White.copy(alpha = 0.8f)
+                            color = colorResource(R.color.white).copy(alpha = 0.8f)
                         )
                     }
                 }
@@ -164,10 +165,12 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
 
         // Fingerprint Results
         fingerprintData?.let { data ->
+            val context = LocalContext.current
+
             // Title
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF9D4EDD).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.audio_analyzing_bg)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -177,16 +180,16 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                         .padding(16.dp)
                 ) {
                     Text(
-                        text = "🎵 " + stringResource(R.string.fp_audio_results_title),
+                        text = stringResource(R.string.fp_audio_content_results_title_with_icon, stringResource(R.string.fp_audio_results_title)),
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp,
-                        color = Color(0xFF9D4EDD)
+                        color = colorResource(R.color.audio_analyzing_color)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Analyzed: ${formatTimestamp(data.analysisTime)}",
+                        text = stringResource(R.string.fp_audio_content_analyzed_time, formatTimestamp(context, data.analysisTime)),
                         fontSize = 12.sp,
-                        color = Color.White.copy(alpha = 0.6f)
+                        color = colorResource(R.color.white).copy(alpha = 0.6f)
                     )
                 }
             }
@@ -195,31 +198,31 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
             FingerprintDetailCard(
                 label = stringResource(R.string.fp_audio_frequency_response),
                 value = data.frequencyResponse,
-                icon = "📊"
+                icon = stringResource(R.string.fp_audio_content_icon_frequency)
             )
 
             FingerprintDetailCard(
                 label = stringResource(R.string.fp_audio_harmonic_distortion),
                 value = data.harmonicDistortion,
-                icon = "🌊"
+                icon = stringResource(R.string.fp_audio_content_icon_harmonic)
             )
 
             FingerprintDetailCard(
                 label = stringResource(R.string.fp_audio_noise_floor),
                 value = data.noiseFloor,
-                icon = "🔇"
+                icon = stringResource(R.string.fp_audio_content_icon_noise)
             )
 
             FingerprintDetailCard(
                 label = stringResource(R.string.fp_audio_phase_response),
                 value = data.phaseResponse,
-                icon = "〰️"
+                icon = stringResource(R.string.fp_audio_content_icon_phase)
             )
 
             // Unique Hash
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -232,26 +235,26 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = "🎯", fontSize = 20.sp)
+                        Text(text = stringResource(R.string.fp_audio_content_icon_target), fontSize = 20.sp)
                         Text(
                             text = stringResource(R.string.fp_audio_fingerprint_hash),
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
-                            color = DangerRed
+                            color = colorResource(R.color.danger_red)
                         )
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Surface(
-                        color = Color.Black.copy(alpha = 0.3f),
+                        color = colorResource(R.color.black).copy(alpha = 0.3f),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
                             text = data.fingerprintHash,
                             fontSize = 11.sp,
                             fontFamily = FontFamily.Monospace,
-                            color = Color.White,
+                            color = colorResource(R.color.white),
                             modifier = Modifier.padding(12.dp),
                             lineHeight = 16.sp
                         )
@@ -260,9 +263,9 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "This unique ID follows your device everywhere. It never changes.",
+                        text = stringResource(R.string.fp_audio_content_hash_description),
                         fontSize = 12.sp,
-                        color = Color.White.copy(alpha = 0.7f),
+                        color = colorResource(R.color.white).copy(alpha = 0.7f),
                         lineHeight = 18.sp
                     )
                 }
@@ -271,7 +274,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
             // What This Reveals
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFFBE0B).copy(alpha = 0.15f)
+                    containerColor = colorResource(R.color.warning_yellow).copy(alpha = 0.15f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -284,7 +287,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                         text = stringResource(R.string.fp_audio_reveals_title),
                         fontWeight = FontWeight.Bold,
                         fontSize = 16.sp,
-                        color = Color(0xFFFFBE0B)
+                        color = colorResource(R.color.warning_yellow)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
 
@@ -297,10 +300,10 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                         R.string.fp_audio_reveal6
                     ).forEach { stringRes ->
                         Text(
-                            text = "• " + stringResource(stringRes),
+                            text = stringResource(R.string.fp_audio_content_bullet_point, stringResource(stringRes)),
                             fontSize = 14.sp,
                             lineHeight = 22.sp,
-                            color = Color.White.copy(alpha = 0.9f)
+                            color = colorResource(R.color.white).copy(alpha = 0.9f)
                         )
                     }
                 }
@@ -309,7 +312,7 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
             // Warning
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = DangerRed.copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -322,14 +325,14 @@ fun AudioFingerprintDemoContent(viewModel: AudioFingerprintDemoViewModel) {
                         text = stringResource(R.string.fp_audio_warning_title),
                         fontWeight = FontWeight.Bold,
                         fontSize = 16.sp,
-                        color = DangerRed
+                        color = colorResource(R.color.danger_red)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = stringResource(R.string.fp_audio_warning_desc),
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
-                        color = Color.White.copy(alpha = 0.9f)
+                        color = colorResource(R.color.white).copy(alpha = 0.9f)
                     )
                 }
             }
@@ -345,7 +348,7 @@ private fun FingerprintDetailCard(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -362,7 +365,7 @@ private fun FingerprintDetailCard(
                 Text(
                     text = label,
                     fontSize = 12.sp,
-                    color = Color.White.copy(alpha = 0.6f)
+                    color = colorResource(R.color.white).copy(alpha = 0.6f)
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
@@ -370,20 +373,23 @@ private fun FingerprintDetailCard(
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace,
-                    color = Color.White
+                    color = colorResource(R.color.white)
                 )
             }
         }
     }
 }
 
-private fun formatTimestamp(timestamp: Long): String {
+private fun formatTimestamp(context: android.content.Context, timestamp: Long): String {
     val now = System.currentTimeMillis()
     val diff = now - timestamp
 
     return when {
-        diff < 60000 -> "Just now"
-        diff < 3600000 -> "${diff / 60000}m ago"
-        else -> SimpleDateFormat("MMM dd, HH:mm", Locale.getDefault()).format(Date(timestamp))
+        diff < 60000 -> context.getString(R.string.fp_audio_content_time_just_now)
+        diff < 3600000 -> context.getString(R.string.fp_audio_content_time_minutes_ago, diff / 60000)
+        else -> SimpleDateFormat(
+            context.getString(R.string.fp_audio_content_time_format),
+            Locale.getDefault()
+        ).format(Date(timestamp))
     }
 }

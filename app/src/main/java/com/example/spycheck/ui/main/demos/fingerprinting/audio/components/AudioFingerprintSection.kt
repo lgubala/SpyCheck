@@ -10,11 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.spycheck.AudioFingerprint
+import com.example.spycheck.R
 
 
 @Composable
@@ -27,7 +31,7 @@ fun AudioFingerprintSection(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -43,20 +47,20 @@ fun AudioFingerprintSection(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "🎤",
+                    text = stringResource(R.string.fp_audio_section_icon),
                     fontSize = 32.sp
                 )
                 Column {
                     Text(
-                        text = "Audio Fingerprint",
+                        text = stringResource(R.string.fp_audio_section_title),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = colorResource(R.color.white)
                     )
                     Text(
-                        text = "NO permission required",
+                        text = stringResource(R.string.fp_audio_section_no_permission),
                         fontSize = 12.sp,
-                        color = Color(0xFF4ECDC4)
+                        color = colorResource(R.color.info_blue)
                     )
                 }
             }
@@ -84,31 +88,27 @@ private fun AudioEducationContent(
     progress: Int,
     statusMessage: String
 ) {
+    val context = LocalContext.current
+    val examples = context.resources.getStringArray(R.array.fp_audio_section_examples)
+
     Column {
         Text(
-            text = "🎵 Audio Hardware Variations",
+            text = stringResource(R.string.fp_audio_section_variations_title),
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
-            color = Color(0xFFFFBE0B)
+            color = colorResource(R.color.warning_yellow)
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Every device's audio system has unique characteristics:",
+            text = stringResource(R.string.fp_audio_section_variations_desc),
             fontSize = 12.sp,
-            color = Color.White.copy(alpha = 0.8f),
+            color = colorResource(R.color.white).copy(alpha = 0.8f),
             lineHeight = 18.sp
         )
 
         Spacer(modifier = Modifier.height(12.dp))
-
-        val examples = listOf(
-            "🎤 Microphone count and types (varies by model)",
-            "⏱️ Audio latency patterns (hardware-specific)",
-            "🔊 Speaker configuration (mono/stereo/quad)",
-            "🎵 Supported audio codecs and sample rates"
-        )
 
         examples.forEach { example ->
             Row(
@@ -116,14 +116,14 @@ private fun AudioEducationContent(
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 Text(
-                    text = "•",
-                    color = Color(0xFF4ECDC4),
+                    text = stringResource(R.string.bullet_point),
+                    color = colorResource(R.color.info_blue),
                     fontSize = 12.sp
                 )
                 Text(
                     text = example,
                     fontSize = 11.sp,
-                    color = Color.White.copy(alpha = 0.7f)
+                    color = colorResource(R.color.white).copy(alpha = 0.7f)
                 )
             }
         }
@@ -132,14 +132,14 @@ private fun AudioEducationContent(
 
         Card(
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFFF6B6B).copy(alpha = 0.2f)
+                containerColor = colorResource(R.color.danger_red).copy(alpha = 0.2f)
             ),
             shape = RoundedCornerShape(8.dp)
         ) {
             Text(
-                text = "💡 Real Example: A Galaxy S24 Ultra has 3 mics with 12ms latency. A budget phone has 1 mic with 85ms latency. Instant identification!",
+                text = stringResource(R.string.fp_audio_section_real_example),
                 fontSize = 11.sp,
-                color = Color.White,
+                color = colorResource(R.color.white),
                 modifier = Modifier.padding(12.dp),
                 lineHeight = 16.sp
             )
@@ -152,13 +152,13 @@ private fun AudioEducationContent(
                 onClick = onAnalyze,
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4ECDC4)
+                    containerColor = colorResource(R.color.info_blue)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
-                    text = "🎤 Analyze My Audio",
-                    color = Color.Black,
+                    text = stringResource(R.string.fp_audio_section_analyze_button),
+                    color = colorResource(R.color.black),
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp
                 )
@@ -173,8 +173,8 @@ private fun AudioEducationContent(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(8.dp),
-                    color = Color(0xFF4ECDC4),
-                    trackColor = Color(0xFF3A3A3A)
+                    color = colorResource(R.color.info_blue),
+                    trackColor = colorResource(R.color.audio_progress_track)
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -182,7 +182,7 @@ private fun AudioEducationContent(
                 Text(
                     text = statusMessage,
                     fontSize = 12.sp,
-                    color = Color(0xFF4ECDC4),
+                    color = colorResource(R.color.info_blue),
                     textAlign = TextAlign.Center
                 )
             }
@@ -198,7 +198,7 @@ private fun AudioResultsContent(fingerprint: AudioFingerprint) {
         // Fingerprint ID & Uniqueness
         Card(
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF9B59B6).copy(alpha = 0.15f)
+                containerColor = colorResource(R.color.audio_result_bg)
             ),
             shape = RoundedCornerShape(12.dp)
         ) {
@@ -209,95 +209,112 @@ private fun AudioResultsContent(fingerprint: AudioFingerprint) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Audio ID: #${fingerprint.fingerprintId.take(12).uppercase()}",
+                    text = stringResource(R.string.fp_audio_section_audio_id, fingerprint.fingerprintId.take(12).uppercase()),
                     fontSize = 12.sp,
                     fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
-                    color = Color(0xFF9B59B6)
+                    color = colorResource(R.color.audio_result_color)
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Uniqueness: ${fingerprint.uniquenessScore}",
+                    text = stringResource(R.string.fp_audio_section_uniqueness, fingerprint.uniquenessScore),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = colorResource(R.color.white)
                 )
             }
         }
 
         // Audio Hardware
         AudioDetailCard(
-            emoji = "🎤",
-            title = "Audio Hardware",
+            emoji = stringResource(R.string.fp_audio_section_icon_hardware),
+            title = stringResource(R.string.fp_audio_section_hardware_title),
             signature = fingerprint.audioHardware.hardwareSignature,
-            description = "Microphones: ${fingerprint.audioHardware.microphoneCount}, Speakers: ${fingerprint.audioHardware.speakerCount}",
+            description = stringResource(
+                R.string.fp_audio_section_hardware_desc,
+                fingerprint.audioHardware.microphoneCount,
+                fingerprint.audioHardware.speakerCount
+            ),
             details = buildList {
-                add("Built-in Mic: ${if (fingerprint.audioHardware.hasBuiltInMic) "Yes" else "No"}")
-                add("Built-in Speaker: ${if (fingerprint.audioHardware.hasBuiltInSpeaker) "Yes" else "No"}")
+                add(stringResource(R.string.fp_audio_section_builtin_mic,
+                    stringResource(if (fingerprint.audioHardware.hasBuiltInMic) R.string.yes else R.string.no)))
+                add(stringResource(R.string.fp_audio_section_builtin_speaker,
+                    stringResource(if (fingerprint.audioHardware.hasBuiltInSpeaker) R.string.yes else R.string.no)))
                 if (fingerprint.audioHardware.microphoneTypes.isNotEmpty()) {
-                    add("Mic Types: ${fingerprint.audioHardware.microphoneTypes.joinToString(", ")}")
+                    add(stringResource(R.string.fp_audio_section_mic_types,
+                        fingerprint.audioHardware.microphoneTypes.joinToString(", ")))
                 }
                 if (fingerprint.audioHardware.speakerTypes.isNotEmpty()) {
-                    add("Speaker Types: ${fingerprint.audioHardware.speakerTypes.take(3).joinToString(", ")}")
+                    add(stringResource(R.string.fp_audio_section_speaker_types,
+                        fingerprint.audioHardware.speakerTypes.take(3).joinToString(", ")))
                 }
             },
-            color = Color(0xFF4ECDC4)
+            color = colorResource(R.color.info_blue)
         )
 
         // Audio Latency
         AudioDetailCard(
-            emoji = "⏱️",
-            title = "Audio Latency",
+            emoji = stringResource(R.string.fp_audio_section_icon_latency),
+            title = stringResource(R.string.fp_audio_section_latency_title),
             signature = fingerprint.latencyProfile.latencySignature,
             description = fingerprint.latencyProfile.latencyClass,
             details = listOf(
-                "Input Latency: ${fingerprint.latencyProfile.inputLatency}ms",
-                "Output Latency: ${fingerprint.latencyProfile.outputLatency}ms",
-                "Round-trip: ${fingerprint.latencyProfile.roundTripLatency}ms"
+                stringResource(R.string.fp_audio_section_input_latency, fingerprint.latencyProfile.inputLatency),
+                stringResource(R.string.fp_audio_section_output_latency, fingerprint.latencyProfile.outputLatency),
+                stringResource(R.string.fp_audio_section_roundtrip_latency, fingerprint.latencyProfile.roundTripLatency)
             ),
-            color = Color(0xFFFFBE0B)
+            color = colorResource(R.color.warning_yellow)
         )
 
         // Codec Support
         AudioDetailCard(
-            emoji = "🎵",
-            title = "Codec Support",
+            emoji = stringResource(R.string.fp_audio_section_icon_codec),
+            title = stringResource(R.string.fp_audio_section_codec_title),
             signature = fingerprint.codecSupport.codecSignature,
-            description = "${fingerprint.codecSupport.sampleRates.size} sample rates supported",
+            description = stringResource(R.string.fp_audio_section_codec_desc, fingerprint.codecSupport.sampleRates.size),
             details = buildList {
-                add("Formats: ${fingerprint.codecSupport.supportedInputFormats.size} input, ${fingerprint.codecSupport.supportedOutputFormats.size} output")
-                add("Sample Rates: ${fingerprint.codecSupport.sampleRates.joinToString(", ")} Hz")
-                add("Channels: ${fingerprint.codecSupport.channelConfigs.joinToString(", ")}")
+                add(stringResource(
+                    R.string.fp_audio_section_codec_formats,
+                    fingerprint.codecSupport.supportedInputFormats.size,
+                    fingerprint.codecSupport.supportedOutputFormats.size
+                ))
+                add(stringResource(R.string.fp_audio_section_sample_rates,
+                    fingerprint.codecSupport.sampleRates.joinToString(", ")))
+                add(stringResource(R.string.fp_audio_section_channels,
+                    fingerprint.codecSupport.channelConfigs.joinToString(", ")))
             },
-            color = Color(0xFF2ECC71)
+            color = colorResource(R.color.audio_codec_color)
         )
 
         // Audio Capabilities
         AudioDetailCard(
-            emoji = "🔊",
-            title = "Audio Capabilities",
+            emoji = stringResource(R.string.fp_audio_section_icon_capabilities),
+            title = stringResource(R.string.fp_audio_section_capabilities_title),
             signature = fingerprint.audioCapabilities.capabilitiesSignature,
             description = buildString {
-                if (fingerprint.audioCapabilities.supportsProAudio) append("Pro Audio, ")
-                if (fingerprint.audioCapabilities.supportsLowLatency) append("Low Latency, ")
-                if (fingerprint.audioCapabilities.supportsMidi) append("MIDI, ")
-                if (isEmpty()) append("Standard Audio")
+                if (fingerprint.audioCapabilities.supportsProAudio) append(stringResource(R.string.fp_audio_section_pro_audio) + ", ")
+                if (fingerprint.audioCapabilities.supportsLowLatency) append(stringResource(R.string.fp_audio_section_low_latency) + ", ")
+                if (fingerprint.audioCapabilities.supportsMidi) append(stringResource(R.string.fp_audio_section_midi) + ", ")
+                if (isEmpty()) append(stringResource(R.string.fp_audio_section_standard_audio))
                 else removeSuffix(", ")
             },
             details = listOf(
-                "Low Latency: ${if (fingerprint.audioCapabilities.supportsLowLatency) "Yes" else "No"}",
-                "Pro Audio: ${if (fingerprint.audioCapabilities.supportsProAudio) "Yes" else "No"}",
-                "MIDI: ${if (fingerprint.audioCapabilities.supportsMidi) "Yes" else "No"}",
-                "Max Input Channels: ${fingerprint.audioCapabilities.maxInputChannels}",
-                "Max Output Channels: ${fingerprint.audioCapabilities.maxOutputChannels}"
+                stringResource(R.string.fp_audio_section_low_latency_label,
+                    stringResource(if (fingerprint.audioCapabilities.supportsLowLatency) R.string.yes else R.string.no)),
+                stringResource(R.string.fp_audio_section_pro_audio_label,
+                    stringResource(if (fingerprint.audioCapabilities.supportsProAudio) R.string.yes else R.string.no)),
+                stringResource(R.string.fp_audio_section_midi_label,
+                    stringResource(if (fingerprint.audioCapabilities.supportsMidi) R.string.yes else R.string.no)),
+                stringResource(R.string.fp_audio_section_max_input, fingerprint.audioCapabilities.maxInputChannels),
+                stringResource(R.string.fp_audio_section_max_output, fingerprint.audioCapabilities.maxOutputChannels)
             ),
-            color = Color(0xFFFF6B6B)
+            color = colorResource(R.color.danger_red)
         )
 
         // Uniqueness Factors
         if (fingerprint.uniquenessFactors.isNotEmpty()) {
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF2A2A2A)
+                    containerColor = colorResource(R.color.card_background)
                 ),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -305,10 +322,10 @@ private fun AudioResultsContent(fingerprint: AudioFingerprint) {
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "🎯 What Makes You Unique:",
+                        text = stringResource(R.string.fp_audio_section_unique_factors),
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp,
-                        color = Color.White
+                        color = colorResource(R.color.white)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     fingerprint.uniquenessFactors.forEach { factor ->
@@ -316,11 +333,15 @@ private fun AudioResultsContent(fingerprint: AudioFingerprint) {
                             modifier = Modifier.padding(vertical = 2.dp),
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
-                            Text(text = "•", color = Color(0xFF4ECDC4), fontSize = 11.sp)
+                            Text(
+                                text = stringResource(R.string.bullet_point),
+                                color = colorResource(R.color.info_blue),
+                                fontSize = 11.sp
+                            )
                             Text(
                                 text = factor,
                                 fontSize = 11.sp,
-                                color = Color.White.copy(alpha = 0.8f)
+                                color = colorResource(R.color.white).copy(alpha = 0.8f)
                             )
                         }
                     }
@@ -360,10 +381,10 @@ private fun AudioDetailCard(
                         text = title,
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp,
-                        color = Color.White
+                        color = colorResource(R.color.white)
                     )
                     Text(
-                        text = "ID: #${signature.uppercase()}",
+                        text = stringResource(R.string.fp_audio_section_id_label, signature.uppercase()),
                         fontSize = 10.sp,
                         fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
                         color = color
@@ -376,7 +397,7 @@ private fun AudioDetailCard(
             Text(
                 text = description,
                 fontSize = 11.sp,
-                color = Color.White.copy(alpha = 0.7f),
+                color = colorResource(R.color.white).copy(alpha = 0.7f),
                 fontStyle = androidx.compose.ui.text.font.FontStyle.Italic
             )
 
@@ -386,7 +407,7 @@ private fun AudioDetailCard(
                 Text(
                     text = detail,
                     fontSize = 10.sp,
-                    color = Color.White.copy(alpha = 0.6f),
+                    color = colorResource(R.color.white).copy(alpha = 0.6f),
                     fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )

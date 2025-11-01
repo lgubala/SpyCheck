@@ -94,7 +94,7 @@ class TrackingVpnService : VpnService() {
         }
 
         return NotificationCompat.Builder(this, channelId)
-            .setContentTitle("TrackingWatch Active")
+            .setContentTitle("Spycheck Active")
             .setContentText("Monitoring network traffic")
             .setSmallIcon(android.R.drawable.ic_menu_view)
             .setPriority(NotificationCompat.PRIORITY_LOW)
@@ -104,7 +104,7 @@ class TrackingVpnService : VpnService() {
     private fun startVpn() {
         try {
             val builder = Builder()
-            builder.setSession("TrackingWatch")
+            builder.setSession("Spycheck")
             builder.addAddress("10.0.0.1", 32)
             builder.addRoute("8.8.8.8", 32)
             builder.addRoute("8.8.4.4", 32)

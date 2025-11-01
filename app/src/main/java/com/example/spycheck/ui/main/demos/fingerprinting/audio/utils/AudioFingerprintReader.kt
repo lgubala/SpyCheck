@@ -79,35 +79,35 @@ class AudioFingerprintReader(private val context: Context) {
     private val _analysisProgress = MutableStateFlow(0)
     val analysisProgress: StateFlow<Int> = _analysisProgress.asStateFlow()
 
-    private val _statusMessage = MutableStateFlow("Ready to analyze audio")
+    private val _statusMessage = MutableStateFlow(context.getString(R.string.fp_audio_reader_ready))
     val statusMessage: StateFlow<String> = _statusMessage.asStateFlow()
 
     suspend fun analyzeAudio(): AudioFingerprint {
-        _statusMessage.value = "🎤 Detecting audio hardware..."
+        _statusMessage.value = context.getString(R.string.fp_audio_reader_detecting_hardware)
         _analysisProgress.value = 15
 
         val hardwareProfile = analyzeAudioHardware()
 
         delay(300)
-        _statusMessage.value = "⏱️ Measuring audio latency..."
+        _statusMessage.value = context.getString(R.string.fp_audio_reader_measuring_latency)
         _analysisProgress.value = 35
 
         val latencyProfile = analyzeAudioLatency()
 
         delay(300)
-        _statusMessage.value = "🎵 Checking codec support..."
+        _statusMessage.value = context.getString(R.string.fp_audio_reader_checking_codec)
         _analysisProgress.value = 55
 
         val codecProfile = analyzeCodecSupport()
 
         delay(300)
-        _statusMessage.value = "🔊 Analyzing audio capabilities..."
+        _statusMessage.value = context.getString(R.string.fp_audio_reader_analyzing_capabilities)
         _analysisProgress.value = 75
 
         val capabilitiesProfile = analyzeAudioCapabilities()
 
         delay(300)
-        _statusMessage.value = "✅ Audio fingerprint generated!"
+        _statusMessage.value = context.getString(R.string.fp_audio_reader_generated)
         _analysisProgress.value = 100
 
         // Generate combined fingerprint ID
@@ -168,8 +168,8 @@ class AudioFingerprintReader(private val context: Context) {
             // Fallback for older devices
             hasBuiltInMic = true
             hasBuiltInSpeaker = true
-            micTypes.add("Built-in Microphone")
-            speakerTypes.add("Built-in Speaker")
+            micTypes.add(context.getString(R.string.fp_audio_reader_builtin_microphone))
+            speakerTypes.add(context.getString(R.string.fp_audio_reader_builtin_speaker))
         }
 
         val hardwareSignature = hashString(
@@ -212,10 +212,10 @@ class AudioFingerprintReader(private val context: Context) {
         val roundTripLatency = inputLatency + outputLatency
 
         val latencyClass = when {
-            roundTripLatency < 20 -> "Ultra-low (<20ms)"
-            roundTripLatency < 45 -> "Low (20-45ms)"
-            roundTripLatency < 90 -> "Normal (45-90ms)"
-            else -> "High (>90ms)"
+            roundTripLatency < 20 -> context.getString(R.string.fp_audio_reader_latency_ultra_low)
+            roundTripLatency < 45 -> context.getString(R.string.fp_audio_reader_latency_low)
+            roundTripLatency < 90 -> context.getString(R.string.fp_audio_reader_latency_normal)
+            else -> context.getString(R.string.fp_audio_reader_latency_high)
         }
 
         val latencySignature = hashString("$inputLatency:$outputLatency:$roundTripLatency").take(6)
@@ -235,9 +235,9 @@ class AudioFingerprintReader(private val context: Context) {
 
         // Common audio formats to check
         val formatsToCheck = listOf(
-            "PCM_16" to android.media.AudioFormat.ENCODING_PCM_16BIT,
-            "PCM_8" to android.media.AudioFormat.ENCODING_PCM_8BIT,
-            "PCM_FLOAT" to android.media.AudioFormat.ENCODING_PCM_FLOAT
+            context.getString(R.string.fp_audio_reader_pcm_16) to android.media.AudioFormat.ENCODING_PCM_16BIT,
+            context.getString(R.string.fp_audio_reader_pcm_8) to android.media.AudioFormat.ENCODING_PCM_8BIT,
+            context.getString(R.string.fp_audio_reader_pcm_float) to android.media.AudioFormat.ENCODING_PCM_FLOAT
         )
 
         formatsToCheck.forEach { (name, encoding) ->
@@ -264,7 +264,10 @@ class AudioFingerprintReader(private val context: Context) {
             }
         }
 
-        val channelConfigs = listOf("Mono", "Stereo")
+        val channelConfigs = listOf(
+            context.getString(R.string.fp_audio_reader_mono),
+            context.getString(R.string.fp_audio_reader_stereo)
+        )
 
         val codecSignature = hashString(
             "${inputFormats.size}:${outputFormats.size}:${supportedRates.joinToString(",")}"
@@ -319,19 +322,19 @@ class AudioFingerprintReader(private val context: Context) {
     }
 
     private fun getDeviceTypeName(type: Int): String {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return "Unknown"
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return context.getString(R.string.fp_audio_reader_unknown)
 
         return when (type) {
-            AudioDeviceInfo.TYPE_BUILTIN_MIC -> "Built-in Mic"
-            AudioDeviceInfo.TYPE_BUILTIN_SPEAKER -> "Built-in Speaker"
-            AudioDeviceInfo.TYPE_WIRED_HEADSET -> "Wired Headset"
-            AudioDeviceInfo.TYPE_WIRED_HEADPHONES -> "Wired Headphones"
-            AudioDeviceInfo.TYPE_BLUETOOTH_A2DP -> "Bluetooth A2DP"
-            AudioDeviceInfo.TYPE_BLUETOOTH_SCO -> "Bluetooth SCO"
-            AudioDeviceInfo.TYPE_USB_DEVICE -> "USB Audio"
-            AudioDeviceInfo.TYPE_USB_ACCESSORY -> "USB Accessory"
-            AudioDeviceInfo.TYPE_USB_HEADSET -> "USB Headset"
-            else -> "Unknown Type ($type)"
+            AudioDeviceInfo.TYPE_BUILTIN_MIC -> context.getString(R.string.fp_audio_reader_builtin_mic)
+            AudioDeviceInfo.TYPE_BUILTIN_SPEAKER -> context.getString(R.string.fp_audio_reader_builtin_speaker_device)
+            AudioDeviceInfo.TYPE_WIRED_HEADSET -> context.getString(R.string.fp_audio_reader_wired_headset)
+            AudioDeviceInfo.TYPE_WIRED_HEADPHONES -> context.getString(R.string.fp_audio_reader_wired_headphones)
+            AudioDeviceInfo.TYPE_BLUETOOTH_A2DP -> context.getString(R.string.fp_audio_reader_bluetooth_a2dp)
+            AudioDeviceInfo.TYPE_BLUETOOTH_SCO -> context.getString(R.string.fp_audio_reader_bluetooth_sco)
+            AudioDeviceInfo.TYPE_USB_DEVICE -> context.getString(R.string.fp_audio_reader_usb_audio)
+            AudioDeviceInfo.TYPE_USB_ACCESSORY -> context.getString(R.string.fp_audio_reader_usb_accessory)
+            AudioDeviceInfo.TYPE_USB_HEADSET -> context.getString(R.string.fp_audio_reader_usb_headset)
+            else -> context.getString(R.string.fp_audio_reader_unknown_type, type)
         }
     }
 
@@ -351,9 +354,9 @@ class AudioFingerprintReader(private val context: Context) {
 
         // Latency uniqueness (very device-specific)
         uniqueness *= when (latency.latencyClass) {
-            "Ultra-low (<20ms)" -> 1000.0  // Rare
-            "Low (20-45ms)" -> 300.0
-            "Normal (45-90ms)" -> 150.0
+            context.getString(R.string.fp_audio_reader_latency_ultra_low) -> 1000.0  // Rare
+            context.getString(R.string.fp_audio_reader_latency_low) -> 300.0
+            context.getString(R.string.fp_audio_reader_latency_normal) -> 150.0
             else -> 100.0
         }
 
@@ -363,9 +366,9 @@ class AudioFingerprintReader(private val context: Context) {
         val finalScore = uniqueness.toLong()
 
         return when {
-            finalScore > 1_000_000 -> "1 in ${finalScore / 1_000_000} million"
-            finalScore > 1_000 -> "1 in ${finalScore / 1_000}K"
-            else -> "1 in $finalScore"
+            finalScore > 1_000_000 -> context.getString(R.string.fp_audio_reader_uniqueness_million, finalScore / 1_000_000)
+            finalScore > 1_000 -> context.getString(R.string.fp_audio_reader_uniqueness_k, finalScore / 1_000)
+            else -> context.getString(R.string.fp_audio_reader_uniqueness_basic, finalScore)
         }
     }
 
@@ -377,27 +380,27 @@ class AudioFingerprintReader(private val context: Context) {
         val factors = mutableListOf<String>()
 
         if (hardware.microphoneCount > 1) {
-            factors.add("Multiple microphones detected (${hardware.microphoneCount} mics)")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_multiple_mics, hardware.microphoneCount))
         }
 
         if (latency.roundTripLatency < 45) {
-            factors.add("Low audio latency (${latency.roundTripLatency}ms) - high-end audio hardware")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_low_latency, latency.roundTripLatency))
         }
 
         if (capabilities.supportsProAudio) {
-            factors.add("Professional audio support enabled")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_pro_audio))
         }
 
         if (capabilities.supportsLowLatency) {
-            factors.add("Low-latency audio path available")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_low_latency_path))
         }
 
         if (hardware.microphoneTypes.size > 2) {
-            factors.add("Advanced microphone configuration: ${hardware.microphoneTypes.joinToString(", ")}")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_advanced_mic, hardware.microphoneTypes.joinToString(", ")))
         }
 
         if (factors.isEmpty()) {
-            factors.add("Standard audio configuration (still uniquely identifiable by latency patterns)")
+            factors.add(context.getString(R.string.fp_audio_reader_factor_standard))
         }
 
         return factors

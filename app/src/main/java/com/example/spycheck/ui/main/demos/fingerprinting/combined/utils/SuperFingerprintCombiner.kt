@@ -1,5 +1,6 @@
 package com.example.spycheck
 
+import android.content.Context
 import com.example.spycheck.ui.main.demos.fingerprinting.sensor.utils.SensorFingerprint
 import java.security.MessageDigest
 
@@ -38,7 +39,7 @@ data class ComponentFingerprints(
     val totalComponents: Int
 )
 
-object SuperFingerprintCombiner {
+class SuperFingerprintCombiner(private val context: Context) {
 
     fun combineFingerprints(
         device: DeviceFingerprint?,
@@ -64,7 +65,7 @@ object SuperFingerprintCombiner {
         val superFingerprintId = if (components.isNotEmpty()) {
             hashString(components.joinToString(":"))
         } else {
-            "No data analyzed yet"
+            context.getString(R.string.fp_super_combiner_no_data)
         }
 
         // Calculate global uniqueness (multiply all individual uniqueness scores)
@@ -129,11 +130,11 @@ object SuperFingerprintCombiner {
         performance?.let { totalUniqueness *= extractUniquenessNumber(it.uniquenessScore) }
 
         return when {
-            totalUniqueness > 1_000_000_000_000_000 -> "1 in QUINTILLIONS (more than humans on Earth!)"
-            totalUniqueness > 1_000_000_000_000 -> "1 in ${totalUniqueness / 1_000_000_000_000} TRILLION"
-            totalUniqueness > 1_000_000_000 -> "1 in ${totalUniqueness / 1_000_000_000} BILLION"
-            totalUniqueness > 1_000_000 -> "1 in ${totalUniqueness / 1_000_000} MILLION"
-            else -> "1 in ${totalUniqueness / 1_000}K"
+            totalUniqueness > 1_000_000_000_000_000 -> context.getString(R.string.fp_super_combiner_quintillions)
+            totalUniqueness > 1_000_000_000_000 -> context.getString(R.string.fp_super_combiner_trillion, totalUniqueness / 1_000_000_000_000)
+            totalUniqueness > 1_000_000_000 -> context.getString(R.string.fp_super_combiner_billion, totalUniqueness / 1_000_000_000)
+            totalUniqueness > 1_000_000 -> context.getString(R.string.fp_super_combiner_million, totalUniqueness / 1_000_000)
+            else -> context.getString(R.string.fp_super_combiner_k, totalUniqueness / 1_000)
         }
     }
 
@@ -173,14 +174,14 @@ object SuperFingerprintCombiner {
 
     private fun determineTrackingResistance(componentsAnalyzed: Int): String {
         return when (componentsAnalyzed) {
-            0 -> "Unknown"
-            1 -> "Very Easy to Avoid (VPN helps)"
-            2 -> "Easy to Avoid (privacy tools help)"
-            3 -> "Moderate (privacy tools partially help)"
-            4 -> "Hard to Avoid (privacy tools barely help)"
-            5 -> "Very Hard to Avoid (privacy tools ineffective)"
-            6 -> "NEARLY IMPOSSIBLE (privacy tools completely ineffective!)"
-            else -> "IMPOSSIBLE"
+            0 -> context.getString(R.string.fp_super_combiner_resistance_unknown)
+            1 -> context.getString(R.string.fp_super_combiner_resistance_very_easy)
+            2 -> context.getString(R.string.fp_super_combiner_resistance_easy)
+            3 -> context.getString(R.string.fp_super_combiner_resistance_moderate)
+            4 -> context.getString(R.string.fp_super_combiner_resistance_hard)
+            5 -> context.getString(R.string.fp_super_combiner_resistance_very_hard)
+            6 -> context.getString(R.string.fp_super_combiner_resistance_impossible)
+            else -> context.getString(R.string.fp_super_combiner_resistance_impossible_default)
         }
     }
 
@@ -194,13 +195,13 @@ object SuperFingerprintCombiner {
 
         return when {
             hasHardwareFingerprints && hasDeviceFingerprint ->
-                "PERMANENT (survives factory reset if you reinstall same apps)"
+                context.getString(R.string.fp_super_combiner_persistence_permanent)
             hasHardwareFingerprints ->
-                "Long-term (months to years, hardware-based)"
+                context.getString(R.string.fp_super_combiner_persistence_long_term)
             hasDeviceFingerprint ->
-                "Medium-term (weeks to months, until app changes)"
+                context.getString(R.string.fp_super_combiner_persistence_medium_term)
             else ->
-                "Unknown"
+                context.getString(R.string.fp_super_combiner_persistence_unknown)
         }
     }
 
@@ -215,46 +216,46 @@ object SuperFingerprintCombiner {
         val factors = mutableListOf<String>()
 
         if (device != null && sensor != null) {
-            factors.add("🎯 Device + Sensor = Physical device ID (survives account changes)")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_device_sensor))
         }
 
         if (battery != null && performance != null) {
-            factors.add("⚡ Battery + Performance = Hardware aging signature (unique over time)")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_battery_performance))
         }
 
         if (network != null && device != null) {
-            factors.add("🌐 Network + Device = Location + Identity (home/work detection)")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_network_device))
         }
 
         if (audio != null && performance != null) {
-            factors.add("🎤 Audio + Performance = Device model confirmation (cross-validates)")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_audio_performance))
         }
 
         if (device != null) {
-            factors.add("📱 Apps installed = Personality profile + interests")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_apps))
         }
 
         if (sensor != null) {
-            factors.add("🎯 Sensor imperfections = PERMANENT hardware ID (never changes)")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_sensor))
         }
 
         if (battery != null) {
-            factors.add("🔋 Battery age = Usage patterns + device age")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_battery))
         }
 
         if (network != null) {
-            factors.add("🌐 Network MTU = ISP/Carrier identification")
+            factors.add(context.getString(R.string.fp_super_combiner_factor_network))
         }
 
         val componentCount = listOf(device, sensor, battery, audio, network, performance).count { it != null }
 
         if (componentCount >= 4) {
-            factors.add("🚨 CRITICAL: With ${componentCount}/6 fingerprints, you are UNIQUELY identifiable across:")
-            factors.add("   • Different browsers (Chrome, Firefox, Safari)")
-            factors.add("   • Different accounts (Google, Facebook, etc.)")
-            factors.add("   • VPN usage (hardware doesn't change)")
-            factors.add("   • Private browsing mode")
-            factors.add("   • App uninstalls and reinstalls")
+            factors.add(context.getString(R.string.fp_super_combiner_critical_warning, componentCount))
+            factors.add(context.getString(R.string.fp_super_combiner_critical_browsers))
+            factors.add(context.getString(R.string.fp_super_combiner_critical_accounts))
+            factors.add(context.getString(R.string.fp_super_combiner_critical_vpn))
+            factors.add(context.getString(R.string.fp_super_combiner_critical_private))
+            factors.add(context.getString(R.string.fp_super_combiner_critical_reinstalls))
         }
 
         return factors

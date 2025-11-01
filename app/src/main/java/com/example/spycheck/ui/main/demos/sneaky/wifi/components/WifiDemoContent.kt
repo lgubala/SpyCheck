@@ -82,7 +82,7 @@ fun WifiDemoContent(viewModel: WifiDemoViewModel) {
         // Networks Found Display
         state.scanResult?.let { scanResult ->
             NetworksFoundCard(scanResult.totalCount)
-            
+
             // Show network list
             NetworksList(networks = scanResult.networks)
 
@@ -101,8 +101,8 @@ fun WifiDemoContent(viewModel: WifiDemoViewModel) {
 private fun NetworksFoundCard(totalCount: Int) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = if (totalCount > 0) DangerRed.copy(alpha = 0.15f) 
-                           else Color(0xFF2A2A2A)
+            containerColor = if (totalCount > 0) DangerRed.copy(alpha = 0.15f)
+            else Color(0xFF2A2A2A)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -115,7 +115,7 @@ private fun NetworksFoundCard(totalCount: Int) {
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Text(
-                    text = if (totalCount > 0) "⚠️" else "ℹ️", 
+                    text = if (totalCount > 0) "⚠️" else "ℹ️",
                     fontSize = 32.sp
                 )
                 Column {
@@ -131,7 +131,7 @@ private fun NetworksFoundCard(totalCount: Int) {
                     )
                     if (totalCount > 0) {
                         Text(
-                            text = "Each network reveals your location",
+                            text = stringResource(R.string.wifi_each_network_reveals),
                             fontSize = 14.sp,
                             color = Color.White.copy(alpha = 0.8f)
                         )
@@ -156,12 +156,12 @@ private fun NetworksList(networks: List<com.example.spycheck.ui.main.demos.sneak
                 .padding(16.dp)
         ) {
             Text(
-                text = "📡 Detected Networks",
+                text = stringResource(R.string.wifi_detected_networks),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 color = Color.White
             )
-            
+
             Spacer(modifier = Modifier.height(12.dp))
 
             networks.take(10).forEach { network ->
@@ -171,7 +171,7 @@ private fun NetworksList(networks: List<com.example.spycheck.ui.main.demos.sneak
 
             if (networks.size > 10) {
                 Text(
-                    text = "... and ${networks.size - 10} more",
+                    text = stringResource(R.string.wifi_and_more, networks.size - 10),
                     fontSize = 13.sp,
                     color = Color.White.copy(alpha = 0.6f),
                     modifier = Modifier.padding(top = 4.dp)
@@ -183,6 +183,10 @@ private fun NetworksList(networks: List<com.example.spycheck.ui.main.demos.sneak
 
 @Composable
 private fun NetworkItem(network: com.example.spycheck.ui.main.demos.sneaky.wifi.utils.WifiNetwork) {
+    val context = LocalContext.current
+    val hiddenNetwork = context.getString(R.string.wifi_hidden_network)
+    val macPrefix = context.getString(R.string.wifi_mac_prefix)
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -195,22 +199,22 @@ private fun NetworkItem(network: com.example.spycheck.ui.main.demos.sneaky.wifi.
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
-            imageVector = if (network.isConnected) Icons.Default.WifiTethering 
-                         else Icons.Default.Wifi,
+            imageVector = if (network.isConnected) Icons.Default.WifiTethering
+            else Icons.Default.Wifi,
             contentDescription = null,
             tint = if (network.isConnected) SuccessGreen else Color.White.copy(alpha = 0.6f),
             modifier = Modifier.size(20.dp)
         )
-        
+
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = network.ssid.ifEmpty { "<Hidden Network>" },
+                text = network.ssid.ifEmpty { hiddenNetwork },
                 fontSize = 14.sp,
                 fontWeight = if (network.isConnected) FontWeight.Bold else FontWeight.Normal,
                 color = Color.White
             )
             Text(
-                text = "MAC: ${network.bssid}",
+                text = "$macPrefix ${network.bssid}",
                 fontSize = 11.sp,
                 fontFamily = FontFamily.Monospace,
                 color = Color.White.copy(alpha = 0.5f)
@@ -242,7 +246,7 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
                 .padding(20.dp)
         ) {
             Text(
-                text = stringResource(R.string.wifi_api_example_title),
+                text = stringResource(R.string.wifi_api_title),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 color = Color(0xFFFFBE0B)
@@ -251,15 +255,14 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = stringResource(R.string.wifi_api_example_description),
-                fontSize = 14.sp,
+                text = stringResource(R.string.wifi_api_description),
+                fontSize = 13.sp,
                 color = Color.White.copy(alpha = 0.8f),
-                lineHeight = 20.sp
+                lineHeight = 18.sp
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // API Provider Selection
             Text(
                 text = stringResource(R.string.wifi_api_select_provider),
                 fontSize = 13.sp,
@@ -273,17 +276,17 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 ApiProviderChip(
-                    text = "Mozilla",
+                    text = stringResource(R.string.wifi_provider_mozilla),
                     selected = state.apiProvider == ApiProvider.MOZILLA,
                     onClick = { viewModel.setApiProvider(ApiProvider.MOZILLA) }
                 )
                 ApiProviderChip(
-                    text = "Google",
+                    text = stringResource(R.string.wifi_provider_google),
                     selected = state.apiProvider == ApiProvider.GOOGLE,
                     onClick = { viewModel.setApiProvider(ApiProvider.GOOGLE) }
                 )
                 ApiProviderChip(
-                    text = "Unwired",
+                    text = stringResource(R.string.wifi_provider_unwired),
                     selected = state.apiProvider == ApiProvider.UNWIRED,
                     onClick = { viewModel.setApiProvider(ApiProvider.UNWIRED) }
                 )
@@ -292,7 +295,7 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
             // API Key input (if not Mozilla)
             if (state.apiProvider != ApiProvider.MOZILLA) {
                 Spacer(modifier = Modifier.height(12.dp))
-                
+
                 OutlinedTextField(
                     value = state.apiKey,
                     onValueChange = { viewModel.setApiKey(it) },
@@ -358,6 +361,10 @@ private fun LocationResultCard(
     result: com.example.spycheck.ui.main.demos.sneaky.wifi.LocationResult,
     viewModel: WifiDemoViewModel
 ) {
+    val context = LocalContext.current
+    val apiProviderLabel = context.getString(R.string.wifi_api_provider_label)
+    val accuracyLabel = context.getString(R.string.wifi_accuracy_label_text)
+
     Card(
         colors = CardDefaults.cardColors(
             containerColor = DangerRed.copy(alpha = 0.15f)
@@ -381,7 +388,7 @@ private fun LocationResultCard(
                         color = DangerRed
                     )
                     Text(
-                        text = "Your location was pinpointed using WiFi networks",
+                        text = stringResource(R.string.wifi_location_pinpointed),
                         fontSize = 14.sp,
                         color = Color.White.copy(alpha = 0.8f)
                     )
@@ -402,7 +409,7 @@ private fun LocationResultCard(
                 Spacer(modifier = Modifier.height(8.dp))
                 DataItem(
                     icon = Icons.Default.MyLocation,
-                    label = "Accuracy",
+                    label = accuracyLabel,
                     value = stringResource(R.string.wifi_accuracy_label, accuracy.toInt())
                 )
             }
@@ -410,13 +417,13 @@ private fun LocationResultCard(
             Spacer(modifier = Modifier.height(8.dp))
             DataItem(
                 icon = Icons.Default.Cloud,
-                label = "API Provider",
+                label = apiProviderLabel,
                 value = result.provider.name
             )
 
             // Map preview
             Spacer(modifier = Modifier.height(16.dp))
-            
+
             AsyncImage(
                 model = viewModel.getStaticMapUrl(result),
                 contentDescription = stringResource(R.string.wifi_map_description),
@@ -432,7 +439,7 @@ private fun LocationResultCard(
                 shape = RoundedCornerShape(6.dp)
             ) {
                 Text(
-                    text = "⚠️ Apps can do this silently in the background without your knowledge!",
+                    text = stringResource(R.string.wifi_silent_warning),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
                     color = DangerRed,

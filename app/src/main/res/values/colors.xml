@@ -10,8 +10,38 @@
     <!-- Backgrounds -->
     <color name="background_dark">#0F0F0F</color>
     <color name="surface_dark">#1A1A1A</color>
+    <color name="card_background">#2A2A2A</color>
 
     <!-- Text -->
     <color name="text_primary">#FFFFFFFF</color>
     <color name="text_secondary">#B0B0B0</color>
+
+    <!-- Demo-specific Colors -->
+    <color name="danger_red">#FF6B6B</color>
+    <color name="success_green">#4ECDC4</color>
+    <color name="info_blue">#4ECDC4</color>
+    <color name="warning_yellow">#FFBE0B</color>
+
+    <!-- Additional UI Colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Audio Demo Colors -->
+    <color name="audio_analyzing_bg">#269D4EDD</color>        <!-- Purple with 15% alpha -->
+    <color name="audio_analyzing_color">#9D4EDD</color>        <!-- Purple -->
+
+    <!-- Audio Section Colors -->
+    <color name="audio_progress_track">#3A3A3A</color>
+    <color name="audio_result_bg">#269B59B6</color>            <!-- Purple with 15% alpha -->
+    <color name="audio_result_color">#9B59B6</color>           <!-- Purple -->
+    <color name="audio_codec_color">#2ECC71</color>            <!-- Green -->
+
+    <!-- Battery Section Colors -->
+    <color name="battery_progress_track">#3A3A3A</color>
+    <color name="battery_result_bg">#269B59B6</color>          <!-- Purple with 15% alpha -->
+    <color name="battery_result_color">#9B59B6</color>         <!-- Purple -->
+    <color name="battery_codec_color">#2ECC71</color>
+    <color name="super_persistence_color">#06FFA5</color><!-- Green -->
+
 </resources>

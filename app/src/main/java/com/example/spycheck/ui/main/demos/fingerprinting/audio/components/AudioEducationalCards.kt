@@ -10,16 +10,24 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.spycheck.R
 
 @Composable
 fun AudioFingerprintExplanationCard() {
+    val context = LocalContext.current
+    val factors = context.resources.getStringArray(R.array.audio_factors)
+
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF4ECDC4).copy(alpha = 0.15f)
+            containerColor = colorResource(R.color.info_blue).copy(alpha = 0.15f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -30,50 +38,42 @@ fun AudioFingerprintExplanationCard() {
                 .padding(20.dp)
         ) {
             Text(
-                text = "🤔 What is Audio Fingerprinting?",
+                text = stringResource(R.string.audio_explanation_title),
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp,
-                color = Color.White
+                color = colorResource(R.color.white)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "🎤 Every Audio System is Unique:",
+                text = stringResource(R.string.audio_unique_system),
                 fontWeight = FontWeight.Bold,
                 fontSize = 13.sp,
-                color = Color(0xFFFFBE0B)
+                color = colorResource(R.color.warning_yellow)
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Your phone's audio hardware creates a unique signature based on:",
+                text = stringResource(R.string.audio_unique_signature),
                 fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f),
+                color = colorResource(R.color.white).copy(alpha = 0.8f),
                 lineHeight = 18.sp
             )
 
             Spacer(modifier = Modifier.height(12.dp))
-
-            val factors = listOf(
-                "🎙️ Microphone hardware: Number, type, quality",
-                "⏱️ Audio latency: Delay between input/output",
-                "🔊 Speaker configuration: Mono/stereo/spatial",
-                "🎵 Codec support: Which audio formats work",
-                "📱 Audio capabilities: Pro audio, low latency"
-            )
 
             factors.forEach { factor ->
                 Row(
                     modifier = Modifier.padding(vertical = 3.dp),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    Text(text = "•", color = Color(0xFF4ECDC4), fontSize = 12.sp)
+                    Text(text = stringResource(R.string.bullet_point), color = colorResource(R.color.info_blue), fontSize = 12.sp)
                     Text(
                         text = factor,
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.7f)
+                        color = colorResource(R.color.white).copy(alpha = 0.7f)
                     )
                 }
             }
@@ -82,7 +82,7 @@ fun AudioFingerprintExplanationCard() {
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF2A2A2A)
+                    containerColor = colorResource(R.color.card_background)
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
@@ -90,20 +90,16 @@ fun AudioFingerprintExplanationCard() {
                     modifier = Modifier.padding(12.dp)
                 ) {
                     Text(
-                        text = "💡 Real Example:",
+                        text = stringResource(R.string.audio_real_example),
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
-                        color = Color(0xFF4ECDC4)
+                        color = colorResource(R.color.info_blue)
                     )
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
-                        text = "Two iPhone 15 Pros bought on the same day will have:\n\n" +
-                                "• Different audio latency (10-15ms vs 12-18ms)\n" +
-                                "• Slightly different microphone frequency responses\n" +
-                                "• Unique speaker calibration profiles\n\n" +
-                                "These tiny variations create a permanent audio fingerprint!",
+                        text = stringResource(R.string.audio_real_example_text),
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.white).copy(alpha = 0.9f),
                         lineHeight = 16.sp
                     )
                 }
@@ -113,14 +109,14 @@ fun AudioFingerprintExplanationCard() {
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFF6B6B).copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.danger_red).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
-                    text = "⚠️ NO PERMISSIONS NEEDED! Audio hardware info is freely accessible without asking for microphone permission. Websites can read this too!",
+                    text = stringResource(R.string.audio_no_permissions_warning),
                     fontSize = 11.sp,
-                    color = Color(0xFFFFBE0B),
+                    color = colorResource(R.color.warning_yellow),
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(12.dp),
                     lineHeight = 16.sp
@@ -137,7 +133,7 @@ fun AudioTrackingRealWorldCard() {
     Card(
         onClick = { expanded = !expanded },
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFF6B6B).copy(alpha = 0.2f)
+            containerColor = colorResource(R.color.danger_red).copy(alpha = 0.2f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -153,14 +149,14 @@ fun AudioTrackingRealWorldCard() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "🎭 Real-World Audio Tracking",
+                    text = stringResource(R.string.audio_real_world_tracking),
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
-                    color = Color(0xFFFF6B6B)
+                    color = colorResource(R.color.danger_red)
                 )
                 Text(
-                    text = if (expanded) "▼" else "▶",
-                    color = Color.White.copy(alpha = 0.5f),
+                    text = if (expanded) stringResource(R.string.expand_icon_down) else stringResource(R.string.expand_icon_right),
+                    color = colorResource(R.color.white).copy(alpha = 0.5f),
                     fontSize = 20.sp
                 )
             }
@@ -171,59 +167,42 @@ fun AudioTrackingRealWorldCard() {
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     AudioRealWorldScenario(
-                        number = "1",
-                        title = "The Anonymous Whistleblower",
-                        story = "A government whistleblower uploads evidence using Tor Browser with all privacy protections. But investigators analyze the audio fingerprint from background noise in a video. The unique latency pattern matches their work phone, exposing their identity.",
-                        impact = "Audio hardware signatures persist across all recordings and can't be hidden, even with encryption and anonymization."
+                        number = stringResource(R.string.number_1),
+                        title = stringResource(R.string.audio_scenario_1_title),
+                        story = stringResource(R.string.audio_scenario_1_story),
+                        impact = stringResource(R.string.audio_scenario_1_impact)
                     )
 
                     AudioRealWorldScenario(
-                        number = "2",
-                        title = "Cross-Device Ad Targeting",
-                        story = "Emma browses for engagement rings on her phone. Later, she opens her laptop. Ad networks detect the same audio fingerprint (her home WiFi speaker) and immediately show ring ads on her laptop too.",
-                        impact = "Audio fingerprints link all your devices in the same environment, building a complete profile of your household."
+                        number = stringResource(R.string.number_2),
+                        title = stringResource(R.string.audio_scenario_2_title),
+                        story = stringResource(R.string.audio_scenario_2_story),
+                        impact = stringResource(R.string.audio_scenario_2_impact)
                     )
 
                     AudioRealWorldScenario(
-                        number = "3",
-                        title = "Voice Assistant Eavesdropping",
-                        story = "Jake's smart speaker has a unique audio latency of 14ms. A malicious website measures his device's audio characteristics through JavaScript (no permission needed). Now they know: 'This is the same person who asked Alexa about medical conditions yesterday.'",
-                        impact = "Websites can fingerprint your audio hardware through the browser, linking your web activity to smart home devices."
+                        number = stringResource(R.string.number_3),
+                        title = stringResource(R.string.audio_scenario_3_title),
+                        story = stringResource(R.string.audio_scenario_3_story),
+                        impact = stringResource(R.string.audio_scenario_3_impact)
                     )
 
                     Card(
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFF2A2A2A)
+                            containerColor = colorResource(R.color.card_background)
                         ),
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = "⚠️ CRITICAL: Audio fingerprinting works:\n" +
-                                    "• Through web browsers (JavaScript)\n" +
-                                    "• Without microphone permission\n" +
-                                    "• Across different apps\n" +
-                                    "• Even in incognito mode\n" +
-                                    "• Through VPNs\n\n" +
-                                    "Your audio hardware never lies.",
+                            text = stringResource(R.string.audio_critical_warning),
                             fontSize = 11.sp,
-                            color = Color(0xFFFFBE0B),
+                            color = colorResource(R.color.warning_yellow),
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(12.dp),
                             lineHeight = 16.sp
                         )
                     }
                 }
-            }
-
-            if (!expanded) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "👆 Tap to see 3 real examples",
-                    fontSize = 11.sp,
-                    color = Color.White.copy(alpha = 0.6f),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
             }
         }
     }
@@ -238,7 +217,7 @@ private fun AudioRealWorldScenario(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -248,44 +227,44 @@ private fun AudioRealWorldScenario(
                 .padding(16.dp)
         ) {
             Row(
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Box(
                     modifier = Modifier
-                        .size(24.dp)
-                        .background(Color(0xFFFF6B6B), CircleShape),
+                        .size(32.dp)
+                        .background(colorResource(R.color.danger_red), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = number,
-                        color = Color.White,
+                        color = colorResource(R.color.white),
                         fontWeight = FontWeight.Bold,
-                        fontSize = 12.sp
+                        fontSize = 14.sp
                     )
                 }
                 Text(
                     text = title,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp,
-                    color = Color.White
+                    color = colorResource(R.color.white)
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Text(
                 text = story,
-                fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f),
-                lineHeight = 17.sp
+                fontSize = 11.sp,
+                color = colorResource(R.color.white).copy(alpha = 0.8f),
+                lineHeight = 16.sp
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF4ECDC4).copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.info_blue).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(6.dp)
             ) {
@@ -293,11 +272,11 @@ private fun AudioRealWorldScenario(
                     modifier = Modifier.padding(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    Text(text = "💡", fontSize = 12.sp)
+                    Text(text = stringResource(R.string.lightbulb_icon), fontSize = 12.sp)
                     Text(
                         text = impact,
                         fontSize = 10.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.white).copy(alpha = 0.9f),
                         lineHeight = 14.sp
                     )
                 }
@@ -308,9 +287,14 @@ private fun AudioRealWorldScenario(
 
 @Composable
 fun AudioTestItYourselfCard() {
+    val context = LocalContext.current
+    val consistencySteps = context.resources.getStringArray(R.array.audio_consistency_steps)
+    val headphoneSteps = context.resources.getStringArray(R.array.audio_headphone_steps)
+    val browserSteps = context.resources.getStringArray(R.array.audio_browser_steps)
+
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF4ECDC4).copy(alpha = 0.2f)
+            containerColor = colorResource(R.color.info_blue).copy(alpha = 0.2f)
         ),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth()
@@ -321,77 +305,59 @@ fun AudioTestItYourselfCard() {
                 .padding(20.dp)
         ) {
             Text(
-                text = "🧪 Test Audio Persistence",
+                text = stringResource(R.string.audio_test_persistence),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
-                color = Color(0xFF4ECDC4)
+                color = colorResource(R.color.info_blue)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Prove audio fingerprints are consistent:",
+                text = stringResource(R.string.audio_prove_consistent),
                 fontSize = 12.sp,
-                color = Color.White.copy(alpha = 0.8f)
+                color = colorResource(R.color.white).copy(alpha = 0.8f)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             AudioExperimentCard(
-                number = "1",
-                title = "The Consistency Test",
-                steps = listOf(
-                    "Screenshot your Audio ID",
-                    "Note your latency values (input/output)",
-                    "Close and reopen the app",
-                    "Analyze audio again",
-                    "Compare the IDs and latency"
-                ),
-                why = "IDENTICAL! Hardware characteristics don't change."
+                number = stringResource(R.string.number_1),
+                title = stringResource(R.string.audio_consistency_test),
+                steps = consistencySteps.toList(),
+                why = stringResource(R.string.audio_consistency_why)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             AudioExperimentCard(
-                number = "2",
-                title = "The Headphone Test",
-                steps = listOf(
-                    "Analyze audio without headphones",
-                    "Note microphone/speaker count",
-                    "Plug in wired headphones",
-                    "Analyze again",
-                    "Compare hardware profiles"
-                ),
-                why = "New devices detected! But built-in hardware signature stays the same."
+                number = stringResource(R.string.number_2),
+                title = stringResource(R.string.audio_headphone_test),
+                steps = headphoneSteps.toList(),
+                why = stringResource(R.string.audio_headphone_why)
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             AudioExperimentCard(
-                number = "3",
-                title = "The Browser Test",
-                steps = listOf(
-                    "Open Chrome on your phone",
-                    "Visit: audiofingerprint.openwpm.com",
-                    "See your audio context fingerprint",
-                    "Try in incognito mode",
-                    "Compare results"
-                ),
-                why = "SAME fingerprint! Websites can read this without permissions."
+                number = stringResource(R.string.number_3),
+                title = stringResource(R.string.audio_browser_test),
+                steps = browserSteps.toList(),
+                why = stringResource(R.string.audio_browser_why)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFF2A2A2A)
+                    containerColor = colorResource(R.color.card_background)
                 ),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
-                    text = "💡 Advanced: Compare your audio latency with a friend's phone. Even identical models will have different latency values (usually ±5ms variation)!",
+                    text = stringResource(R.string.audio_advanced_tip),
                     fontSize = 11.sp,
-                    color = Color(0xFFFFBE0B),
+                    color = colorResource(R.color.warning_yellow),
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(12.dp),
                     lineHeight = 16.sp
@@ -410,7 +376,7 @@ private fun AudioExperimentCard(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF2A2A2A)
+            containerColor = colorResource(R.color.card_background)
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -426,12 +392,12 @@ private fun AudioExperimentCard(
                 Box(
                     modifier = Modifier
                         .size(28.dp)
-                        .background(Color(0xFF4ECDC4), CircleShape),
+                        .background(colorResource(R.color.info_blue), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = number,
-                        color = Color.Black,
+                        color = colorResource(R.color.black),
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp
                     )
@@ -440,7 +406,7 @@ private fun AudioExperimentCard(
                     text = title,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp,
-                    color = Color.White
+                    color = colorResource(R.color.white)
                 )
             }
 
@@ -452,15 +418,15 @@ private fun AudioExperimentCard(
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     Text(
-                        text = "${index + 1}.",
+                        text = stringResource(R.string.step_number, index + 1),
                         fontSize = 11.sp,
-                        color = Color(0xFF4ECDC4),
+                        color = colorResource(R.color.info_blue),
                         fontWeight = FontWeight.Bold
                     )
                     Text(
                         text = step,
                         fontSize = 11.sp,
-                        color = Color.White.copy(alpha = 0.8f)
+                        color = colorResource(R.color.white).copy(alpha = 0.8f)
                     )
                 }
             }
@@ -469,7 +435,7 @@ private fun AudioExperimentCard(
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFFBE0B).copy(alpha = 0.2f)
+                    containerColor = colorResource(R.color.warning_yellow).copy(alpha = 0.2f)
                 ),
                 shape = RoundedCornerShape(6.dp)
             ) {
@@ -478,11 +444,11 @@ private fun AudioExperimentCard(
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "🔌", fontSize = 12.sp)
+                    Text(text = stringResource(R.string.plug_icon), fontSize = 12.sp)
                     Text(
-                        text = "Why: $why",
+                        text = stringResource(R.string.audio_why_format, why),
                         fontSize = 10.sp,
-                        color = Color.White.copy(alpha = 0.9f),
+                        color = colorResource(R.color.white).copy(alpha = 0.9f),
                         fontWeight = FontWeight.Bold
                     )
                 }

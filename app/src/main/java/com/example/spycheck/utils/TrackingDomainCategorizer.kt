@@ -1,16 +1,23 @@
 package com.example.spycheck.services.tracking
 
+import android.content.Context
+import androidx.annotation.StringRes
+import com.example.spycheck.R
 /**
  * Categories of tracking domains
  */
-enum class TrackingCategory(val displayName: String, val description: String) {
-    ANALYTICS("Analytics Provider", "collects data about your behavior"),
-    ADVERTISING("Ad Network", "tracks you to show targeted ads"),
-    DATA_BROKER("Data Broker", "sells your personal information"),
-    FINGERPRINTING("Fingerprinting Service", "identifies your device uniquely"),
-    CRASH_REPORTING("Crash Reporter", "monitors app crashes and collects device info"),
-    SOCIAL_TRACKING("Social Media Tracker", "tracks you across websites"),
-    UNKNOWN("Unknown Tracker", "collects your data")
+enum class TrackingCategory(
+    @StringRes val displayNameRes: Int,
+    @StringRes val descriptionRes: Int,
+    @StringRes val explanationRes: Int
+) {
+    ANALYTICS(R.string.category_analytics, R.string.desc_analytics, R.string.desc_analytics_exp),
+    ADVERTISING(R.string.category_advertising, R.string.desc_advertising, R.string.desc_advertising_exp),
+    DATA_BROKER(R.string.category_data_broker, R.string.desc_data_broker, R.string.desc_data_broker_exp),
+    FINGERPRINTING(R.string.category_fingerprinting, R.string.desc_fingerprinting, R.string.desc_fingerprinting_exp),
+    CRASH_REPORTING(R.string.category_crash_reporting, R.string.desc_crash_reporting, R.string.desc_crash_reporting_exp),
+    SOCIAL_TRACKING(R.string.category_social_tracking, R.string.desc_social_tracking, R.string.desc_social_tracking_exp),
+    UNKNOWN(R.string.category_unknown, R.string.desc_unknown, R.string.desc_unknown_exp)
 }
 
 /**
@@ -44,16 +51,8 @@ object TrackingDomainCategorizer {
     /**
      * Get a user-friendly explanation of what this tracker does
      */
-    fun getTrackingExplanation(category: TrackingCategory): String {
-        return when (category) {
-            TrackingCategory.ANALYTICS -> "tracking your behavior and collecting usage data"
-            TrackingCategory.ADVERTISING -> "building an ad profile to target you with ads"
-            TrackingCategory.DATA_BROKER -> "selling your personal data to third parties"
-            TrackingCategory.FINGERPRINTING -> "creating a unique device fingerprint to track you"
-            TrackingCategory.CRASH_REPORTING -> "collecting device info and app crash data"
-            TrackingCategory.SOCIAL_TRACKING -> "tracking your activity across different apps and websites"
-            TrackingCategory.UNKNOWN -> "collecting your personal data"
-        }
+    fun getTrackingExplanation(context: Context, category: TrackingCategory): String {
+        return context.getString(category.explanationRes)
     }
 
     /**
