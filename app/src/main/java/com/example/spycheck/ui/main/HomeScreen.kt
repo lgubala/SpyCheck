@@ -1,9 +1,11 @@
 package com.example.spycheck.ui.main
+
 import android.app.Activity
 import android.app.AppOpsManager
 import android.app.LocaleManager
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.VpnService
 import android.os.Build
 import android.os.LocaleList
@@ -20,7 +22,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Language
+import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.NetworkCheck
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.*
@@ -31,6 +35,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
@@ -48,16 +53,21 @@ import com.example.spycheck.services.tracking.TrackingDataHolder
 import com.example.spycheck.services.tracking.TrackingVpnService
 import com.example.spycheck.services.tracking.VpnStateManager
 import com.example.spycheck.ui.theme.Amber
-import com.example.spycheck.ui.theme.BackgroundDark
+
 import com.example.spycheck.ui.theme.Crimson
 import com.example.spycheck.ui.theme.CrimsonDark
 import com.example.spycheck.ui.theme.LightGreen
-import com.example.spycheck.ui.theme.SurfaceDark
+
 import com.example.spycheck.ui.theme.TextPrimary
+import com.example.spycheck.utils.PreferencesManager
 import java.util.Locale
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    currentThemeMode: Int = PreferencesManager.THEME_MODE_DARK,
+    onThemeModeChanged: (Int) -> Unit = {},
+    onLocaleChanged: (String) -> Unit = {}
+) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -79,11 +89,10 @@ fun HomeScreen() {
     val vpnPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        // Always recheck permission after result
         hasVpnPermission = checkVpnPermission(context)
     }
 
-    // Refresh permissions when app resumes (user comes back from settings)
+    // Refresh permissions when app resumes
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
@@ -111,8 +120,8 @@ fun HomeScreen() {
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
-                        BackgroundDark,
-                        SurfaceDark
+                        MaterialTheme.colorScheme.background,
+                        MaterialTheme.colorScheme.surface
                     )
                 )
             )
@@ -121,100 +130,50 @@ fun HomeScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Language Section
+        // Theme & Language Section - OPTIMIZED
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 8.dp),
-            horizontalArrangement = Arrangement.End
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            var showLanguageDialog by remember { mutableStateOf(false) }
-
-            IconButton(onClick = { showLanguageDialog = true }) {
+            // Theme Toggle - INSTANT SWITCH
+            IconButton(
+                onClick = {
+                    val newMode = if (currentThemeMode == PreferencesManager.THEME_MODE_DARK) {
+                        PreferencesManager.THEME_MODE_LIGHT
+                    } else {
+                        PreferencesManager.THEME_MODE_DARK
+                    }
+                    onThemeModeChanged(newMode)
+                }
+            ) {
                 Icon(
-                    imageVector = Icons.Default.Language,
-                    contentDescription = stringResource(R.string.home_change_language),
-                    tint = Color.White.copy(alpha = 0.7f),
+                    imageVector = if (currentThemeMode == PreferencesManager.THEME_MODE_DARK)
+                        Icons.Default.DarkMode
+                    else
+                        Icons.Default.LightMode,
+                    contentDescription = "Toggle Theme",
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                     modifier = Modifier.size(24.dp)
                 )
             }
 
-            if (showLanguageDialog) {
-                AlertDialog(
-                    onDismissRequest = { showLanguageDialog = false },
-                    title = { Text(stringResource(id = R.string.language)) },
-                    text = {
-                        Column {
-                            TextButton(
-                                onClick = {
-                                    setLocale(context, context.getString(R.string.locale_code_english))
-                                    showLanguageDialog = false
-                                },
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Text("ðŸ‡¬ðŸ‡§ ${stringResource(id = R.string.english)}")
-                            }
-                            TextButton(
-                                onClick = {
-                                    setLocale(context, context.getString(R.string.locale_code_slovak))
-                                    showLanguageDialog = false
-                                },
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Text("ðŸ‡¸ðŸ‡° ${stringResource(id = R.string.slovak)}")
-                            }
-                            TextButton(
-                                onClick = {
-                                    setLocale(context, context.getString(R.string.locale_code_spanish))
-                                    showLanguageDialog = false
-                                },
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Text("ðŸ‡ªðŸ‡¸ ${stringResource(id = R.string.spanish)}")
-                            }
-                        }
-                    },
-                    confirmButton = {}
-                )
-            }
+            // Language Switcher
+            LanguageSwitcher()
         }
 
-        // Header Section
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Default.Visibility,
-                contentDescription = null,
-                modifier = Modifier.size(140.dp),
-                tint = Crimson
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = stringResource(id = R.string.home_title),
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = stringResource(id = R.string.home_subtitle),
-                fontSize = 14.sp,
-                color = Color.White.copy(alpha = 0.7f),
-                textAlign = TextAlign.Center
-            )
-        }
+        // Rest of your UI...
+        HeaderSection()
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Start Watching Button - ALWAYS SHOW (but disabled if permissions missing)
-        StartWatchingButton(
+        // Start Watching Card
+        MonitoringCard(
             isMonitoring = isMonitoring,
             allPermissionsGranted = allPermissionsGranted,
             trackingCount = trackingCount,
-            onToggle = {
+            onStartStop = {
                 if (isMonitoring) {
                     stopMonitoring(context)
                 } else {
@@ -222,193 +181,203 @@ fun HomeScreen() {
                 }
             }
         )
-        // Instructions - only show when all permissions granted but not monitoring
-        if (allPermissionsGranted && !isMonitoring) {
-            InstructionsCard()
-        }
-        // Warning Card - Show when permissions granted but NOT monitoring
-        AnimatedVisibility(visible = allPermissionsGranted && !isMonitoring) {
-            PermissionsGrantedWarningCard()
-        }
 
-        // Permission Cards Section - ALWAYS SHOW (except when monitoring)
-        if (!isMonitoring) {
-            Text(
-                text = if (allPermissionsGranted) stringResource(R.string.home_manage_permissions) else stringResource(id = R.string.home_required_permissions),
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = TextPrimary,
-                modifier = Modifier.padding(top = 8.dp)
-            )
+        // Permissions Section
+        PermissionsSection(
+            hasVpnPermission = hasVpnPermission,
+            hasUsageStatsPermission = hasUsageStatsPermission,
+            hasOverlayPermission = hasOverlayPermission,
+            vpnPermissionLauncher = vpnPermissionLauncher,
+            context = context
+        )
 
-            if (!allPermissionsGranted) {
-                Text(
-                    text = stringResource(id = R.string.home_permissions_warning),
-                    fontSize = 12.sp,
-                    color = Amber,
-                    textAlign = TextAlign.Center,
-                    lineHeight = 18.sp
-                )
-            }
-
-            // VPN Permission Card - ALWAYS VISIBLE
-            PermissionCard(
-                title = stringResource(id = R.string.home_vpn_permission_title),
-                description = stringResource(id = R.string.home_vpn_permission_desc),
-                icon = stringResource(id = R.string.icon_vpn),
-                isGranted = hasVpnPermission,
-                onGrant = {
-                    val vpnIntent = VpnService.prepare(context)
-                    if (vpnIntent != null) {
-                        vpnPermissionLauncher.launch(vpnIntent)
-                    } else {
-                        hasVpnPermission = true
-                    }
-                },
-                onRevoke = {
-                    context.startActivity(Intent(Settings.ACTION_VPN_SETTINGS))
-                },
-                warningText = stringResource(id = R.string.home_vpn_permission_warning)
-            )
-
-            // Usage Stats Permission Card - ALWAYS VISIBLE
-            PermissionCard(
-                title = stringResource(id = R.string.home_usage_stats_title),
-                description = stringResource(id = R.string.home_usage_stats_desc),
-                icon = stringResource(id = R.string.icon_usage_stats),
-                isGranted = hasUsageStatsPermission,
-                onGrant = {
-                    context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
-                },
-                onRevoke = {
-                    context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
-                },
-                warningText = stringResource(id = R.string.home_usage_stats_warning)
-            )
-
-            // Overlay Permission Card - ALWAYS VISIBLE
-            PermissionCard(
-                title = stringResource(id = R.string.home_overlay_permission_title),
-                description = stringResource(id = R.string.home_overlay_permission_desc),
-                icon = stringResource(id = R.string.icon_overlay),
-                isGranted = hasOverlayPermission,
-                onGrant = {
-                    val overlayIntent = Intent(
-                        Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        "package:${context.packageName}".toUri()
-                    )
-                    context.startActivity(overlayIntent)
-                },
-                onRevoke = {
-                    val overlayIntent = Intent(
-                        Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        "package:${context.packageName}".toUri()
-                    )
-                    context.startActivity(overlayIntent)
-                },
-                warningText = stringResource(id = R.string.home_overlay_permission_warning)
+        // Monitoring Active Badge
+        AnimatedVisibility(visible = isMonitoring) {
+            MonitoringActiveBadge(
+                hasVpnPermission = hasVpnPermission,
+                hasUsageStatsPermission = hasUsageStatsPermission,
+                hasOverlayPermission = hasOverlayPermission
             )
         }
 
+        // Instructions
+        InstructionsCard()
 
+        // Revoke Permissions Button
+        AnimatedVisibility(visible = !isMonitoring && allPermissionsGranted) {
+            RevokePermissionsCard(context = context)
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
     }
 }
 
 @Composable
-private fun StartWatchingButton(
+private fun LanguageSwitcher() {
+    val context = LocalContext.current
+    var showDialog by remember { mutableStateOf(false) }
+
+    IconButton(onClick = { showDialog = true }) {
+        Icon(
+            imageVector = Icons.Default.Language,
+            contentDescription = "Change Language",
+            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            modifier = Modifier.size(24.dp)
+        )
+    }
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = { Text(stringResource(R.string.language)) },
+            text = {
+                Column {
+                    LanguageButton(
+                        flag = "🇬🇧",
+                        name = stringResource(R.string.english),
+                        onClick = {
+                            setLocale(context, context.getString(R.string.locale_code_english))
+                            showDialog = false
+                        }
+                    )
+                    LanguageButton(
+                        flag = "🇸🇰",
+                        name = stringResource(R.string.slovak),
+                        onClick = {
+                            setLocale(context, context.getString(R.string.locale_code_slovak))
+                            showDialog = false
+                        }
+                    )
+                    LanguageButton(
+                        flag = "🇪🇸",
+                        name = stringResource(R.string.spanish),
+                        onClick = {
+                            setLocale(context, context.getString(R.string.locale_code_spanish))
+                            showDialog = false
+                        }
+                    )
+                }
+            },
+            confirmButton = {}
+        )
+    }
+}
+
+@Composable
+private fun LanguageButton(flag: String, name: String, onClick: () -> Unit) {
+    TextButton(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text("$flag $name")
+    }
+}
+
+@Composable
+private fun HeaderSection() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(top = 16.dp)
+    ) {
+        Icon(
+            imageVector = Icons.Default.Visibility,
+            contentDescription = null,
+            modifier = Modifier.size(140.dp),
+            tint = Crimson
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = stringResource(R.string.home_title),
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = stringResource(R.string.home_subtitle),
+            fontSize = 14.sp,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Composable
+private fun MonitoringCard(
     isMonitoring: Boolean,
     allPermissionsGranted: Boolean,
     trackingCount: Int,
-    onToggle: () -> Unit
+    onStartStop: () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = SurfaceDark
-        )
+            containerColor = if (isMonitoring) MaterialTheme.colorScheme.secondaryContainer
+            else if (allPermissionsGranted) Crimson.copy(alpha = 0.15f)
+            else MaterialTheme.colorScheme.surfaceVariant
+        ),
+        shape = RoundedCornerShape(20.dp)
     ) {
         Column(
             modifier = Modifier.padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            if (isMonitoring) {
-                PulsingDot()
-                Spacer(modifier = Modifier.height(12.dp))
-            }
-
-            Text(
-                text = if (isMonitoring) {
-                    stringResource(id = R.string.home_watching_live)
-                } else if (allPermissionsGranted) {
-                    stringResource(id = R.string.home_ready_to_start)
-                } else {
-                    stringResource(R.string.home_grant_permissions_first)
-                },
-                fontSize = 13.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (isMonitoring) Crimson else Color.White.copy(alpha = 0.5f),
-                letterSpacing = 2.sp
-            )
-
-            if (isMonitoring) {
-                Spacer(modifier = Modifier.height(12.dp))
-
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (isMonitoring) {
+                    PulsingDot()
+                }
                 Text(
-                    text = trackingCount.toString(),
-                    fontSize = 42.sp,
+                    text = if (isMonitoring) stringResource(R.string.home_watching_live)
+                    else if (allPermissionsGranted) stringResource(R.string.home_ready_to_start)
+                    else stringResource(R.string.home_grant_permissions_first),
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Crimson
-                )
-                Text(
-                    text = stringResource(id = R.string.home_tracking_attempts),
-                    fontSize = 13.sp,
-                    color = Color.White.copy(alpha = 0.7f)
-                )
-
-                Spacer(modifier = Modifier.height(6.dp))
-
-                Text(
-                    text = stringResource(id = R.string.home_apps_sending_data),
-                    fontSize = 11.sp,
-                    color = Amber,
-                    textAlign = TextAlign.Center
+                    color = if (isMonitoring) Crimson
+                    else if (allPermissionsGranted) Crimson
+                    else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                 )
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
+            AnimatedVisibility(visible = isMonitoring && trackingCount > 0) {
+                Column(
+                    modifier = Modifier.padding(top = 12.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "$trackingCount",
+                        fontSize = 40.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Crimson
+                    )
+                    Text(
+                        text = stringResource(R.string.home_tracking_attempts),
+                        fontSize = 13.sp,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                onClick = onToggle,
-                enabled = allPermissionsGranted || isMonitoring,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp),
+                onClick = onStartStop,
+                enabled = allPermissionsGranted,
+                modifier = Modifier.fillMaxWidth().height(56.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = if (isMonitoring) Crimson else SurfaceDark,
-                    disabledContainerColor = SurfaceDark
+                    containerColor = if (isMonitoring) CrimsonDark else Crimson,
+                    disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant
                 ),
-                shape = RoundedCornerShape(14.dp)
+                shape = RoundedCornerShape(16.dp)
             ) {
                 Text(
-                    text = if (isMonitoring)
-                        stringResource(id = R.string.home_stop_watching)
-                    else
-                        stringResource(id = R.string.home_start_watching),
-                    fontSize = 15.sp,
+                    text = if (isMonitoring) stringResource(R.string.home_stop_watching)
+                    else stringResource(R.string.home_start_watching),
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
-                )
-            }
-
-            if (isMonitoring) {
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    text = stringResource(id = R.string.home_minimize_app),
-                    fontSize = 10.sp,
-                    color = LightGreen,
-                    textAlign = TextAlign.Center
                 )
             }
         }
@@ -416,53 +385,176 @@ private fun StartWatchingButton(
 }
 
 @Composable
-private fun PermissionsGrantedWarningCard() {
+private fun PermissionsSection(
+    hasVpnPermission: Boolean,
+    hasUsageStatsPermission: Boolean,
+    hasOverlayPermission: Boolean,
+    vpnPermissionLauncher: androidx.activity.result.ActivityResultLauncher<Intent>,
+    context: Context
+) {
+    Text(
+        text = stringResource(R.string.home_required_permissions),
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.padding(top = 8.dp)
+    )
+
+    Surface(
+        color = Amber.copy(alpha = 0.15f),
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(
+            text = stringResource(R.string.home_permissions_warning),
+            fontSize = 13.sp,
+            color = MaterialTheme.colorScheme.onTertiaryContainer,
+            modifier = Modifier.padding(12.dp),
+            textAlign = TextAlign.Center
+        )
+    }
+
+    PermissionCard(
+        title = stringResource(R.string.home_vpn_permission_title),
+        description = stringResource(R.string.home_vpn_permission_desc),
+        warningText = stringResource(R.string.home_vpn_permission_warning),
+        isGranted = hasVpnPermission,
+        onGrant = {
+            val vpnIntent = VpnService.prepare(context)
+            if (vpnIntent != null) {
+                vpnPermissionLauncher.launch(vpnIntent)
+            }
+        },
+        onRevoke = {
+            context.startActivity(Intent(Settings.ACTION_VPN_SETTINGS))
+        }
+    )
+
+    PermissionCard(
+        title = stringResource(R.string.home_usage_stats_title),
+        description = stringResource(R.string.home_usage_stats_desc),
+        warningText = stringResource(R.string.home_usage_stats_warning),
+        isGranted = hasUsageStatsPermission,
+        onGrant = {
+            context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        },
+        onRevoke = {
+            context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        }
+    )
+
+    PermissionCard(
+        title = stringResource(R.string.home_overlay_permission_title),
+        description = stringResource(R.string.home_overlay_permission_desc),
+        warningText = stringResource(R.string.home_overlay_permission_warning),
+        isGranted = hasOverlayPermission,
+        onGrant = {
+            val intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                "package:${context.packageName}".toUri()
+            )
+            context.startActivity(intent)
+        },
+        onRevoke = {
+            val intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                "package:${context.packageName}".toUri()
+            )
+            context.startActivity(intent)
+        }
+    )
+}
+
+@Composable
+private fun MonitoringActiveBadge(
+    hasVpnPermission: Boolean,
+    hasUsageStatsPermission: Boolean,
+    hasOverlayPermission: Boolean
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = Amber.copy(alpha = 0.2f)
+            containerColor = LightGreen.copy(alpha = 0.2f)
         ),
         shape = RoundedCornerShape(16.dp)
     ) {
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Row(
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = stringResource(id = R.string.icon_warning), fontSize = 32.sp)
+                Icon(
+                    imageVector = Icons.Default.NetworkCheck,
+                    contentDescription = null,
+                    tint = LightGreen,
+                    modifier = Modifier.size(32.dp)
+                )
                 Column {
                     Text(
-                        text = stringResource(R.string.home_all_permissions_granted),
-                        fontSize = 18.sp,
+                        text = stringResource(R.string.home_monitoring_active_title),
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
-                        color = CrimsonDark
+                        color = MaterialTheme.colorScheme.tertiaryContainer
                     )
                     Text(
-                        text = stringResource(id = R.string.home_monitoring_active_desc),
+                        text = stringResource(R.string.home_monitoring_active_desc),
                         fontSize = 13.sp,
-                        color = Color.White.copy(alpha = 0.8f)
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
+            Divider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f))
+            Spacer(modifier = Modifier.height(12.dp))
 
-            PermissionBadge(stringResource(id = R.string.perm_badge_vpn))
-            PermissionBadge(stringResource(id = R.string.perm_badge_usage))
-            PermissionBadge(stringResource(id = R.string.perm_badge_overlay))
+            if (hasVpnPermission) {
+                PermissionBadge(stringResource(R.string.perm_badge_vpn))
+            }
+            if (hasUsageStatsPermission) {
+                PermissionBadge(stringResource(R.string.perm_badge_usage))
+            }
+            if (hasOverlayPermission) {
+                PermissionBadge(stringResource(R.string.perm_badge_overlay))
+            }
+        }
+    }
+}
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Surface(
-                color =Crimson.copy(alpha = 0.2f),
-                shape = RoundedCornerShape(8.dp)
+@Composable
+private fun RevokePermissionsCard(context: Context) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = Crimson.copy(alpha = 0.15f)
+        ),
+        shape = RoundedCornerShape(16.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(R.string.home_revoke_permissions_tip),
+                fontSize = 13.sp,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Button(
+                onClick = {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                        data = "package:${context.packageName}".toUri()
+                    }
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(containerColor = CrimsonDark),
+                shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.home_revoke_permissions_tip),
-                    fontSize = 12.sp,
-                    color = Color.White,
-                    modifier = Modifier.padding(12.dp),
-                    lineHeight = 18.sp,
+                    text = stringResource(R.string.home_manage_permissions),
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -474,104 +566,65 @@ private fun PermissionsGrantedWarningCard() {
 private fun PermissionCard(
     title: String,
     description: String,
-    icon: String,
+    warningText: String,
     isGranted: Boolean,
     onGrant: () -> Unit,
-    onRevoke: () -> Unit,
-    warningText: String
+    onRevoke: () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = if (isGranted)
-                LightGreen.copy(alpha = 0.15f)
+                MaterialTheme.colorScheme.primaryContainer
             else
-                SurfaceDark
+                MaterialTheme.colorScheme.surfaceVariant
         ),
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Text(
+                text = title,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = if (isGranted) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = description,
+                fontSize = 13.sp,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Surface(
+                color = if (isGranted) MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.15f) else Crimson.copy(alpha = 0.15f),
+                shape = RoundedCornerShape(8.dp)
             ) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(text = icon, fontSize = 32.sp)
-                    Column {
-                        Text(
-                            text = title,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                        Text(
-                            text = description,
-                            fontSize = 12.sp,
-                            color = Color.White.copy(alpha = 0.6f)
-                        )
-                    }
-                }
-
-                // Status Indicator
-                Surface(
-                    shape = CircleShape,
-                    color = if (isGranted) Crimson else LightGreen.copy(alpha = 0.3f),
-                    modifier = Modifier.size(12.dp)
-                ) {}
+                Text(
+                    text = warningText,
+                    fontSize = 12.sp,
+                    color = if (isGranted) MaterialTheme.colorScheme.tertiaryContainer else Crimson,
+                    modifier = Modifier.padding(8.dp)
+                )
             }
-
-            // Warning text (only when not granted)
-            if (!isGranted) {
-                Spacer(modifier = Modifier.height(12.dp))
-                Surface(
-                    color = Crimson.copy(alpha = 0.15f),
-                    shape = RoundedCornerShape(8.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.padding(12.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(text = stringResource(id = R.string.icon_warning), fontSize = 14.sp)
-                        Text(
-                            text = warningText,
-                            fontSize = 12.sp,
-                            color = Crimson,
-                            lineHeight = 16.sp
-                        )
-                    }
-                }
-            }
-
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Grant/Revoke Button
             if (!isGranted) {
-                // Grant Button
                 Button(
                     onClick = onGrant,
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Crimson
-                    ),
+                    colors = ButtonDefaults.buttonColors(containerColor = Crimson),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text(
-                        text = stringResource(id = R.string.home_grant_permission),
+                        text = stringResource(R.string.home_grant_permission),
                         fontWeight = FontWeight.Bold
                     )
                 }
             } else {
-                // Revoke Button
                 OutlinedButton(
                     onClick = onRevoke,
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = LightGreen
-                    ),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Crimson),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Row(
@@ -625,7 +678,7 @@ private fun PulsingDot() {
 @Composable
 private fun PermissionBadge(text: String) {
     Surface(
-        color = Color.White.copy(alpha = 0.1f),
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
@@ -634,7 +687,7 @@ private fun PermissionBadge(text: String) {
         Text(
             text = text,
             fontSize = 13.sp,
-            color = Color.White.copy(alpha = 0.9f),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
             modifier = Modifier.padding(12.dp)
         )
     }
@@ -644,36 +697,30 @@ private fun PermissionBadge(text: String) {
 private fun InstructionsCard() {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = LightGreen.copy(alpha = 0.15f)
-        ),
+        colors = CardDefaults.cardColors(containerColor = LightGreen.copy(alpha = 0.15f)),
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = stringResource(id = R.string.home_how_to_use),
+                text = stringResource(R.string.home_how_to_use),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
-                color = LightGreen
+                color = MaterialTheme.colorScheme.tertiaryContainer
             )
-
             Spacer(modifier = Modifier.height(12.dp))
-
-            InstructionStep("1", stringResource(id = R.string.home_instruction_1))
-            InstructionStep("2", stringResource(id = R.string.home_instruction_2))
-            InstructionStep("3", stringResource(id = R.string.home_instruction_3))
-            InstructionStep("4", stringResource(id = R.string.home_instruction_4))
-
+            InstructionStep("1", stringResource(R.string.home_instruction_1))
+            InstructionStep("2", stringResource(R.string.home_instruction_2))
+            InstructionStep("3", stringResource(R.string.home_instruction_3))
+            InstructionStep("4", stringResource(R.string.home_instruction_4))
             Spacer(modifier = Modifier.height(12.dp))
-
             Surface(
                 color = Amber.copy(alpha = 0.2f),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.home_real_tracking_warning),
+                    text = stringResource(R.string.home_real_tracking_warning),
                     fontSize = 12.sp,
-                    color = Amber,
+                    color = MaterialTheme.colorScheme.onTertiaryContainer,
                     modifier = Modifier.padding(12.dp)
                 )
             }
@@ -691,7 +738,7 @@ private fun InstructionStep(number: String, text: String) {
         Surface(
             modifier = Modifier.size(28.dp),
             shape = CircleShape,
-            color = LightGreen
+            color = MaterialTheme.colorScheme.tertiaryContainer
         ) {
             Box(contentAlignment = Alignment.Center) {
                 Text(
@@ -702,24 +749,26 @@ private fun InstructionStep(number: String, text: String) {
                 )
             }
         }
-
         Text(
             text = text,
             fontSize = 14.sp,
-            color = Color.White.copy(alpha = 0.9f)
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f)
         )
     }
 }
 
 private fun setLocale(context: Context, languageCode: String) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        context.getSystemService(LocaleManager::class.java).applicationLocales =
-            LocaleList.forLanguageTags(languageCode)
-    } else {
-        AppCompatDelegate.setApplicationLocales(
-            LocaleListCompat.create(Locale.forLanguageTag(languageCode))
-        )
-    }
+    // Just update resources - NO activity restart
+    val locale = Locale.forLanguageTag(languageCode)
+    Locale.setDefault(locale)
+
+    val config = Configuration(context.resources.configuration)
+    config.setLocale(locale)
+
+    // Update WITHOUT restarting
+    @Suppress("DEPRECATION")
+    context.createConfigurationContext(config)
+    context.resources.updateConfiguration(config, context.resources.displayMetrics)
 }
 
 private fun checkVpnPermission(context: Context): Boolean {
@@ -739,10 +788,8 @@ private fun checkUsageStatsPermission(context: Context): Boolean {
 private fun startMonitoring(context: Context) {
     context.startService(Intent(context, TrackingVpnService::class.java))
     VpnStateManager.setVpnRunning(true)
-
     context.startService(Intent(context, OverlayService::class.java))
     VpnStateManager.setOverlayRunning(true)
-
     TrackingDataHolder.clearCounts()
 }
 
@@ -752,7 +799,6 @@ private fun stopMonitoring(context: Context) {
     }
     context.startService(vpnIntent)
     VpnStateManager.setVpnRunning(false)
-
     context.stopService(Intent(context, OverlayService::class.java))
     VpnStateManager.setOverlayRunning(false)
 }

@@ -25,6 +25,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.spycheck.R
 import com.example.spycheck.ui.theme.*
+import com.example.spycheck.utils.PreferencesManager
 
 sealed class Screen(
     val route: String,
@@ -45,12 +46,15 @@ val items = listOf(
 )
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    currentThemeMode: Int = PreferencesManager.THEME_MODE_DARK,
+    onThemeModeChanged: (Int) -> Unit = {}
+) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
             NavigationBar(
-                containerColor = SurfaceDark.copy(alpha = 0.95f),
+                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
                 tonalElevation = 0.dp
             ) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -60,9 +64,8 @@ fun MainScreen() {
                     val selected =
                         currentDestination?.hierarchy?.any { it.route == screen.route } == true
 
-                    // 🔥 Animate icon and label tint smoothly
                     val animatedColor by animateColorAsState(
-                        targetValue = if (selected) TextPrimary else TextSecondary,
+                        targetValue = if (selected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,
                         animationSpec = androidx.compose.animation.core.tween(durationMillis = 200),
                         label = "navTint"
                     )
@@ -89,11 +92,11 @@ fun MainScreen() {
                         selected = selected,
                         alwaysShowLabel = true,
                         colors = NavigationBarItemDefaults.colors(
-                            indicatorColor = Color.Transparent, // no colored background
-                            selectedIconColor = TextPrimary,
-                            selectedTextColor = TextPrimary,
-                            unselectedIconColor = TextSecondary,
-                            unselectedTextColor = TextSecondary
+                            indicatorColor = Color.Transparent,
+                            selectedIconColor = MaterialTheme.colorScheme.onSurface,
+                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant
                         ),
                         onClick = {
                             navController.navigate(screen.route) {
@@ -112,7 +115,9 @@ fun MainScreen() {
         NavGraph(
             navController = navController,
             modifier = Modifier.padding(innerPadding),
-            startDestination = Screen.Home.route
+            startDestination = Screen.Home.route,
+            currentThemeMode = currentThemeMode,
+            onThemeModeChanged = onThemeModeChanged
         )
     }
 }

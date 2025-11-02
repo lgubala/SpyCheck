@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,11 +36,9 @@ import com.example.spycheck.R
 import com.example.spycheck.db.tracking.TrackingEvent
 import com.example.spycheck.ui.main.viewmodels.HistoryViewModel
 import com.example.spycheck.ui.theme.Amber
-import com.example.spycheck.ui.theme.BackgroundDark
 import com.example.spycheck.ui.theme.Crimson
 import com.example.spycheck.ui.theme.IcyBlue
 import com.example.spycheck.ui.theme.LightGreen
-import com.example.spycheck.ui.theme.SurfaceDark
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -54,8 +53,8 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
             .background(
                 Brush.verticalGradient(
                     colors = listOf(
-                        BackgroundDark,
-                        SurfaceDark
+                        MaterialTheme.colorScheme.surface,
+                        MaterialTheme.colorScheme.surface
                     )
                 )
             )
@@ -68,7 +67,7 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
                 .fillMaxWidth()
                 .padding(16.dp),
             colors = CardDefaults.cardColors(
-                containerColor = BackgroundDark
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             shape = RoundedCornerShape(16.dp)
         ) {
@@ -102,7 +101,7 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
             ) {
                 Text(
                     text = stringResource(id = R.string.history_no_tracking_yet),
-                    color = Color.White.copy(alpha = 0.5f),
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                     fontSize = 14.sp,
                     textAlign = TextAlign.Center
                 )
@@ -135,7 +134,7 @@ private fun StatRow(label: String, value: String, color: Color) {
         Text(
             text = label,
             fontSize = 14.sp,
-            color = Color.White.copy(alpha = 0.7f)
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
         )
         Text(
             text = value,
@@ -156,7 +155,7 @@ private fun TrackingEventItem(event: TrackingEvent) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = BackgroundDark
+            containerColor = MaterialTheme.colorScheme.surface
         ),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -209,7 +208,7 @@ private fun TrackingEventItem(event: TrackingEvent) {
                 Text(
                     text = formattedTime,
                     fontSize = 11.sp,
-                    color = Color.White.copy(alpha = 0.5f)
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                 )
             }
 
@@ -218,7 +217,7 @@ private fun TrackingEventItem(event: TrackingEvent) {
                 Text(
                     text = event.packageName,
                     fontSize = 11.sp,
-                    color = Color.White.copy(alpha = 0.4f)
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
                 )
             }
         }

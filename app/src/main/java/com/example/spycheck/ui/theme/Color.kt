@@ -1,6 +1,7 @@
 package com.example.spycheck.ui.theme
 
 import android.content.Context
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -69,10 +70,30 @@ val LightGreen = Color(0xFF90EE90)
 
 val BackgroundDark = Color(0xFF0F0F0F)
 val SurfaceDark = Color(0xFF1A1A1A)
+val BackgroundLight = Color(0xFFF8F8F8)
+val SurfaceLight = Color(0xFFFFFFFF)
 
 val TextPrimary = Color(0xFFFFFFFF)
 val TextSecondary = Color(0xFFB0B0B0)
+val TextPrimaryLight = Color(0xFF1A1A1A)
+val TextSecondaryLight = Color(0xFF666666)
 
 val DangerRed = Color(0xFFFF6B6B)
 val SuccessGreen = Color(0xFF4ECDC4)
 val WarningAmber = Amber
+
+// NEW: Permission Card Colors - Dark Mode
+val PermissionGrantedBgDark = Color(0x33FF5A5F)
+val PermissionGrantedTitleDark = Color(0xFFFF5A5F)
+val PermissionWarningTextDark = Color(0xFF90EE90)
+val MonitoringActiveBgDark = Color(0x33FF5A5F)
+val MonitoringActiveTextDark = Color(0xFFFF5A5F)
+val WarningAmberTextDark = Color(0xFFFFB703)
+
+// NEW: Permission Card Colors - Light Mode
+val PermissionGrantedBgLight = Color(0xFF75F6CF)
+val PermissionGrantedTitleLight = Color(0xFFE63946)
+val PermissionWarningTextLight = Color(0xFF006400)
+val MonitoringActiveBgLight = Color(0xFFFFE5E5)
+val MonitoringActiveTextLight = Color(0xFFE63946)
+val WarningAmberTextLight = Color(0xFF8B6000)

@@ -22,27 +22,45 @@ private val DarkColorScheme = darkColorScheme(
     surface = SurfaceDark,
     onBackground = TextPrimary,
     onSurface = TextPrimary,
-    error = CrimsonDark
+    error = CrimsonDark,
+    surfaceVariant = Color(0xFF2A2A2A),
+    onSurfaceVariant = TextSecondary,
+    // NEW: Custom colors for permission cards
+    primaryContainer = PermissionGrantedBgDark,
+    onPrimaryContainer = PermissionGrantedTitleDark,
+    secondaryContainer = MonitoringActiveBgDark,
+    onSecondaryContainer = MonitoringActiveTextDark,
+    tertiaryContainer = PermissionWarningTextDark,
+    onTertiaryContainer = WarningAmberTextDark
 )
 
-// --- Light Theme (if ever used) ---
+// --- Light Theme Color Scheme ---
 private val LightColorScheme = lightColorScheme(
     primary = CrimsonDark,
     onPrimary = Color.White,
     secondary = IcyBlue,
     onSecondary = Color.Black,
     tertiary = Amber,
-    background = Color(0xFFF8F8F8),
-    surface = Color(0xFFFFFFFF),
-    onBackground = Color(0xFF1A1A1A),
-    onSurface = Color(0xFF1A1A1A),
-    error = Crimson
+    background = BackgroundLight,
+    surface = SurfaceLight,
+    onBackground = TextPrimaryLight,
+    onSurface = TextPrimaryLight,
+    error = Crimson,
+    surfaceVariant = Color(0xFFF0F0F0),
+    onSurfaceVariant = TextSecondaryLight,
+    // NEW: Custom colors for permission cards
+    primaryContainer = PermissionGrantedBgLight,
+    onPrimaryContainer = PermissionGrantedTitleLight,
+    secondaryContainer = MonitoringActiveBgLight,
+    onSecondaryContainer = MonitoringActiveTextLight,
+    tertiaryContainer = PermissionWarningTextLight,
+    onTertiaryContainer = WarningAmberTextLight
 )
 
 @Composable
 fun SpyCheckTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = false, // we’ll disable dynamic colors to preserve your brand
+    dynamicColor: Boolean = false, // we'll disable dynamic colors to preserve your brand
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

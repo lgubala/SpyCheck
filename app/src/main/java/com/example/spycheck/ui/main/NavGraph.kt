@@ -25,14 +25,22 @@ import com.example.spycheck.ui.main.demos.fingerprinting.network.NetworkFingerpr
 import com.example.spycheck.ui.main.demos.fingerprinting.performance.PerformanceFingerprintDemoScreen
 import com.example.spycheck.ui.main.demos.fingerprinting.sensor.SensorFingerprintDemoScreen
 import com.example.spycheck.ui.main.demos.fingerprinting.combined.SuperFingerprintDemoScreen
+
 @Composable
 fun NavGraph(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    startDestination: String
+    startDestination: String,
+    currentThemeMode: Int,
+    onThemeModeChanged: (Int) -> Unit
 ) {
     NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {
-        composable(Screen.Home.route) { HomeScreen() }
+        composable(Screen.Home.route) {
+            HomeScreen(
+                currentThemeMode = currentThemeMode,
+                onThemeModeChanged = onThemeModeChanged
+            )
+        }
 
         // Sneaky Stuff Home Screen
         composable(Screen.SneakyStuff.route) {
@@ -83,10 +91,6 @@ fun NavGraph(
                 "usage_stats" -> UsageStatsDemoScreen(
                     onBack = { navController.popBackStack() }
                 )
-
-
-                // TODO: Add other demos here as you create them
-                // "clipboard" -> ClipboardDemoScreen(onBack = { navController.popBackStack() })
                 else -> {
                     // For demos not yet migrated, show old DetailScreen
                     val demo = DemoRepository.getSneakyStuffDemos().find { it.id == demoId }
@@ -115,7 +119,6 @@ fun NavGraph(
                 )
             }
         }
-
 
         // Fingerprinting demos route
         composable(

@@ -28,8 +28,6 @@
     <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
 
     <!-- Sensor Tracking Demo - Activity Recognition Permission -->
-    <!-- **Note:** This permission is only required on Android 10 (API 29) and above.
-        On Android 9 and below, apps can access step sensors without permission. -->
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <!-- Usage Stats Tracking Demo-->
@@ -51,17 +49,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SpyCheck">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:configChanges="uiMode|locale"
             android:theme="@style/Theme.SpyCheck">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--Real time tracking Services -->
         <service
             android:name=".services.tracking.TrackingVpnService"
@@ -84,6 +83,7 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Overlay display for educational tracking demonstration" />
         </service>
+
         <!--Notification demo Services -->
         <service
             android:name=".ui.main.demos.sneaky.notifications.utils.TrackingNotificationListener"

@@ -7,14 +7,22 @@
     <color name="warning">#FFB703</color>         <!-- Amber -->
     <color name="success">#90EE90</color>         <!-- Light Green -->
 
-    <!-- Backgrounds -->
+    <!-- Backgrounds (Legacy - kept for compatibility) -->
     <color name="background_dark">#0F0F0F</color>
     <color name="surface_dark">#1A1A1A</color>
     <color name="card_background">#2A2A2A</color>
 
-    <!-- Text -->
+    <!-- Light Mode Backgrounds (New) -->
+    <color name="background_light">#F8F8F8</color>
+    <color name="surface_light">#FFFFFF</color>
+
+    <!-- Text (Legacy - kept for compatibility) -->
     <color name="text_primary">#FFFFFFFF</color>
     <color name="text_secondary">#B0B0B0</color>
+
+    <!-- Light Mode Text (New) -->
+    <color name="text_primary_light">#1A1A1A</color>
+    <color name="text_secondary_light">#666666</color>
 
     <!-- Demo-specific Colors -->
     <color name="danger_red">#FF6B6B</color>
@@ -28,20 +36,39 @@
     <color name="transparent">#00000000</color>
 
     <!-- Audio Demo Colors -->
-    <color name="audio_analyzing_bg">#269D4EDD</color>        <!-- Purple with 15% alpha -->
-    <color name="audio_analyzing_color">#9D4EDD</color>        <!-- Purple -->
+    <color name="audio_analyzing_bg">#269D4EDD</color>
+    <color name="audio_analyzing_color">#9D4EDD</color>
 
     <!-- Audio Section Colors -->
     <color name="audio_progress_track">#3A3A3A</color>
-    <color name="audio_result_bg">#269B59B6</color>            <!-- Purple with 15% alpha -->
-    <color name="audio_result_color">#9B59B6</color>           <!-- Purple -->
-    <color name="audio_codec_color">#2ECC71</color>            <!-- Green -->
+    <color name="audio_result_bg">#269B59B6</color>
+    <color name="audio_result_color">#9B59B6</color>
+    <color name="audio_codec_color">#2ECC71</color>
 
     <!-- Battery Section Colors -->
     <color name="battery_progress_track">#3A3A3A</color>
-    <color name="battery_result_bg">#269B59B6</color>          <!-- Purple with 15% alpha -->
-    <color name="battery_result_color">#9B59B6</color>         <!-- Purple -->
+    <color name="battery_result_bg">#269B59B6</color>
+    <color name="battery_result_color">#9B59B6</color>
     <color name="battery_codec_color">#2ECC71</color>
-    <color name="super_persistence_color">#06FFA5</color><!-- Green -->
+    <color name="super_persistence_color">#06FFA5</color>
 
+    <!-- ============================================ -->
+    <!-- NEW: Permission Card Colors - CHANGE THESE! -->
+    <!-- ============================================ -->
+
+    <!-- DARK MODE -->
+    <color name="permission_granted_bg_dark">#33FF5A5F</color>
+    <color name="permission_granted_title_dark">#FF5A5F</color>
+    <color name="permission_warning_text_dark">#90EE90</color>
+    <color name="monitoring_active_bg_dark">#33FF5A5F</color>
+    <color name="monitoring_active_text_dark">#FF5A5F</color>
+    <color name="warning_amber_text_dark">#FFB703</color>
+
+    <!-- LIGHT MODE - CHANGE THESE FOR DIFFERENT COLORS! -->
+    <color name="permission_granted_bg_light">#00BCD4</color>
+    <color name="permission_granted_title_light">#E63946</color>
+    <color name="permission_warning_text_light">#006400</color>
+    <color name="monitoring_active_bg_light">#FFE5E5</color>
+    <color name="monitoring_active_text_light">#E63946</color>
+    <color name="warning_amber_text_light">#8B6000</color>
 </resources>
