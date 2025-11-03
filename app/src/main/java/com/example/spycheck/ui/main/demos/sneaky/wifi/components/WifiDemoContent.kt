@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -21,7 +22,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.spycheck.R
 import com.example.spycheck.ui.main.demos.sneaky.wifi.ApiProvider
+import com.example.spycheck.ui.main.demos.sneaky.wifi.LocationResult
 import com.example.spycheck.ui.main.demos.sneaky.wifi.WifiDemoViewModel
+import com.example.spycheck.ui.main.demos.sneaky.wifi.utils.WifiNetwork
 import com.example.spycheck.ui.theme.DangerRed
 import com.example.spycheck.ui.theme.SuccessGreen
 
@@ -143,7 +146,7 @@ private fun NetworksFoundCard(totalCount: Int) {
 }
 
 @Composable
-private fun NetworksList(networks: List<com.example.spycheck.ui.main.demos.sneaky.wifi.utils.WifiNetwork>) {
+private fun NetworksList(networks: List<WifiNetwork>) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF2A2A2A)
@@ -182,7 +185,7 @@ private fun NetworksList(networks: List<com.example.spycheck.ui.main.demos.sneak
 }
 
 @Composable
-private fun NetworkItem(network: com.example.spycheck.ui.main.demos.sneaky.wifi.utils.WifiNetwork) {
+private fun NetworkItem(network: WifiNetwork) {
     val context = LocalContext.current
     val hiddenNetwork = context.getString(R.string.wifi_hidden_network)
     val macPrefix = context.getString(R.string.wifi_mac_prefix)
@@ -358,7 +361,7 @@ private fun ApiProviderChip(
 
 @Composable
 private fun LocationResultCard(
-    result: com.example.spycheck.ui.main.demos.sneaky.wifi.LocationResult,
+    result: LocationResult,
     viewModel: WifiDemoViewModel
 ) {
     val context = LocalContext.current
@@ -453,7 +456,7 @@ private fun LocationResultCard(
 
 @Composable
 private fun DataItem(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    icon: ImageVector,
     label: String,
     value: String,
     dangerous: Boolean = false
@@ -494,6 +497,7 @@ private fun getSignalStrengthText(strength: Int): String {
     }
 }
 
+@Composable
 private fun getSignalStrengthColor(strength: Int): Color {
     return when {
         strength >= -50 -> SuccessGreen

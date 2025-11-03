@@ -53,10 +53,8 @@
     <color name="super_persistence_color">#06FFA5</color>
 
     <!-- ============================================ -->
-    <!-- NEW: Permission Card Colors - CHANGE THESE! -->
+    <!-- Permission Card Colors - DARK MODE -->
     <!-- ============================================ -->
-
-    <!-- DARK MODE -->
     <color name="permission_granted_bg_dark">#33FF5A5F</color>
     <color name="permission_granted_title_dark">#FF5A5F</color>
     <color name="permission_warning_text_dark">#90EE90</color>
@@ -64,11 +62,14 @@
     <color name="monitoring_active_text_dark">#FF5A5F</color>
     <color name="warning_amber_text_dark">#FFB703</color>
 
-    <!-- LIGHT MODE - CHANGE THESE FOR DIFFERENT COLORS! -->
-    <color name="permission_granted_bg_light">#00BCD4</color>
+    <!-- ============================================ -->
+    <!-- Permission Card Colors - LIGHT MODE -->
+    <!-- FIXED: White background + Red text -->
+    <!-- ============================================ -->
+    <color name="permission_granted_bg_light">#CDFB7C16</color>
     <color name="permission_granted_title_light">#E63946</color>
-    <color name="permission_warning_text_light">#006400</color>
+    <color name="permission_warning_text_light">#FFFFFFFF</color>    <!-- White background -->
     <color name="monitoring_active_bg_light">#FFE5E5</color>
     <color name="monitoring_active_text_light">#E63946</color>
-    <color name="warning_amber_text_light">#8B6000</color>
+    <color name="warning_amber_text_light">#E63946</color>           <!-- Red text -->
 </resources>

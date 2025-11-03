@@ -12,7 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 // --- Dark Theme Color Scheme ---
-private val DarkColorScheme = darkColorScheme(
+// Changed from "val" to "@Composable fun" so it can use colors from XML
+@Composable
+private fun DarkColorScheme() = darkColorScheme(
     primary = Crimson,
     onPrimary = Color.White,
     secondary = IcyBlue,
@@ -25,7 +27,6 @@ private val DarkColorScheme = darkColorScheme(
     error = CrimsonDark,
     surfaceVariant = Color(0xFF2A2A2A),
     onSurfaceVariant = TextSecondary,
-    // NEW: Custom colors for permission cards
     primaryContainer = PermissionGrantedBgDark,
     onPrimaryContainer = PermissionGrantedTitleDark,
     secondaryContainer = MonitoringActiveBgDark,
@@ -35,7 +36,9 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 // --- Light Theme Color Scheme ---
-private val LightColorScheme = lightColorScheme(
+// Changed from "val" to "@Composable fun" so it can use colors from XML
+@Composable
+private fun LightColorScheme() = lightColorScheme(
     primary = CrimsonDark,
     onPrimary = Color.White,
     secondary = IcyBlue,
@@ -48,7 +51,6 @@ private val LightColorScheme = lightColorScheme(
     error = Crimson,
     surfaceVariant = Color(0xFFF0F0F0),
     onSurfaceVariant = TextSecondaryLight,
-    // NEW: Custom colors for permission cards
     primaryContainer = PermissionGrantedBgLight,
     onPrimaryContainer = PermissionGrantedTitleLight,
     secondaryContainer = MonitoringActiveBgLight,
@@ -60,7 +62,7 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun SpyCheckTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = false, // we'll disable dynamic colors to preserve your brand
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -68,8 +70,8 @@ fun SpyCheckTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> DarkColorScheme()  // Now calling the function
+        else -> LightColorScheme()      // Now calling the function
     }
 
     MaterialTheme(

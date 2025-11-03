@@ -57,6 +57,7 @@ import com.example.spycheck.ui.theme.Amber
 import com.example.spycheck.ui.theme.Crimson
 import com.example.spycheck.ui.theme.CrimsonDark
 import com.example.spycheck.ui.theme.LightGreen
+import com.example.spycheck.ui.theme.SurfaceLight
 
 import com.example.spycheck.ui.theme.TextPrimary
 import com.example.spycheck.utils.PreferencesManager
@@ -596,13 +597,14 @@ private fun PermissionCard(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Surface(
-                color = if (isGranted) MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.15f) else Crimson.copy(alpha = 0.15f),
+                color = if (isGranted) MaterialTheme.colorScheme.tertiaryContainer else Crimson.copy(alpha = 0.15f),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
                     text = warningText,
                     fontSize = 12.sp,
-                    color = if (isGranted) MaterialTheme.colorScheme.tertiaryContainer else Crimson,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isGranted) MaterialTheme.colorScheme.onTertiaryContainer else Crimson,
                     modifier = Modifier.padding(8.dp)
                 )
             }
@@ -621,10 +623,10 @@ private fun PermissionCard(
                     )
                 }
             } else {
-                OutlinedButton(
+                Button(
                     onClick = onRevoke,
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Crimson),
+                    colors = ButtonDefaults.buttonColors(contentColor = Crimson),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Row(
@@ -635,7 +637,8 @@ private fun PermissionCard(
                         Text(
                             text = stringResource(R.string.home_permission_granted_revoke),
                             fontWeight = FontWeight.Bold,
-                            fontSize = 13.sp
+                            fontSize = 13.sp,
+                            color = SurfaceLight,
                         )
                     }
                 }
