@@ -166,6 +166,16 @@ private fun LocationFoundCard(data: com.example.spycheck.ui.main.demos.sneaky.ex
                     value = altitude
                 )
             }
+
+            data.latitude?.let { lat ->
+                data.longitude?.let { lon ->
+                    ExifMapView(
+                        latitude = lat,
+                        longitude = lon,
+                        modifier = Modifier.padding(top = 16.dp)
+                    )
+                }
+            }
         }
     }
 }

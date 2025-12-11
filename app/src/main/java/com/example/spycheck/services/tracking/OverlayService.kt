@@ -134,6 +134,7 @@ fun TrackingCard(event: TrackingEvent?) {
             TrackingCategory.UNKNOWN
         }
     }
+    val companyName = extractCompanyName(event?.domain ?: "")
 
     val explanation = TrackingDomainCategorizer.getTrackingExplanation(context, category)
 
@@ -220,7 +221,7 @@ fun TrackingCard(event: TrackingEvent?) {
             event?.let { evt ->
                 // Main tracking message
                 Text(
-                    text = stringResource(R.string.overlay_app_sent_data, evt.appName),
+                    text = stringResource(R.string.overlay_app_sent_data, companyName),
                     fontSize = 13.sp,
                     color = Color.White.copy(alpha = 0.9f),
                     lineHeight = 18.sp

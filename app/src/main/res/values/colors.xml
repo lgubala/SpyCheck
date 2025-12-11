@@ -57,10 +57,10 @@
     <!-- ============================================ -->
     <color name="permission_granted_bg_dark">#33FF5A5F</color>
     <color name="permission_granted_title_dark">#FF5A5F</color>
-    <color name="permission_warning_text_dark">#90EE90</color>
+    <color name="permission_warning_text_dark">#FF9800</color>
     <color name="monitoring_active_bg_dark">#33FF5A5F</color>
     <color name="monitoring_active_text_dark">#FF5A5F</color>
-    <color name="warning_amber_text_dark">#FFB703</color>
+    <color name="warning_amber_text_dark">#FBFBFB</color>
 
     <!-- ============================================ -->
     <!-- Permission Card Colors - LIGHT MODE -->

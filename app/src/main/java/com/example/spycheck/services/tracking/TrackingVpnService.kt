@@ -286,11 +286,12 @@ class TrackingVpnService : VpnService() {
                     InetSocketAddress("10.0.0.1", sourcePort),
                     InetSocketAddress("8.8.8.8", 53)
                 )
-
+                Log.d("TrackingVPN", "UID from Q+ API: $uid")
                 if (uid > 0) {
                     val (pkg, name) = getAppFromUid(uid)
                     // Only return if we got a real app (not system/unknown)
-                    if (pkg != "system" && !pkg.contains("google.android.gms")) {
+                    if (pkg != "unknown" && !pkg.contains("google.android.gms")) {
+                        Log.d("TrackingVPN", "Found app: $pkg - $name")
                         return Pair(pkg, name)
                     }
                 }

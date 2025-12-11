@@ -373,7 +373,7 @@
     <string name="loading_photo">Loading Photo…</string>
     <string name="load_random_photo">Load Random Photo from Gallery</string>
     <string name="photo_loaded_exif_data_below">Photo loaded â€“ EXIF data visible below</string>
-    <string name="gps_location_found">⚠️ GPS Location Found!</string>
+    <string name="gps_location_found">GPS Location Found!</string>
     <string name="this_photo_reveals_exact_location">This photo reveals your exact location</string>
     <string name="gps_coordinates">GPS Coordinates</string>
     <string name="approximate_address">Approximate Address</string>

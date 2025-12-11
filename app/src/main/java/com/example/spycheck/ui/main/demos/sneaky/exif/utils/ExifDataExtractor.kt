@@ -3,6 +3,9 @@ package com.example.spycheck.ui.main.demos.sneaky.exif.utils
 import android.content.Context
 import android.location.Geocoder
 import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
+import android.util.Log
 import androidx.exifinterface.media.ExifInterface
 import com.example.spycheck.R
 import kotlinx.coroutines.Dispatchers
@@ -85,18 +88,35 @@ class ExifDataExtractor(private val context: Context) {
 
     suspend fun extractExifData(uri: Uri): PhotoExifData = withContext(Dispatchers.IO) {
         try {
-            val inputStream = context.contentResolver.openInputStream(uri)
-            val exif = inputStream?.let { ExifInterface(it) }
+            // Request original unredacted URI
+            val originalUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && uri.scheme == "content") {
+                try {
+                    MediaStore.setRequireOriginal(uri)
+                } catch (e: SecurityException) {
+                    Log.e("ExifDataExtractor", "No permission for original", e)
+                    uri
+                }
+            } else {
+                uri
+            }
 
+            val exif = if (originalUri.scheme == "file") {
+                ExifInterface(originalUri.path!!)
+            } else {
+                context.contentResolver.openInputStream(originalUri)?.use {
+                    ExifInterface(it)
+                }
+            }
+
+            val latLong = exif?.latLong
+            val latitude = latLong?.get(0)
+            val longitude = latLong?.get(1)
+
+            Log.d("ExifDataExtractor", "URI scheme: ${uri.scheme}, Lat: $latitude, Lon: $longitude")
             // Basic info
             val dateTime = exif?.getAttribute(ExifInterface.TAG_DATETIME)
             val make = exif?.getAttribute(ExifInterface.TAG_MAKE)
             val model = exif?.getAttribute(ExifInterface.TAG_MODEL)
-
-            // GPS data
-            val latLong = exif?.latLong
-            val latitude = latLong?.get(0)
-            val longitude = latLong?.get(1)
 
             val address = if (latitude != null && longitude != null) {
                 getAddressFromCoordinates(latitude, longitude)
@@ -107,13 +127,11 @@ class ExifDataExtractor(private val context: Context) {
             } else null
 
             // Altitude
-            val altitude = exif?.getAttribute(ExifInterface.TAG_GPS_ALTITUDE)?.let { alt ->
-                val altRef = exif.getAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF)
-                val altValue = alt.toDoubleOrNull() ?: 0.0
-                val sign = if (altRef == "1") "-" else ""
-                "${sign}${String.format("%.1f", altValue)}m above sea level"
+            val altitude = exif?.getAltitude(0.0)?.let { alt ->
+                if (alt != 0.0) {
+                    "${String.format("%.1f", alt)}m above sea level"
+                } else null
             }
-
             // GPS timestamp
             val gpsTimestamp = exif?.getAttribute(ExifInterface.TAG_GPS_DATESTAMP)?.let { date ->
                 val time = exif.getAttribute(ExifInterface.TAG_GPS_TIMESTAMP)
@@ -220,7 +238,7 @@ class ExifDataExtractor(private val context: Context) {
             val copyright = exif?.getAttribute(ExifInterface.TAG_COPYRIGHT)
             val userComment = exif?.getAttribute(ExifInterface.TAG_USER_COMMENT)
 
-            inputStream?.close()
+            //inputStream?.close()
 
             PhotoExifData(
                 uri = uri,

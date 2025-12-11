@@ -61,6 +61,9 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
+    implementation("com.drewnoakes:metadata-extractor:2.18.0")
+    implementation("com.google.maps.android:maps-compose:4.3.3")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 
 
     testImplementation(libs.junit)

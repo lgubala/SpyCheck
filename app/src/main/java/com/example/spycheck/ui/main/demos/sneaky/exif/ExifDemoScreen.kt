@@ -1,6 +1,7 @@
 package com.example.spycheck.ui.main.demos.sneaky.exif
 
 import android.Manifest
+import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.*
@@ -23,11 +24,14 @@ fun ExifDemoScreen(
         viewModel.checkPermission(context)
     }
 
+
+
     val permissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        viewModel.updatePermission(isGranted)
-        if (isGranted) {
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        val hasAllPermissions = permissions.all { it.value }
+        viewModel.updatePermission(hasAllPermissions)
+        if (hasAllPermissions) {
             viewModel.loadRandomPhoto(context)
         }
     }
@@ -40,7 +44,16 @@ fun ExifDemoScreen(
                 name = stringResource(R.string.perm_photos_name),
                 description = stringResource(R.string.exif_permission_explanation),
                 isGranted = hasPermission,
-                onRequest = { permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES) },
+                onRequest = {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        permissionLauncher.launch(arrayOf(
+                            Manifest.permission.READ_MEDIA_IMAGES,
+                            Manifest.permission.ACCESS_MEDIA_LOCATION
+                        ))
+                    } else {
+                        permissionLauncher.launch(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE))
+                    }
+                },
                 settingsAction = "android.settings.APPLICATION_DETAILS_SETTINGS"
             )
         ),

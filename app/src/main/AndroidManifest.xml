@@ -13,6 +13,7 @@
 
     <!-- Photo permissions -->
     <!-- For Android 13+ (API 33+) - Granular media permissions -->
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <!-- For Android 10-12 (API 29-32) -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -40,6 +41,7 @@
     <!-- Network information -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -65,8 +67,8 @@
         <service
             android:name=".services.tracking.TrackingVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
-            android:foregroundServiceType="specialUse"
-            android:exported="false">
+            android:foregroundServiceType="systemExempted"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
@@ -94,6 +96,15 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="REMOVED_GOOGLE_MAPS_API_KEY" />
+
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+
     </application>
 
 </manifest>
