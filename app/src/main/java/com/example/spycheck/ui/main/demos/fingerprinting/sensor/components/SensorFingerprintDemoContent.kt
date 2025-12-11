@@ -187,7 +187,51 @@ fun SensorFingerprintDemoContent(viewModel: SensorFingerprintDemoViewModel) {
                     )
                 }
             }
+            // Uniqueness Score Card
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFFFBE0B).copy(alpha = 0.15f)
+                ),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(text = "\uD83D\uDCCA", fontSize = 20.sp)
+                        Text(
+                            text = stringResource(R.string.fp_device_uniqueness),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                            color = Color(0xFFFFBE0B)
+                        )
+                    }
 
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        text = data.uniquenessScore,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = FontFamily.Monospace,
+                        color = Color(0xFFFFBE0B)
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = "Based on sensor calibration research showing 96-99% device uniqueness",
+                        fontSize = 12.sp,
+                        color = Color.White.copy(alpha = 0.7f),
+                        lineHeight = 18.sp
+                    )
+                }
+            }
             // Info Card
             Card(
                 colors = CardDefaults.cardColors(

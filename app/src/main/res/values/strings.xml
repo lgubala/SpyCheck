@@ -449,7 +449,7 @@
 
     <string name="start_monitoring">Start Monitoring Clipboard</string>
     <string name="stop_monitoring">Stop Monitoring</string>
-    <string name="monitoring_active">🔴 Monitoring Active</string>
+    <string name="monitoring_active">Monitoring Active</string>
     <string name="clipboard_empty">No clipboard activity yet. Try copying something!</string>
     <string name="items_captured">%d items captured</string>
     <string name="clear_history">Clear History</string>
@@ -511,7 +511,7 @@
     <string name="keystroke_youll_type">You\'ll type:</string>
     <string name="keystroke_start_calibration">Start Calibration</string>
 
-    <string name="keystroke_type_hello">Type \"hello\" below:</string>
+    <string name="keystroke_type_hello">Type \"the quick brown fox\" below:</string>
     <string name="keystroke_type_here">Type here...</string>
     <string name="keystroke_sensor_reading">📊 Live Sensor Reading</string>
     <string name="keystroke_sensor_values">X: %.2f | Y: %.2f | Z: %.2f</string>
@@ -807,7 +807,7 @@
     <string name="fp_battery_analyze_button">🔋 Generate Battery Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_battery_results_title">🔋 Your Battery Fingerprint</string>
+    <string name="fp_battery_results_title">Your Battery Fingerprint</string>
     <string name="fp_battery_level">Current Battery Level</string>
     <string name="fp_battery_health">Battery Health</string>
     <string name="fp_battery_temperature">Temperature</string>
@@ -858,7 +858,7 @@
     <string name="fp_device_analyze_button">📱 Generate Device Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_device_results_title">📱 Your Device Fingerprint</string>
+    <string name="fp_device_results_title">Your Device Fingerprint</string>
     <string name="fp_device_model">Device Model</string>
     <string name="fp_device_manufacturer">Manufacturer</string>
     <string name="fp_device_android_version">Android Version</string>
@@ -1013,7 +1013,7 @@
     <string name="fp_sensor_analyze_button">📊 Generate Sensor Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_sensor_results_title">📊 Your Sensor Fingerprint</string>
+    <string name="fp_sensor_results_title">Your Sensor Fingerprint</string>
     <string name="fp_sensor_accelerometer">Accelerometer Bias</string>
     <string name="fp_sensor_gyroscope">Gyroscope Bias</string>
     <string name="fp_sensor_magnetometer">Magnetometer Bias</string>
@@ -1062,7 +1062,7 @@
     <string name="fp_combined_analyze_button">🎯 Generate Super Fingerprint</string>
 
     <!-- Results -->
-    <string name="fp_combined_results_title">🎯 Your Super Fingerprint</string>
+    <string name="fp_combined_results_title">Your Super Fingerprint</string>
     <string name="fp_combined_confidence">Identification Confidence</string>
     <string name="fp_combined_uniqueness">Global Uniqueness</string>
     <string name="fp_combined_stability">Stability Score</string>

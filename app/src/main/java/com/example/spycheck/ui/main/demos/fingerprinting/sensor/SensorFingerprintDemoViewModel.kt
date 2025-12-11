@@ -16,6 +16,7 @@ data class SensorFingerprintData(
     val noisePattern: String = "",
     val calibrationErrors: String = "",
     val fingerprintHash: String = "",
+    val uniquenessScore: String = "",  // ADD THIS
     val analysisTime: Long = 0L
 )
 
@@ -61,6 +62,7 @@ class SensorFingerprintDemoViewModel : ViewModel() {
                         noisePattern = "σ = ${String.format("%.4f", fp.accelerometerBias.magnitude)} m/s² RMS",
                         calibrationErrors = "±${String.format("%.1f", (fp.accelerometerBias.magnitude * 100))}% deviation from nominal",
                         fingerprintHash = fp.fingerprintId,
+                        uniquenessScore = fp.uniquenessScore,
                         analysisTime = System.currentTimeMillis()
                     )
                 }

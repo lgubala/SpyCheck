@@ -204,8 +204,8 @@ private fun CalibrationReadyContent(onStart: () -> Unit) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "\"hello\"",
-                    fontSize = 20.sp,
+                    text = "\"the quick brown fox\"",
+                    fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -235,16 +235,6 @@ private fun CalibratingContent(
             text = stringResource(R.string.keystroke_type_hello),
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp
-        )
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        OutlinedTextField(
-            value = userText,
-            onValueChange = onTextChange,
-            modifier = Modifier.fillMaxWidth(),
-            label = { Text(stringResource(R.string.keystroke_type_here)) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -283,6 +273,18 @@ private fun CalibratingContent(
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
+            value = userText,
+            onValueChange = onTextChange,
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(stringResource(R.string.keystroke_type_here)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+
 
         Button(
             onClick = onComplete,

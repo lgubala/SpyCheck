@@ -281,7 +281,7 @@ fun DeviceFingerprintDemoContent(viewModel: DeviceFingerprintDemoViewModel) {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Your device is unique among millions. Only 0.03% share similar characteristics.",
+                        text = "Your device is unique among millions.",
                         fontSize = 12.sp,
                         color = Color.White.copy(alpha = 0.7f),
                         lineHeight = 18.sp

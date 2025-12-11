@@ -189,6 +189,52 @@ fun BatteryFingerprintDemoContent(viewModel: BatteryFingerprintDemoViewModel) {
                 }
             }
 
+            // Uniqueness Score Card
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = colorResource(R.color.warning).copy(alpha = 0.15f)
+                ),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(text = "🎯", fontSize = 20.sp)
+                        Text(
+                            text = "Fingerprint Uniqueness",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp,
+                            color = colorResource(R.color.warning)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        text = data.uniquenessScore,
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = FontFamily.Monospace,
+                        color = colorResource(R.color.warning)
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = "Battery degradation patterns are unique to your usage and device age",
+                        fontSize = 12.sp,
+                        color = colorResource(R.color.text_primary).copy(alpha = 0.7f),
+                        lineHeight = 18.sp
+                    )
+                }
+            }
+
             // Fingerprint Details
             FingerprintDetailCard(
                 label = stringResource(R.string.fp_battery_level),

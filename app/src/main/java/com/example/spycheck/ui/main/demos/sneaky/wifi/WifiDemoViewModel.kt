@@ -49,9 +49,12 @@ class WifiDemoViewModel : ViewModel() {
 
     private var wifiReader: WifiLocationReader? = null
     private val apiLocationService = ApiLocationService()
+    private var googleApiKey: String = ""
+
 
     // Check permissions when screen loads
     fun checkPermissions(context: Context) {
+        googleApiKey = getGoogleApiKey(context)
         val hasLocation = ContextCompat.checkSelfPermission(
             context,
             Manifest.permission.ACCESS_FINE_LOCATION
@@ -84,6 +87,17 @@ class WifiDemoViewModel : ViewModel() {
         }
     }
 
+    private fun getGoogleApiKey(context: Context): String {
+        return try {
+            val appInfo = context.packageManager.getApplicationInfo(
+                context.packageName,
+                PackageManager.GET_META_DATA
+            )
+            appInfo.metaData?.getString("com.google.android.geo.API_KEY") ?: ""
+        } catch (e: Exception) {
+            ""
+        }
+    }
     fun onLocationPermissionResult(granted: Boolean) {
         _state.update { it.copy(hasLocationPermission = granted) }
     }
@@ -127,54 +141,56 @@ class WifiDemoViewModel : ViewModel() {
 
     fun locateUserViaApi() {
         val currentState = _state.value
-        
+
         if (currentState.scanResult == null || currentState.scanResult.networks.isEmpty()) {
             _state.update { it.copy(errorMessage = "Please scan WiFi networks first") }
             return
         }
 
-        if (currentState.apiProvider != ApiProvider.MOZILLA && currentState.apiKey.isEmpty()) {
-            _state.update { it.copy(errorMessage = "Please enter an API key") }
+        // Always use Google API key from manifest
+        if (googleApiKey.isEmpty()) {
+            _state.update { it.copy(errorMessage = "Google API key not found in manifest") }
             return
         }
 
-        _state.update { 
+        _state.update {
             it.copy(
-                isLocating = true, 
-                locationResult = null, 
+                isLocating = true,
+                locationResult = null,
                 errorMessage = null
-            ) 
+            )
         }
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                // Always use GOOGLE provider
                 val result = apiLocationService.locateViaApi(
-                    provider = currentState.apiProvider,
+                    provider = ApiProvider.GOOGLE,
                     networks = currentState.scanResult.networks,
-                    apiKey = currentState.apiKey
+                    apiKey = googleApiKey
                 )
 
                 result.onSuccess { location ->
-                    _state.update { 
+                    _state.update {
                         it.copy(
-                            locationResult = location, 
+                            locationResult = location,
                             isLocating = false
-                        ) 
+                        )
                     }
                 }.onFailure { error ->
-                    _state.update { 
+                    _state.update {
                         it.copy(
                             isLocating = false,
                             errorMessage = "Location error: ${error.message}"
-                        ) 
+                        )
                     }
                 }
             } catch (e: Exception) {
-                _state.update { 
+                _state.update {
                     it.copy(
                         isLocating = false,
                         errorMessage = "Error: ${e.message}"
-                    ) 
+                    )
                 }
             }
         }
@@ -184,8 +200,9 @@ class WifiDemoViewModel : ViewModel() {
         val lat = result.latitude
         val lng = result.longitude
         return "https://maps.googleapis.com/maps/api/staticmap?" +
-                "center=$lat,$lng&zoom=15&size=800x400&markers=color:red%7C$lat,$lng"
+                "center=$lat,$lng&zoom=15&size=800x400&markers=color:red%7C$lat,$lng&key=$googleApiKey"
     }
+
 
     fun getApiJsonFormat(): String {
         return state.value.scanResult?.let { scanResult ->

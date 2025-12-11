@@ -90,7 +90,7 @@ fun WifiDemoContent(viewModel: WifiDemoViewModel) {
             NetworksList(networks = scanResult.networks)
 
             // API Location Section
-            ApiLocationSection(viewModel = viewModel)
+            ApiLocationSectionSimplified(viewModel = viewModel)
         }
 
         // Location Result Display
@@ -233,8 +233,9 @@ private fun NetworkItem(network: WifiNetwork) {
     }
 }
 
+
 @Composable
-private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
+private fun ApiLocationSectionSimplified(viewModel: WifiDemoViewModel) {
     val state by viewModel.state.collectAsState()
 
     Card(
@@ -266,59 +267,7 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(
-                text = stringResource(R.string.wifi_api_select_provider),
-                fontSize = 13.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White.copy(alpha = 0.9f)
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                ApiProviderChip(
-                    text = stringResource(R.string.wifi_provider_mozilla),
-                    selected = state.apiProvider == ApiProvider.MOZILLA,
-                    onClick = { viewModel.setApiProvider(ApiProvider.MOZILLA) }
-                )
-                ApiProviderChip(
-                    text = stringResource(R.string.wifi_provider_google),
-                    selected = state.apiProvider == ApiProvider.GOOGLE,
-                    onClick = { viewModel.setApiProvider(ApiProvider.GOOGLE) }
-                )
-                ApiProviderChip(
-                    text = stringResource(R.string.wifi_provider_unwired),
-                    selected = state.apiProvider == ApiProvider.UNWIRED,
-                    onClick = { viewModel.setApiProvider(ApiProvider.UNWIRED) }
-                )
-            }
-
-            // API Key input (if not Mozilla)
-            if (state.apiProvider != ApiProvider.MOZILLA) {
-                Spacer(modifier = Modifier.height(12.dp))
-
-                OutlinedTextField(
-                    value = state.apiKey,
-                    onValueChange = { viewModel.setApiKey(it) },
-                    label = { Text(stringResource(R.string.wifi_api_key_hint)) },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color(0xFFFFBE0B),
-                        unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
-                        focusedLabelColor = Color(0xFFFFBE0B),
-                        unfocusedLabelColor = Color.White.copy(alpha = 0.6f),
-                        focusedTextColor = Color.White,
-                        unfocusedTextColor = Color.White
-                    )
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Locate Button
+            // Locate Button - directly uses Google API
             Button(
                 onClick = { viewModel.locateUserViaApi() },
                 modifier = Modifier.fillMaxWidth(),
@@ -337,6 +286,110 @@ private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
         }
     }
 }
+//@Composable
+//private fun ApiLocationSection(viewModel: WifiDemoViewModel) {
+//    val state by viewModel.state.collectAsState()
+//
+//    Card(
+//        colors = CardDefaults.cardColors(
+//            containerColor = Color(0xFFFFBE0B).copy(alpha = 0.15f)
+//        ),
+//        shape = RoundedCornerShape(12.dp)
+//    ) {
+//        Column(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(20.dp)
+//        ) {
+//            Text(
+//                text = stringResource(R.string.wifi_api_title),
+//                fontWeight = FontWeight.Bold,
+//                fontSize = 16.sp,
+//                color = Color(0xFFFFBE0B)
+//            )
+//
+//            Spacer(modifier = Modifier.height(8.dp))
+//
+//            Text(
+//                text = stringResource(R.string.wifi_api_description),
+//                fontSize = 13.sp,
+//                color = Color.White.copy(alpha = 0.8f),
+//                lineHeight = 18.sp
+//            )
+//
+//            Spacer(modifier = Modifier.height(16.dp))
+//
+//            Text(
+//                text = stringResource(R.string.wifi_api_select_provider),
+//                fontSize = 13.sp,
+//                fontWeight = FontWeight.Medium,
+//                color = Color.White.copy(alpha = 0.9f)
+//            )
+//
+//            Spacer(modifier = Modifier.height(8.dp))
+//
+//            Row(
+//                horizontalArrangement = Arrangement.spacedBy(8.dp)
+//            ) {
+//                ApiProviderChip(
+//                    text = stringResource(R.string.wifi_provider_mozilla),
+//                    selected = state.apiProvider == ApiProvider.MOZILLA,
+//                    onClick = { viewModel.setApiProvider(ApiProvider.MOZILLA) }
+//                )
+//                ApiProviderChip(
+//                    text = stringResource(R.string.wifi_provider_google),
+//                    selected = state.apiProvider == ApiProvider.GOOGLE,
+//                    onClick = { viewModel.setApiProvider(ApiProvider.GOOGLE) }
+//                )
+//                ApiProviderChip(
+//                    text = stringResource(R.string.wifi_provider_unwired),
+//                    selected = state.apiProvider == ApiProvider.UNWIRED,
+//                    onClick = { viewModel.setApiProvider(ApiProvider.UNWIRED) }
+//                )
+//            }
+//
+//            // API Key input (if not Mozilla)
+//            if (state.apiProvider != ApiProvider.MOZILLA) {
+//                Spacer(modifier = Modifier.height(12.dp))
+//
+//                OutlinedTextField(
+//                    value = state.apiKey,
+//                    onValueChange = { viewModel.setApiKey(it) },
+//                    label = { Text(stringResource(R.string.wifi_api_key_hint)) },
+//                    modifier = Modifier.fillMaxWidth(),
+//                    singleLine = true,
+//                    colors = OutlinedTextFieldDefaults.colors(
+//                        focusedBorderColor = Color(0xFFFFBE0B),
+//                        unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+//                        focusedLabelColor = Color(0xFFFFBE0B),
+//                        unfocusedLabelColor = Color.White.copy(alpha = 0.6f),
+//                        focusedTextColor = Color.White,
+//                        unfocusedTextColor = Color.White
+//                    )
+//                )
+//            }
+//
+//            Spacer(modifier = Modifier.height(16.dp))
+//
+//            // Locate Button
+//            Button(
+//                onClick = { viewModel.locateUserViaApi() },
+//                modifier = Modifier.fillMaxWidth(),
+//                enabled = !state.isLocating && state.scanResult != null,
+//                colors = ButtonDefaults.buttonColors(
+//                    containerColor = DangerRed
+//                )
+//            ) {
+//                Icon(Icons.Default.LocationOn, contentDescription = null)
+//                Spacer(modifier = Modifier.width(8.dp))
+//                Text(
+//                    if (state.isLocating) stringResource(R.string.wifi_locating)
+//                    else stringResource(R.string.wifi_locate_button)
+//                )
+//            }
+//        }
+//    }
+//}
 
 @Composable
 private fun ApiProviderChip(

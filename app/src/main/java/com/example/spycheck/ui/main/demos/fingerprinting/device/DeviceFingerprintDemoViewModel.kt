@@ -3,6 +3,7 @@ package com.example.spycheck.ui.main.demos.fingerprinting.device
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.spycheck.DeviceFingerprintReader
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -34,8 +35,10 @@ class DeviceFingerprintDemoViewModel : ViewModel() {
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
 
+    private var context: Context? = null  // Make it nullable
+
     fun initialize(context: Context) {
-        // Initialization if needed
+        this.context = context
     }
 
     fun startAnalysis() {
@@ -44,20 +47,32 @@ class DeviceFingerprintDemoViewModel : ViewModel() {
                 _isAnalyzing.value = true
                 _error.value = null
 
+                // Check if context is initialized
+                val ctx = context
+                if (ctx == null) {
+                    _error.value = "Context not initialized"
+                    _isAnalyzing.value = false
+                    return@launch
+                }
+
                 kotlinx.coroutines.delay(1200)
 
+                // USE THE REAL READER
+                val reader = DeviceFingerprintReader(ctx)
+                val realFingerprint = reader.generateDeviceFingerprint()
+
                 _fingerprintData.value = DeviceFingerprintData(
-                    model = android.os.Build.MODEL,
-                    manufacturer = android.os.Build.MANUFACTURER,
-                    androidVersion = "Android ${android.os.Build.VERSION.RELEASE} (API ${android.os.Build.VERSION.SDK_INT})",
-                    screenSize = "1440 x 3200 px",
-                    screenDensity = "560 dpi (xxxhdpi)",
-                    cpu = android.os.Build.SUPPORTED_ABIS.firstOrNull() ?: "Unknown",
-                    memory = "12 GB RAM",
-                    storage = "256 GB",
-                    sensors = "15 sensors detected",
-                    fingerprintHash = generateDemoHash(),
-                    uniqueness = "99.97%",
+                    model = realFingerprint.deviceInfo.model,
+                    manufacturer = realFingerprint.deviceInfo.manufacturer,
+                    androidVersion = "Android ${realFingerprint.deviceInfo.androidVersion} (API ${realFingerprint.deviceInfo.apiLevel})",
+                    screenSize = "${realFingerprint.screenMetrics.widthPixels} x ${realFingerprint.screenMetrics.heightPixels} px",
+                    screenDensity = "${realFingerprint.screenMetrics.densityDpi} dpi",
+                    cpu = "${realFingerprint.hardwareInfo.cpuCores} cores",
+                    memory = realFingerprint.hardwareInfo.totalRam,
+                    storage = realFingerprint.hardwareInfo.totalStorage,
+                    sensors = "${realFingerprint.uniquenessFactors.size} factors",
+                    fingerprintHash = realFingerprint.fingerprintId,
+                    uniqueness = realFingerprint.uniquenessScore,
                     analysisTime = System.currentTimeMillis()
                 )
 

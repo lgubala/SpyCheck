@@ -18,6 +18,7 @@ data class BatteryFingerprintData(
     val drainRate: String = "",
     val chargingPattern: String = "",
     val fingerprintHash: String = "",
+    val uniquenessScore: String = "",  // ADD THIS
     val analysisTime: Long = 0L
 )
 
@@ -57,6 +58,7 @@ class BatteryFingerprintDemoViewModel : ViewModel() {
                     drainRate = context.getString(R.string.fp_battery_vm_demo_drain_rate),
                     chargingPattern = context.getString(R.string.fp_battery_vm_demo_charging_pattern),
                     fingerprintHash = generateDemoHash(),
+                    uniquenessScore = "1 in 2,500",
                     analysisTime = System.currentTimeMillis()
                 )
 

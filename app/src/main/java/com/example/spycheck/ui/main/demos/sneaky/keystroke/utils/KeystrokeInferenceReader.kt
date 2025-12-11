@@ -45,8 +45,14 @@ data class KeystrokeMatch(
     val sensorX: Float,
     val sensorY: Float,
     val topMatches: List<Pair<Char, Int>> // Top 3 matches
+
 )
 class KeystrokeInferenceReader(private val context: Context) : SensorEventListener {
+
+    private var smoothedX = 0f
+    private var smoothedY = 0f
+    private var smoothedZ = 0f
+    private val SMOOTHING_FACTOR = 0.3f // Lower = smoother
 
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -171,46 +177,44 @@ class KeystrokeInferenceReader(private val context: Context) : SensorEventListen
         val y = event.values[1]
         val z = event.values[2]
 
-        // Update real-time sensor display
-        _currentSensorData.value = Triple(x, y, z)
+        // Apply smoothing to make values readable
+        smoothedX = smoothedX + SMOOTHING_FACTOR * (x - smoothedX)
+        smoothedY = smoothedY + SMOOTHING_FACTOR * (y - smoothedY)
+        smoothedZ = smoothedZ + SMOOTHING_FACTOR * (z - smoothedZ)
 
-        val magnitude = sqrt(x * x + y * y + z * z)
+        // Update display with smoothed, rounded values
+        _currentSensorData.value = Triple(
+            (smoothedX * 10).toInt() / 10f,  // Round to 1 decimal
+            (smoothedY * 10).toInt() / 10f,
+            (smoothedZ * 10).toInt() / 10f
+        )
+
+        val magnitude = sqrt(smoothedX * smoothedX + smoothedY * smoothedY + smoothedZ * smoothedZ)
         val currentTime = System.currentTimeMillis()
 
-        // CHANGE THIS LINE - lower the threshold from 12f to 2f:
+        // Keep threshold at 10f
         if (magnitude > 10f && currentTime - lastKeystrokeTime > MIN_KEYSTROKE_DELAY) {
             lastKeystrokeTime = currentTime
 
-            // Add debug logging
             android.util.Log.d(
                 "KeystrokeInference",
-                "Keystroke detected! X=$x, Y=$y, magnitude=$magnitude"
+                "Keystroke detected! X=$smoothedX, Y=$smoothedY, magnitude=$magnitude"
             )
 
             if (calibrationData.isEmpty()) {
-                // Calibration mode - just record the pattern
                 val dummyMatch = KeystrokeMatch(
                     detectedChar = '?',
                     confidence = 0,
-                    sensorX = x,
-                    sensorY = y,
+                    sensorX = smoothedX,
+                    sensorY = smoothedY,
                     topMatches = emptyList()
                 )
                 detectedKeystrokes.add(dummyMatch)
-                android.util.Log.d(
-                    "KeystrokeInference",
-                    "Calibration: ${detectedKeystrokes.size} keystrokes recorded"
-                )
             } else {
-                // Test mode - match to calibration
-                val match = findBestMatch(x, y)
+                val match = findBestMatch(smoothedX, smoothedY)
                 if (match != null) {
                     detectedKeystrokes.add(match)
                     _detectedKeys.value = detectedKeystrokes.toList()
-                    android.util.Log.d(
-                        "KeystrokeInference",
-                        "Test: Detected '${match.detectedChar}' with ${match.confidence}% confidence"
-                    )
                 }
             }
         }

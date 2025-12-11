@@ -68,7 +68,8 @@
             android:name=".services.tracking.TrackingVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:foregroundServiceType="systemExempted"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="ForegroundServicePermission">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>

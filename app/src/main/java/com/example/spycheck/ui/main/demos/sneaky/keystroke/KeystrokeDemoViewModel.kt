@@ -66,7 +66,7 @@ class KeystrokeDemoViewModel : ViewModel() {
     }
 
     fun startCalibration() {
-        reader.startCalibration("hello")
+        reader.startCalibration("the quick brown fox")
     }
 
     fun finishCalibration(userText: String) {
