@@ -37,6 +37,9 @@ interface TrackingEventDao {
     @Query("UPDATE tracking_events SET count = count + 1, timestamp = :newTimestamp WHERE id = :id")
     suspend fun incrementCount(id: Long, newTimestamp: Long)
 
+    @Query("DELETE FROM tracking_events")
+    suspend fun clearAll()
+
     @Transaction
     suspend fun insertOrUpdate(event: TrackingEvent) {
         val existing = getExistingEvent(event.packageName, event.domain)

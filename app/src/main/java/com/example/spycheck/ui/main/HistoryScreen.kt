@@ -42,6 +42,9 @@ import com.example.spycheck.ui.theme.LightGreen
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.material3.TextButton
+import com.example.spycheck.services.tracking.extractCompanyName
+
 
 @Composable
 fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
@@ -72,12 +75,26 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
             shape = RoundedCornerShape(16.dp)
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    text = stringResource(id = R.string.history_title),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.history_title),
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+
+                    TextButton(onClick = { viewModel.clearHistory() }) {
+                        Text(
+                            text = "Clear history",   // you can move this to strings.xml later
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
                 Spacer(modifier = Modifier.height(16.dp))
 
                 StatRow(stringResource(id = R.string.history_total_requests), trackingEvents.size.toString(), Crimson)
@@ -152,6 +169,17 @@ private fun TrackingEventItem(event: TrackingEvent) {
             .format(Date(event.timestamp))
     }
 
+    val displayName = remember(event.appName, event.packageName, event.domain) {
+        if (event.packageName == "system" ||
+            event.appName.equals("System Service", ignoreCase = true)
+        ) {
+            // Fallback to company name from domain, like the overlay
+            extractCompanyName(event.domain)
+        } else {
+            event.appName
+        }
+    }
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
@@ -167,11 +195,23 @@ private fun TrackingEventItem(event: TrackingEvent) {
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = event.appName,
+                        text = displayName,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
+
+                    // Optionally show the raw app name if it’s not system/service
+                    if (!(event.packageName == "system" ||
+                                event.appName.equals("System Service", ignoreCase = true))
+                    ) {
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = event.appName,
+                            fontSize = 11.sp,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+                        )
+                    }
                 }
 
                 // Counter badge
@@ -237,9 +277,25 @@ fun calculateStats(events: List<TrackingEvent>): HistoryStats {
         return HistoryStats(0, 0, naString)
     }
 
-    val uniqueApps = events.map { it.packageName }.distinct().size
+    fun TrackingEvent.displayName(): String {
+        return if (packageName == "system" ||
+            appName.equals("System Service", ignoreCase = true)
+        ) {
+            extractCompanyName(domain)
+        } else {
+            appName
+        }
+    }
+
+    val uniqueApps = events
+        .map { it.displayName() }
+        .distinct()
+        .size
+
     val uniqueDomains = events.map { it.domain }.distinct().size
-    val mostActiveApp = events.groupBy { it.appName }
+
+    val mostActiveApp = events
+        .groupBy { it.displayName() }
         .maxByOrNull { it.value.sumOf { event -> event.count } }
         ?.key ?: naString
 
