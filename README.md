@@ -19,7 +19,7 @@ SpyCheck is an educational Android application that demonstrates how apps can tr
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/spycheck.git
+git clone https://github.com/lgubala/spycheck.git
 cd spycheck
 ```
 
