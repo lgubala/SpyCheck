@@ -2,6 +2,26 @@
 
 SpyCheck is an educational Android application that demonstrates how apps can track users and collect personal data, often without explicit permissions. The app showcases various tracking techniques through interactive demos, helping users understand modern privacy threats.
 
+## Download
+
+[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/lgubala/SpyCheck/releases/latest/download/SpyCheck-v1.0.apk)
+
+> **Note:** Android will show a warning about installing apps from unknown sources — this is expected for apps not distributed via Google Play. You may also see a Play Protect warning since this APK hasn't built up reputation yet; this is normal for open-source apps distributed on GitHub.
+
+See all releases on the [Releases page](https://github.com/lgubala/SpyCheck/releases).
+
+**SHA-256 checksum:** `264C8853A25CB00E81C3B751BA717E3E2E3A52CD1C5288C5E660CD9B46D600D4`
+
+To verify the download on Windows (PowerShell):
+```powershell
+Get-FileHash "SpyCheck-v1.0.apk" -Algorithm SHA256
+```
+
+To verify on Linux/macOS:
+```bash
+sha256sum SpyCheck-v1.0.apk
+```
+
 ## Features
 
 - **Real-Time Tracking Demos**: See how apps monitor your activity in real-time
