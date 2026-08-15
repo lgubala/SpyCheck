@@ -22,13 +22,20 @@ To verify on Linux/macOS:
 sha256sum SpyCheck-v1.1.apk
 ```
 
-
 ## Features
 
 - **Real-Time Tracking Demos**: See how apps monitor your activity in real-time
 - **Device Fingerprinting**: Learn how unique device characteristics can identify you
 - **Sneaky Data Collection**: Discover hidden tracking methods that require minimal permissions
 - **Interactive Examples**: Hands-on demonstrations of GPS extraction, WiFi location tracking, clipboard snooping, and more
+
+
+## Screenshots
+
+| WiFi Location Tracking | Live Tracking Demo | Sensor Fingerprinting |
+|:---:|:---:|:---:|
+| ![WiFi Location Tracking](screenshots/wifi_demo.jpg) | ![Live Tracking Demo](screenshots/live_tracking_demo.jpg) | ![Sensor Fingerprinting](screenshots/sensor_fingerprinting.jpg) |
+
 
 ## Requirements
 
