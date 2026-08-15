@@ -4,8 +4,6 @@ SpyCheck is an educational Android application that demonstrates how apps can tr
 
 ## Download
 
-## Download
-
 [![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/lgubala/SpyCheck/releases/latest/download/SpyCheck-v1.1.apk)
 
 > **Note:** Android will show a warning about installing apps from unknown sources — this is expected for apps not distributed via Google Play. You may also see a Play Protect warning since this APK hasn't built up reputation yet; this is normal for open-source apps distributed on GitHub.
